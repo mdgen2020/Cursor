@@ -1,0 +1,232 @@
+{
+    "id": "custom_-_cc2dedb4-8a73-467d-8045-e42b3eb0e160",
+    "published": {
+        "id": "custom_-_cc2dedb4-8a73-467d-8045-e42b3eb0e160",
+        "name": "eohhs_dta_case_status_miked",
+        "integrationId": "66c682f8-d140-43cc-8fc9-55de3531c8a6",
+        "category": "AVA-Harness-Mock-Function-DataAction",
+        "contract": {
+            "output": {
+                "successSchemaUri": "/api/v2/integrations/actions/custom_-_cc2dedb4-8a73-467d-8045-e42b3eb0e160/schemas/successschema.json",
+                "errorSchemaUri": "/api/v2/integrations/actions/custom_-_cc2dedb4-8a73-467d-8045-e42b3eb0e160/schemas/errorschema.json"
+            },
+            "input": {
+                "inputSchemaUri": "/api/v2/integrations/actions/custom_-_cc2dedb4-8a73-467d-8045-e42b3eb0e160/schemas/inputschema.json"
+            }
+        },
+        "version": 1,
+        "secure": false,
+        "config": {
+            "request": {
+                "requestUrlTemplate": "31c9358a-860b-4c35-9f19-bfd4c12af38e",
+                "requestTemplateUri": "/api/v2/integrations/actions/custom_-_cc2dedb4-8a73-467d-8045-e42b3eb0e160/requesttemplates/defaultrequest.vm",
+                "requestType": "POST",
+                "headers": {
+                    "Content-Type": "application/json"
+                }
+            },
+            "response": {
+                "translationMap": {
+                    "rawResult": "$"
+                },
+                "translationMapDefaults": {
+                    "rawResult": "{}"
+                },
+                "successTemplateUri": "/api/v2/integrations/actions/custom_-_cc2dedb4-8a73-467d-8045-e42b3eb0e160/templates/successtemplate.vm"
+            }
+        },
+        "selfUri": "/api/v2/integrations/actions/custom_-_cc2dedb4-8a73-467d-8045-e42b3eb0e160?includeConfig=true"
+    },
+    "validation": {
+        "passed": [
+            {
+                "mock_id": "default-probe-0",
+                "input": {
+                    "p_case_number": "mock-unmatched-0",
+                    "p_session_token": "mock-unmatched-0"
+                },
+                "outcome": "response",
+                "result": {
+                    "operations": [
+                        {
+                            "step": 1,
+                            "name": "Validate request body contains simple json (key-value pairs)",
+                            "success": true,
+                            "result": {
+                                "p_case_number": "mock-unmatched-0",
+                                "integrationId": "66c682f8-d140-43cc-8fc9-55de3531c8a6",
+                                "rawRequest": "{\"p_case_number\":\"mock-unmatched-0\",\"p_session_token\":\"mock-unmatched-0\"}",
+                                "p_session_token": "mock-unmatched-0",
+                                "orgId": "b1aefa00-9ebc-413b-bacf-1039f14d11be"
+                            }
+                        },
+                        {
+                            "step": 2,
+                            "name": "Validate draft definition",
+                            "success": true
+                        },
+                        {
+                            "step": 3,
+                            "name": "Validate request body against simple input schema",
+                            "success": true
+                        },
+                        {
+                            "step": 4,
+                            "name": "Perform authentication",
+                            "success": true
+                        },
+                        {
+                            "step": 5,
+                            "name": "Resolve request URL template",
+                            "success": true,
+                            "result": "[POST] 31c9358a-860b-4c35-9f19-bfd4c12af38e"
+                        },
+                        {
+                            "step": 6,
+                            "name": "Resolve request header templates",
+                            "success": true,
+                            "result": {
+                                "Content-Type": [
+                                    "application/json"
+                                ]
+                            }
+                        },
+                        {
+                            "step": 7,
+                            "name": "Resolve request body template",
+                            "success": true,
+                            "result": "{\"p_case_number\":\"mock-unmatched-0\",\"p_session_token\":\"mock-unmatched-0\"}"
+                        },
+                        {
+                            "step": 8,
+                            "name": "Execute",
+                            "success": true,
+                            "result": {
+                                "case_number": "SNAP-MA-100234",
+                                "documents": [
+                                    {
+                                        "document_type": "pay_stub",
+                                        "status": "received"
+                                    },
+                                    {
+                                        "document_type": "proof_of_rent",
+                                        "status": "missing"
+                                    }
+                                ],
+                                "notice_summary": "Your SNAP benefits may be affected. Action may be required to complete your recertification.",
+                                "notice_type": "recert_reminder",
+                                "program": "SNAP",
+                                "recert_deadline": "2026-10-06",
+                                "resident_name": "Linus Turing",
+                                "status": "active"
+                            }
+                        },
+                        {
+                            "step": 9,
+                            "name": "Function configuration",
+                            "success": true,
+                            "result": {
+                                "name": "custom_-_cc2dedb4-8a73-467d-8045-e42b3eb0e160 Function",
+                                "functionId": "31c9358a-860b-4c35-9f19-bfd4c12af38e",
+                                "description": "",
+                                "dateCreated": "2026-09-16T03:29:56.861Z",
+                                "zipId": "24150fde-a2fa-4575-9351-dd6b9fa02ed4",
+                                "handler": "handler.handle",
+                                "runtime": "nodejs24.x",
+                                "timeoutSeconds": 15
+                            }
+                        },
+                        {
+                            "step": 10,
+                            "name": "Function zip record",
+                            "success": true,
+                            "result": {
+                                "status": "Available",
+                                "zipFileId": "24150fde-a2fa-4575-9351-dd6b9fa02ed4",
+                                "zipFileName": "function-package.zip",
+                                "dateCreated": "2026-09-16T03:29:59.193Z",
+                                "requestId": "286be56b-fdf0-4e70-8969-39b5648bec97"
+                            }
+                        },
+                        {
+                            "step": 11,
+                            "name": "External execution log",
+                            "success": true,
+                            "result": [
+                                "START RequestId: 76c5f68b-d83e-4c88-b7a6-d0c8099bb86d Version: $LATEST",
+                                "END RequestId: 76c5f68b-d83e-4c88-b7a6-d0c8099bb86d",
+                                "REPORT RequestId: 76c5f68b-d83e-4c88-b7a6-d0c8099bb86d    Duration: 4.50 ms    Billed Duration: 113 ms    Memory Size: 1536 MB    Max Memory Used: 80 MB    Init Duration: 107.68 ms    "
+                            ]
+                        },
+                        {
+                            "step": 12,
+                            "name": "Resolve translation map",
+                            "success": true,
+                            "result": {
+                                "rawResult": "{\n  \"case_number\" : \"SNAP-MA-100234\",\n  \"documents\" : [ {\n    \"document_type\" : \"pay_stub\",\n    \"status\" : \"received\"\n  }, {\n    \"document_type\" : \"proof_of_rent\",\n    \"status\" : \"missing\"\n  } ],\n  \"notice_summary\" : \"Your SNAP benefits may be affected. Action may be required to complete your recertification.\",\n  \"notice_type\" : \"recert_reminder\",\n  \"program\" : \"SNAP\",\n  \"recert_deadline\" : \"2026-10-06\",\n  \"resident_name\" : \"Linus Turing\",\n  \"status\" : \"active\"\n}"
+                            }
+                        },
+                        {
+                            "step": 13,
+                            "name": "Apply output transformation",
+                            "success": true,
+                            "result": {
+                                "case_number": "SNAP-MA-100234",
+                                "documents": [
+                                    {
+                                        "document_type": "pay_stub",
+                                        "status": "received"
+                                    },
+                                    {
+                                        "document_type": "proof_of_rent",
+                                        "status": "missing"
+                                    }
+                                ],
+                                "notice_summary": "Your SNAP benefits may be affected. Action may be required to complete your recertification.",
+                                "notice_type": "recert_reminder",
+                                "program": "SNAP",
+                                "recert_deadline": "2026-10-06",
+                                "resident_name": "Linus Turing",
+                                "status": "active"
+                            }
+                        },
+                        {
+                            "step": 14,
+                            "name": "Validate output against schema",
+                            "success": true
+                        }
+                    ],
+                    "finalResult": {
+                        "case_number": "SNAP-MA-100234",
+                        "documents": [
+                            {
+                                "document_type": "pay_stub",
+                                "status": "received"
+                            },
+                            {
+                                "document_type": "proof_of_rent",
+                                "status": "missing"
+                            }
+                        ],
+                        "notice_summary": "Your SNAP benefits may be affected. Action may be required to complete your recertification.",
+                        "notice_type": "recert_reminder",
+                        "program": "SNAP",
+                        "recert_deadline": "2026-10-06",
+                        "resident_name": "Linus Turing",
+                        "status": "active"
+                    },
+                    "success": true
+                },
+                "reason": null,
+                "key": "{\"p_case_number\":\"mock-unmatched-0\",\"p_session_token\":\"mock-unmatched-0\"}",
+                "expected_status": 200,
+                "observed_status": 200,
+                "passed": true
+            }
+        ],
+        "failed": []
+    },
+    "mock_responses": [],
+    "handler_js": "'use strict';\nconst mocks = require('./mocks.json');\n\nfunction deepEqual(a, b) {\n  if (a === b) return true;\n  if (typeof a !== typeof b || a === null || b === null) return false;\n  if (typeof a !== 'object') return false;\n  const aKeys = Object.keys(a), bKeys = Object.keys(b);\n  if (aKeys.length !== bKeys.length) return false;\n  return aKeys.every((k) => deepEqual(a[k], b[k]));\n}\n\n// Async/return handler required for Node.js 24+.\n// Error mocks throw so Genesys marks Execute as failed. Genesys always wraps\n// Lambda throws as internal.server.error / ACTION.REMOTE_ENDPOINT; the thrown\n// message is what Function-mode validation matches on.\nexports.handle = async (event) => {\n  const match = mocks.cases.find((c) => deepEqual(c.input, event));\n  const successCases = mocks.cases.filter((c) => c.response !== undefined);\n  const chosen = match || mocks.default || successCases[Math.floor(Math.random() * successCases.length)];\n  if (!chosen) throw new Error('NO_MOCKS_REGISTERED');\n  if (chosen.error !== undefined) {\n    const msg = chosen.error.message || chosen.error.code || 'MOCK_ERROR';\n    throw new Error(msg);\n  }\n  return chosen.response;\n};\n",
+    "mocks_json": "{\"cases\": [], \"default\": {\"response\": {\"case_number\": \"SNAP-MA-100234\", \"documents\": [{\"document_type\": \"pay_stub\", \"status\": \"received\"}, {\"document_type\": \"proof_of_rent\", \"status\": \"missing\"}], \"notice_summary\": \"Your SNAP benefits may be affected. Action may be required to complete your recertification.\", \"notice_type\": \"recert_reminder\", \"program\": \"SNAP\", \"recert_deadline\": \"2026-10-06\", \"resident_name\": \"Linus Turing\", \"status\": \"active\"}}}"
+}

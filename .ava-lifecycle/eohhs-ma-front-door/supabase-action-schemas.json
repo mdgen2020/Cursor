@@ -1,0 +1,125 @@
+{
+  "eohhs_resident_verify_miked": {
+    "inputSchema": {
+      "type": "object",
+      "required": ["p_first_name", "p_last_name", "p_date_of_birth"],
+      "properties": {
+        "p_date_of_birth": { "type": "string", "description": "ISO date YYYY-MM-DD" },
+        "p_first_name": { "type": "string", "description": "Resident first name" },
+        "p_last_name": { "type": "string", "description": "Resident last name" }
+      }
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": ["session_token", "snap_case_number"],
+      "properties": {
+        "expires_in_seconds": { "type": "integer" },
+        "resident_name": { "type": "string" },
+        "session_token": { "type": "string" },
+        "snap_case_number": { "type": "string" }
+      }
+    }
+  },
+  "eohhs_dta_case_status_miked": {
+    "inputSchema": {
+      "type": "object",
+      "required": ["p_case_number", "p_session_token"],
+      "properties": {
+        "p_case_number": { "type": "string" },
+        "p_session_token": { "type": "string" }
+      }
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": ["case_number", "documents"],
+      "properties": {
+        "case_number": { "type": "string" },
+        "documents": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "document_type": { "type": "string" },
+              "status": { "type": "string" }
+            },
+            "required": ["document_type", "status"]
+          }
+        },
+        "notice_summary": { "type": "string" },
+        "notice_type": { "type": "string" },
+        "program": { "type": "string" },
+        "recert_deadline": { "type": "string" },
+        "resident_name": { "type": "string" },
+        "status": { "type": "string" }
+      }
+    }
+  },
+  "eohhs_dta_register_document_miked": {
+    "inputSchema": {
+      "type": "object",
+      "required": ["p_case_number", "p_session_token", "p_document_type"],
+      "properties": {
+        "p_case_number": { "type": "string" },
+        "p_channel": { "type": "string" },
+        "p_conversation_id": { "type": "string" },
+        "p_document_type": { "type": "string" },
+        "p_session_token": { "type": "string" }
+      }
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": ["status", "message"],
+      "properties": {
+        "case_number": { "type": "string" },
+        "document_type": { "type": "string" },
+        "message": { "type": "string" },
+        "status": { "type": "string" }
+      }
+    }
+  },
+  "eohhs_masshealth_complete_screening_miked": {
+    "inputSchema": {
+      "type": "object",
+      "required": ["p_session_token"],
+      "properties": {
+        "p_coverage_status": { "type": "string" },
+        "p_household_size": { "type": "integer" },
+        "p_income_band": { "type": "string" },
+        "p_session_token": { "type": "string" }
+      }
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": ["likely_eligibility_category", "official_determination"],
+      "properties": {
+        "likely_eligibility_category": { "type": "string" },
+        "next_step": { "type": "string" },
+        "official_determination": { "type": "boolean" },
+        "screening_id": { "type": "string" }
+      }
+    }
+  },
+  "eohhs_escalation_create_handoff_miked": {
+    "inputSchema": {
+      "type": "object",
+      "required": ["p_session_token", "p_program", "p_summary"],
+      "properties": {
+        "p_channel": { "type": "string" },
+        "p_conversation_id": { "type": "string" },
+        "p_payload": { "type": "string" },
+        "p_program": { "type": "string" },
+        "p_session_token": { "type": "string" },
+        "p_summary": { "type": "string" }
+      }
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": ["handoff_id", "summary"],
+      "properties": {
+        "handoff_id": { "type": "string" },
+        "program": { "type": "string" },
+        "summary": { "type": "string" }
+      }
+    }
+  }
+}

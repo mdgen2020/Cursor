@@ -1,0 +1,197 @@
+{
+    "id": "custom_-_1571994f-8895-40c1-921a-3fefdc7dd95f",
+    "published": {
+        "id": "custom_-_1571994f-8895-40c1-921a-3fefdc7dd95f",
+        "name": "eohhs_masshealth_complete_screening_miked",
+        "integrationId": "66c682f8-d140-43cc-8fc9-55de3531c8a6",
+        "category": "AVA-Harness-Mock-Function-DataAction",
+        "contract": {
+            "output": {
+                "successSchemaUri": "/api/v2/integrations/actions/custom_-_1571994f-8895-40c1-921a-3fefdc7dd95f/schemas/successschema.json",
+                "errorSchemaUri": "/api/v2/integrations/actions/custom_-_1571994f-8895-40c1-921a-3fefdc7dd95f/schemas/errorschema.json"
+            },
+            "input": {
+                "inputSchemaUri": "/api/v2/integrations/actions/custom_-_1571994f-8895-40c1-921a-3fefdc7dd95f/schemas/inputschema.json"
+            }
+        },
+        "version": 1,
+        "secure": false,
+        "config": {
+            "request": {
+                "requestUrlTemplate": "14647173-7245-4231-807e-e7b73d6cfa7e",
+                "requestTemplateUri": "/api/v2/integrations/actions/custom_-_1571994f-8895-40c1-921a-3fefdc7dd95f/requesttemplates/defaultrequest.vm",
+                "requestType": "POST",
+                "headers": {
+                    "Content-Type": "application/json"
+                }
+            },
+            "response": {
+                "translationMap": {
+                    "rawResult": "$"
+                },
+                "translationMapDefaults": {
+                    "rawResult": "{}"
+                },
+                "successTemplateUri": "/api/v2/integrations/actions/custom_-_1571994f-8895-40c1-921a-3fefdc7dd95f/templates/successtemplate.vm"
+            }
+        },
+        "selfUri": "/api/v2/integrations/actions/custom_-_1571994f-8895-40c1-921a-3fefdc7dd95f?includeConfig=true"
+    },
+    "validation": {
+        "passed": [
+            {
+                "mock_id": "default-probe-0",
+                "input": {
+                    "p_coverage_status": "mock-unmatched-0",
+                    "p_household_size": 987654321,
+                    "p_income_band": "mock-unmatched-0",
+                    "p_session_token": "mock-unmatched-0"
+                },
+                "outcome": "response",
+                "result": {
+                    "operations": [
+                        {
+                            "step": 1,
+                            "name": "Validate request body contains simple json (key-value pairs)",
+                            "success": true,
+                            "result": {
+                                "p_coverage_status": "mock-unmatched-0",
+                                "p_income_band": "mock-unmatched-0",
+                                "rawRequest": "{\"p_coverage_status\":\"mock-unmatched-0\",\"p_household_size\":987654321,\"p_income_band\":\"mock-unmatched-0\",\"p_session_token\":\"mock-unmatched-0\"}",
+                                "p_household_size": "987654321",
+                                "integrationId": "66c682f8-d140-43cc-8fc9-55de3531c8a6",
+                                "p_session_token": "mock-unmatched-0",
+                                "orgId": "b1aefa00-9ebc-413b-bacf-1039f14d11be"
+                            }
+                        },
+                        {
+                            "step": 2,
+                            "name": "Validate draft definition",
+                            "success": true
+                        },
+                        {
+                            "step": 3,
+                            "name": "Validate request body against simple input schema",
+                            "success": true
+                        },
+                        {
+                            "step": 4,
+                            "name": "Perform authentication",
+                            "success": true
+                        },
+                        {
+                            "step": 5,
+                            "name": "Resolve request URL template",
+                            "success": true,
+                            "result": "[POST] 14647173-7245-4231-807e-e7b73d6cfa7e"
+                        },
+                        {
+                            "step": 6,
+                            "name": "Resolve request header templates",
+                            "success": true,
+                            "result": {
+                                "Content-Type": [
+                                    "application/json"
+                                ]
+                            }
+                        },
+                        {
+                            "step": 7,
+                            "name": "Resolve request body template",
+                            "success": true,
+                            "result": "{\"p_coverage_status\":\"mock-unmatched-0\",\"p_household_size\":987654321,\"p_income_band\":\"mock-unmatched-0\",\"p_session_token\":\"mock-unmatched-0\"}"
+                        },
+                        {
+                            "step": 8,
+                            "name": "Execute",
+                            "success": true,
+                            "result": {
+                                "likely_eligibility_category": "likely_eligible",
+                                "next_step": "application",
+                                "official_determination": false,
+                                "screening_id": "demo-screening-id"
+                            }
+                        },
+                        {
+                            "step": 9,
+                            "name": "Function configuration",
+                            "success": true,
+                            "result": {
+                                "name": "custom_-_1571994f-8895-40c1-921a-3fefdc7dd95f Function",
+                                "functionId": "14647173-7245-4231-807e-e7b73d6cfa7e",
+                                "description": "",
+                                "dateCreated": "2026-09-16T03:29:27.608Z",
+                                "zipId": "ba603e44-8df1-4206-b439-e9ce42531ffc",
+                                "handler": "handler.handle",
+                                "runtime": "nodejs24.x",
+                                "timeoutSeconds": 15
+                            }
+                        },
+                        {
+                            "step": 10,
+                            "name": "Function zip record",
+                            "success": true,
+                            "result": {
+                                "status": "Available",
+                                "zipFileId": "ba603e44-8df1-4206-b439-e9ce42531ffc",
+                                "zipFileName": "function-package.zip",
+                                "dateCreated": "2026-09-16T03:29:31.937Z",
+                                "requestId": "dc7cb3a4-c68b-4276-9d78-36021ee82d22"
+                            }
+                        },
+                        {
+                            "step": 11,
+                            "name": "External execution log",
+                            "success": true,
+                            "result": [
+                                "START RequestId: b04ce266-9ee0-4001-8256-411f8cb150f6 Version: $LATEST",
+                                "END RequestId: b04ce266-9ee0-4001-8256-411f8cb150f6",
+                                "REPORT RequestId: b04ce266-9ee0-4001-8256-411f8cb150f6    Duration: 3.85 ms    Billed Duration: 134 ms    Memory Size: 1536 MB    Max Memory Used: 80 MB    Init Duration: 129.43 ms    "
+                            ]
+                        },
+                        {
+                            "step": 12,
+                            "name": "Resolve translation map",
+                            "success": true,
+                            "result": {
+                                "rawResult": "{\n  \"likely_eligibility_category\" : \"likely_eligible\",\n  \"next_step\" : \"application\",\n  \"official_determination\" : false,\n  \"screening_id\" : \"demo-screening-id\"\n}"
+                            }
+                        },
+                        {
+                            "step": 13,
+                            "name": "Apply output transformation",
+                            "success": true,
+                            "result": {
+                                "likely_eligibility_category": "likely_eligible",
+                                "next_step": "application",
+                                "official_determination": false,
+                                "screening_id": "demo-screening-id"
+                            }
+                        },
+                        {
+                            "step": 14,
+                            "name": "Validate output against schema",
+                            "success": true
+                        }
+                    ],
+                    "finalResult": {
+                        "likely_eligibility_category": "likely_eligible",
+                        "next_step": "application",
+                        "official_determination": false,
+                        "screening_id": "demo-screening-id"
+                    },
+                    "success": true
+                },
+                "reason": null,
+                "key": "{\"p_coverage_status\":\"mock-unmatched-0\",\"p_household_size\":987654321,\"p_income_band\":\"mock-unmatched-0\",\"p_session_token\":\"mock-unmatched-0\"}",
+                "expected_status": 200,
+                "observed_status": 200,
+                "passed": true
+            }
+        ],
+        "failed": []
+    },
+    "mock_responses": [],
+    "handler_js": "'use strict';\nconst mocks = require('./mocks.json');\n\nfunction deepEqual(a, b) {\n  if (a === b) return true;\n  if (typeof a !== typeof b || a === null || b === null) return false;\n  if (typeof a !== 'object') return false;\n  const aKeys = Object.keys(a), bKeys = Object.keys(b);\n  if (aKeys.length !== bKeys.length) return false;\n  return aKeys.every((k) => deepEqual(a[k], b[k]));\n}\n\n// Async/return handler required for Node.js 24+.\n// Error mocks throw so Genesys marks Execute as failed. Genesys always wraps\n// Lambda throws as internal.server.error / ACTION.REMOTE_ENDPOINT; the thrown\n// message is what Function-mode validation matches on.\nexports.handle = async (event) => {\n  const match = mocks.cases.find((c) => deepEqual(c.input, event));\n  const successCases = mocks.cases.filter((c) => c.response !== undefined);\n  const chosen = match || mocks.default || successCases[Math.floor(Math.random() * successCases.length)];\n  if (!chosen) throw new Error('NO_MOCKS_REGISTERED');\n  if (chosen.error !== undefined) {\n    const msg = chosen.error.message || chosen.error.code || 'MOCK_ERROR';\n    throw new Error(msg);\n  }\n  return chosen.response;\n};\n",
+    "mocks_json": "{\"cases\": [], \"default\": {\"response\": {\"likely_eligibility_category\": \"likely_eligible\", \"next_step\": \"application\", \"official_determination\": false, \"screening_id\": \"demo-screening-id\"}}}"
+}

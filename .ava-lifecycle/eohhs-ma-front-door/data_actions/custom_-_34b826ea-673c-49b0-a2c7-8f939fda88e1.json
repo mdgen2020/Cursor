@@ -1,0 +1,195 @@
+{
+    "id": "custom_-_34b826ea-673c-49b0-a2c7-8f939fda88e1",
+    "published": {
+        "id": "custom_-_34b826ea-673c-49b0-a2c7-8f939fda88e1",
+        "name": "eohhs_resident_verify",
+        "integrationId": "66c682f8-d140-43cc-8fc9-55de3531c8a6",
+        "category": "AVA-Harness-Mock-Function-DataAction",
+        "contract": {
+            "output": {
+                "successSchemaUri": "/api/v2/integrations/actions/custom_-_34b826ea-673c-49b0-a2c7-8f939fda88e1/schemas/successschema.json",
+                "errorSchemaUri": "/api/v2/integrations/actions/custom_-_34b826ea-673c-49b0-a2c7-8f939fda88e1/schemas/errorschema.json"
+            },
+            "input": {
+                "inputSchemaUri": "/api/v2/integrations/actions/custom_-_34b826ea-673c-49b0-a2c7-8f939fda88e1/schemas/inputschema.json"
+            }
+        },
+        "version": 1,
+        "secure": false,
+        "config": {
+            "request": {
+                "requestUrlTemplate": "9a2f3e47-5e25-4fd2-bbb3-067c051e8736",
+                "requestTemplateUri": "/api/v2/integrations/actions/custom_-_34b826ea-673c-49b0-a2c7-8f939fda88e1/requesttemplates/defaultrequest.vm",
+                "requestType": "POST",
+                "headers": {
+                    "Content-Type": "application/json"
+                }
+            },
+            "response": {
+                "translationMap": {
+                    "rawResult": "$"
+                },
+                "translationMapDefaults": {
+                    "rawResult": "{}"
+                },
+                "successTemplateUri": "/api/v2/integrations/actions/custom_-_34b826ea-673c-49b0-a2c7-8f939fda88e1/templates/successtemplate.vm"
+            }
+        },
+        "selfUri": "/api/v2/integrations/actions/custom_-_34b826ea-673c-49b0-a2c7-8f939fda88e1?includeConfig=true"
+    },
+    "validation": {
+        "passed": [
+            {
+                "mock_id": "default-probe-0",
+                "input": {
+                    "p_date_of_birth": "mock-unmatched-0",
+                    "p_first_name": "mock-unmatched-0",
+                    "p_last_name": "mock-unmatched-0"
+                },
+                "outcome": "response",
+                "result": {
+                    "operations": [
+                        {
+                            "step": 1,
+                            "name": "Validate request body contains simple json (key-value pairs)",
+                            "success": true,
+                            "result": {
+                                "p_last_name": "mock-unmatched-0",
+                                "integrationId": "66c682f8-d140-43cc-8fc9-55de3531c8a6",
+                                "p_date_of_birth": "mock-unmatched-0",
+                                "rawRequest": "{\"p_date_of_birth\":\"mock-unmatched-0\",\"p_first_name\":\"mock-unmatched-0\",\"p_last_name\":\"mock-unmatched-0\"}",
+                                "orgId": "b1aefa00-9ebc-413b-bacf-1039f14d11be",
+                                "p_first_name": "mock-unmatched-0"
+                            }
+                        },
+                        {
+                            "step": 2,
+                            "name": "Validate draft definition",
+                            "success": true
+                        },
+                        {
+                            "step": 3,
+                            "name": "Validate request body against simple input schema",
+                            "success": true
+                        },
+                        {
+                            "step": 4,
+                            "name": "Perform authentication",
+                            "success": true
+                        },
+                        {
+                            "step": 5,
+                            "name": "Resolve request URL template",
+                            "success": true,
+                            "result": "[POST] 9a2f3e47-5e25-4fd2-bbb3-067c051e8736"
+                        },
+                        {
+                            "step": 6,
+                            "name": "Resolve request header templates",
+                            "success": true,
+                            "result": {
+                                "Content-Type": [
+                                    "application/json"
+                                ]
+                            }
+                        },
+                        {
+                            "step": 7,
+                            "name": "Resolve request body template",
+                            "success": true,
+                            "result": "{\"p_date_of_birth\":\"mock-unmatched-0\",\"p_first_name\":\"mock-unmatched-0\",\"p_last_name\":\"mock-unmatched-0\"}"
+                        },
+                        {
+                            "step": 8,
+                            "name": "Execute",
+                            "success": true,
+                            "result": {
+                                "expires_in_seconds": 7200,
+                                "resident_name": "Linus Turing",
+                                "session_token": "demo-session-token-replace-live",
+                                "snap_case_number": "SNAP-MA-100234"
+                            }
+                        },
+                        {
+                            "step": 9,
+                            "name": "Function configuration",
+                            "success": true,
+                            "result": {
+                                "name": "custom_-_34b826ea-673c-49b0-a2c7-8f939fda88e1 Function",
+                                "functionId": "9a2f3e47-5e25-4fd2-bbb3-067c051e8736",
+                                "description": "",
+                                "dateCreated": "2026-09-16T03:16:07.472Z",
+                                "zipId": "c7ec45f7-03c8-4611-8ed8-93c527c6d9be",
+                                "handler": "handler.handle",
+                                "runtime": "nodejs24.x",
+                                "timeoutSeconds": 15
+                            }
+                        },
+                        {
+                            "step": 10,
+                            "name": "Function zip record",
+                            "success": true,
+                            "result": {
+                                "status": "Available",
+                                "zipFileId": "c7ec45f7-03c8-4611-8ed8-93c527c6d9be",
+                                "zipFileName": "function-package.zip",
+                                "dateCreated": "2026-09-16T03:16:09.799Z",
+                                "requestId": "9bac32bb-dc75-4484-8bd1-742a80f0a882"
+                            }
+                        },
+                        {
+                            "step": 11,
+                            "name": "External execution log",
+                            "success": true,
+                            "result": [
+                                "START RequestId: 3e470f65-c31c-4901-aa2b-79b93cace6b8 Version: $LATEST",
+                                "END RequestId: 3e470f65-c31c-4901-aa2b-79b93cace6b8",
+                                "REPORT RequestId: 3e470f65-c31c-4901-aa2b-79b93cace6b8    Duration: 5.03 ms    Billed Duration: 135 ms    Memory Size: 1536 MB    Max Memory Used: 80 MB    Init Duration: 129.59 ms    "
+                            ]
+                        },
+                        {
+                            "step": 12,
+                            "name": "Resolve translation map",
+                            "success": true,
+                            "result": {
+                                "rawResult": "{\n  \"expires_in_seconds\" : 7200,\n  \"resident_name\" : \"Linus Turing\",\n  \"session_token\" : \"demo-session-token-replace-live\",\n  \"snap_case_number\" : \"SNAP-MA-100234\"\n}"
+                            }
+                        },
+                        {
+                            "step": 13,
+                            "name": "Apply output transformation",
+                            "success": true,
+                            "result": {
+                                "expires_in_seconds": 7200,
+                                "resident_name": "Linus Turing",
+                                "session_token": "demo-session-token-replace-live",
+                                "snap_case_number": "SNAP-MA-100234"
+                            }
+                        },
+                        {
+                            "step": 14,
+                            "name": "Validate output against schema",
+                            "success": true
+                        }
+                    ],
+                    "finalResult": {
+                        "expires_in_seconds": 7200,
+                        "resident_name": "Linus Turing",
+                        "session_token": "demo-session-token-replace-live",
+                        "snap_case_number": "SNAP-MA-100234"
+                    },
+                    "success": true
+                },
+                "reason": null,
+                "key": "{\"p_date_of_birth\":\"mock-unmatched-0\",\"p_first_name\":\"mock-unmatched-0\",\"p_last_name\":\"mock-unmatched-0\"}",
+                "expected_status": 200,
+                "observed_status": 200,
+                "passed": true
+            }
+        ],
+        "failed": []
+    },
+    "mock_responses": [],
+    "handler_js": "'use strict';\nconst mocks = require('./mocks.json');\n\nfunction deepEqual(a, b) {\n  if (a === b) return true;\n  if (typeof a !== typeof b || a === null || b === null) return false;\n  if (typeof a !== 'object') return false;\n  const aKeys = Object.keys(a), bKeys = Object.keys(b);\n  if (aKeys.length !== bKeys.length) return false;\n  return aKeys.every((k) => deepEqual(a[k], b[k]));\n}\n\n// Async/return handler required for Node.js 24+.\n// Error mocks throw so Genesys marks Execute as failed. Genesys always wraps\n// Lambda throws as internal.server.error / ACTION.REMOTE_ENDPOINT; the thrown\n// message is what Function-mode validation matches on.\nexports.handle = async (event) => {\n  const match = mocks.cases.find((c) => deepEqual(c.input, event));\n  const successCases = mocks.cases.filter((c) => c.response !== undefined);\n  const chosen = match || mocks.default || successCases[Math.floor(Math.random() * successCases.length)];\n  if (!chosen) throw new Error('NO_MOCKS_REGISTERED');\n  if (chosen.error !== undefined) {\n    const msg = chosen.error.message || chosen.error.code || 'MOCK_ERROR';\n    throw new Error(msg);\n  }\n  return chosen.response;\n};\n",
+    "mocks_json": "{\"cases\": [], \"default\": {\"response\": {\"expires_in_seconds\": 7200, \"resident_name\": \"Linus Turing\", \"session_token\": \"demo-session-token-replace-live\", \"snap_case_number\": \"SNAP-MA-100234\"}}}"
+}

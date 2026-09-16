@@ -1,0 +1,199 @@
+{
+    "id": "custom_-_fb1edb95-e373-44f0-a411-727790c00ca7",
+    "published": {
+        "id": "custom_-_fb1edb95-e373-44f0-a411-727790c00ca7",
+        "name": "eohhs_dta_register_document",
+        "integrationId": "66c682f8-d140-43cc-8fc9-55de3531c8a6",
+        "category": "AVA-Harness-Mock-Function-DataAction",
+        "contract": {
+            "output": {
+                "successSchemaUri": "/api/v2/integrations/actions/custom_-_fb1edb95-e373-44f0-a411-727790c00ca7/schemas/successschema.json",
+                "errorSchemaUri": "/api/v2/integrations/actions/custom_-_fb1edb95-e373-44f0-a411-727790c00ca7/schemas/errorschema.json"
+            },
+            "input": {
+                "inputSchemaUri": "/api/v2/integrations/actions/custom_-_fb1edb95-e373-44f0-a411-727790c00ca7/schemas/inputschema.json"
+            }
+        },
+        "version": 1,
+        "secure": false,
+        "config": {
+            "request": {
+                "requestUrlTemplate": "efa70d6b-d286-4184-a6e7-4fc958038ed2",
+                "requestTemplateUri": "/api/v2/integrations/actions/custom_-_fb1edb95-e373-44f0-a411-727790c00ca7/requesttemplates/defaultrequest.vm",
+                "requestType": "POST",
+                "headers": {
+                    "Content-Type": "application/json"
+                }
+            },
+            "response": {
+                "translationMap": {
+                    "rawResult": "$"
+                },
+                "translationMapDefaults": {
+                    "rawResult": "{}"
+                },
+                "successTemplateUri": "/api/v2/integrations/actions/custom_-_fb1edb95-e373-44f0-a411-727790c00ca7/templates/successtemplate.vm"
+            }
+        },
+        "selfUri": "/api/v2/integrations/actions/custom_-_fb1edb95-e373-44f0-a411-727790c00ca7?includeConfig=true"
+    },
+    "validation": {
+        "passed": [
+            {
+                "mock_id": "default-probe-0",
+                "input": {
+                    "p_case_number": "mock-unmatched-0",
+                    "p_channel": "mock-unmatched-0",
+                    "p_conversation_id": "mock-unmatched-0",
+                    "p_document_type": "mock-unmatched-0",
+                    "p_session_token": "mock-unmatched-0"
+                },
+                "outcome": "response",
+                "result": {
+                    "operations": [
+                        {
+                            "step": 1,
+                            "name": "Validate request body contains simple json (key-value pairs)",
+                            "success": true,
+                            "result": {
+                                "p_document_type": "mock-unmatched-0",
+                                "rawRequest": "{\"p_case_number\":\"mock-unmatched-0\",\"p_channel\":\"mock-unmatched-0\",\"p_conversation_id\":\"mock-unmatched-0\",\"p_document_type\":\"mock-unmatched-0\",\"p_session_token\":\"mock-unmatched-0\"}",
+                                "p_case_number": "mock-unmatched-0",
+                                "integrationId": "66c682f8-d140-43cc-8fc9-55de3531c8a6",
+                                "p_conversation_id": "mock-unmatched-0",
+                                "p_session_token": "mock-unmatched-0",
+                                "orgId": "b1aefa00-9ebc-413b-bacf-1039f14d11be",
+                                "p_channel": "mock-unmatched-0"
+                            }
+                        },
+                        {
+                            "step": 2,
+                            "name": "Validate draft definition",
+                            "success": true
+                        },
+                        {
+                            "step": 3,
+                            "name": "Validate request body against simple input schema",
+                            "success": true
+                        },
+                        {
+                            "step": 4,
+                            "name": "Perform authentication",
+                            "success": true
+                        },
+                        {
+                            "step": 5,
+                            "name": "Resolve request URL template",
+                            "success": true,
+                            "result": "[POST] efa70d6b-d286-4184-a6e7-4fc958038ed2"
+                        },
+                        {
+                            "step": 6,
+                            "name": "Resolve request header templates",
+                            "success": true,
+                            "result": {
+                                "Content-Type": [
+                                    "application/json"
+                                ]
+                            }
+                        },
+                        {
+                            "step": 7,
+                            "name": "Resolve request body template",
+                            "success": true,
+                            "result": "{\"p_case_number\":\"mock-unmatched-0\",\"p_channel\":\"mock-unmatched-0\",\"p_conversation_id\":\"mock-unmatched-0\",\"p_document_type\":\"mock-unmatched-0\",\"p_session_token\":\"mock-unmatched-0\"}"
+                        },
+                        {
+                            "step": 8,
+                            "name": "Execute",
+                            "success": true,
+                            "result": {
+                                "case_number": "SNAP-MA-100234",
+                                "document_type": "proof_of_rent",
+                                "message": "Document recorded in BEACON-shaped case file (demo simulation).",
+                                "status": "received"
+                            }
+                        },
+                        {
+                            "step": 9,
+                            "name": "Function configuration",
+                            "success": true,
+                            "result": {
+                                "name": "custom_-_fb1edb95-e373-44f0-a411-727790c00ca7 Function",
+                                "functionId": "efa70d6b-d286-4184-a6e7-4fc958038ed2",
+                                "description": "",
+                                "dateCreated": "2026-09-16T03:24:56.226Z",
+                                "zipId": "df5dffe4-46c6-4665-ab46-8bc359339a4e",
+                                "handler": "handler.handle",
+                                "runtime": "nodejs24.x",
+                                "timeoutSeconds": 15
+                            }
+                        },
+                        {
+                            "step": 10,
+                            "name": "Function zip record",
+                            "success": true,
+                            "result": {
+                                "status": "Available",
+                                "zipFileId": "df5dffe4-46c6-4665-ab46-8bc359339a4e",
+                                "zipFileName": "function-package.zip",
+                                "dateCreated": "2026-09-16T03:24:58.535Z",
+                                "requestId": "127d5301-f823-42a2-822c-f5546497ebaf"
+                            }
+                        },
+                        {
+                            "step": 11,
+                            "name": "External execution log",
+                            "success": true,
+                            "result": [
+                                "START RequestId: fa08cebe-cde1-4281-90ab-cd60778d4e58 Version: $LATEST",
+                                "END RequestId: fa08cebe-cde1-4281-90ab-cd60778d4e58",
+                                "REPORT RequestId: fa08cebe-cde1-4281-90ab-cd60778d4e58    Duration: 4.35 ms    Billed Duration: 107 ms    Memory Size: 1536 MB    Max Memory Used: 80 MB    Init Duration: 102.49 ms    "
+                            ]
+                        },
+                        {
+                            "step": 12,
+                            "name": "Resolve translation map",
+                            "success": true,
+                            "result": {
+                                "rawResult": "{\n  \"case_number\" : \"SNAP-MA-100234\",\n  \"document_type\" : \"proof_of_rent\",\n  \"message\" : \"Document recorded in BEACON-shaped case file (demo simulation).\",\n  \"status\" : \"received\"\n}"
+                            }
+                        },
+                        {
+                            "step": 13,
+                            "name": "Apply output transformation",
+                            "success": true,
+                            "result": {
+                                "case_number": "SNAP-MA-100234",
+                                "document_type": "proof_of_rent",
+                                "message": "Document recorded in BEACON-shaped case file (demo simulation).",
+                                "status": "received"
+                            }
+                        },
+                        {
+                            "step": 14,
+                            "name": "Validate output against schema",
+                            "success": true
+                        }
+                    ],
+                    "finalResult": {
+                        "case_number": "SNAP-MA-100234",
+                        "document_type": "proof_of_rent",
+                        "message": "Document recorded in BEACON-shaped case file (demo simulation).",
+                        "status": "received"
+                    },
+                    "success": true
+                },
+                "reason": null,
+                "key": "{\"p_case_number\":\"mock-unmatched-0\",\"p_channel\":\"mock-unmatched-0\",\"p_conversation_id\":\"mock-unmatched-0\",\"p_document_type\":\"mock-unmatched-0\",\"p_session_token\":\"mock-unmatched-0\"}",
+                "expected_status": 200,
+                "observed_status": 200,
+                "passed": true
+            }
+        ],
+        "failed": []
+    },
+    "mock_responses": [],
+    "handler_js": "'use strict';\nconst mocks = require('./mocks.json');\n\nfunction deepEqual(a, b) {\n  if (a === b) return true;\n  if (typeof a !== typeof b || a === null || b === null) return false;\n  if (typeof a !== 'object') return false;\n  const aKeys = Object.keys(a), bKeys = Object.keys(b);\n  if (aKeys.length !== bKeys.length) return false;\n  return aKeys.every((k) => deepEqual(a[k], b[k]));\n}\n\n// Async/return handler required for Node.js 24+.\n// Error mocks throw so Genesys marks Execute as failed. Genesys always wraps\n// Lambda throws as internal.server.error / ACTION.REMOTE_ENDPOINT; the thrown\n// message is what Function-mode validation matches on.\nexports.handle = async (event) => {\n  const match = mocks.cases.find((c) => deepEqual(c.input, event));\n  const successCases = mocks.cases.filter((c) => c.response !== undefined);\n  const chosen = match || mocks.default || successCases[Math.floor(Math.random() * successCases.length)];\n  if (!chosen) throw new Error('NO_MOCKS_REGISTERED');\n  if (chosen.error !== undefined) {\n    const msg = chosen.error.message || chosen.error.code || 'MOCK_ERROR';\n    throw new Error(msg);\n  }\n  return chosen.response;\n};\n",
+    "mocks_json": "{\"cases\": [], \"default\": {\"response\": {\"case_number\": \"SNAP-MA-100234\", \"document_type\": \"proof_of_rent\", \"message\": \"Document recorded in BEACON-shaped case file (demo simulation).\", \"status\": \"received\"}}}"
+}
