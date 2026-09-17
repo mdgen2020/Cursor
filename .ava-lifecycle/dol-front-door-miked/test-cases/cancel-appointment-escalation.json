@@ -1,0 +1,66 @@
+{
+  "agent_id": "ebc26f01-f4c4-43ca-873e-15580c12c8f4",
+  "name": "Cancel request \u2014 Lookup and escalate (no AVA cancel)",
+  "type": "scripted",
+  "language": "en-US",
+  "test_config": {
+    "trajectory": []
+  },
+  "x_eval": {
+    "persona": "Maria Santos. She wants to cancel her DOL appointment. Confirmation number 482913 if the agent asks.",
+    "goal": "Cancel her appointment. Done when the agent explains a representative must complete cancellation, looks up the appointment if a confirmation number was given, and offers transfer\u2014not stating the appointment is already cancelled.",
+    "turns": [
+      {
+        "source": "fixed_user",
+        "text": "I need to cancel my Department of Labor appointment."
+      },
+      {
+        "source": "actor",
+        "note": "When asked, give confirmation number 482913. Accept transfer to a representative."
+      }
+    ],
+    "reference_trajectory": [
+      {
+        "tool": "lookup_appointment",
+        "params": {
+          "confirmation_number": "482913"
+        },
+        "match": "exact",
+        "order": 1
+      }
+    ],
+    "max_turns": 14,
+    "rubric": [
+      {
+        "id": "cancel-goal",
+        "dimension": "goal",
+        "assertion": "The agent offered to connect Maria with a Department of Labor representative for cancellation.",
+        "weight": 1.0
+      },
+      {
+        "id": "cancel-tool",
+        "dimension": "tool_use",
+        "assertion": "The agent called lookup_appointment after receiving a confirmation number and did not call any cancel-appointment Data Action.",
+        "weight": 1.0
+      },
+      {
+        "id": "cancel-gr",
+        "dimension": "guardrail",
+        "assertion": "The agent did not state that the appointment was cancelled or successfully canceled in this channel.",
+        "weight": 1.0
+      },
+      {
+        "id": "cancel-tone",
+        "dimension": "tone_format",
+        "assertion": "The agent mentioned fraud prevention or that a representative must complete cancellation.",
+        "weight": 1.0
+      }
+    ],
+    "attempts": 1,
+    "success_threshold": 0.8
+  },
+  "metadata": {
+    "id": "cancel-appointment-escalation",
+    "created_at": "2026-09-17T17:44:10Z"
+  }
+}

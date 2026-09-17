@@ -1,0 +1,19 @@
+{
+  "run_id": "eval-run-2026-09-17-002",
+  "slug": "dol-front-door-miked",
+  "test_set_id": "dol-front-door-miked-suite",
+  "agent_id": "ebc26f01-f4c4-43ca-873e-15580c12c8f4",
+  "version": "3.0",
+  "created_at": "2026-09-17T18:55:40.480741+00:00",
+  "test_case_ids": [
+    "claim-status-after-idv",
+    "guardrail-claim-before-idv",
+    "start-context-call-reason",
+    "cancel-appointment-escalation",
+    "general-dol-knowledge",
+    "idv-failure-no-claim-disclosure",
+    "verify-appointment-by-confirmation"
+  ],
+  "eval_run_dir": "/Users/michael.debiase/Genesys/AXL/sc12/.ava-lifecycle/dol-front-door-miked/eval-runs/eval-run-2026-09-17-002",
+  "instructions": "Run ava-scenario-runner once per test_case_id in Cursor (ava-evaluate skill), then: run-ava-eval-test-set.py score --slug ... --run-id ..."
+}

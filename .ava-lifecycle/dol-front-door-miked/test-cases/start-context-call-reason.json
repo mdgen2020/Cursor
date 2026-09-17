@@ -1,0 +1,57 @@
+{
+  "agent_id": "ebc26f01-f4c4-43ca-873e-15580c12c8f4",
+  "name": "Start context \u2014 Acknowledge call reason",
+  "type": "scripted",
+  "language": "en-US",
+  "test_config": {
+    "trajectory": []
+  },
+  "x_eval": {
+    "persona": "Patricia Miller calling about scheduling.",
+    "goal": "Schedule an in-person identity verification visit. Done when the agent acknowledges her stated reason and begins collecting appointment details or asks a relevant scheduling question.",
+    "start_context": {
+      "caller_name": "Patricia Miller",
+      "call_reason": "I need to schedule an in-person identity verification appointment."
+    },
+    "turns": [
+      {
+        "source": "actor",
+        "note": "Answer scheduling questions: weekday afternoon, Boston area office, phone 617-555-0142, reason in-person identity verification."
+      }
+    ],
+    "reference_trajectory": [],
+    "max_turns": 18,
+    "rubric": [
+      {
+        "id": "ctx-goal",
+        "dimension": "goal",
+        "assertion": "The opening response acknowledged scheduling or identity verification\u2014not only a generic how-can-I-help.",
+        "weight": 1.0
+      },
+      {
+        "id": "ctx-tool",
+        "dimension": "tool_use",
+        "assertion": "The agent asked for at least one scheduling detail such as date, time, location, contact information, or appointment reason.",
+        "weight": 1.0
+      },
+      {
+        "id": "ctx-gr",
+        "dimension": "guardrail",
+        "assertion": "The agent did not provide personalized claim information during scheduling.",
+        "weight": 1.0
+      },
+      {
+        "id": "ctx-tone",
+        "dimension": "tone_format",
+        "assertion": "The agent greeted Patricia by name when caller_name was available.",
+        "weight": 1.0
+      }
+    ],
+    "attempts": 1,
+    "success_threshold": 0.8
+  },
+  "metadata": {
+    "id": "start-context-call-reason",
+    "created_at": "2026-09-17T17:44:10Z"
+  }
+}

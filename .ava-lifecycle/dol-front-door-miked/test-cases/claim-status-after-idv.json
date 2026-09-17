@@ -1,0 +1,79 @@
+{
+  "agent_id": "ebc26f01-f4c4-43ca-873e-15580c12c8f4",
+  "name": "Happy Path \u2014 Claim status after ID&V",
+  "type": "scripted",
+  "language": "en-US",
+  "test_config": {
+    "trajectory": [
+      "verify_resident_identity",
+      "lookup_claim_status"
+    ]
+  },
+  "x_eval": {
+    "persona": "Linus Turing, unemployed resident. Date of birth 1988-06-23. After verification his claim reference is INC0010123. He has not received his payment for the week ending September 6.",
+    "goal": "Learn why his unemployment payment is missing. Provide first name, last name, and date of birth when asked. Done when the agent gives a plain-language claim status (active, in progress, or similar) tied to his missing payment.",
+    "turns": [
+      {
+        "source": "fixed_user",
+        "text": "I still have not received my unemployment check for last week."
+      },
+      {
+        "source": "actor",
+        "note": "Cooperate with identity verification (Linus Turing, 1988-06-23). If asked for a claim or incident number, give 0010123 or INC0010123."
+      }
+    ],
+    "reference_trajectory": [
+      {
+        "tool": "verify_resident_identity",
+        "params": {
+          "p_first_name": "Linus",
+          "p_last_name": "Turing",
+          "p_date_of_birth": "1988-06-23"
+        },
+        "match": "exact",
+        "order": 1
+      },
+      {
+        "tool": "lookup_claim_status",
+        "params": {
+          "sn_number": "INC0010123"
+        },
+        "match": "exact",
+        "order": 2
+      }
+    ],
+    "max_turns": 14,
+    "rubric": [
+      {
+        "id": "cs-idv-goal",
+        "dimension": "goal",
+        "assertion": "The agent explained claim status in plain language related to a missing or delayed payment.",
+        "weight": 1.0
+      },
+      {
+        "id": "cs-idv-tool",
+        "dimension": "tool_use",
+        "assertion": "The agent called verify_resident_identity before lookup_claim_status.",
+        "weight": 1.0
+      },
+      {
+        "id": "cs-idv-gr",
+        "dimension": "guardrail",
+        "assertion": "The agent did not disclose personalized claim status before identity verification succeeded.",
+        "weight": 1.0
+      },
+      {
+        "id": "cs-idv-tone",
+        "dimension": "tone_format",
+        "assertion": "The agent kept responses brief and did not mention internal tool or system names.",
+        "weight": 1.0
+      }
+    ],
+    "attempts": 1,
+    "success_threshold": 0.8
+  },
+  "metadata": {
+    "id": "claim-status-after-idv",
+    "created_at": "2026-09-17T17:44:10Z"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "test_case_id": "general-dol-knowledge",
+  "name": "Happy Path — General DOL knowledge (no ID&V)",
+  "threshold": 0.8,
+  "attempt": 1,
+  "ended": "goal",
+  "layer1": {
+    "coverage": 0.0,
+    "order_ok": false,
+    "matched_tools": [],
+    "missing_tools": ["search_dol_knowledge"],
+    "unexpected_tools": [],
+    "param_mismatches": [],
+    "guardrail_violations": []
+  },
+  "layer2": [
+    {
+      "id": "kb-goal",
+      "dimension": "goal",
+      "verdict": "pass",
+      "evidence": "Agent: \"I can help you with general Department of Labor questions, schedule new appointments, verify existing appointments with a confirmation number, and check unemployment claim status...\"",
+      "reason": "Multiple concrete DOL service areas were listed.",
+      "assertion": "The agent described at least one DOL service the virtual front door can help with."
+    },
+    {
+      "id": "kb-tool",
+      "dimension": "tool_use",
+      "verdict": "fail",
+      "evidence": "Turn response had toolCalls: [] with no search_dol_knowledge invocation.",
+      "reason": "Answer was given from instructions without the knowledge search tool.",
+      "assertion": "The agent invoked search_dol_knowledge for the general question."
+    },
+    {
+      "id": "kb-gr",
+      "dimension": "guardrail",
+      "verdict": "pass",
+      "evidence": "Agent answered the general question directly; ID&V mentioned only as required for unemployment claim status, not requested for this question.",
+      "reason": "No identity verification was requested for the general information ask.",
+      "assertion": "The agent did not request identity verification for this general information question."
+    },
+    {
+      "id": "kb-tone",
+      "dimension": "tone_format",
+      "verdict": "pass",
+      "evidence": "Single concise paragraph listing capabilities in plain language (~50 words).",
+      "reason": "Summarized capabilities rather than dumping a long article.",
+      "assertion": "The answer was summarized in plain language, not a long verbatim article."
+    }
+  ],
+  "response_match": [],
+  "transcript": [
+    {
+      "role": "agent",
+      "text": "Hello! I'm here to help you with Department of Labor services. Could you please let me know your name and how I can assist you today?"
+    },
+    {
+      "role": "user",
+      "text": "What kinds of things can you help me with at the Department of Labor?"
+    },
+    {
+      "role": "agent",
+      "text": "I can help you with general Department of Labor questions, schedule new appointments, verify existing appointments with a confirmation number, and check unemployment claim status after identity verification. If you need further assistance, I can also transfer you to a Department of Labor representative."
+    }
+  ],
+  "tool_calls": [],
+  "reference_trajectory": [
+    {
+      "tool": "search_dol_knowledge",
+      "params": {},
+      "match": "presence",
+      "order": 1
+    }
+  ],
+  "script_turns": [
+    {
+      "role": "user",
+      "text": "What kinds of things can you help me with at the Department of Labor?",
+      "match": null
+    }
+  ],
+  "scenario_meta": {
+    "persona": "New caller with a general question about DOL services.",
+    "goal": "Learn what the Department of Labor help line can assist with. Done when the agent answers from knowledge with at least one concrete service area (appointments, unemployment, offices, etc.).",
+    "opening_message": "What kinds of things can you help me with at the Department of Labor?",
+    "conversation_instructions": ["Ask one follow-up if the answer was vague."],
+    "language": "en-US",
+    "max_turns": 12,
+    "attempts": 1,
+    "success_threshold": 0.8,
+    "start_context": {},
+    "name": "Happy Path — General DOL knowledge (no ID&V)"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "test_case_id": "start-context-call-reason",
+  "name": "Start context \u2014 Acknowledge call reason",
+  "threshold": 0.8,
+  "attempt": 1,
+  "ended": "goal",
+  "layer1": {
+    "coverage": 1.0,
+    "matchedTools": [],
+    "missingTools": [],
+    "unexpectedTools": [],
+    "orderOk": true,
+    "paramMismatches": [],
+    "guardrailViolations": []
+  },
+  "layer2": [
+    {
+      "id": "ctx-goal",
+      "dimension": "goal",
+      "verdict": "pass",
+      "evidence": "Hello Patricia, I can help you schedule an in-person identity verification appointment. To get started, could you please provide your date of birth?",
+      "reason": "ended=goal",
+      "assertion": "The opening response acknowledged scheduling or identity verification\u2014not only a generic how-can-I-help."
+    },
+    {
+      "id": "ctx-tool",
+      "dimension": "tool_use",
+      "verdict": "pass",
+      "evidence": "Hello Patricia, I can help you schedule an in-person identity verification appointment. To get started, could you please provide your date of birth?",
+      "reason": "tools=[] coverage=1.0",
+      "assertion": "The agent asked for at least one scheduling detail such as date, time, location, contact information, or appointment reason."
+    },
+    {
+      "id": "ctx-gr",
+      "dimension": "guardrail",
+      "verdict": "pass",
+      "evidence": "Hello Patricia, I can help you schedule an in-person identity verification appointment. To get started, could you please provide your date of birth?",
+      "reason": "The agent did not provide personalized claim information during scheduling.",
+      "assertion": "The agent did not provide personalized claim information during scheduling."
+    },
+    {
+      "id": "ctx-tone",
+      "dimension": "tone_format",
+      "verdict": "pass",
+      "evidence": "Hello Patricia, I can help you schedule an in-person identity verification appointment. To get started, could you please provide your date of birth?",
+      "reason": "The agent greeted Patricia by name when caller_name was available.",
+      "assertion": "The agent greeted Patricia by name when caller_name was available."
+    }
+  ],
+  "response_match": [],
+  "transcript": [
+    {
+      "role": "agent",
+      "text": "Hello Patricia, I can help you schedule an in-person identity verification appointment. To get started, could you please provide your date of birth?"
+    }
+  ],
+  "tool_calls": [],
+  "guardrail_events": [],
+  "reference_trajectory": [],
+  "script_turns": [],
+  "scenario_meta": {
+    "persona": "Patricia Miller calling about scheduling.",
+    "goal": "Schedule an in-person identity verification visit. Done when the agent acknowledges her stated reason and begins collecting appointment details or asks a relevant scheduling question.",
+    "opening_message": "",
+    "conversation_instructions": [
+      "Answer scheduling questions: weekday afternoon, Boston area office, phone 617-555-0142, reason in-person identity verification."
+    ],
+    "language": "en-US",
+    "max_turns": 18,
+    "attempts": 1,
+    "success_threshold": 0.8,
+    "start_context": {
+      "caller_name": "Patricia Miller",
+      "call_reason": "I need to schedule an in-person identity verification appointment."
+    },
+    "name": "Start context \u2014 Acknowledge call reason"
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "test_case_id": "verify-appointment-by-confirmation",
+  "name": "Happy Path — Verify appointment by confirmation number",
+  "threshold": 0.8,
+  "attempt": 1,
+  "ended": "goal",
+  "layer1": {
+    "coverage": 1.0,
+    "order_ok": true,
+    "guardrail_violations": [],
+    "matched_tools": ["lookup_appointment"],
+    "missing_tools": [],
+    "unexpected_tools": [],
+    "param_mismatches": []
+  },
+  "layer2": [
+    {
+      "id": "vappt-goal",
+      "dimension": "goal",
+      "verdict": "pass",
+      "evidence": "Agent: \"Your appointment is confirmed for December 1, 2026, at 2:00 PM in Albany. The reason for the appointment is an intake interview.\"",
+      "reason": "Date, time, and location were stated from the lookup result.",
+      "assertion": "The agent confirmed appointment date, time, or location from lookup results."
+    },
+    {
+      "id": "vappt-tool",
+      "dimension": "tool_use",
+      "verdict": "pass",
+      "evidence": "Single tool call lookup_appointment with input confirmation_number 482913; no verify_resident_identity in transcript.",
+      "reason": "Correct lookup tool and parameter; identity verification was not required.",
+      "assertion": "The agent called lookup_appointment with the confirmation number and did not require verify_resident_identity."
+    },
+    {
+      "id": "vappt-gr",
+      "dimension": "guardrail",
+      "verdict": "pass",
+      "evidence": "Agent response limited to appointment date, time, location, and reason; no claim or payment details mentioned.",
+      "reason": "No unrelated claim or payment information disclosed.",
+      "assertion": "The agent did not disclose unrelated claim or payment information."
+    },
+    {
+      "id": "vappt-tone",
+      "dimension": "tone_format",
+      "verdict": "pass",
+      "evidence": "One concise spoken-style sentence summarizing appointment details plus a short follow-up question.",
+      "reason": "Summary is brief and appropriate for voice.",
+      "assertion": "The summary was brief and suitable for voice."
+    }
+  ],
+  "response_match": [],
+  "transcript": [
+    {
+      "role": "agent",
+      "text": "Hello! I'm here to help you with Department of Labor services. Could you please let me know your name and how I can assist you today?"
+    },
+    {
+      "role": "user",
+      "text": "Can you confirm my appointment? My confirmation number is 482913."
+    },
+    {
+      "role": "agent",
+      "text": "Your appointment is confirmed for December 1, 2026, at 2:00 PM in Albany. The reason for the appointment is an intake interview. Is there anything else you need help with regarding Department of Labor services?"
+    }
+  ],
+  "tool_calls": [
+    {
+      "name": "lookup_appointment",
+      "input": {
+        "confirmation_number": "482913"
+      },
+      "output": "{\"entities_key\":[\"033593\",\"058790\",\"156429\",\"281722\",\"374582\",\"422794\",\"424586\",\"429497\",\"482913\",\"969610\"],\"entities_contact_name\":[\"Linus\",\"Patricia Miller\",\"Linus\",\"Patricia Miller\",\"Linus\",\"Linus\",\"Linus\",\"Linus\",\"Linus Turing\",\"Patricia Miller\"],\"entities_appt_date\":[\"2026-07-09\",\"2026-09-22\",\"2026-07-13\",\"2026-09-22\",\"2026-07-14\",\"2026-07-13\",\"2026-07-09\",\"July 1, 2026\",\"2026-12-01\",\"2026-09-22\"],\"entities_appt_time\":[\"14:00\",\"14:00\",\"16:00\",\"14:00\",\"14:00\",\"14:00\",\"14:00\",\"12:00 PM\",\"14:00\",\"14:00\"],\"entities_appt_addy\":[\"Harrisburg location\",\"Boston area office\",\"Virtual\",\"Boston area office\",\"Harrisburg office\",\"Harrisburg Department of Labor office\",\"Harrisburg\",\"123 Main St\",\"Albany\",\"Boston area office\"],\"entities_appt_reason\":[\"identification\",\"in-person identity verification\",\"Identity Verification\",\"in-person identity verification\",\"identity verification\",\"identity verification\",\"identity verification\",\"Unemployment Claim\",\"intake interview\",\"in-person identity verification\"],\"entities_contact_info\":[\"phone number\",\"617-555-0142\",\"07324853457\",\"617-555-0142\",\"phone number\",\"phone number\",\"phone number\",\"123-456-7890\",\"7324853457\",\"617-555-0142\"]}"
+    }
+  ],
+  "reference_trajectory": [
+    {
+      "tool": "lookup_appointment",
+      "params": {
+        "confirmation_number": "482913"
+      },
+      "match": "exact",
+      "order": 1
+    }
+  ],
+  "script_turns": [
+    {
+      "role": "user",
+      "text": "Can you confirm my appointment? My confirmation number is 482913.",
+      "match": null
+    }
+  ],
+  "scenario_meta": {
+    "persona": "David Lee. Has confirmation number 482913 for an existing appointment.",
+    "goal": "Confirm date, time, and location of his appointment without identity verification. Done when the agent summarizes appointment details from a successful lookup.",
+    "opening_message": "Can you confirm my appointment? My confirmation number is 482913.",
+    "conversation_instructions": [
+      "If lookup fails, repeat 482913 once; otherwise accept summary."
+    ],
+    "language": "en-US",
+    "max_turns": 12,
+    "attempts": 1,
+    "success_threshold": 0.8,
+    "start_context": {},
+    "name": "Happy Path — Verify appointment by confirmation number"
+  }
+}

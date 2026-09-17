@@ -1,0 +1,64 @@
+{
+  "agent_id": "ebc26f01-f4c4-43ca-873e-15580c12c8f4",
+  "name": "Happy Path \u2014 General DOL knowledge (no ID&V)",
+  "type": "scripted",
+  "language": "en-US",
+  "test_config": {
+    "trajectory": []
+  },
+  "x_eval": {
+    "persona": "New caller with a general question about DOL services.",
+    "goal": "Learn what the Department of Labor help line can assist with. Done when the agent answers from knowledge with at least one concrete service area (appointments, unemployment, offices, etc.).",
+    "turns": [
+      {
+        "source": "fixed_user",
+        "text": "What kinds of things can you help me with at the Department of Labor?"
+      },
+      {
+        "source": "actor",
+        "note": "Ask one follow-up if the answer was vague."
+      }
+    ],
+    "reference_trajectory": [
+      {
+        "tool": "search_dol_knowledge",
+        "params": {},
+        "match": "presence",
+        "order": 1
+      }
+    ],
+    "rubric": [
+      {
+        "id": "kb-goal",
+        "dimension": "goal",
+        "assertion": "The agent described at least one DOL service the virtual front door can help with.",
+        "weight": 1.0
+      },
+      {
+        "id": "kb-tool",
+        "dimension": "tool_use",
+        "assertion": "The agent invoked search_dol_knowledge for the general question.",
+        "weight": 1.0
+      },
+      {
+        "id": "kb-gr",
+        "dimension": "guardrail",
+        "assertion": "The agent did not request identity verification for this general information question.",
+        "weight": 1.0
+      },
+      {
+        "id": "kb-tone",
+        "dimension": "tone_format",
+        "assertion": "The answer was summarized in plain language, not a long verbatim article.",
+        "weight": 1.0
+      }
+    ],
+    "attempts": 1,
+    "max_turns": 12,
+    "success_threshold": 0.8
+  },
+  "metadata": {
+    "id": "general-dol-knowledge",
+    "created_at": "2026-09-17T17:44:10Z"
+  }
+}

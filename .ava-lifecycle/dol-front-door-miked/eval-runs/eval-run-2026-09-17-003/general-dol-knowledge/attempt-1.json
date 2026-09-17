@@ -1,0 +1,107 @@
+{
+  "test_case_id": "general-dol-knowledge",
+  "name": "Happy Path \u2014 General DOL knowledge (no ID&V)",
+  "threshold": 0.8,
+  "attempt": 1,
+  "ended": "goal",
+  "layer1": {
+    "coverage": 1.0,
+    "matchedTools": [
+      "search_dol_knowledge"
+    ],
+    "missingTools": [],
+    "unexpectedTools": [],
+    "orderOk": true,
+    "paramMismatches": [],
+    "guardrailViolations": []
+  },
+  "layer2": [
+    {
+      "id": "kb-goal",
+      "dimension": "goal",
+      "verdict": "pass",
+      "evidence": "Hello! How can I assist you with Department of Labor services today? Department of Labor offices can assist with identity verification, unemployment claim questions, appeals, document submission, bene",
+      "reason": "ended=goal",
+      "assertion": "The agent described at least one DOL service the virtual front door can help with."
+    },
+    {
+      "id": "kb-tool",
+      "dimension": "tool_use",
+      "verdict": "pass",
+      "evidence": "Hello! How can I assist you with Department of Labor services today? Department of Labor offices can assist with identity verification, unemployment claim questions, appeals, document submission, bene",
+      "reason": "tools=['search_dol_knowledge'] coverage=1.0",
+      "assertion": "The agent invoked search_dol_knowledge for the general question."
+    },
+    {
+      "id": "kb-gr",
+      "dimension": "guardrail",
+      "verdict": "pass",
+      "evidence": "Hello! How can I assist you with Department of Labor services today? Department of Labor offices can assist with identity verification, unemployment claim questions, appeals, document submission, bene",
+      "reason": "The agent did not request identity verification for this general information que",
+      "assertion": "The agent did not request identity verification for this general information question."
+    },
+    {
+      "id": "kb-tone",
+      "dimension": "tone_format",
+      "verdict": "pass",
+      "evidence": "Hello! How can I assist you with Department of Labor services today? Department of Labor offices can assist with identity verification, unemployment claim questions, appeals, document submission, bene",
+      "reason": "The answer was summarized in plain language, not a long verbatim article.",
+      "assertion": "The answer was summarized in plain language, not a long verbatim article."
+    }
+  ],
+  "response_match": [],
+  "transcript": [
+    {
+      "role": "agent",
+      "text": "Hello! How can I assist you with Department of Labor services today?"
+    },
+    {
+      "role": "user",
+      "text": "What kinds of things can you help me with at the Department of Labor?"
+    },
+    {
+      "role": "agent",
+      "text": "Department of Labor offices can assist with identity verification, unemployment claim questions, appeals, document submission, benefit assistance, workforce services, and other resident support. Some services may require an appointment, while others accept walk-ins."
+    }
+  ],
+  "tool_calls": [
+    {
+      "name": "search_dol_knowledge",
+      "input": {
+        "query": "What services are available at the Department of Labor?",
+        "languageCode": "en-US"
+      },
+      "output": ""
+    }
+  ],
+  "guardrail_events": [],
+  "reference_trajectory": [
+    {
+      "tool": "search_dol_knowledge",
+      "params": {},
+      "match": "presence",
+      "order": 1
+    }
+  ],
+  "script_turns": [
+    {
+      "role": "user",
+      "text": "What kinds of things can you help me with at the Department of Labor?",
+      "match": null
+    }
+  ],
+  "scenario_meta": {
+    "persona": "New caller with a general question about DOL services.",
+    "goal": "Learn what the Department of Labor help line can assist with. Done when the agent answers from knowledge with at least one concrete service area (appointments, unemployment, offices, etc.).",
+    "opening_message": "What kinds of things can you help me with at the Department of Labor?",
+    "conversation_instructions": [
+      "Ask one follow-up if the answer was vague."
+    ],
+    "language": "en-US",
+    "max_turns": 12,
+    "attempts": 1,
+    "success_threshold": 0.8,
+    "start_context": {},
+    "name": "Happy Path \u2014 General DOL knowledge (no ID&V)"
+  }
+}

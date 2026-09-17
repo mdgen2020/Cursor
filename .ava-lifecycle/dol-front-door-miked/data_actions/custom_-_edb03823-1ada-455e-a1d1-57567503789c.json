@@ -1,0 +1,440 @@
+{
+    "id": "custom_-_edb03823-1ada-455e-a1d1-57567503789c",
+    "published": {
+        "id": "custom_-_edb03823-1ada-455e-a1d1-57567503789c",
+        "name": "dol_resident_verify_miked",
+        "integrationId": "4eefd07f-60e6-4def-8fe3-e3a9b7e02b15",
+        "category": "AVA-Harness-Mock-Echo-DataAction",
+        "contract": {
+            "output": {
+                "successSchemaUri": "/api/v2/integrations/actions/custom_-_edb03823-1ada-455e-a1d1-57567503789c/schemas/successschema.json",
+                "errorSchemaUri": "/api/v2/integrations/actions/custom_-_edb03823-1ada-455e-a1d1-57567503789c/schemas/errorschema.json"
+            },
+            "input": {
+                "inputSchemaUri": "/api/v2/integrations/actions/custom_-_edb03823-1ada-455e-a1d1-57567503789c/schemas/inputschema.json"
+            }
+        },
+        "version": 1,
+        "secure": false,
+        "config": {
+            "request": {
+                "requestUrlTemplate": "#set($p0 = \"$!{input.p_date_of_birth}\")#set($p1 = \"$!{input.p_first_name}\")#set($p2 = \"$!{input.p_last_name}\")#set($k = \"$encoding.base64($p0)_$encoding.base64($p1)_$encoding.base64($p2)\")#set($e = {\"MTkwMC0wMS0wMQ==_V3Jvbmc=_UGVyc29u\":\"404\"})#set($c = {\"MTk4OC0wNi0yMw==_TGludXM=_VHVyaW5n\":\"1\"})#if($e.containsKey($k))https://postman-echo.com/status/${e.get($k)}#elseif($c.containsKey($k))https://postman-echo.com/get?k=${c.get($k)}#{else}https://postman-echo.com/get?k=0#end",
+                "requestTemplateUri": "/api/v2/integrations/actions/custom_-_edb03823-1ada-455e-a1d1-57567503789c/requesttemplates/defaultrequest.vm",
+                "requestType": "GET",
+                "headers": {
+                    "Accept": "application/json"
+                }
+            },
+            "response": {
+                "translationMap": {
+                    "mockKey": "$.args.k"
+                },
+                "translationMapDefaults": {
+                    "mockKey": "__unset__"
+                },
+                "successTemplateUri": "/api/v2/integrations/actions/custom_-_edb03823-1ada-455e-a1d1-57567503789c/templates/successtemplate.vm"
+            }
+        },
+        "selfUri": "/api/v2/integrations/actions/custom_-_edb03823-1ada-455e-a1d1-57567503789c?includeConfig=true"
+    },
+    "validation": {
+        "passed": [
+            {
+                "mock_id": "case-0",
+                "input": {
+                    "p_date_of_birth": "1988-06-23",
+                    "p_first_name": "Linus",
+                    "p_last_name": "Turing"
+                },
+                "outcome": "response",
+                "result": {
+                    "operations": [
+                        {
+                            "step": 1,
+                            "name": "Validate request body contains simple json (key-value pairs)",
+                            "success": true,
+                            "result": {
+                                "p_last_name": "Turing",
+                                "integrationId": "4eefd07f-60e6-4def-8fe3-e3a9b7e02b15",
+                                "p_date_of_birth": "1988-06-23",
+                                "rawRequest": "{\"p_date_of_birth\":\"1988-06-23\",\"p_first_name\":\"Linus\",\"p_last_name\":\"Turing\"}",
+                                "orgId": "b1aefa00-9ebc-413b-bacf-1039f14d11be",
+                                "p_first_name": "Linus"
+                            }
+                        },
+                        {
+                            "step": 2,
+                            "name": "Validate draft definition",
+                            "success": true
+                        },
+                        {
+                            "step": 3,
+                            "name": "Validate request body against simple input schema",
+                            "success": true
+                        },
+                        {
+                            "step": 4,
+                            "name": "Perform authentication",
+                            "success": true
+                        },
+                        {
+                            "step": 5,
+                            "name": "Resolve request URL template",
+                            "success": true,
+                            "result": "[GET] https://postman-echo.com/get?k=1"
+                        },
+                        {
+                            "step": 6,
+                            "name": "Resolve request header templates",
+                            "success": true,
+                            "result": {
+                                "Accept": [
+                                    "application/json"
+                                ]
+                            }
+                        },
+                        {
+                            "step": 7,
+                            "name": "Resolve request body template",
+                            "success": true,
+                            "result": ""
+                        },
+                        {
+                            "step": 8,
+                            "name": "Execute",
+                            "success": true,
+                            "result": {
+                                "args": {
+                                    "k": "1"
+                                },
+                                "headers": {
+                                    "host": "postman-echo.com",
+                                    "user-agent": "PureCloud-Data-Actions",
+                                    "accept-encoding": "gzip, br",
+                                    "inin-correlation-id": "f3dc7dc4-343f-427c-8596-aaceb73d3899",
+                                    "inin-request-id": "09bc6bab-9bd3-4d75-9ccb-f381658590db",
+                                    "x-forwarded-proto": "https",
+                                    "content-type": "application/json",
+                                    "accept": "application/json",
+                                    "inin-organization-id": "b1aefa00-9ebc-413b-bacf-1039f14d11be"
+                                },
+                                "url": "https://postman-echo.com/get?k=1"
+                            }
+                        },
+                        {
+                            "step": 9,
+                            "name": "Resolve translation map",
+                            "success": true,
+                            "result": {
+                                "mockKey": "\"1\"",
+                                "rawResult": "{\n  \"args\" : {\n    \"k\" : \"1\"\n  },\n  \"headers\" : {\n    \"host\" : \"postman-echo.com\",\n    \"user-agent\" : \"PureCloud-Data-Actions\",\n    \"accept-encoding\" : \"gzip, br\",\n    \"inin-correlation-id\" : \"f3dc7dc4-343f-427c-8596-aaceb73d3899\",\n    \"inin-request-id\" : \"09bc6bab-9bd3-4d75-9ccb-f381658590db\",\n    \"x-forwarded-proto\" : \"https\",\n    \"content-type\" : \"application/json\",\n    \"accept\" : \"application/json\",\n    \"inin-organization-id\" : \"b1aefa00-9ebc-413b-bacf-1039f14d11be\"\n  },\n  \"url\" : \"https://postman-echo.com/get?k=1\"\n}"
+                            }
+                        },
+                        {
+                            "step": 10,
+                            "name": "Apply output transformation",
+                            "success": true,
+                            "result": {
+                                "dol_claim_reference": "INC0010123",
+                                "expires_in_seconds": 7200,
+                                "resident_name": "Linus Turing",
+                                "session_token": "dol-demo-session-linus",
+                                "verified": true
+                            }
+                        },
+                        {
+                            "step": 11,
+                            "name": "Validate output against schema",
+                            "success": true
+                        }
+                    ],
+                    "finalResult": {
+                        "dol_claim_reference": "INC0010123",
+                        "expires_in_seconds": 7200,
+                        "resident_name": "Linus Turing",
+                        "session_token": "dol-demo-session-linus",
+                        "verified": true
+                    },
+                    "success": true
+                },
+                "reason": null,
+                "key": "MTk4OC0wNi0yMw==_TGludXM=_VHVyaW5n",
+                "expected_status": 200,
+                "observed_status": 200,
+                "passed": true
+            },
+            {
+                "mock_id": "case-1",
+                "input": {
+                    "p_date_of_birth": "1900-01-01",
+                    "p_first_name": "Wrong",
+                    "p_last_name": "Person"
+                },
+                "outcome": "error",
+                "result": {
+                    "operations": [
+                        {
+                            "step": 1,
+                            "name": "Validate request body contains simple json (key-value pairs)",
+                            "success": true,
+                            "result": {
+                                "p_last_name": "Person",
+                                "integrationId": "4eefd07f-60e6-4def-8fe3-e3a9b7e02b15",
+                                "p_date_of_birth": "1900-01-01",
+                                "rawRequest": "{\"p_date_of_birth\":\"1900-01-01\",\"p_first_name\":\"Wrong\",\"p_last_name\":\"Person\"}",
+                                "orgId": "b1aefa00-9ebc-413b-bacf-1039f14d11be",
+                                "p_first_name": "Wrong"
+                            }
+                        },
+                        {
+                            "step": 2,
+                            "name": "Validate draft definition",
+                            "success": true
+                        },
+                        {
+                            "step": 3,
+                            "name": "Validate request body against simple input schema",
+                            "success": true
+                        },
+                        {
+                            "step": 4,
+                            "name": "Perform authentication",
+                            "success": true
+                        },
+                        {
+                            "step": 5,
+                            "name": "Resolve request URL template",
+                            "success": true,
+                            "result": "[GET] https://postman-echo.com/status/404"
+                        },
+                        {
+                            "step": 6,
+                            "name": "Resolve request header templates",
+                            "success": true,
+                            "result": {
+                                "Accept": [
+                                    "application/json"
+                                ]
+                            }
+                        },
+                        {
+                            "step": 7,
+                            "name": "Resolve request body template",
+                            "success": true,
+                            "result": ""
+                        },
+                        {
+                            "step": 8,
+                            "name": "Execute",
+                            "success": false,
+                            "error": {
+                                "message": "Not Found",
+                                "code": "not.found",
+                                "status": 404,
+                                "messageParams": {},
+                                "contextId": "73894252-d705-4d4c-b8be-53a3c87bef6e",
+                                "details": [
+                                    {
+                                        "errorCode": "ACTION.REMOTE_ENDPOINT"
+                                    }
+                                ],
+                                "errors": [
+                                    {
+                                        "message": "REST call for action execute failed. Message: Request to backend service failed. Response from web service: {\"status\":404} [73894252-d705-4d4c-b8be-53a3c87bef6e]",
+                                        "code": "NOT_FOUND",
+                                        "status": 404,
+                                        "messageParams": {},
+                                        "details": [],
+                                        "errors": []
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "error": {
+                        "message": "Not Found",
+                        "code": "not.found",
+                        "status": 404,
+                        "messageParams": {},
+                        "contextId": "73894252-d705-4d4c-b8be-53a3c87bef6e",
+                        "details": [
+                            {
+                                "errorCode": "ACTION.REMOTE_ENDPOINT"
+                            }
+                        ],
+                        "errors": [
+                            {
+                                "message": "REST call for action execute failed. Message: Request to backend service failed. Response from web service: {\"status\":404} [73894252-d705-4d4c-b8be-53a3c87bef6e]",
+                                "code": "NOT_FOUND",
+                                "status": 404,
+                                "messageParams": {},
+                                "details": [],
+                                "errors": []
+                            }
+                        ]
+                    },
+                    "success": false
+                },
+                "reason": null,
+                "key": "MTkwMC0wMS0wMQ==_V3Jvbmc=_UGVyc29u",
+                "expected_status": 404,
+                "observed_status": 404,
+                "passed": true
+            },
+            {
+                "mock_id": "default-probe-0",
+                "input": {
+                    "p_date_of_birth": "mock-unmatched-0",
+                    "p_first_name": "mock-unmatched-0",
+                    "p_last_name": "mock-unmatched-0"
+                },
+                "outcome": "response",
+                "result": {
+                    "operations": [
+                        {
+                            "step": 1,
+                            "name": "Validate request body contains simple json (key-value pairs)",
+                            "success": true,
+                            "result": {
+                                "p_last_name": "mock-unmatched-0",
+                                "integrationId": "4eefd07f-60e6-4def-8fe3-e3a9b7e02b15",
+                                "p_date_of_birth": "mock-unmatched-0",
+                                "rawRequest": "{\"p_date_of_birth\":\"mock-unmatched-0\",\"p_first_name\":\"mock-unmatched-0\",\"p_last_name\":\"mock-unmatched-0\"}",
+                                "orgId": "b1aefa00-9ebc-413b-bacf-1039f14d11be",
+                                "p_first_name": "mock-unmatched-0"
+                            }
+                        },
+                        {
+                            "step": 2,
+                            "name": "Validate draft definition",
+                            "success": true
+                        },
+                        {
+                            "step": 3,
+                            "name": "Validate request body against simple input schema",
+                            "success": true
+                        },
+                        {
+                            "step": 4,
+                            "name": "Perform authentication",
+                            "success": true
+                        },
+                        {
+                            "step": 5,
+                            "name": "Resolve request URL template",
+                            "success": true,
+                            "result": "[GET] https://postman-echo.com/get?k=0"
+                        },
+                        {
+                            "step": 6,
+                            "name": "Resolve request header templates",
+                            "success": true,
+                            "result": {
+                                "Accept": [
+                                    "application/json"
+                                ]
+                            }
+                        },
+                        {
+                            "step": 7,
+                            "name": "Resolve request body template",
+                            "success": true,
+                            "result": ""
+                        },
+                        {
+                            "step": 8,
+                            "name": "Execute",
+                            "success": true,
+                            "result": {
+                                "args": {
+                                    "k": "0"
+                                },
+                                "headers": {
+                                    "host": "postman-echo.com",
+                                    "user-agent": "PureCloud-Data-Actions",
+                                    "accept-encoding": "gzip, br",
+                                    "inin-correlation-id": "4a2c7165-3d1f-4486-8f92-07bfde183044",
+                                    "inin-request-id": "cd54d803-3a6b-47ad-a3c5-bb5df9d28889",
+                                    "x-forwarded-proto": "https",
+                                    "content-type": "application/json",
+                                    "accept": "application/json",
+                                    "inin-organization-id": "b1aefa00-9ebc-413b-bacf-1039f14d11be"
+                                },
+                                "url": "https://postman-echo.com/get?k=0"
+                            }
+                        },
+                        {
+                            "step": 9,
+                            "name": "Resolve translation map",
+                            "success": true,
+                            "result": {
+                                "mockKey": "\"0\"",
+                                "rawResult": "{\n  \"args\" : {\n    \"k\" : \"0\"\n  },\n  \"headers\" : {\n    \"host\" : \"postman-echo.com\",\n    \"user-agent\" : \"PureCloud-Data-Actions\",\n    \"accept-encoding\" : \"gzip, br\",\n    \"inin-correlation-id\" : \"4a2c7165-3d1f-4486-8f92-07bfde183044\",\n    \"inin-request-id\" : \"cd54d803-3a6b-47ad-a3c5-bb5df9d28889\",\n    \"x-forwarded-proto\" : \"https\",\n    \"content-type\" : \"application/json\",\n    \"accept\" : \"application/json\",\n    \"inin-organization-id\" : \"b1aefa00-9ebc-413b-bacf-1039f14d11be\"\n  },\n  \"url\" : \"https://postman-echo.com/get?k=0\"\n}"
+                            }
+                        },
+                        {
+                            "step": 10,
+                            "name": "Apply output transformation",
+                            "success": true,
+                            "result": {
+                                "dol_claim_reference": "INC0010123",
+                                "expires_in_seconds": 7200,
+                                "resident_name": "Linus Turing",
+                                "session_token": "dol-demo-session-token",
+                                "verified": true
+                            }
+                        },
+                        {
+                            "step": 11,
+                            "name": "Validate output against schema",
+                            "success": true
+                        }
+                    ],
+                    "finalResult": {
+                        "dol_claim_reference": "INC0010123",
+                        "expires_in_seconds": 7200,
+                        "resident_name": "Linus Turing",
+                        "session_token": "dol-demo-session-token",
+                        "verified": true
+                    },
+                    "success": true
+                },
+                "reason": null,
+                "key": "bW9jay11bm1hdGNoZWQtMA==_bW9jay11bm1hdGNoZWQtMA==_bW9jay11bm1hdGNoZWQtMA==",
+                "expected_status": 200,
+                "observed_status": 200,
+                "passed": true
+            }
+        ],
+        "failed": []
+    },
+    "mock_responses": [
+        {
+            "response": {
+                "dol_claim_reference": "INC0010123",
+                "expires_in_seconds": 7200,
+                "resident_name": "Linus Turing",
+                "session_token": "dol-demo-session-linus",
+                "verified": true
+            },
+            "input": {
+                "p_date_of_birth": "1988-06-23",
+                "p_first_name": "Linus",
+                "p_last_name": "Turing"
+            }
+        },
+        {
+            "error": {
+                "code": "resource.not.found",
+                "message": "Identity could not be verified.",
+                "details": [],
+                "status": 404
+            },
+            "input": {
+                "p_date_of_birth": "1900-01-01",
+                "p_first_name": "Wrong",
+                "p_last_name": "Person"
+            }
+        }
+    ]
+}

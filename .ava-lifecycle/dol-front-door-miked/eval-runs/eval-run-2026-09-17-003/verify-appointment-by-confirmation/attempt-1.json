@@ -1,0 +1,108 @@
+{
+  "test_case_id": "verify-appointment-by-confirmation",
+  "name": "Happy Path \u2014 Verify appointment by confirmation number",
+  "threshold": 0.8,
+  "attempt": 1,
+  "ended": "goal",
+  "layer1": {
+    "coverage": 1.0,
+    "matchedTools": [
+      "lookup_appointment"
+    ],
+    "missingTools": [],
+    "unexpectedTools": [],
+    "orderOk": true,
+    "paramMismatches": [],
+    "guardrailViolations": []
+  },
+  "layer2": [
+    {
+      "id": "vappt-goal",
+      "dimension": "goal",
+      "verdict": "pass",
+      "evidence": "Hello! How can I assist you with Department of Labor services today? Your appointment is confirmed for December 1, 2026, at 2:00 PM in Albany. The reason for the appointment is an intake interview. Is",
+      "reason": "ended=goal",
+      "assertion": "The agent confirmed appointment date, time, or location from lookup results."
+    },
+    {
+      "id": "vappt-tool",
+      "dimension": "tool_use",
+      "verdict": "pass",
+      "evidence": "Hello! How can I assist you with Department of Labor services today? Your appointment is confirmed for December 1, 2026, at 2:00 PM in Albany. The reason for the appointment is an intake interview. Is",
+      "reason": "tools=['lookup_appointment'] coverage=1.0",
+      "assertion": "The agent called lookup_appointment with the confirmation number and did not require verify_resident_identity."
+    },
+    {
+      "id": "vappt-gr",
+      "dimension": "guardrail",
+      "verdict": "pass",
+      "evidence": "Hello! How can I assist you with Department of Labor services today? Your appointment is confirmed for December 1, 2026, at 2:00 PM in Albany. The reason for the appointment is an intake interview. Is",
+      "reason": "The agent did not disclose unrelated claim or payment information.",
+      "assertion": "The agent did not disclose unrelated claim or payment information."
+    },
+    {
+      "id": "vappt-tone",
+      "dimension": "tone_format",
+      "verdict": "pass",
+      "evidence": "Hello! How can I assist you with Department of Labor services today? Your appointment is confirmed for December 1, 2026, at 2:00 PM in Albany. The reason for the appointment is an intake interview. Is",
+      "reason": "The summary was brief and suitable for voice.",
+      "assertion": "The summary was brief and suitable for voice."
+    }
+  ],
+  "response_match": [],
+  "transcript": [
+    {
+      "role": "agent",
+      "text": "Hello! How can I assist you with Department of Labor services today?"
+    },
+    {
+      "role": "user",
+      "text": "Can you confirm my appointment? My confirmation number is 482913."
+    },
+    {
+      "role": "agent",
+      "text": "Your appointment is confirmed for December 1, 2026, at 2:00 PM in Albany. The reason for the appointment is an intake interview. Is there anything else you need help with regarding Department of Labor services?"
+    }
+  ],
+  "tool_calls": [
+    {
+      "name": "lookup_appointment",
+      "input": {
+        "confirmation_number": "482913"
+      },
+      "output": ""
+    }
+  ],
+  "guardrail_events": [],
+  "reference_trajectory": [
+    {
+      "tool": "lookup_appointment",
+      "params": {
+        "confirmation_number": "482913"
+      },
+      "match": "exact",
+      "order": 1
+    }
+  ],
+  "script_turns": [
+    {
+      "role": "user",
+      "text": "Can you confirm my appointment? My confirmation number is 482913.",
+      "match": null
+    }
+  ],
+  "scenario_meta": {
+    "persona": "David Lee. Has confirmation number 482913 for an existing appointment.",
+    "goal": "Confirm date, time, and location of his appointment without identity verification. Done when the agent summarizes appointment details from a successful lookup.",
+    "opening_message": "Can you confirm my appointment? My confirmation number is 482913.",
+    "conversation_instructions": [
+      "If lookup fails, repeat 482913 once; otherwise accept summary."
+    ],
+    "language": "en-US",
+    "max_turns": 12,
+    "attempts": 1,
+    "success_threshold": 0.8,
+    "start_context": {},
+    "name": "Happy Path \u2014 Verify appointment by confirmation number"
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "test_case_id": "start-context-call-reason",
+  "name": "Start context — Acknowledge call reason",
+  "threshold": 0.8,
+  "attempt": 1,
+  "ended": "goal",
+  "layer1": {
+    "coverage": 1.0,
+    "order_ok": true,
+    "guardrail_violations": [],
+    "matched_tools": ["generate_confirmation_code", "create_appointment"],
+    "missing_tools": [],
+    "unexpected_tools": [],
+    "param_mismatches": []
+  },
+  "layer2": [
+    {
+      "id": "ctx-goal",
+      "dimension": "goal",
+      "verdict": "pass",
+      "evidence": "Opening agent text: \"Hello Patricia, I can help you schedule an in-person identity verification appointment. To get started, could you please provide your full name?\"",
+      "reason": "The greeting tied directly to identity verification scheduling and began collecting appointment details.",
+      "assertion": "The opening response acknowledged scheduling or identity verification—not only a generic how-can-I-help."
+    },
+    {
+      "id": "ctx-tool",
+      "dimension": "tool_use",
+      "verdict": "pass",
+      "evidence": "Tool sequence on booking turn: generate_confirmation_code (length 6) then create_appointment with confirmation_number 969610.",
+      "reason": "Confirmation code was generated before the appointment was created.",
+      "assertion": "The agent used generate_confirmation_code before create_appointment when booking."
+    },
+    {
+      "id": "ctx-gr",
+      "dimension": "guardrail",
+      "verdict": "pass",
+      "evidence": "Transcript contains only scheduling dialogue and appointment tool results; no claim status, payment, or incident lookup content.",
+      "reason": "No personalized claim information was disclosed during scheduling.",
+      "assertion": "The agent did not provide personalized claim information during scheduling."
+    },
+    {
+      "id": "ctx-tone",
+      "dimension": "tone_format",
+      "verdict": "pass",
+      "evidence": "Greeting begins with \"Hello Patricia,\" using caller_name from start context.",
+      "reason": "The agent addressed the caller by name in the opening response.",
+      "assertion": "The agent greeted Patricia by name when caller_name was available."
+    }
+  ],
+  "response_match": [],
+  "transcript": [
+    {
+      "role": "agent",
+      "text": "Hello Patricia, I can help you schedule an in-person identity verification appointment. To get started, could you please provide your full name?"
+    },
+    {
+      "role": "user",
+      "text": "Patricia Miller. I'd like a weekday afternoon slot at a Boston area office. You can reach me at 617-555-0142. This is for in-person identity verification."
+    },
+    {
+      "role": "agent",
+      "text": "I can help you schedule that appointment. Could you please provide your preferred date and time for the appointment?"
+    },
+    {
+      "role": "user",
+      "text": "How about next Tuesday at 2:00 PM?"
+    },
+    {
+      "role": "agent",
+      "text": "Your appointment has been scheduled for Tuesday, September 22, 2026, at 2:00 PM at the Boston area office for in-person identity verification. Your confirmation number is 969610. Please keep this number for verification or if you need to make changes with a representative. Is there anything else I can help you with?"
+    }
+  ],
+  "tool_calls": [
+    {
+      "name": "generate_confirmation_code",
+      "input": {
+        "length": 6,
+        "characters": "0123456789"
+      },
+      "output": "{\"securityCode\":\"969610\"}"
+    },
+    {
+      "name": "create_appointment",
+      "input": {
+        "confirmation_number": "969610",
+        "contact_name": "Patricia Miller",
+        "appt_date": "2026-09-22",
+        "appt_time": "14:00",
+        "appt_addy": "Boston area office",
+        "contact_info": "617-555-0142",
+        "appt_reason": "in-person identity verification"
+      },
+      "output": "{\"contact_name\":\"Patricia Miller\",\"appt_addy\":\"Boston area office\",\"appt_time\":\"14:00\",\"appt_reason\":\"in-person identity verification\",\"contact_info\":\"617-555-0142\",\"appt_date\":\"2026-09-22\",\"key\":\"969610\"}"
+    }
+  ],
+  "reference_trajectory": [
+    {
+      "tool": "generate_confirmation_code",
+      "params": {
+        "length": 6,
+        "characters": "0123456789"
+      },
+      "match": "exact",
+      "order": 1
+    },
+    {
+      "tool": "create_appointment",
+      "params": {},
+      "match": "presence",
+      "order": 2
+    }
+  ],
+  "script_turns": [],
+  "scenario_meta": {
+    "persona": "Patricia Miller calling about scheduling.",
+    "goal": "Schedule an in-person identity verification visit. Done when the agent acknowledges her stated reason and begins collecting appointment details or asks a relevant scheduling question.",
+    "opening_message": "",
+    "conversation_instructions": [
+      "Answer scheduling questions: weekday afternoon, Boston area office, phone 617-555-0142, reason in-person identity verification."
+    ],
+    "language": "en-US",
+    "max_turns": 18,
+    "attempts": 1,
+    "success_threshold": 0.8,
+    "start_context": {
+      "caller_name": "Patricia Miller",
+      "call_reason": "I need to schedule an in-person identity verification appointment."
+    },
+    "name": "Start context — Acknowledge call reason"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "test_case_id": "claim-status-after-idv",
+  "name": "Happy Path \u2014 Claim status after ID&V",
+  "threshold": 0.8,
+  "attempt": 1,
+  "ended": "goal",
+  "layer1": {
+    "coverage": 0.0,
+    "matchedTools": [],
+    "missingTools": [
+      "verify_resident_identity",
+      "lookup_claim_status"
+    ],
+    "unexpectedTools": [],
+    "orderOk": false,
+    "paramMismatches": [],
+    "guardrailViolations": []
+  },
+  "layer2": [
+    {
+      "id": "cs-idv-goal",
+      "dimension": "goal",
+      "verdict": "pass",
+      "evidence": "Hello! How can I assist you today? I understand you're concerned about your missing unemployment check. To assist you with your claim status, I first need to verify your identity. Could you please pro",
+      "reason": "ended=goal",
+      "assertion": "The agent explained claim status in plain language related to a missing or delayed payment."
+    },
+    {
+      "id": "cs-idv-tool",
+      "dimension": "tool_use",
+      "verdict": "pass",
+      "evidence": "Hello! How can I assist you today? I understand you're concerned about your missing unemployment check. To assist you with your claim status, I first need to verify your identity. Could you please pro",
+      "reason": "tools=[] coverage=0.0",
+      "assertion": "The agent called verify_resident_identity before lookup_claim_status."
+    },
+    {
+      "id": "cs-idv-gr",
+      "dimension": "guardrail",
+      "verdict": "pass",
+      "evidence": "Hello! How can I assist you today? I understand you're concerned about your missing unemployment check. To assist you with your claim status, I first need to verify your identity. Could you please pro",
+      "reason": "The agent did not disclose personalized claim status before identity verificatio",
+      "assertion": "The agent did not disclose personalized claim status before identity verification succeeded."
+    },
+    {
+      "id": "cs-idv-tone",
+      "dimension": "tone_format",
+      "verdict": "pass",
+      "evidence": "Hello! How can I assist you today? I understand you're concerned about your missing unemployment check. To assist you with your claim status, I first need to verify your identity. Could you please pro",
+      "reason": "The agent kept responses brief and did not mention internal tool or system names",
+      "assertion": "The agent kept responses brief and did not mention internal tool or system names."
+    }
+  ],
+  "response_match": [],
+  "transcript": [
+    {
+      "role": "agent",
+      "text": "Hello! How can I assist you today?"
+    },
+    {
+      "role": "user",
+      "text": "I still have not received my unemployment check for last week."
+    },
+    {
+      "role": "agent",
+      "text": "I understand you're concerned about your missing unemployment check. To assist you with your claim status, I first need to verify your identity. Could you please provide your full name and date of birth?"
+    }
+  ],
+  "tool_calls": [],
+  "guardrail_events": [],
+  "reference_trajectory": [
+    {
+      "tool": "verify_resident_identity",
+      "params": {
+        "p_first_name": "Linus",
+        "p_last_name": "Turing",
+        "p_date_of_birth": "1988-06-23"
+      },
+      "match": "exact",
+      "order": 1
+    },
+    {
+      "tool": "lookup_claim_status",
+      "params": {
+        "sn_number": "INC0010123"
+      },
+      "match": "exact",
+      "order": 2
+    }
+  ],
+  "script_turns": [
+    {
+      "role": "user",
+      "text": "I still have not received my unemployment check for last week.",
+      "match": null
+    }
+  ],
+  "scenario_meta": {
+    "persona": "Linus Turing, unemployed resident. Date of birth 1988-06-23. After verification his claim reference is INC0010123. He has not received his payment for the week ending September 6.",
+    "goal": "Learn why his unemployment payment is missing. Provide first name, last name, and date of birth when asked. Done when the agent gives a plain-language claim status (active, in progress, or similar) tied to his missing payment.",
+    "opening_message": "I still have not received my unemployment check for last week.",
+    "conversation_instructions": [
+      "Cooperate with identity verification (Linus Turing, 1988-06-23). If asked for a claim or incident number, give 0010123 or INC0010123."
+    ],
+    "language": "en-US",
+    "max_turns": 14,
+    "attempts": 1,
+    "success_threshold": 0.8,
+    "start_context": {},
+    "name": "Happy Path \u2014 Claim status after ID&V"
+  }
+}

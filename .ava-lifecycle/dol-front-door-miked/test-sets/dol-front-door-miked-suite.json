@@ -1,0 +1,32 @@
+{
+  "name": "DOL_Front_Door_miked",
+  "agent_id": "ebc26f01-f4c4-43ca-873e-15580c12c8f4",
+  "test_cases": [
+    {
+      "test_case_id": "claim-status-after-idv"
+    },
+    {
+      "test_case_id": "guardrail-claim-before-idv"
+    },
+    {
+      "test_case_id": "start-context-call-reason"
+    },
+    {
+      "test_case_id": "cancel-appointment-escalation"
+    },
+    {
+      "test_case_id": "general-dol-knowledge"
+    },
+    {
+      "test_case_id": "idv-failure-no-claim-disclosure"
+    },
+    {
+      "test_case_id": "verify-appointment-by-confirmation"
+    }
+  ],
+  "metadata": {
+    "id": "dol-front-door-miked-suite",
+    "created_at": "2026-09-17T17:44:10Z",
+    "notes": "Claim lookup uses live ServiceNow (INC0010123). Appointment scenarios use confirmation 482913 in shared appointment store\u2014seed via miked_create_appt_generic if lookups fail."
+  }
+}

@@ -1,0 +1,287 @@
+{
+    "id": "custom_-_fb440661-2261-4943-a11b-18dda944f2e1",
+    "published": {
+        "id": "custom_-_fb440661-2261-4943-a11b-18dda944f2e1",
+        "name": "dol_cancel_appointment_miked",
+        "integrationId": "4eefd07f-60e6-4def-8fe3-e3a9b7e02b15",
+        "category": "AVA-Harness-Mock-Echo-DataAction",
+        "contract": {
+            "output": {
+                "successSchemaUri": "/api/v2/integrations/actions/custom_-_fb440661-2261-4943-a11b-18dda944f2e1/schemas/successschema.json",
+                "errorSchemaUri": "/api/v2/integrations/actions/custom_-_fb440661-2261-4943-a11b-18dda944f2e1/schemas/errorschema.json"
+            },
+            "input": {
+                "inputSchemaUri": "/api/v2/integrations/actions/custom_-_fb440661-2261-4943-a11b-18dda944f2e1/schemas/inputschema.json"
+            }
+        },
+        "version": 1,
+        "secure": false,
+        "config": {
+            "request": {
+                "requestUrlTemplate": "#set($p0 = \"$!{input.confirmation_number}\")#set($k = \"$encoding.base64($p0)\")#set($c = {\"NDgyOTEz\":\"1\"})#if($c.containsKey($k))https://postman-echo.com/get?k=${c.get($k)}#{else}https://postman-echo.com/status/404#end",
+                "requestTemplateUri": "/api/v2/integrations/actions/custom_-_fb440661-2261-4943-a11b-18dda944f2e1/requesttemplates/defaultrequest.vm",
+                "requestType": "GET",
+                "headers": {
+                    "Accept": "application/json"
+                }
+            },
+            "response": {
+                "translationMap": {
+                    "mockKey": "$.args.k"
+                },
+                "translationMapDefaults": {
+                    "mockKey": "__unset__"
+                },
+                "successTemplateUri": "/api/v2/integrations/actions/custom_-_fb440661-2261-4943-a11b-18dda944f2e1/templates/successtemplate.vm"
+            }
+        },
+        "selfUri": "/api/v2/integrations/actions/custom_-_fb440661-2261-4943-a11b-18dda944f2e1?includeConfig=true"
+    },
+    "validation": {
+        "passed": [
+            {
+                "mock_id": "case-0",
+                "input": {
+                    "confirmation_number": "482913"
+                },
+                "outcome": "response",
+                "result": {
+                    "operations": [
+                        {
+                            "step": 1,
+                            "name": "Validate request body contains simple json (key-value pairs)",
+                            "success": true,
+                            "result": {
+                                "confirmation_number": "482913",
+                                "integrationId": "4eefd07f-60e6-4def-8fe3-e3a9b7e02b15",
+                                "rawRequest": "{\"confirmation_number\":\"482913\"}",
+                                "orgId": "b1aefa00-9ebc-413b-bacf-1039f14d11be"
+                            }
+                        },
+                        {
+                            "step": 2,
+                            "name": "Validate draft definition",
+                            "success": true
+                        },
+                        {
+                            "step": 3,
+                            "name": "Validate request body against simple input schema",
+                            "success": true
+                        },
+                        {
+                            "step": 4,
+                            "name": "Perform authentication",
+                            "success": true
+                        },
+                        {
+                            "step": 5,
+                            "name": "Resolve request URL template",
+                            "success": true,
+                            "result": "[GET] https://postman-echo.com/get?k=1"
+                        },
+                        {
+                            "step": 6,
+                            "name": "Resolve request header templates",
+                            "success": true,
+                            "result": {
+                                "Accept": [
+                                    "application/json"
+                                ]
+                            }
+                        },
+                        {
+                            "step": 7,
+                            "name": "Resolve request body template",
+                            "success": true,
+                            "result": ""
+                        },
+                        {
+                            "step": 8,
+                            "name": "Execute",
+                            "success": true,
+                            "result": {
+                                "args": {
+                                    "k": "1"
+                                },
+                                "headers": {
+                                    "host": "postman-echo.com",
+                                    "user-agent": "PureCloud-Data-Actions",
+                                    "accept-encoding": "gzip, br",
+                                    "inin-correlation-id": "dffdde70-2ce1-47a6-8f96-b57cec0de8d5",
+                                    "inin-request-id": "e850d1ca-3f47-473f-96d5-62d7a2744a54",
+                                    "x-forwarded-proto": "https",
+                                    "content-type": "application/json",
+                                    "accept": "application/json",
+                                    "inin-organization-id": "b1aefa00-9ebc-413b-bacf-1039f14d11be"
+                                },
+                                "url": "https://postman-echo.com/get?k=1"
+                            }
+                        },
+                        {
+                            "step": 9,
+                            "name": "Resolve translation map",
+                            "success": true,
+                            "result": {
+                                "mockKey": "\"1\"",
+                                "rawResult": "{\n  \"args\" : {\n    \"k\" : \"1\"\n  },\n  \"headers\" : {\n    \"host\" : \"postman-echo.com\",\n    \"user-agent\" : \"PureCloud-Data-Actions\",\n    \"accept-encoding\" : \"gzip, br\",\n    \"inin-correlation-id\" : \"dffdde70-2ce1-47a6-8f96-b57cec0de8d5\",\n    \"inin-request-id\" : \"e850d1ca-3f47-473f-96d5-62d7a2744a54\",\n    \"x-forwarded-proto\" : \"https\",\n    \"content-type\" : \"application/json\",\n    \"accept\" : \"application/json\",\n    \"inin-organization-id\" : \"b1aefa00-9ebc-413b-bacf-1039f14d11be\"\n  },\n  \"url\" : \"https://postman-echo.com/get?k=1\"\n}"
+                            }
+                        },
+                        {
+                            "step": 10,
+                            "name": "Apply output transformation",
+                            "success": true,
+                            "result": {
+                                "cancelled": true,
+                                "confirmation_number": "482913",
+                                "message": "Your appointment has been cancelled."
+                            }
+                        },
+                        {
+                            "step": 11,
+                            "name": "Validate output against schema",
+                            "success": true
+                        }
+                    ],
+                    "finalResult": {
+                        "cancelled": true,
+                        "confirmation_number": "482913",
+                        "message": "Your appointment has been cancelled."
+                    },
+                    "success": true
+                },
+                "reason": null,
+                "key": "NDgyOTEz",
+                "expected_status": 200,
+                "observed_status": 200,
+                "passed": true
+            },
+            {
+                "mock_id": "default-probe-0",
+                "input": {
+                    "confirmation_number": "mock-unmatched-0"
+                },
+                "outcome": "error",
+                "result": {
+                    "operations": [
+                        {
+                            "step": 1,
+                            "name": "Validate request body contains simple json (key-value pairs)",
+                            "success": true,
+                            "result": {
+                                "confirmation_number": "mock-unmatched-0",
+                                "integrationId": "4eefd07f-60e6-4def-8fe3-e3a9b7e02b15",
+                                "rawRequest": "{\"confirmation_number\":\"mock-unmatched-0\"}",
+                                "orgId": "b1aefa00-9ebc-413b-bacf-1039f14d11be"
+                            }
+                        },
+                        {
+                            "step": 2,
+                            "name": "Validate draft definition",
+                            "success": true
+                        },
+                        {
+                            "step": 3,
+                            "name": "Validate request body against simple input schema",
+                            "success": true
+                        },
+                        {
+                            "step": 4,
+                            "name": "Perform authentication",
+                            "success": true
+                        },
+                        {
+                            "step": 5,
+                            "name": "Resolve request URL template",
+                            "success": true,
+                            "result": "[GET] https://postman-echo.com/status/404"
+                        },
+                        {
+                            "step": 6,
+                            "name": "Resolve request header templates",
+                            "success": true,
+                            "result": {
+                                "Accept": [
+                                    "application/json"
+                                ]
+                            }
+                        },
+                        {
+                            "step": 7,
+                            "name": "Resolve request body template",
+                            "success": true,
+                            "result": ""
+                        },
+                        {
+                            "step": 8,
+                            "name": "Execute",
+                            "success": false,
+                            "error": {
+                                "message": "Not Found",
+                                "code": "not.found",
+                                "status": 404,
+                                "messageParams": {},
+                                "contextId": "772dad66-8b8d-4586-88f0-48e36360df67",
+                                "details": [
+                                    {
+                                        "errorCode": "ACTION.REMOTE_ENDPOINT"
+                                    }
+                                ],
+                                "errors": [
+                                    {
+                                        "message": "REST call for action execute failed. Message: Request to backend service failed. Response from web service: {\"status\":404} [772dad66-8b8d-4586-88f0-48e36360df67]",
+                                        "code": "NOT_FOUND",
+                                        "status": 404,
+                                        "messageParams": {},
+                                        "details": [],
+                                        "errors": []
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "error": {
+                        "message": "Not Found",
+                        "code": "not.found",
+                        "status": 404,
+                        "messageParams": {},
+                        "contextId": "772dad66-8b8d-4586-88f0-48e36360df67",
+                        "details": [
+                            {
+                                "errorCode": "ACTION.REMOTE_ENDPOINT"
+                            }
+                        ],
+                        "errors": [
+                            {
+                                "message": "REST call for action execute failed. Message: Request to backend service failed. Response from web service: {\"status\":404} [772dad66-8b8d-4586-88f0-48e36360df67]",
+                                "code": "NOT_FOUND",
+                                "status": 404,
+                                "messageParams": {},
+                                "details": [],
+                                "errors": []
+                            }
+                        ]
+                    },
+                    "success": false
+                },
+                "reason": null,
+                "key": "bW9jay11bm1hdGNoZWQtMA==",
+                "expected_status": 404,
+                "observed_status": 404,
+                "passed": true
+            }
+        ],
+        "failed": []
+    },
+    "mock_responses": [
+        {
+            "response": {
+                "cancelled": true,
+                "confirmation_number": "482913",
+                "message": "Your appointment has been cancelled."
+            },
+            "input": {
+                "confirmation_number": "482913"
+            }
+        }
+    ]
+}

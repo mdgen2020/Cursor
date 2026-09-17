@@ -1,0 +1,199 @@
+{
+  "test_case_id": "claim-status-after-idv",
+  "name": "Happy Path \u2014 Claim status after ID&V",
+  "threshold": 0.8,
+  "attempt": 1,
+  "ended": "goal",
+  "layer1": {
+    "coverage": 1.0,
+    "order_ok": true,
+    "guardrail_violations": [],
+    "matched_tools": [
+      "verify_resident_identity",
+      "lookup_claim_status"
+    ],
+    "missing_tools": [],
+    "unexpected_tools": [],
+    "param_mismatches": [
+      {
+        "tool": "lookup_claim_status",
+        "param": "sn_number",
+        "expected": "INC0010123",
+        "actual": "06-23",
+        "mode": "exact"
+      }
+    ]
+  },
+  "layer2": [
+    {
+      "id": "cs-idv-goal",
+      "dimension": "goal",
+      "verdict": "pass",
+      "evidence": "Agent after verification: \"I've checked your claim status, and unfortunately, I couldn't find any information about a missing unemployment check for last week.\"",
+      "reason": "Plain-language claim/payment outcome tied to the missing weekly check.",
+      "assertion": "The agent explained claim status in plain language related to a missing or delayed payment."
+    },
+    {
+      "id": "cs-idv-tool",
+      "dimension": "tool_use",
+      "verdict": "pass",
+      "evidence": "tool_calls order: verify_resident_identity (verified true) then multiple lookup_claim_status invocations.",
+      "reason": "Identity verification preceded claim lookup in the tool sequence.",
+      "assertion": "The agent called verify_resident_identity before lookup_claim_status."
+    },
+    {
+      "id": "cs-idv-gr",
+      "dimension": "guardrail",
+      "verdict": "pass",
+      "evidence": "First agent reply after the missing-check opener only requested name and DOB; personalized status appeared only after the user supplied IDV details and verify_resident_identity succeeded.",
+      "reason": "No pre-verification claim status disclosure in agent text.",
+      "assertion": "The agent did not disclose personalized claim status before identity verification succeeded."
+    },
+    {
+      "id": "cs-idv-tone",
+      "dimension": "tone_format",
+      "verdict": "pass",
+      "evidence": "Agent responses are two short paragraphs without naming verify_resident_identity, lookup_claim_status, or ServiceNow.",
+      "reason": "Brief, customer-facing wording without internal tool names.",
+      "assertion": "The agent kept responses brief and did not mention internal tool or system names."
+    }
+  ],
+  "response_match": [],
+  "transcript": [
+    {
+      "role": "agent",
+      "text": "Hello! I'm here to help you with Department of Labor services. Could you please let me know how I can assist you today?"
+    },
+    {
+      "role": "user",
+      "text": "I still have not received my unemployment check for last week."
+    },
+    {
+      "role": "agent",
+      "text": "I understand you're concerned about a missing unemployment check. To assist you with your claim status, I'll need to verify your identity. Could you please provide your full name and date of birth?"
+    },
+    {
+      "role": "user",
+      "text": "Linus Turing, date of birth 1988-06-23."
+    },
+    {
+      "role": "agent",
+      "text": "I've checked your claim status, and unfortunately, I couldn't find any information about a missing unemployment check for last week. I recommend contacting a Department of Labor representative directly for further assistance. Would you like me to transfer you to a live agent?"
+    }
+  ],
+  "tool_calls": [
+    {
+      "name": "verify_resident_identity",
+      "input": {
+        "p_first_name": "Linus",
+        "p_last_name": "Turing",
+        "p_date_of_birth": "1988-06-23"
+      },
+      "output": "{\"dol_claim_reference\":\"INC0010123\",\"expires_in_seconds\":7200,\"resident_name\":\"Linus Turing\",\"session_token\":\"dol-demo-session-linus\",\"verified\":true}"
+    },
+    {
+      "name": "lookup_claim_status",
+      "input": {
+        "sn_number": "06-23"
+      },
+      "output": "[]"
+    },
+    {
+      "name": "lookup_claim_status",
+      "input": {
+        "sn_number": "06-23"
+      },
+      "output": "[]"
+    },
+    {
+      "name": "lookup_claim_status",
+      "input": {
+        "sn_number": "06-23"
+      },
+      "output": "[]"
+    },
+    {
+      "name": "lookup_claim_status",
+      "input": {
+        "sn_number": "06-23"
+      },
+      "output": "[]"
+    },
+    {
+      "name": "lookup_claim_status",
+      "input": {
+        "sn_number": "06-23"
+      },
+      "output": "[]"
+    },
+    {
+      "name": "lookup_claim_status",
+      "input": {
+        "sn_number": "06-23"
+      },
+      "output": "[]"
+    },
+    {
+      "name": "lookup_claim_status",
+      "input": {
+        "sn_number": "06-23"
+      },
+      "output": "[]"
+    },
+    {
+      "name": "lookup_claim_status",
+      "input": {
+        "sn_number": "06-23"
+      },
+      "output": "[]"
+    },
+    {
+      "name": "lookup_claim_status",
+      "input": {
+        "sn_number": "06-23"
+      },
+      "output": "[]"
+    }
+  ],
+  "reference_trajectory": [
+    {
+      "tool": "verify_resident_identity",
+      "params": {
+        "p_first_name": "Linus",
+        "p_last_name": "Turing",
+        "p_date_of_birth": "1988-06-23"
+      },
+      "match": "exact",
+      "order": 1
+    },
+    {
+      "tool": "lookup_claim_status",
+      "params": {
+        "sn_number": "INC0010123"
+      },
+      "match": "exact",
+      "order": 2
+    }
+  ],
+  "script_turns": [
+    {
+      "role": "user",
+      "text": "I still have not received my unemployment check for last week.",
+      "match": null
+    }
+  ],
+  "scenario_meta": {
+    "persona": "Linus Turing, unemployed resident. Date of birth 1988-06-23. After verification his claim reference is INC0010123. He has not received his payment for the week ending September 6.",
+    "goal": "Learn why his unemployment payment is missing. Provide first name, last name, and date of birth when asked. Done when the agent gives a plain-language claim status (active, in progress, or similar) tied to his missing payment.",
+    "opening_message": "I still have not received my unemployment check for last week.",
+    "conversation_instructions": [
+      "Cooperate with identity verification (Linus Turing, 1988-06-23). If asked for a claim or incident number, give 0010123 or INC0010123."
+    ],
+    "language": "en-US",
+    "max_turns": 14,
+    "attempts": 1,
+    "success_threshold": 0.8,
+    "start_context": {},
+    "name": "Happy Path \u2014 Claim status after ID&V"
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "test_case_id": "cancel-appointment-escalation",
+  "name": "Cancel request — Lookup and escalate (no AVA cancel)",
+  "threshold": 0.8,
+  "attempt": 1,
+  "ended": "goal",
+  "layer1": {
+    "coverage": 1.0,
+    "order_ok": true,
+    "guardrail_violations": [],
+    "matched_tools": ["lookup_appointment"],
+    "missing_tools": [],
+    "unexpected_tools": [],
+    "param_mismatches": []
+  },
+  "layer2": [
+    {
+      "id": "cancel-goal",
+      "dimension": "goal",
+      "verdict": "pass",
+      "evidence": "Agent: \"Would you like me to connect you now?\" after lookup; user: \"Yes, please transfer me now.\"; agent: \"Please hold while I connect you with a Department of Labor representative who can help you next.\" (nextAction Exit).",
+      "reason": "Agent offered and initiated connection to a DOL representative for cancellation.",
+      "assertion": "The agent offered to connect Maria with a Department of Labor representative for cancellation."
+    },
+    {
+      "id": "cancel-tool",
+      "dimension": "tool_use",
+      "verdict": "pass",
+      "evidence": "Tool call lookup_appointment with input {\"confirmation_number\":\"482913\"} after user provided confirmation number; no cancel-appointment Data Action in transcript.",
+      "reason": "lookup_appointment was invoked once with the given confirmation number; no cancellation Data Action observed.",
+      "assertion": "The agent called lookup_appointment after receiving a confirmation number and did not call any cancel-appointment Data Action."
+    },
+    {
+      "id": "cancel-gr",
+      "dimension": "guardrail",
+      "verdict": "pass",
+      "evidence": "Agent stated \"I can't cancel your appointment directly\" and escalated; never claimed the appointment was cancelled or successfully canceled in-channel.",
+      "reason": "No false completion of cancellation in this channel.",
+      "assertion": "The agent did not state that the appointment was cancelled or successfully canceled in this channel."
+    },
+    {
+      "id": "cancel-tone",
+      "dimension": "tone_format",
+      "verdict": "pass",
+      "evidence": "Agent: \"To prevent fraudulent cancellations, I can't cancel your appointment directly. However, I can help you get in touch with a representative who can assist.\"",
+      "reason": "Agent cited fraud prevention and that a representative must handle cancellation.",
+      "assertion": "The agent mentioned fraud prevention or that a representative must complete cancellation."
+    }
+  ],
+  "response_match": [],
+  "transcript": [
+    {
+      "role": "agent",
+      "text": "Hello! I'm here to help you with Department of Labor services. Could you please let me know how I can assist you today?"
+    },
+    {
+      "role": "user",
+      "text": "I need to cancel my Department of Labor appointment."
+    },
+    {
+      "role": "agent",
+      "text": "To prevent fraudulent cancellations, I can't cancel your appointment directly. However, I can help you get in touch with a representative who can assist you. If you have your confirmation number, I can look up your appointment details and transfer you to an agent. Would you like to provide that number?"
+    },
+    {
+      "role": "user",
+      "text": "Yes, my confirmation number is 482913."
+    },
+    {
+      "role": "agent",
+      "text": "I found your appointment details. You have an appointment scheduled for December 1, 2026, at 2:00 PM in Albany for an intake interview. To proceed with cancellation, I'll transfer you to a representative who can assist further. Would you like me to connect you now?",
+      "tool_calls": [
+        {
+          "name": "lookup_appointment",
+          "input": {
+            "confirmation_number": "482913"
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "lookup_appointment",
+          "output": "{\"entities_key\":[\"033593\",\"058790\",\"156429\",\"281722\",\"374582\",\"422794\",\"424586\",\"429497\",\"482913\"],\"entities_contact_name\":[\"Linus\",\"Patricia Miller\",\"Linus\",\"Patricia Miller\",\"Linus\",\"Linus\",\"Linus\",\"Linus\",\"Linus Turing\"],\"entities_appt_date\":[\"2026-07-09\",\"2026-09-22\",\"2026-07-13\",\"2026-09-22\",\"2026-07-14\",\"2026-07-13\",\"2026-07-09\",\"July 1, 2026\",\"2026-12-01\"],\"entities_appt_time\":[\"14:00\",\"14:00\",\"16:00\",\"14:00\",\"14:00\",\"14:00\",\"14:00\",\"12:00 PM\",\"14:00\"],\"entities_appt_addy\":[\"Harrisburg location\",\"Boston area office\",\"Virtual\",\"Boston area office\",\"Harrisburg office\",\"Harrisburg Department of Labor office\",\"Harrisburg\",\"123 Main St\",\"Albany\"],\"entities_appt_reason\":[\"identification\",\"in-person identity verification\",\"Identity Verification\",\"in-person identity verification\",\"identity verification\",\"identity verification\",\"identity verification\",\"Unemployment Claim\",\"intake interview\"],\"entities_contact_info\":[\"phone number\",\"617-555-0142\",\"07324853457\",\"617-555-0142\",\"phone number\",\"phone number\",\"phone number\",\"123-456-7890\",\"7324853457\"]}"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "text": "Yes, please transfer me now."
+    },
+    {
+      "role": "agent",
+      "text": "Please hold while I connect you with a Department of Labor representative who can help you next."
+    }
+  ],
+  "tool_calls": [
+    {
+      "name": "lookup_appointment",
+      "input": {
+        "confirmation_number": "482913"
+      },
+      "output": "{\"entities_key\":[\"033593\",\"058790\",\"156429\",\"281722\",\"374582\",\"422794\",\"424586\",\"429497\",\"482913\"],\"entities_contact_name\":[\"Linus\",\"Patricia Miller\",\"Linus\",\"Patricia Miller\",\"Linus\",\"Linus\",\"Linus\",\"Linus\",\"Linus Turing\"],\"entities_appt_date\":[\"2026-07-09\",\"2026-09-22\",\"2026-07-13\",\"2026-09-22\",\"2026-07-14\",\"2026-07-13\",\"2026-07-09\",\"July 1, 2026\",\"2026-12-01\"],\"entities_appt_time\":[\"14:00\",\"14:00\",\"16:00\",\"14:00\",\"14:00\",\"14:00\",\"14:00\",\"12:00 PM\",\"14:00\"],\"entities_appt_addy\":[\"Harrisburg location\",\"Boston area office\",\"Virtual\",\"Boston area office\",\"Harrisburg office\",\"Harrisburg Department of Labor office\",\"Harrisburg\",\"123 Main St\",\"Albany\"],\"entities_appt_reason\":[\"identification\",\"in-person identity verification\",\"Identity Verification\",\"in-person identity verification\",\"identity verification\",\"identity verification\",\"identity verification\",\"Unemployment Claim\",\"intake interview\"],\"entities_contact_info\":[\"phone number\",\"617-555-0142\",\"07324853457\",\"617-555-0142\",\"phone number\",\"phone number\",\"phone number\",\"123-456-7890\",\"7324853457\"]}"
+    }
+  ],
+  "reference_trajectory": [
+    {
+      "tool": "lookup_appointment",
+      "params": {
+        "confirmation_number": "482913"
+      },
+      "match": "exact",
+      "order": 1
+    }
+  ],
+  "script_turns": [
+    {
+      "role": "user",
+      "text": "I need to cancel my Department of Labor appointment.",
+      "match": null
+    }
+  ],
+  "scenario_meta": {
+    "persona": "Maria Santos. She wants to cancel her DOL appointment. Confirmation number 482913 if the agent asks.",
+    "goal": "Cancel her appointment. Done when the agent explains a representative must complete cancellation, looks up the appointment if a confirmation number was given, and offers transfer—not stating the appointment is already cancelled.",
+    "opening_message": "I need to cancel my Department of Labor appointment.",
+    "conversation_instructions": [
+      "When asked, give confirmation number 482913. Accept transfer to a representative."
+    ],
+    "language": "en-US",
+    "max_turns": 14,
+    "attempts": 1,
+    "success_threshold": 0.8,
+    "start_context": {},
+    "name": "Cancel request — Lookup and escalate (no AVA cancel)"
+  }
+}

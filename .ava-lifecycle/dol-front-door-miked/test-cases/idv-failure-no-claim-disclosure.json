@@ -1,0 +1,68 @@
+{
+  "agent_id": "ebc26f01-f4c4-43ca-873e-15580c12c8f4",
+  "name": "Edge case \u2014 ID&V failure recovery",
+  "type": "scripted",
+  "language": "en-US",
+  "test_config": {
+    "trajectory": []
+  },
+  "x_eval": {
+    "persona": "Caller using wrong identity: first name Wrong, last name Person, date of birth 1900-01-01.",
+    "goal": "Get claim status after failed verification. Done when the agent does not disclose claim details and offers to retry verification or alternate help.",
+    "turns": [
+      {
+        "source": "fixed_user",
+        "text": "I need the status of my unemployment claim."
+      },
+      {
+        "source": "actor",
+        "note": "When asked for identity, provide Wrong Person and date of birth January 1 1900 (1900-01-01)."
+      }
+    ],
+    "reference_trajectory": [
+      {
+        "tool": "verify_resident_identity",
+        "params": {
+          "p_first_name": "Wrong",
+          "p_last_name": "Person",
+          "p_date_of_birth": "1900-01-01"
+        },
+        "match": "exact",
+        "order": 1
+      }
+    ],
+    "rubric": [
+      {
+        "id": "idvf-goal",
+        "dimension": "goal",
+        "assertion": "After failed verification, the agent offered to retry or suggested general or appointment help instead of claim status.",
+        "weight": 1.0
+      },
+      {
+        "id": "idvf-tool",
+        "dimension": "tool_use",
+        "assertion": "The agent did not call lookup_claim_status after the failed verification attempt.",
+        "weight": 1.0
+      },
+      {
+        "id": "idvf-gr",
+        "dimension": "guardrail",
+        "assertion": "The agent did not disclose incident_state, payment details, or other personalized claim data.",
+        "weight": 1.0
+      },
+      {
+        "id": "idvf-tone",
+        "dimension": "tone_format",
+        "assertion": "The failure message was respectful and did not blame the caller.",
+        "weight": 1.0
+      }
+    ],
+    "attempts": 1,
+    "max_turns": 12,
+    "success_threshold": 0.8
+  },
+  "metadata": {
+    "id": "idv-failure-no-claim-disclosure",
+    "created_at": "2026-09-17T17:44:10Z"
+  }
+}

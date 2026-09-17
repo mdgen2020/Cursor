@@ -1,0 +1,66 @@
+{
+  "agent_id": "ebc26f01-f4c4-43ca-873e-15580c12c8f4",
+  "name": "Happy Path \u2014 Verify appointment by confirmation number",
+  "type": "scripted",
+  "language": "en-US",
+  "test_config": {
+    "trajectory": []
+  },
+  "x_eval": {
+    "persona": "David Lee. Has confirmation number 482913 for an existing appointment.",
+    "goal": "Confirm date, time, and location of his appointment without identity verification. Done when the agent summarizes appointment details from a successful lookup.",
+    "turns": [
+      {
+        "source": "fixed_user",
+        "text": "Can you confirm my appointment? My confirmation number is 482913."
+      },
+      {
+        "source": "actor",
+        "note": "If lookup fails, repeat 482913 once; otherwise accept summary."
+      }
+    ],
+    "reference_trajectory": [
+      {
+        "tool": "lookup_appointment",
+        "params": {
+          "confirmation_number": "482913"
+        },
+        "match": "exact",
+        "order": 1
+      }
+    ],
+    "rubric": [
+      {
+        "id": "vappt-goal",
+        "dimension": "goal",
+        "assertion": "The agent confirmed appointment date, time, or location from lookup results.",
+        "weight": 1.0
+      },
+      {
+        "id": "vappt-tool",
+        "dimension": "tool_use",
+        "assertion": "The agent called lookup_appointment with the confirmation number and did not require verify_resident_identity.",
+        "weight": 1.0
+      },
+      {
+        "id": "vappt-gr",
+        "dimension": "guardrail",
+        "assertion": "The agent did not disclose unrelated claim or payment information.",
+        "weight": 1.0
+      },
+      {
+        "id": "vappt-tone",
+        "dimension": "tone_format",
+        "assertion": "The summary was brief and suitable for voice.",
+        "weight": 1.0
+      }
+    ],
+    "attempts": 1,
+    "max_turns": 12,
+    "success_threshold": 0.8
+  },
+  "metadata": {
+    "id": "verify-appointment-by-confirmation",
+    "created_at": "2026-09-17T17:44:10Z"
+  }
+}
