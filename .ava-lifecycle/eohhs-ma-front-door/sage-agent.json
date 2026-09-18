@@ -2,10 +2,16 @@
   "_meta": {
     "slug": "eohhs-ma-front-door",
     "agent_id": "96fe2bc6-7f11-41d5-8e6d-8a3ed20291b6",
-    "gc_version": "7.0",
-    "last_synced_at": "2026-09-16T04:22:00Z"
+    "gc_version": "11.0",
+    "last_synced_at": "2026-09-16T04:57:01Z"
   },
   "agent_name": "EOHHS MA Experience Orchestrator",
-  "version": "7.0",
-  "publish_status": "TestReady"
+  "version": "11.0",
+  "publish_status": "ProductionReady",
+  "knowledge_setting": {
+    "name": "Miked_SharePT_Setting",
+    "id": "fef2cae9-41ab-46da-be67-e95203808eb4",
+    "source_name": "Miked_SharePT",
+    "source_id": "93cb697a-ec20-4ad5-8740-80498e098fd9"
+  }
 }

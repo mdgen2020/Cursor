@@ -34,4 +34,14 @@ Prefer `miked_` or `_miked` in Knowledge Source / Setting names (e.g. `miked_EOH
 
 See [`docs/demo/architect-voice-routing-miked.md`](docs/demo/architect-voice-routing-miked.md).
 
+## Architect / digital — NYS DOL (`_miked`)
+
+| Asset | Name |
+|-------|------|
+| Digital bot flow | **`miked_dol_VAbotflow`** → Call AVA **`DOL_Front_Door_miked`** |
+| Inbound message flow | **`miked_dol_inbound_message`** |
+| Messenger deployment | **`miked_dol_web_demo`** (config name your choice) |
+
+See [`docs/demo/architect-digital-routing-dol-miked.md`](docs/demo/architect-digital-routing-dol-miked.md).
+
 When you finish deleting the old five actions, say **recreate data actions** (or **continue phase 2b**) and we will create mocks + AVA v1.1 using these names only.

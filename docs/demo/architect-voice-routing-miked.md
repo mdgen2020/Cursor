@@ -10,33 +10,51 @@ Locked presenter wiring for **inbound voice** and **agent escalation**.
 | **Inbound call flow (reuse)** | **`miked direct to queue`** |
 | **Front-door AVA** | **EOHHS MA Experience Orchestrator** |
 | **Agent ID** | `96fe2bc6-7f11-41d5-8e6d-8a3ed20291b6` |
-| **AVA version (rehearsal)** | **6.0** — **TestReady** (live Supabase tools) |
-| **Escalation queue** | **`support_miked`** |
+| **AVA version** | **11.0** — **ProductionReady** (live Supabase tools + Miked_SharePT knowledge) |
+| **Voice bot flow** | **`miked_eohhs_VAbotflow`** (published **2.0**) — Call AVA; Failure/Timeout → queue above |
+| **Inbound flow version** | **`miked direct to queue` v2.0** — greeting → Call Bot Flow → bot **1.0** |
+| **Escalation queue** | **`support_miked`** (`dc15ad2c-7917-413f-9a00-4f52df4d4602`; Architect may show **`Support_MikeD`** — names are case-insensitive) |
 
 ## Call path (what you are building)
+
+Genesys does **not** allow **Call Agentic Virtual Agent** inside an **Inbound Call Flow**. Use **two flows**:
 
 ```text
 781-277-3322
     → Inbound Call Flow: "miked direct to queue"
-    → Call AVA (EOHHS MA Experience Orchestrator v6.0)
-         ├─ Contained (SNAP upload on digital, MassHealth screening, FAQ) → AVA ends call / user exit
-         └─ Escalation (AVA Escalation event + create_escalation_handoff) → Transfer to ACD → queue support_miked
-              → Agent Workspace + Copilot (Phase 3)
+    → Call Bot Flow → **`miked_eohhs_VAbotflow` 1.0**
+         → Call Agentic Virtual Agent (**EOHHS MA Experience Orchestrator 11.0**)
+              → Exit Bot Flow → Inbound **Disconnect** (current export)
 ```
 
-Reuse the **existing Transfer to Queue** (or equivalent ACD) block that already targets **`support_miked`** — wire the **Call AVA** action’s **On Escalation** (and optionally **On Error**) exit to that block instead of sending every caller straight to the queue.
+**Exports (repo backup):** [`architect-exports/miked direct to queue_v2-0.i3InboundFlow`](architect-exports/miked%20direct%20to%20queue_v2-0.i3InboundFlow), [`architect-exports/miked_eohhs_VAbotflow_v1-0.i3BotFlow`](architect-exports/miked_eohhs_VAbotflow_v1-0.i3BotFlow). Supersedes v1.1 inbound export that incorrectly used Call AVA on the inbound flow.
 
-## 1. Reuse `miked direct to queue`
+```text
+Escalation gap (wire before stakeholder demo):
+              └─ Escalation / agent request → Transfer to ACD → **`support_miked`**
+                 (not in v2.0 inbound export today — bot returns then Disconnect only)
+```
 
-1. **Admin → Architect → Flows** → open **`miked direct to queue`**.
-2. **Duplicate** or note the current published version (rollback safety).
-3. Identify the node that **transfers to `support_miked`** (keep it; do not rename the queue).
-4. **Before** that direct-to-queue entry (or replace the first transfer after **Start**):
-   - Add **Call Agentic Virtual Agent** / **Call AVA** (product label varies by release).
-   - **Virtual agent:** `EOHHS MA Experience Orchestrator`
-   - **Version:** `6.0` (TestReady for rehearsal; switch to **ProductionReady** before a live-audience DID — see below).
+Reference: [Call Agentic Virtual Agent action](https://help.genesys.cloud/articles/call-agentic-virtual-agent-action/) — action is only valid in a **bot flow** (Virtual Agent enabled); adding it changes the flow to **Agentic Virtual Agent**.
 
-## 2. Escalation exit → `support_miked`
+Reuse the **existing Transfer to Queue** block that targets **`support_miked`** on the **inbound** flow, on the **Call Bot Flow** exit path when the bot returns **Escalation** (or map AVA escalation exit inside the bot flow, then end the bot and transfer from inbound).
+
+## 1. Create the bot flow (Call AVA lives here)
+
+1. **Architect → Flows → Bot flows** → **`miked_eohhs_VAbotflow`** (voice, **Virtual Agent** / Agentic enabled).
+2. **Call Agentic Virtual Agent** → **EOHHS MA Experience Orchestrator** **11.0** (ProductionReady / Published).
+3. **v2.0 export:** **Failure** / **Timeout** → **Transfer to ACD** → escalation queue; **Success** → **Exit Bot Flow**. Still wire **Escalation** or Success **exit-reason** switch if “talk to an agent” exits Success only.
+4. **Publish** bot flow **2.0**; inbound **Call Bot Flow** should target published **2.0**.
+
+## 2. Reuse `miked direct to queue` (inbound only)
+
+1. **Admin → Architect → Flows** → open **`miked direct to queue`** (Inbound Call Flow).
+2. **Do not** add Call Agentic Virtual Agent here (platform error: action not available in Inbound Call Flow).
+3. **Play Audio** (demo welcome TTS) → **Call Bot Flow** → **`miked_eohhs_VAbotflow` 1.0** (`flowLatestVersion: true` in export).
+4. After bot return, export currently goes to **Disconnect** only — add **Transfer to ACD → `support_miked`** when exit reason is escalation (or handle transfer inside the bot flow).
+5. **Publish** inbound **v2.0** and assign **781** to that published version.
+
+## 3. Escalation exit → `support_miked`
 
 On the **Call AVA** action, set outbound paths:
 
@@ -58,7 +76,7 @@ The AVA already calls **`create_escalation_handoff`** before escalation language
 
 Confirm (no rename required):
 
-- Queue name **`support_miked`** exists.
+- Queue **`support_miked`** / **`Support_MikeD`** — ID **`dc15ad2c-7917-413f-9a00-4f52df4d4602`** (same object; Genesys queue names are not case-sensitive).
 - At least one **user** or **routing profile** can receive transfers for rehearsal.
 - **Agent Workspace** is the answer surface for Copilot demo.
 
@@ -68,8 +86,8 @@ Optional: queue **wrap-up** / **in-queue** message — keep short; AVA already p
 
 | Mode | When |
 |------|------|
-| **TestReady** (current **6.0**) | Cicero, internal test calls, rehearsal if org allows TestReady on inbound |
-| **ProductionReady** | Live **781** in front of stakeholders — publish **6.0** (or later) with `testOnly: false` |
+| **TestReady** | Cicero / internal rehearsal |
+| **ProductionReady** (**11.0**) | **781** and Architect **Call Agentic Virtual Agent** — agent entity must show **Published** |
 
 If inbound calls do not reach the AVA, the org often requires **ProductionReady** on the version selected in Architect.
 
@@ -91,5 +109,5 @@ After publish:
 ## Related docs
 
 - [`eohhs-demo-spec.md`](../sdd/eohhs-demo-spec.md) — locked decisions Q7, Q10
-- [`phase2-ava-status.md`](phase2-ava-status.md) — AVA **6.0** + live actions
+- [`phase2-ava-status.md`](phase2-ava-status.md) — AVA **11.0** + live actions
 - [`genesys-naming-miked.md`](genesys-naming-miked.md) — `_miked` asset names

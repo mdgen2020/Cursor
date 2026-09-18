@@ -6,7 +6,7 @@
 |-------|--------|
 | **AVA name** | EOHHS MA Experience Orchestrator |
 | **Agent ID** | `96fe2bc6-7f11-41d5-8e6d-8a3ed20291b6` |
-| **Version** | **`7.0`** published **TestReady** — live Supabase + ID&V DOB fix (was 6.0) |
+| **Version** | **`9.0`** published **TestReady** — Supabase tools + **Miked_SharePT** knowledge (`search_eohhs_program_knowledge`) |
 | **Prior** | v3.0 mocks only; v5.0 draft failed (secure actions blocked by AVA) |
 | **Lifecycle slug** | `eohhs-ma-front-door` |
 

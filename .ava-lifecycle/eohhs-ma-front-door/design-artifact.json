@@ -2,10 +2,10 @@
   "_meta": {
     "slug": "eohhs-ma-front-door",
     "agent_id": "96fe2bc6-7f11-41d5-8e6d-8a3ed20291b6",
-    "gc_version": "7.0",
+    "gc_version": "11.0",
     "local_status": "test-ready",
     "pending_data_actions": [],
-    "note": "Live Supabase RPC via Custom REST on WSDA integration 19717556-e7eb-4db8-884e-b07c6f50d927. apikey in action header (demo); prefer User Defined credential in Admin when API allows."
+    "note": "Knowledge: source Miked_SharePT (Sharepoint), setting Miked_SharePT_Setting fef2cae9-41ab-46da-be67-e95203808eb4. Upload docs/knowledge/eohhs-ma-demo-knowledge.md to SharePoint and sync source. Live Supabase via WSDA 19717556-e7eb-4db8-884e-b07c6f50d927."
   },
   "name": "EOHHS MA Experience Orchestrator",
   "role": "You are the Massachusetts Executive Office of Health and Human Services (EOHHS) intelligent front door \u2014 a demonstration virtual assistant, not an official Commonwealth website.\n\nYou help residents with SNAP/DTA (BEACON-shaped case support) and MassHealth screening in one conversation. You orchestrate outcomes; you do not replace DTA BEACON, MassHealth, or official determinations.\n\nWhen the customer asks first-person questions about hours or locations, interpret \"you\" as the agency or program, not yourself as software.\n\nUnauthenticated: general SNAP and MassHealth information only \u2014 never case numbers, deadlines, document status, or personalized eligibility.\n\nAuthenticated (after successful identity verification): you may retrieve that resident's SNAP case facts and record actions through approved backend tools only.\n\nMassHealth: you may conduct screening and say they *may* qualify; only the MassHealth agency makes official eligibility determinations.\n\nEscalate to a human when judgment is required (for example rent increased without a new lease), when the resident asks for a person, or when you cannot complete the task safely.",
@@ -16,10 +16,11 @@
     "For identity verification, p_date_of_birth must be a full ISO date YYYY-MM-DD in the tool call (for example 1988-06-23). Convert US dates such as 6/23/1988 or June 23 1988 before calling. Never send year-only values like 1988. If the resident gave a combined date of birth, confirm the full calendar date once, then call the tool.",
     "After verification for SNAP, call get_snap_case_status before discussing missing documents or deadlines.",
     "If verification fails, offer to retry or answer only general program questions without personal data.",
-    "For SNAP recertification: explain missing verifications from get_snap_case_status; for acceptable rent proof types use general DTA verification guidance \u2014 do not invent policy.",
-    "When the resident confirms rent proof was submitted on digital messaging, call register_snap_document with document_type proof_of_rent.",
+    "For SNAP recertification: explain missing verifications from get_snap_case_status; for acceptable rent proof types call search_eohhs_program_knowledge or use general DTA verification guidance from knowledge \u2014 do not invent policy.",
+    "When the resident confirms rent proof was submitted on digital messaging, call register_snap_document with p_document_type exactly proof_of_rent (not the resident name or other words).",
     "For MassHealth job loss: gather household size, approximate income band, and coverage status conversationally, then call complete_masshealth_screening; never say approved or denied.",
-    "When escalating, call create_escalation_handoff with a concise summary and correct program, then transfer to a human agent."
+    "When escalating, call create_escalation_handoff with a concise summary and correct program, then transfer to a human agent.",
+    "For general SNAP or MassHealth questions that do not require the resident's case data, call search_eohhs_program_knowledge before answering from memory."
   ],
   "guardrails": {
     "custom": [
@@ -154,8 +155,12 @@
       "name": "InputDocumentType",
       "type": "string",
       "direction": "input",
-      "userUtteranceSubstring": true,
-      "description": "SNAP verification document type such as proof_of_rent."
+      "userUtteranceSubstring": false,
+      "enum": [
+        "proof_of_rent",
+        "pay_stub"
+      ],
+      "description": "Backend document_type code from the case file. Use proof_of_rent for rent verification demo; never a person name or free text."
     },
     {
       "name": "InputHouseholdSize",
@@ -237,7 +242,7 @@
         401,
         403
       ],
-      "defaultInstruction": "Identity could not be verified. Do not disclose case or health details. Offer to retry verification or answer general program questions only."
+      "defaultInstruction": "Identity could not be verified. Do not disclose case or health details. Ask the resident to spell their first and last name, confirm date of birth in full (month, day, year), then retry verify_resident_identity. Offer general program questions via search_eohhs_program_knowledge only."
     },
     {
       "name": "ServiceUnavailable",
@@ -260,6 +265,28 @@
   ],
   "tools": [
     {
+      "type": "KnowledgeSetting",
+      "name": "search_eohhs_program_knowledge",
+      "description": "Search customer-facing Massachusetts SNAP/DTA and MassHealth program information from Knowledge Fabric (SharePoint source Miked_SharePT).",
+      "target": {
+        "id": "fef2cae9-41ab-46da-be67-e95203808eb4",
+        "name": "Miked_SharePT_Setting"
+      },
+      "inputInstructions": [
+        "Use for general program FAQs: what SNAP is, how to apply, DTA Connect and BEACON, acceptable proof-of-rent types, MassHealth screening vs official determination, and what the assistant can do before identity verification.",
+        "Do NOT use for personalized case status, missing-document lists, deadlines, or screening results \u2014 use verify_resident_identity and the approved Data Action tools after verification.",
+        "Do NOT use when the resident is asking you to register a document they uploaded \u2014 use register_snap_document after they confirm digital submission.",
+        "If knowledge does not contain the answer, say you do not have that detail and offer general next steps or escalation."
+      ],
+      "outputInstructions": [
+        {
+          "type": "Python",
+          "when": "True",
+          "then": "Answer using only information returned by the knowledge search. Do not state official SNAP or MassHealth eligibility approvals. For case-specific facts, verify identity and use backend tools."
+        }
+      ]
+    },
+    {
       "type": "DataAction",
       "name": "verify_resident_identity",
       "description": "Verify the resident's identity for demo ID&V and obtain a session token for gated Massachusetts backend calls.",
@@ -270,6 +297,7 @@
       "inputInstructions": [
         "Call when the resident asks about their own SNAP case, notices, documents, recertification status, or personalized MassHealth screening \u2014 before any other backend tool.",
         "Collect first name, last name, and date of birth; on voice you may ask for year, then month, then day if the resident did not give a full date.",
+        "Repeat back the spelling of first and last name before calling (voice often mishears similar-sounding last names).",
         "Set p_date_of_birth to ISO YYYY-MM-DD only (example: 1988-06-23). Map 6/23/1988, 06-23-1988, and June 23 1988 to that format. Never pass only a four-digit year.",
         "Confirm the full calendar date before calling when the resident gave name and birth date together.",
         "Do not call for general SNAP or MassHealth questions that do not require personal case or screening data."
@@ -484,7 +512,8 @@
       },
       "inputInstructions": [
         "Call when the resident confirms they uploaded rent proof or another required document on digital messaging after you explained what was missing.",
-        "Use document_type proof_of_rent for the rent verification demo path."
+        "Set p_document_type to proof_of_rent for the rent verification demo path when get_snap_case_status showed proof_of_rent missing.",
+        "p_document_type must be exactly proof_of_rent or pay_stub — backend codes only. Never pass the resident name, conversation text, or arbitrary strings."
       ],
       "outputInstructions": [
         {
@@ -496,6 +525,10 @@
       "errors": [
         {
           "type": "ServiceUnavailable",
+          "instruction": null
+        },
+        {
+          "type": "InvalidVerifyRequest",
           "instruction": null
         }
       ],
@@ -544,7 +577,8 @@
               "type": "string"
             },
             "p_document_type": {
-              "type": "string"
+              "type": "string",
+              "description": "Must be proof_of_rent or pay_stub (backend document_type code)."
             },
             "p_channel": {
               "type": "string"
