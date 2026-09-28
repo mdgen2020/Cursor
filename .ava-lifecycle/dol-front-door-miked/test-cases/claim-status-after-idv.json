@@ -10,7 +10,7 @@
     ]
   },
   "x_eval": {
-    "persona": "Linus Turing, unemployed resident. Date of birth 1988-06-23. After verification his claim reference is INC0010123. He has not received his payment for the week ending September 6.",
+    "persona": "Linus Turing, unemployed resident. Date of birth 1988-06-23. After verification his claim reference is INC0010009. He has not received his payment for the week ending September 6.",
     "goal": "Learn why his unemployment payment is missing. Provide first name, last name, and date of birth when asked. Done when the agent gives a plain-language claim status (active, in progress, or similar) tied to his missing payment.",
     "turns": [
       {
@@ -19,7 +19,7 @@
       },
       {
         "source": "actor",
-        "note": "Cooperate with identity verification (Linus Turing, 1988-06-23). If asked for a claim or incident number, give 0010123 or INC0010123."
+        "note": "Cooperate with identity verification (Linus Turing, 1988-06-23). If asked for a claim or incident number, give 0010009 or INC0010009."
       }
     ],
     "reference_trajectory": [
@@ -36,7 +36,7 @@
       {
         "tool": "lookup_claim_status",
         "params": {
-          "sn_number": "INC0010123"
+          "sn_number": "INC0010009"
         },
         "match": "exact",
         "order": 2

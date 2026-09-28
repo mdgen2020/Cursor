@@ -1,0 +1,892 @@
+{
+  "target": "a9e0db74-1d91-4646-b509-3940f4cd90e3",
+  "outputPath": null,
+  "generatedAt": "2026-09-09T16:36:00Z",
+  "metadata": {
+    "agentId": "a9e0db74-1d91-4646-b509-3940f4cd90e3",
+    "agentName": "miked_RMV_appointment",
+    "channel": "voice",
+    "versionId": "20.0",
+    "stats": {
+      "toolCount": 2,
+      "typeCount": 10,
+      "guardrailCount": 2,
+      "instructionCount": 9,
+      "eventTypes": [
+        "Guardrails",
+        "UserExit",
+        "Escalation"
+      ],
+      "hasKnowledge": false,
+      "hasStartContext": true,
+      "hasEndContext": false,
+      "estimatedSpecTokens": null
+    },
+    "chaptersConsulted": [
+      "quick-guide",
+      "02-collecting-multiple-inputs",
+      "04-integrating-knowledge-bases",
+      "07-scope-containment",
+      "08-escalating",
+      "09a-narrow-tool-types",
+      "09b-type-provenance",
+      "09c-structural-flow-gates",
+      "09d-instruction-locality",
+      "09e-prompt-noise"
+    ],
+    "analysisScope": "full",
+    "definitionSource": "published",
+    "definitionTokenEstimate": null
+  },
+  "errors": [
+    {
+      "category": "Tools",
+      "finding": "The create tool instructs the agent to generate the confirmation code and accepts ConfCode as a User-sourced input.",
+      "evidence": "Appoint_create description/inputInstructions: 'Generate a random 6-character confirmation code (e.g., MIKE01)'; inputs include ConfCode with source User.",
+      "fix": "Remove ConfCode from agent inputs. Have the data action generate and return the code in BookingResponse (add ConfCode to output). Map the returned code into the spoken response via outputInstructions.",
+      "source": {
+        "document": "quick-guide.md",
+        "section": "Tools",
+        "signalTable": null,
+        "matchedSignal": null,
+        "chapter": null,
+        "antiPatternId": null
+      },
+      "severity": "error",
+      "findingType": "issue",
+      "id": "ERR-001",
+      "codeSnippets": null,
+      "affectedEntities": [
+        {
+          "kind": "tool",
+          "name": "Appoint_create",
+          "index": null,
+          "text": null,
+          "jsonPath": null,
+          "field": "inputs",
+          "currentValue": null,
+          "expectedValue": null
+        }
+      ],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": {
+        "tokenCostPerTurn": null,
+        "securityRisk": "medium",
+        "reliability": "Agent can invent duplicate or invalid codes; codes are not guaranteed unique or persisted correctly",
+        "affectedTurnPercentage": null,
+        "specTokensSaved": null,
+        "copyTokensPerCall": null,
+        "affectedToolCalls": [],
+        "latencyImpact": null,
+        "uxImpact": "blocking"
+      },
+      "suggestedTests": [],
+      "effort": "medium",
+      "estimatedMinutes": 45,
+      "fixType": "restructure",
+      "filesAffected": []
+    },
+    {
+      "category": "Agent",
+      "finding": "Global instructions reference tool names that do not exist in the definition.",
+      "evidence": "instructions[] says 'use the create_appointment tool' and 'use the verify_appointment tool', but tools are named Appoint_create and appointment_verify.",
+      "fix": "Align names: either rename tools to create_appointment / verify_appointment or update every instruction to match the published tool names exactly.",
+      "source": {
+        "document": "09d-instruction-locality.md",
+        "section": null,
+        "signalTable": null,
+        "matchedSignal": null,
+        "chapter": 9,
+        "antiPatternId": null
+      },
+      "severity": "error",
+      "findingType": "issue",
+      "id": "ERR-002",
+      "codeSnippets": null,
+      "affectedEntities": [
+        {
+          "kind": "instruction",
+          "name": null,
+          "index": null,
+          "text": null,
+          "jsonPath": null,
+          "field": null,
+          "currentValue": null,
+          "expectedValue": null
+        },
+        {
+          "kind": "tool",
+          "name": "Appoint_create",
+          "index": null,
+          "text": null,
+          "jsonPath": null,
+          "field": null,
+          "currentValue": null,
+          "expectedValue": null
+        },
+        {
+          "kind": "tool",
+          "name": "appointment_verify",
+          "index": null,
+          "text": null,
+          "jsonPath": null,
+          "field": null,
+          "currentValue": null,
+          "expectedValue": null
+        }
+      ],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": {
+        "tokenCostPerTurn": null,
+        "securityRisk": null,
+        "reliability": "Model may fail to invoke the correct tool or hallucinate tool names",
+        "affectedTurnPercentage": null,
+        "specTokensSaved": null,
+        "copyTokensPerCall": null,
+        "affectedToolCalls": [],
+        "latencyImpact": null,
+        "uxImpact": "blocking"
+      },
+      "suggestedTests": [],
+      "effort": "small",
+      "estimatedMinutes": 15,
+      "fixType": "rephrase",
+      "filesAffected": []
+    },
+    {
+      "category": "Guardrails",
+      "finding": "Custom guardrails define normal agent behavior and scope rules instead of blocking prohibited customer inputs.",
+      "evidence": "guardrails.custom[0]: 'Never invent or guess a confirmationId...' (output policy). guardrails.custom[1]: 'Only assist with scheduling or verifying appointments...' (scope steering).",
+      "fix": "Move scope and confirmation-ID policy to role/guidelines and tool outputInstructions. Reserve guardrails for input attacks (jailbreak, prompt reveal) and domain blocks (e.g., 'Block requests for legal advice').",
+      "source": {
+        "document": "quick-guide.md",
+        "section": "Guardrails",
+        "signalTable": null,
+        "matchedSignal": null,
+        "chapter": null,
+        "antiPatternId": null
+      },
+      "severity": "error",
+      "findingType": "issue",
+      "id": "ERR-003",
+      "codeSnippets": null,
+      "affectedEntities": [
+        {
+          "kind": "guardrail",
+          "name": null,
+          "index": 0,
+          "text": null,
+          "jsonPath": null,
+          "field": null,
+          "currentValue": null,
+          "expectedValue": null
+        },
+        {
+          "kind": "guardrail",
+          "name": null,
+          "index": 1,
+          "text": null,
+          "jsonPath": null,
+          "field": null,
+          "currentValue": null,
+          "expectedValue": null
+        }
+      ],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": {
+        "tokenCostPerTurn": null,
+        "securityRisk": null,
+        "reliability": "Guardrails react only to matching inputs; they do not reliably enforce agent output or general scope",
+        "affectedTurnPercentage": null,
+        "specTokensSaved": null,
+        "copyTokensPerCall": null,
+        "affectedToolCalls": [],
+        "latencyImpact": null,
+        "uxImpact": "degraded"
+      },
+      "suggestedTests": [],
+      "effort": "small",
+      "estimatedMinutes": 20,
+      "fixType": "move_content",
+      "filesAffected": []
+    },
+    {
+      "category": "Red flag",
+      "finding": "Role contains a procedural greeting script and turn-by-turn dialog flow.",
+      "evidence": "role: 'Greet the user with Hello first_name if it is populated' and 'Greet the user with \"I can help with scheduling...\"'",
+      "fix": "Keep role to identity, capabilities, exclusions, and customer term. Move greeting/opening to a single guideline or handle in Architect.",
+      "source": {
+        "document": "quick-guide.md",
+        "section": "Agent / Red flags",
+        "signalTable": null,
+        "matchedSignal": null,
+        "chapter": null,
+        "antiPatternId": null
+      },
+      "severity": "error",
+      "findingType": "issue",
+      "id": "ERR-004",
+      "codeSnippets": null,
+      "affectedEntities": [
+        {
+          "kind": "role",
+          "name": null,
+          "index": null,
+          "text": null,
+          "jsonPath": null,
+          "field": null,
+          "currentValue": null,
+          "expectedValue": null
+        }
+      ],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": {
+        "tokenCostPerTurn": null,
+        "securityRisk": null,
+        "reliability": "Rigid scripted greetings fight dynamic conversation and duplicate Architect logic",
+        "affectedTurnPercentage": null,
+        "specTokensSaved": null,
+        "copyTokensPerCall": null,
+        "affectedToolCalls": [],
+        "latencyImpact": null,
+        "uxImpact": "degraded"
+      },
+      "suggestedTests": [],
+      "effort": "small",
+      "estimatedMinutes": 15,
+      "fixType": "move_content",
+      "filesAffected": []
+    },
+    {
+      "category": "Knowledge",
+      "finding": "Guardrail promises business knowledge answers but no KnowledgeBase or KnowledgeSetting tool is connected.",
+      "evidence": "guardrails.custom[1] references 'business knowledge source'; tools[] contains only two DataAction tools.",
+      "fix": "Add a KnowledgeSetting or KnowledgeBase tool for RMV FAQs (hours, locations, required documents) or remove the knowledge promise from guardrails and role.",
+      "source": {
+        "document": "04-integrating-knowledge-bases.md",
+        "section": null,
+        "signalTable": null,
+        "matchedSignal": null,
+        "chapter": 4,
+        "antiPatternId": null
+      },
+      "severity": "error",
+      "findingType": "issue",
+      "id": "ERR-005",
+      "codeSnippets": null,
+      "affectedEntities": [
+        {
+          "kind": "guardrail",
+          "name": null,
+          "index": 1,
+          "text": null,
+          "jsonPath": null,
+          "field": null,
+          "currentValue": null,
+          "expectedValue": null
+        }
+      ],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": {
+        "tokenCostPerTurn": null,
+        "securityRisk": null,
+        "reliability": "Agent cannot fulfill stated capability; may hallucinate business facts",
+        "affectedTurnPercentage": null,
+        "specTokensSaved": null,
+        "copyTokensPerCall": null,
+        "affectedToolCalls": [],
+        "latencyImpact": null,
+        "uxImpact": "blocking"
+      },
+      "suggestedTests": [],
+      "effort": "medium",
+      "estimatedMinutes": 60,
+      "fixType": "add_field",
+      "filesAffected": []
+    },
+    {
+      "category": "Types",
+      "finding": "Output struct confcode_output uses bare string primitives for semantic fields instead of aliased types.",
+      "evidence": "confcode_output properties GuestName, ApptDetails, PhoneNumber all type string with no semantic aliases.",
+      "fix": "Declare output aliases (e.g., GuestNameOut, ApptDetailsOut, PhoneNumberOut) and reference them in the struct per tool checklist.",
+      "source": {
+        "document": "quick-guide.md",
+        "section": "Tools checklist",
+        "signalTable": null,
+        "matchedSignal": null,
+        "chapter": null,
+        "antiPatternId": null
+      },
+      "severity": "error",
+      "findingType": "issue",
+      "id": "ERR-006",
+      "codeSnippets": null,
+      "affectedEntities": [
+        {
+          "kind": "type",
+          "name": "confcode_output",
+          "index": null,
+          "text": null,
+          "jsonPath": null,
+          "field": null,
+          "currentValue": null,
+          "expectedValue": null
+        }
+      ],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": "small",
+      "estimatedMinutes": 20,
+      "fixType": "split_type",
+      "filesAffected": []
+    }
+  ],
+  "warnings": [
+    {
+      "category": "Agent",
+      "finding": "Tool-specific routing and post-success behavior live in global instructions instead of on the tools.",
+      "evidence": "instructions include verify/create flows, ConfCode retry, cancel/reschedule transfer, and exit-after-success — none tied to tool outputInstructions/inputValidation.",
+      "fix": "Move verify flow to appointment_verify inputInstructions; move post-booking speech to Appoint_create outputInstructions; move escalation-on-failure to appointment_verify outputInstructions.",
+      "source": {
+        "document": "09d-instruction-locality.md",
+        "section": null,
+        "signalTable": null,
+        "matchedSignal": null,
+        "chapter": 9,
+        "antiPatternId": null
+      },
+      "severity": "warning",
+      "findingType": "issue",
+      "id": "WARN-001",
+      "codeSnippets": null,
+      "affectedEntities": [
+        {
+          "kind": "instruction",
+          "name": null,
+          "index": null,
+          "text": null,
+          "jsonPath": null,
+          "field": null,
+          "currentValue": null,
+          "expectedValue": null
+        }
+      ],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": "medium",
+      "estimatedMinutes": 40,
+      "fixType": "move_content",
+      "filesAffected": []
+    },
+    {
+      "category": "Types",
+      "finding": "Confirmation code input type lacks verbatim-capture provenance.",
+      "evidence": "ConfCode_verify_input has direction input but userUtteranceSubstring is false and no format description.",
+      "fix": "Set userUtteranceSubstring: true on ConfCode_verify_input and add description: '6-character code spoken verbatim by the caller.'",
+      "source": {
+        "document": "09b-type-provenance-and-copying.md",
+        "section": null,
+        "signalTable": null,
+        "matchedSignal": null,
+        "chapter": 9,
+        "antiPatternId": null
+      },
+      "severity": "warning",
+      "findingType": "issue",
+      "id": "WARN-002",
+      "codeSnippets": null,
+      "affectedEntities": [
+        {
+          "kind": "type",
+          "name": "ConfCode_verify_input",
+          "index": null,
+          "text": null,
+          "jsonPath": null,
+          "field": null,
+          "currentValue": null,
+          "expectedValue": null
+        }
+      ],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": "trivial",
+      "estimatedMinutes": 5,
+      "fixType": "add_field",
+      "filesAffected": []
+    },
+    {
+      "category": "Tools",
+      "finding": "Overlapping outputInstructions all use when True, causing redundant always-on guidance and a typo.",
+      "evidence": "Appoint_create has four outputInstructions with when True including 'do not continue unless the status i Success'; appointment_verify has five similar entries.",
+      "fix": "Consolidate to one or two outputInstructions per tool with clear success vs failure branches in the then text.",
+      "source": {
+        "document": "04-integrating-knowledge-bases.md",
+        "section": "outputInstructions",
+        "signalTable": null,
+        "matchedSignal": null,
+        "chapter": null,
+        "antiPatternId": null
+      },
+      "severity": "warning",
+      "findingType": "issue",
+      "id": "WARN-003",
+      "codeSnippets": null,
+      "affectedEntities": [
+        {
+          "kind": "tool",
+          "name": "Appoint_create",
+          "index": null,
+          "text": null,
+          "jsonPath": null,
+          "field": null,
+          "currentValue": null,
+          "expectedValue": null
+        },
+        {
+          "kind": "tool",
+          "name": "appointment_verify",
+          "index": null,
+          "text": null,
+          "jsonPath": null,
+          "field": null,
+          "currentValue": null,
+          "expectedValue": null
+        }
+      ],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": "small",
+      "estimatedMinutes": 20,
+      "fixType": "rephrase",
+      "filesAffected": []
+    },
+    {
+      "category": "Tools",
+      "finding": "Tool names are inconsistent and not action-oriented.",
+      "evidence": "Appoint_create vs appointment_verify — mixed casing and prefix patterns; descriptions are minimal ('use this tool to verify an appointment').",
+      "fix": "Rename to create_appointment and verify_appointment with one-sentence descriptions of when to call and what is returned.",
+      "source": {
+        "document": "quick-guide.md",
+        "section": "Tools",
+        "signalTable": null,
+        "matchedSignal": null,
+        "chapter": null,
+        "antiPatternId": null
+      },
+      "severity": "warning",
+      "findingType": "issue",
+      "id": "WARN-004",
+      "codeSnippets": null,
+      "affectedEntities": [],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": "small",
+      "estimatedMinutes": 15,
+      "fixType": "rephrase",
+      "filesAffected": []
+    },
+    {
+      "category": "Configuration",
+      "finding": "Start context first_name is referenced in role but not consumed by any tool via External source.",
+      "evidence": "InputData defines first_name, last_name, phone_number; role greets with first_name; no tool input uses source External.",
+      "fix": "Either wire phone_number via External with fallbackToUser on Appoint_create, or remove unused start-context fields and greeting logic.",
+      "source": {
+        "document": "quick-guide.md",
+        "section": "Start Context checklist",
+        "signalTable": null,
+        "matchedSignal": null,
+        "chapter": null,
+        "antiPatternId": null
+      },
+      "severity": "warning",
+      "findingType": "issue",
+      "id": "WARN-005",
+      "codeSnippets": null,
+      "affectedEntities": [
+        {
+          "kind": "startContext",
+          "name": "InputData",
+          "index": null,
+          "text": null,
+          "jsonPath": null,
+          "field": null,
+          "currentValue": null,
+          "expectedValue": null
+        }
+      ],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": "small",
+      "estimatedMinutes": 25,
+      "fixType": "change_source",
+      "filesAffected": []
+    },
+    {
+      "category": "Tools",
+      "finding": "Neither data action declares business error types; verify relies on 'Not Found' string values in output fields.",
+      "evidence": "errors: null on both tools; verify outputInstructions branch on GuestName = 'Not Found'.",
+      "fix": "Add errors[] with AppointmentNotFound on verify and BookingFailed on create; return record_found boolean from backend instead of sentinel strings.",
+      "source": {
+        "document": "quick-guide.md",
+        "section": "Tools",
+        "signalTable": null,
+        "matchedSignal": null,
+        "chapter": null,
+        "antiPatternId": null
+      },
+      "severity": "warning",
+      "findingType": "issue",
+      "id": "WARN-006",
+      "codeSnippets": null,
+      "affectedEntities": [],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": "medium",
+      "estimatedMinutes": 45,
+      "fixType": "add_field",
+      "filesAffected": []
+    },
+    {
+      "category": "Agent",
+      "finding": "Dummy example confirmation code in tool text may be copied into live bookings.",
+      "evidence": "Appoint_create description and inputInstructions include example 'MIKE01'.",
+      "fix": "Replace with format template: '6 uppercase alphanumeric characters' without a concrete example.",
+      "source": {
+        "document": "09e-prompt-noise-and-format-examples.md",
+        "section": null,
+        "signalTable": null,
+        "matchedSignal": null,
+        "chapter": 9,
+        "antiPatternId": null
+      },
+      "severity": "warning",
+      "findingType": "issue",
+      "id": "WARN-007",
+      "codeSnippets": null,
+      "affectedEntities": [],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": "trivial",
+      "estimatedMinutes": 5,
+      "fixType": "rephrase",
+      "filesAffected": []
+    },
+    {
+      "category": "Tools",
+      "finding": "Create tool description duplicates collection steps already in inputInstructions.",
+      "evidence": "Appoint_create description repeats the same collect-name/time/phone/generate-code text as inputInstructions[0].",
+      "fix": "Keep collection steps only in inputInstructions; shorten description to business purpose and return shape.",
+      "source": {
+        "document": "09d-instruction-locality.md",
+        "section": null,
+        "signalTable": null,
+        "matchedSignal": null,
+        "chapter": 9,
+        "antiPatternId": null
+      },
+      "severity": "warning",
+      "findingType": "issue",
+      "id": "WARN-008",
+      "codeSnippets": null,
+      "affectedEntities": [],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": "trivial",
+      "estimatedMinutes": 10,
+      "fixType": "move_content",
+      "filesAffected": []
+    }
+  ],
+  "info": [
+    {
+      "category": "Configuration",
+      "finding": "Comfort statement is enabled for tool wait turns.",
+      "evidence": "settings.comfortStatement.enabled: true",
+      "fix": "Keep enabled; ensure wording stays short per Configuration guidance.",
+      "source": "quick-guide.md",
+      "severity": "info",
+      "findingType": "praise",
+      "id": "INFO-001",
+      "codeSnippets": null,
+      "affectedEntities": [],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": null,
+      "estimatedMinutes": null,
+      "fixType": null,
+      "filesAffected": []
+    },
+    {
+      "category": "Agent",
+      "finding": "Role includes helpful business-location disambiguation for first-person questions.",
+      "evidence": "role explains interpreting 'you' as the RMV office, not the virtual agent.",
+      "fix": "Retain this pattern; it reduces common voice misinterpretation.",
+      "source": "quick-guide.md",
+      "severity": "info",
+      "findingType": "praise",
+      "id": "INFO-002",
+      "codeSnippets": null,
+      "affectedEntities": [],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": null,
+      "estimatedMinutes": null,
+      "fixType": null,
+      "filesAffected": []
+    },
+    {
+      "category": "Configuration",
+      "finding": "Escalation, UserExit, and Guardrails events are configured with custom messages.",
+      "evidence": "events[] includes all three types with violationThreshold 3.",
+      "fix": "No change required; consider pairing escalation instructions with built-in escalate_to_human_agent per chapter 08.",
+      "source": {
+        "document": "08-escalating-to-a-human-agent.md",
+        "section": null,
+        "signalTable": null,
+        "matchedSignal": null,
+        "chapter": 8,
+        "antiPatternId": null
+      },
+      "severity": "info",
+      "findingType": "opportunity",
+      "id": "INFO-003",
+      "codeSnippets": null,
+      "affectedEntities": [],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": null,
+      "estimatedMinutes": null,
+      "fixType": null,
+      "filesAffected": []
+    }
+  ],
+  "positives": [
+    {
+      "category": "Agent",
+      "finding": "Role states explicit capabilities and exclusions including rescheduling.",
+      "evidence": "role lists appointment scheduling, verification, and excludes rescheduling and off-topic requests.",
+      "fix": "Keep; strengthen with positive grounding for knowledge once KB is attached.",
+      "source": "quick-guide.md",
+      "severity": "warning",
+      "findingType": "praise",
+      "id": "POS-001",
+      "codeSnippets": null,
+      "affectedEntities": [],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": null,
+      "estimatedMinutes": null,
+      "fixType": null,
+      "filesAffected": []
+    },
+    {
+      "category": "Agent",
+      "finding": "One-question-per-turn guideline supports voice-friendly collection.",
+      "evidence": "instructions: 'Ask for one piece of information per turn.'",
+      "fix": "Keep; aligns with voice best practices.",
+      "source": "quick-guide.md",
+      "severity": "warning",
+      "findingType": "praise",
+      "id": "POS-002",
+      "codeSnippets": null,
+      "affectedEntities": [],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": null,
+      "estimatedMinutes": null,
+      "fixType": null,
+      "filesAffected": []
+    },
+    {
+      "category": "Tools",
+      "finding": "Create tool output is compact (Status only).",
+      "evidence": "BookingResponse contains only Status string.",
+      "fix": "Extend output with ConfCode once backend generates it.",
+      "source": {
+        "document": "09a-narrow-tool-types.md",
+        "section": null,
+        "signalTable": null,
+        "matchedSignal": null,
+        "chapter": 9,
+        "antiPatternId": null
+      },
+      "severity": "warning",
+      "findingType": "praise",
+      "id": "POS-003",
+      "codeSnippets": null,
+      "affectedEntities": [],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": null,
+      "estimatedMinutes": null,
+      "fixType": null,
+      "filesAffected": []
+    }
+  ],
+  "changeSuggestions": [
+    {
+      "priority": 1,
+      "text": "Move confirmation code generation to the data action: remove ConfCode user input, return ConfCode in BookingResponse, and speak it from tool outputInstructions.",
+      "effort": "medium",
+      "estimatedMinutes": 45,
+      "id": "CS-001",
+      "dependsOn": [],
+      "findingIds": [
+        "ERR-001",
+        "WARN-007"
+      ],
+      "autoApplicable": null,
+      "category": "Tools",
+      "severityLabel": "CRITICAL",
+      "fixType": "restructure"
+    },
+    {
+      "priority": 2,
+      "text": "Fix tool name drift: rename tools to create_appointment / verify_appointment and update all instructions to match.",
+      "effort": "small",
+      "estimatedMinutes": 15,
+      "id": "CS-002",
+      "dependsOn": [],
+      "findingIds": [
+        "ERR-002",
+        "WARN-004"
+      ],
+      "autoApplicable": null,
+      "category": "Agent",
+      "severityLabel": "CRITICAL",
+      "fixType": "rephrase"
+    },
+    {
+      "priority": 3,
+      "text": "Add a KnowledgeSetting tool for RMV business FAQs or remove knowledge promises from guardrails.",
+      "effort": "medium",
+      "estimatedMinutes": 60,
+      "id": "CS-003",
+      "dependsOn": [],
+      "findingIds": [
+        "ERR-005"
+      ],
+      "autoApplicable": null,
+      "category": "Knowledge",
+      "severityLabel": "HIGH",
+      "fixType": "add_field"
+    },
+    {
+      "priority": 4,
+      "text": "Relocate guardrail behavior rules to role/guidelines and tool outputInstructions; keep guardrails for input blocking only.",
+      "effort": "small",
+      "estimatedMinutes": 20,
+      "id": "CS-004",
+      "dependsOn": [],
+      "findingIds": [
+        "ERR-003"
+      ],
+      "autoApplicable": null,
+      "category": "Guardrails",
+      "severityLabel": "HIGH",
+      "fixType": "move_content"
+    },
+    {
+      "priority": 5,
+      "text": "Strip procedural greeting script from role; move tool flows from global instructions to per-tool instructions.",
+      "effort": "medium",
+      "estimatedMinutes": 55,
+      "id": "CS-005",
+      "dependsOn": [],
+      "findingIds": [
+        "ERR-004",
+        "WARN-001"
+      ],
+      "autoApplicable": null,
+      "category": "Agent",
+      "severityLabel": "HIGH",
+      "fixType": "move_content"
+    }
+  ],
+  "summary": {
+    "overall": "Fix errors first",
+    "prose": "miked_RMV_appointment has a clear RMV scheduling scope and sensible voice collection rules, but three structural issues undermine reliability: the agent is told to invent confirmation codes (a backend responsibility), global instructions reference tool names that do not exist, and a guardrail promises knowledge answers without a connected KB. Fixing code generation in the data action, aligning tool names, and either adding knowledge or narrowing scope will materially improve booking integrity. Secondary wins come from moving tool-specific rules out of global instructions/guardrails, adding verbatim capture on ConfCode, and declaring proper error types instead of 'Not Found' sentinel strings.",
+    "errorCount": 6,
+    "warningCount": 8,
+    "infoCount": 3,
+    "positiveCount": 3,
+    "topPriorities": [
+      "Stop agent-generated confirmation codes — return ConfCode from the create data action instead",
+      "Align tool names (create_appointment / verify_appointment) with every instruction reference",
+      "Add a knowledge source for RMV business FAQs or remove that capability from guardrails"
+    ],
+    "estimatedTotalMinutes": 200
+  },
+  "testCoverage": {
+    "hasExistingTests": false,
+    "testSetId": null,
+    "gaps": [
+      "No local evaluation scenarios under .ava-lifecycle",
+      "No test for successful booking with backend-generated ConfCode",
+      "No test for invalid/not-found confirmation code",
+      "No test for cancel/reschedule escalation path",
+      "No test for business FAQ routing once knowledge is added"
+    ],
+    "suggestedTestCount": 5
+  },
+  "overall": null,
+  "errorCount": 6,
+  "warningCount": 8,
+  "infoCount": 3,
+  "positiveCount": 3
+}

@@ -1,0 +1,762 @@
+{
+  "target": "178b91ff-cae8-4b48-be5a-61a56b7ade51",
+  "outputPath": null,
+  "generatedAt": "2026-09-17T15:25:00Z",
+  "metadata": {
+    "agentId": "178b91ff-cae8-4b48-be5a-61a56b7ade51",
+    "agentName": "DLI_appointment_miked",
+    "channel": "voice",
+    "versionId": "11.0 (ProductionReady); saved 12.0 Draft",
+    "stats": {
+      "toolCount": 5,
+      "typeCount": 24,
+      "guardrailCount": 3,
+      "instructionCount": 15,
+      "eventTypes": [
+        "Guardrails",
+        "UserExit",
+        "Escalation"
+      ],
+      "hasKnowledge": true,
+      "hasStartContext": true,
+      "hasEndContext": true,
+      "estimatedSpecTokens": null
+    },
+    "chaptersConsulted": [
+      "03-executing-multi-step-flows",
+      "04-integrating-knowledge-bases",
+      "07-keeping-the-agent-on-topic-scope-containment-and-guardrails",
+      "08-escalating-to-a-human-agent",
+      "09a-narrow-tool-types",
+      "09b-type-provenance-and-copying",
+      "09c-structural-flow-gates",
+      "09d-instruction-locality",
+      "09e-prompt-noise-and-format-examples"
+    ],
+    "analysisScope": "full",
+    "definitionSource": "published",
+    "definitionTokenEstimate": null
+  },
+  "errors": [
+    {
+      "category": "Tools",
+      "finding": "Appointment booking chain (Code_Generator → create_appointment) is not structurally gated: confirmation_number is collected as a User-sourced ConfirmationNumber instead of ToolOutput from conf_code.securityCode.",
+      "evidence": "create_appointment.inputs[confirmation_number] has source User and type ConfirmationNumber (direction input). Code_Generator output is conf_code with securityCode. Prose in Code_Generator inputInstructions says to pass securityCode immediately, but the type graph allows create_appointment without a prior Code_Generator call.",
+      "fix": "Add an output-direction alias (e.g., GeneratedConfirmationCode) on conf_code.securityCode and map create_appointment.confirmation_number to source ToolOutput with mapping [\"conf_code\", \"securityCode\"]. Remove User collection of confirmation_number.",
+      "source": {
+        "document": "cookbook/09c-structural-flow-gates.md",
+        "section": "Prose ordering instead of type ordering",
+        "signalTable": null,
+        "matchedSignal": null,
+        "chapter": null,
+        "antiPatternId": "prose-ordering"
+      },
+      "severity": "error",
+      "findingType": "issue",
+      "id": "ERR-001",
+      "codeSnippets": null,
+      "affectedEntities": [
+        {
+          "kind": "tool",
+          "name": "Code_Generator",
+          "index": null,
+          "text": null,
+          "jsonPath": null,
+          "field": null,
+          "currentValue": null,
+          "expectedValue": null
+        },
+        {
+          "kind": "tool",
+          "name": "create_appointment",
+          "index": null,
+          "text": null,
+          "jsonPath": null,
+          "field": "inputs.confirmation_number",
+          "currentValue": null,
+          "expectedValue": null
+        }
+      ],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": {
+        "tokenCostPerTurn": null,
+        "securityRisk": null,
+        "reliability": "Model may invent confirmation numbers, skip Code_Generator, or present codes before create_appointment succeeds despite prose rules.",
+        "affectedTurnPercentage": null,
+        "specTokensSaved": null,
+        "copyTokensPerCall": null,
+        "affectedToolCalls": [
+          "Code_Generator",
+          "create_appointment"
+        ],
+        "latencyImpact": null,
+        "uxImpact": "blocking"
+      },
+      "suggestedTests": [
+        {
+          "description": "Book appointment end-to-end; trajectory must include Code_Generator before create_appointment with matching confirmation in response.",
+          "type": "scripted",
+          "trajectory": [
+            {
+              "role": "user",
+              "text": "I need an appointment next Tuesday at 10am at the Hartford office for unemployment questions."
+            },
+            {
+              "role": "assistant",
+              "text": "(collects fields, calls Code_Generator then create_appointment)"
+            }
+          ]
+        }
+      ],
+      "effort": "medium",
+      "estimatedMinutes": 45,
+      "fixType": "restructure",
+      "filesAffected": []
+    },
+    {
+      "category": "Agent",
+      "finding": "Role promises change and cancel appointments, but the tool surface only supports create and lookup—no reschedule, update, or cancel Data Actions.",
+      "evidence": "role: \"help residents schedule, verify, change, and cancel appointments\" — tools: create_appointment, check_appt only; no cancel/update tools.",
+      "fix": "Either narrow the role to schedule and verify (lookup) only, or add backend tools (cancel_appointment, reschedule_appointment) with typed inputs/outputs and wire instructions locally on those tools.",
+      "source": {
+        "document": "cookbook/07-keeping-the-agent-on-topic-scope-containment-and-guardrails.md",
+        "section": "Scope via role",
+        "signalTable": null,
+        "matchedSignal": null,
+        "chapter": null,
+        "antiPatternId": "scope-tool-mismatch"
+      },
+      "severity": "error",
+      "findingType": "issue",
+      "id": "ERR-002",
+      "codeSnippets": null,
+      "affectedEntities": [
+        {
+          "kind": "role",
+          "name": null,
+          "index": null,
+          "text": null,
+          "jsonPath": null,
+          "field": "role",
+          "currentValue": null,
+          "expectedValue": null
+        }
+      ],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": {
+        "tokenCostPerTurn": null,
+        "securityRisk": null,
+        "reliability": "Residents asking to cancel or change will get improvised answers or failed flows.",
+        "affectedTurnPercentage": null,
+        "specTokensSaved": null,
+        "copyTokensPerCall": null,
+        "affectedToolCalls": [],
+        "latencyImpact": null,
+        "uxImpact": "degraded"
+      },
+      "suggestedTests": [],
+      "effort": "large",
+      "estimatedMinutes": 180,
+      "fixType": "restructure",
+      "filesAffected": []
+    },
+    {
+      "category": "Agent",
+      "finding": "Opening behavior in role contains conflicting scripts for call_reason and caller_name (duplicate blocks that disagree on whether to ask \"How can I help?\").",
+      "evidence": "Early block: when call_reason provided, do NOT ask \"How can I help?\". Later block: if caller_name provided, greet by name and ask \"How can I assist you today?\" without conditioning on call_reason. Third block repeats warm greeting rules.",
+      "fix": "Collapse opening into one decision tree in start-context configuration or a short role paragraph: (1) greet with name if present, (2) if call_reason present acknowledge and route, else ask how to help, (3) if name missing collect name first. Remove duplicate paragraphs and long worked examples from role.",
+      "source": {
+        "document": "quick-guide",
+        "section": "Role — procedural flow",
+        "signalTable": null,
+        "matchedSignal": null,
+        "chapter": null,
+        "antiPatternId": null
+      },
+      "severity": "error",
+      "findingType": "issue",
+      "id": "ERR-003",
+      "codeSnippets": null,
+      "affectedEntities": [
+        {
+          "kind": "role",
+          "name": null,
+          "index": null,
+          "text": null,
+          "jsonPath": null,
+          "field": "role",
+          "currentValue": null,
+          "expectedValue": null
+        },
+        {
+          "kind": "startContext",
+          "name": "InputData",
+          "index": null,
+          "text": null,
+          "jsonPath": null,
+          "field": null,
+          "currentValue": null,
+          "expectedValue": null
+        }
+      ],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": {
+        "tokenCostPerTurn": null,
+        "securityRisk": null,
+        "reliability": null,
+        "affectedTurnPercentage": "first turn",
+        "specTokensSaved": null,
+        "copyTokensPerCall": null,
+        "affectedToolCalls": [],
+        "latencyImpact": null,
+        "uxImpact": "degraded"
+      },
+      "suggestedTests": [],
+      "effort": "medium",
+      "estimatedMinutes": 60,
+      "fixType": "restructure",
+      "filesAffected": []
+    }
+  ],
+  "warnings": [
+    {
+      "category": "Agent",
+      "finding": "Role is excessively long and procedural (multi-paragraph call_reason scripts, examples, repeated greeting rules)—violates instruction locality and adds per-turn token cost.",
+      "evidence": "Role exceeds ~1.5k words with embedded dialog examples and duplicates guidelines already in instructions[] (claim lookup, knowledge grounding, resident term).",
+      "fix": "Trim role to brand, DOL scope, resident term, high-level capabilities/exclusions, and start-context one-liner; move call_reason/caller_name branching to Architect or a compact start-context instruction block.",
+      "source": {
+        "document": "cookbook/09e-prompt-noise-and-format-examples.md",
+        "section": "Verbose role",
+        "signalTable": null,
+        "matchedSignal": null,
+        "chapter": null,
+        "antiPatternId": null
+      },
+      "severity": "warning",
+      "findingType": "issue",
+      "id": "WARN-001",
+      "codeSnippets": null,
+      "affectedEntities": [],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": {
+        "tokenCostPerTurn": 400,
+        "securityRisk": null,
+        "reliability": null,
+        "affectedTurnPercentage": null,
+        "specTokensSaved": 800,
+        "copyTokensPerCall": null,
+        "affectedToolCalls": [],
+        "latencyImpact": null,
+        "uxImpact": null
+      },
+      "suggestedTests": [],
+      "effort": "small",
+      "estimatedMinutes": 30,
+      "fixType": "move_content",
+      "filesAffected": []
+    },
+    {
+      "category": "Tools",
+      "finding": "check_appt pushes parallel-array indexing logic to the model instead of returning a single matched appointment record from the data action.",
+      "evidence": "outputInstructions instruct: find index where entities_key matches confirmation_number, then read entities_appt_date[index], etc. Output schema exposes seven parallel string arrays.",
+      "fix": "Change miked_getappt_generic_v4 to return one object with record_found flag and flat fields (or a single array item); replace array-index outputInstructions with success/no-result templates.",
+      "source": {
+        "document": "quick-guide",
+        "section": "Tools — raw API payloads / agent logic",
+        "signalTable": null,
+        "matchedSignal": null,
+        "chapter": null,
+        "antiPatternId": null
+      },
+      "severity": "warning",
+      "findingType": "issue",
+      "id": "WARN-002",
+      "codeSnippets": null,
+      "affectedEntities": [
+        {
+          "kind": "tool",
+          "name": "check_appt",
+          "index": null,
+          "text": null,
+          "jsonPath": null,
+          "field": null,
+          "currentValue": null,
+          "expectedValue": null
+        }
+      ],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": {
+        "tokenCostPerTurn": null,
+        "securityRisk": null,
+        "reliability": "Wrong index or empty arrays causes incorrect appointment details or hallucinated slots.",
+        "affectedTurnPercentage": null,
+        "specTokensSaved": null,
+        "copyTokensPerCall": null,
+        "affectedToolCalls": [
+          "check_appt"
+        ],
+        "latencyImpact": null,
+        "uxImpact": null
+      },
+      "suggestedTests": [],
+      "effort": "medium",
+      "estimatedMinutes": 90,
+      "fixType": "change_source",
+      "filesAffected": []
+    },
+    {
+      "category": "Tools",
+      "finding": "Code_Generator exposes static parameters length and characters as required User inputs although type descriptions fix them to 6 and 0123456789.",
+      "evidence": "Length description \"always 6\" but schema default length 5; Characters default \"012345679\" (missing digit 8). Both inputs source User, required true.",
+      "fix": "Hardcode length/charset in the data action; drop agent-facing inputs. Align confirmation length with ConfirmationNumber_1 description (6 digits).",
+      "source": {
+        "document": "quick-guide",
+        "section": "Tools — static defaults as inputs",
+        "signalTable": null,
+        "matchedSignal": null,
+        "chapter": null,
+        "antiPatternId": null
+      },
+      "severity": "warning",
+      "findingType": "issue",
+      "id": "WARN-003",
+      "codeSnippets": null,
+      "affectedEntities": [],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": "small",
+      "estimatedMinutes": 20,
+      "fixType": "remove_field",
+      "filesAffected": []
+    },
+    {
+      "category": "Tools",
+      "finding": "check_appt description references \"repair appointment\"—leftover domain wording for DOL labor appointments.",
+      "evidence": "description: \"Look up a repair appointment using a confirmation number.\"",
+      "fix": "Rewrite to DOL appointment lookup by confirmation number; add inputInstructions for when to use vs create_appointment.",
+      "source": {
+        "document": "cookbook/09d-instruction-locality.md",
+        "section": "Tools without clear usage instructions",
+        "signalTable": null,
+        "matchedSignal": null,
+        "chapter": null,
+        "antiPatternId": null
+      },
+      "severity": "warning",
+      "findingType": "issue",
+      "id": "WARN-004",
+      "codeSnippets": null,
+      "affectedEntities": [],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": "trivial",
+      "estimatedMinutes": 5,
+      "fixType": "rephrase",
+      "filesAffected": []
+    },
+    {
+      "category": "Red flag",
+      "finding": "Global instructions[] duplicate tool-local behavior (claim status summaries, appointment confirmation messaging, tool failure transfer) already covered on Claim Lookup and create_appointment.",
+      "evidence": "15 guidelines including claim lookup steps overlapping Claim Lookup outputInstructions; appointment confirmation rules overlap create_appointment outputInstructions.",
+      "fix": "Keep guidelines for cross-cutting grounding, fraud escalation, and privacy; move claim-specific and appointment-specific post-success behavior to respective tool outputInstructions only.",
+      "source": {
+        "document": "cookbook/09d-instruction-locality.md",
+        "section": "Misplaced instructions",
+        "signalTable": null,
+        "matchedSignal": null,
+        "chapter": null,
+        "antiPatternId": null
+      },
+      "severity": "warning",
+      "findingType": "issue",
+      "id": "WARN-005",
+      "codeSnippets": null,
+      "affectedEntities": [],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": "medium",
+      "estimatedMinutes": 45,
+      "fixType": "move_content",
+      "filesAffected": []
+    },
+    {
+      "category": "Guardrails",
+      "finding": "Custom guardrails read as agent behavior policies rather than customer-input block rules.",
+      "evidence": "\"do not allow the caller to force a claim payment\"; \"Do not allow the user to ask personal questions\" — not phrased as blocked customer requests.",
+      "fix": "Rephrase to input-focused rules (e.g., \"Block customer demands to override claim payment decisions or compel payout\") and move eligibility/payment policy to role scope + Claim Lookup/KB. Keep SSN rule as collection constraint in tool/types if last-4 is collected.",
+      "source": {
+        "document": "cookbook/07-keeping-the-agent-on-topic-scope-containment-and-guardrails.md",
+        "section": "guardrails.custom",
+        "signalTable": null,
+        "matchedSignal": null,
+        "chapter": null,
+        "antiPatternId": null
+      },
+      "severity": "warning",
+      "findingType": "issue",
+      "id": "WARN-006",
+      "codeSnippets": null,
+      "affectedEntities": [],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": "small",
+      "estimatedMinutes": 25,
+      "fixType": "rephrase",
+      "filesAffected": []
+    },
+    {
+      "category": "Agent",
+      "finding": "Mixed customer/resident terminology across role, guidelines, and tools.",
+      "evidence": "Role uses \"residents\"; several instructions say \"customer\" (e.g., \"ask the customer to verify the claim number\").",
+      "fix": "Standardize on \"resident\" per role; search-replace in instructions[] and tool pre-instructions.",
+      "source": "quick-guide",
+      "severity": "warning",
+      "findingType": "issue",
+      "id": "WARN-007",
+      "codeSnippets": null,
+      "affectedEntities": [],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": "trivial",
+      "estimatedMinutes": 15,
+      "fixType": "rephrase",
+      "filesAffected": []
+    },
+    {
+      "category": "Configuration",
+      "finding": "End context OutputData maps only get_output.entities_* index 0, while check_appt returns arrays—handoff may omit the matched appointment when index ≠ 0.",
+      "evidence": "OutputData properties map get_output.entities_key.0, entities_appt_date.0, etc.",
+      "fix": "After backend returns a single record, map flat fields; or map the struct produced by a narrowed check_appt output type.",
+      "source": {
+        "document": "quick-guide",
+        "section": "Configuration — end context",
+        "signalTable": null,
+        "matchedSignal": null,
+        "chapter": null,
+        "antiPatternId": null
+      },
+      "severity": "warning",
+      "findingType": "issue",
+      "id": "WARN-008",
+      "codeSnippets": null,
+      "affectedEntities": [],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": "medium",
+      "estimatedMinutes": 40,
+      "fixType": "restructure",
+      "filesAffected": []
+    },
+    {
+      "category": "Tools",
+      "finding": "Broad outputInstructions use when: \"True\" on every outcome path, reducing conditional specificity and stacking redundant instructions each call.",
+      "evidence": "create_appointment, check_appt, Claim Lookup, DLI_KB each have multiple Python outputInstructions with when True.",
+      "fix": "Consolidate to one success and one failure/no-result instruction per tool; use lambdas on result shape where KB already does.",
+      "source": {
+        "document": "cookbook/03-executing-multi-step-flows.md",
+        "section": "outputInstructions",
+        "signalTable": null,
+        "matchedSignal": null,
+        "chapter": null,
+        "antiPatternId": null
+      },
+      "severity": "warning",
+      "findingType": "issue",
+      "id": "WARN-009",
+      "codeSnippets": null,
+      "affectedEntities": [],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": "small",
+      "estimatedMinutes": 30,
+      "fixType": "restructure",
+      "filesAffected": []
+    }
+  ],
+  "info": [
+    {
+      "category": "Platform",
+      "finding": "Version drift: ProductionReady v11.0 matches saved v12.0 Draft definition byte-for-byte in Sage—draft does not yet contain fixes for known structural issues.",
+      "evidence": "get_latest_published_version 11.0 ProductionReady and get_latest_saved_version 12.0 Draft returned identical definition payloads during this critique.",
+      "fix": "Use v12.0 (or next version) to land ToolOutput gating, role trim, and check_appt backend shape before TestReady/ProductionReady publish.",
+      "source": "author-priority",
+      "severity": "info",
+      "findingType": "issue",
+      "id": "INFO-001",
+      "codeSnippets": null,
+      "affectedEntities": [],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": null,
+      "estimatedMinutes": null,
+      "fixType": null,
+      "filesAffected": []
+    },
+    {
+      "category": "Agent",
+      "finding": "Baseline capability map for DOL SC12: appointments (create + lookup), unemployment claim status (ServiceNow incident lookup), general DOL FAQ (DLI_KB KnowledgeSetting), escalation/exit events; no reschedule/cancel/payment tools.",
+      "evidence": "Five tools: Code_Generator, create_appointment, check_appt, Claim Lookup, DLI_KB; integrations miked_* data actions + ServiceNow Get Ticket + MikeD_KB_Config.",
+      "fix": "Document this map in lifecycle design-artifact when branching DOL use cases; add tools before expanding role scope.",
+      "source": "author-priority",
+      "severity": "info",
+      "findingType": "opportunity",
+      "id": "INFO-002",
+      "codeSnippets": null,
+      "affectedEntities": [],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": null,
+      "estimatedMinutes": null,
+      "fixType": null,
+      "filesAffected": []
+    },
+    {
+      "category": "Types",
+      "finding": "InputData start context correctly uses alias types CallerName and CallReason without required properties.",
+      "evidence": "InputData.properties caller_name, call_reason optional; types CallerName, CallReason documented for VA flow.",
+      "fix": "Keep; pair with simplified opening role once contradictions are resolved.",
+      "source": "quick-guide",
+      "severity": "info",
+      "findingType": "praise",
+      "id": "INFO-003",
+      "codeSnippets": null,
+      "affectedEntities": [],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": null,
+      "estimatedMinutes": null,
+      "fixType": null,
+      "filesAffected": []
+    }
+  ],
+  "positives": [
+    {
+      "category": "Knowledge",
+      "finding": "DLI_KB KnowledgeSetting has a strong when-to-use scope in description and inputInstructions, with empty/non-empty result branching.",
+      "evidence": "DLI_KB description lists DOL topics; outputInstructions branch on len(result).",
+      "fix": "Maintain; avoid duplicating KB routing in global guidelines.",
+      "source": "cookbook/04-integrating-knowledge-bases.md",
+      "severity": "info",
+      "findingType": "praise",
+      "id": "POS-001",
+      "codeSnippets": null,
+      "affectedEntities": [],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": null,
+      "estimatedMinutes": null,
+      "fixType": null,
+      "filesAffected": []
+    },
+    {
+      "category": "Tools",
+      "finding": "Claim Lookup defines acct_not_found error type with defaultInstruction for 404/400—good no-result path.",
+      "evidence": "errors: [{type: acct_not_found}]; type acct_not_found statusCodes [404,400].",
+      "fix": "Keep; ensure role does not contradict verify-and-retry behavior.",
+      "source": "quick-guide",
+      "severity": "info",
+      "findingType": "praise",
+      "id": "POS-002",
+      "codeSnippets": null,
+      "affectedEntities": [],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": null,
+      "estimatedMinutes": null,
+      "fixType": null,
+      "filesAffected": []
+    },
+    {
+      "category": "Configuration",
+      "finding": "Escalation, UserExit, and Guardrails violation events are configured with resident-facing messages.",
+      "evidence": "events: Guardrails (threshold 3), UserExit, Escalation transfer message.",
+      "fix": "Pair with guideline-driven escalate on fraud and tool failures.",
+      "source": "cookbook/08-escalating-to-a-human-agent.md",
+      "severity": "info",
+      "findingType": "praise",
+      "id": "POS-003",
+      "codeSnippets": null,
+      "affectedEntities": [],
+      "relationships": null,
+      "confidence": "high",
+      "ambiguityNote": null,
+      "impact": null,
+      "suggestedTests": [],
+      "effort": null,
+      "estimatedMinutes": null,
+      "fixType": null,
+      "filesAffected": []
+    }
+  ],
+  "changeSuggestions": [
+    {
+      "priority": 1,
+      "text": "Structurally gate create_appointment.confirmation_number to Code_Generator output (ToolOutput mapping on securityCode).",
+      "effort": "medium",
+      "estimatedMinutes": 45,
+      "id": "CS-1",
+      "dependsOn": [],
+      "findingIds": [
+        "ERR-001"
+      ],
+      "autoApplicable": null,
+      "category": "Tools",
+      "severityLabel": "CRITICAL",
+      "fixType": "restructure"
+    },
+    {
+      "priority": 2,
+      "text": "Resolve role scope vs tools: remove change/cancel from role or implement cancel/reschedule data actions.",
+      "effort": "large",
+      "estimatedMinutes": 180,
+      "id": "CS-2",
+      "dependsOn": [],
+      "findingIds": [
+        "ERR-002"
+      ],
+      "autoApplicable": null,
+      "category": "Agent",
+      "severityLabel": "CRITICAL",
+      "fixType": "restructure"
+    },
+    {
+      "priority": 3,
+      "text": "Unify opening logic for caller_name/call_reason and dedupe verbose role prose.",
+      "effort": "medium",
+      "estimatedMinutes": 60,
+      "id": "CS-3",
+      "dependsOn": [],
+      "findingIds": [
+        "ERR-003",
+        "WARN-001"
+      ],
+      "autoApplicable": null,
+      "category": "Agent",
+      "severityLabel": "HIGH",
+      "fixType": "restructure"
+    },
+    {
+      "priority": 4,
+      "text": "Refactor check_appt data action to return a single appointment object with record_found; drop array-index instructions.",
+      "effort": "medium",
+      "estimatedMinutes": 90,
+      "id": "CS-4",
+      "dependsOn": [],
+      "findingIds": [
+        "WARN-002",
+        "WARN-008"
+      ],
+      "autoApplicable": null,
+      "category": "Tools",
+      "severityLabel": "HIGH",
+      "fixType": "change_source"
+    },
+    {
+      "priority": 5,
+      "text": "Hardcode Code_Generator parameters; fix 6-digit charset consistency.",
+      "effort": "small",
+      "estimatedMinutes": 20,
+      "id": "CS-5",
+      "dependsOn": [],
+      "findingIds": [
+        "WARN-003"
+      ],
+      "autoApplicable": null,
+      "category": "Tools",
+      "severityLabel": "MEDIUM",
+      "fixType": "remove_field"
+    },
+    {
+      "priority": 6,
+      "text": "Reframe guardrails as blocked customer inputs; relocate payment policy to role/tools.",
+      "effort": "small",
+      "estimatedMinutes": 25,
+      "id": "CS-6",
+      "dependsOn": [],
+      "findingIds": [
+        "WARN-006"
+      ],
+      "autoApplicable": null,
+      "category": "Guardrails",
+      "severityLabel": "MEDIUM",
+      "fixType": "rephrase"
+    }
+  ],
+  "summary": {
+    "overall": "Fix errors first",
+    "prose": "DLI_appointment_miked is a capable DOL demo AVA—appointments (create/lookup), ServiceNow claim status, and MikeD KB—but production traffic still runs v11.0 while v12.0 Draft is unchanged. The highest risk is the booking chain: confirmation numbers are not type-gated to Code_Generator, so the model can skip or invent codes despite prose. Role bloat and contradictory opening scripts add first-turn confusion, and the role over-promises change/cancel without tools. check_appt’s parallel-array contract pushes fragile indexing to the LLM. Address structural tool chaining and scope honesty before publishing v12.",
+    "errorCount": 3,
+    "warningCount": 9,
+    "infoCount": 3,
+    "positiveCount": 3,
+    "topPriorities": [
+      "Gate create_appointment.confirmation_number via ToolOutput from Code_Generator (ERR-001)",
+      "Align role scope with tools—drop change/cancel or add tools (ERR-002)",
+      "Fix conflicting call_reason/caller_name opening scripts and trim role (ERR-003, WARN-001)"
+    ],
+    "estimatedTotalMinutes": 515
+  },
+  "testCoverage": {
+    "hasExistingTests": false,
+    "testSetId": null,
+    "gaps": [
+      "No trajectory test for Code_Generator → create_appointment ordering",
+      "No check_appt array/no-match scenarios",
+      "No call_reason + caller_name opening matrix",
+      "No claim lookup INC prefix normalization",
+      "No guardrail/adversarial prompts for payment forcing"
+    ],
+    "suggestedTestCount": 8
+  },
+  "overall": null,
+  "errorCount": 3,
+  "warningCount": 9,
+  "infoCount": 3,
+  "positiveCount": 3
+}

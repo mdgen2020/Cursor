@@ -135,7 +135,7 @@
                             "name": "Apply output transformation",
                             "success": true,
                             "result": {
-                                "dol_claim_reference": "INC0010123",
+                                "dol_claim_reference": "INC0010009",
                                 "expires_in_seconds": 7200,
                                 "resident_name": "Linus Turing",
                                 "session_token": "dol-demo-session-linus",
@@ -149,7 +149,7 @@
                         }
                     ],
                     "finalResult": {
-                        "dol_claim_reference": "INC0010123",
+                        "dol_claim_reference": "INC0010009",
                         "expires_in_seconds": 7200,
                         "resident_name": "Linus Turing",
                         "session_token": "dol-demo-session-linus",
@@ -377,7 +377,7 @@
                             "name": "Apply output transformation",
                             "success": true,
                             "result": {
-                                "dol_claim_reference": "INC0010123",
+                                "dol_claim_reference": "INC0010009",
                                 "expires_in_seconds": 7200,
                                 "resident_name": "Linus Turing",
                                 "session_token": "dol-demo-session-token",
@@ -391,7 +391,7 @@
                         }
                     ],
                     "finalResult": {
-                        "dol_claim_reference": "INC0010123",
+                        "dol_claim_reference": "INC0010009",
                         "expires_in_seconds": 7200,
                         "resident_name": "Linus Turing",
                         "session_token": "dol-demo-session-token",
@@ -411,16 +411,34 @@
     "mock_responses": [
         {
             "response": {
-                "dol_claim_reference": "INC0010123",
+                "dol_claim_reference": "INC0010009",
                 "expires_in_seconds": 7200,
                 "resident_name": "Linus Turing",
                 "session_token": "dol-demo-session-linus",
-                "verified": true
+                "verified": true,
+                "contact_email": "mdgen2020@gmail.com"
             },
             "input": {
                 "p_date_of_birth": "1988-06-23",
                 "p_first_name": "Linus",
-                "p_last_name": "Turing"
+                "p_last_name": "Turing",
+                "p_work_email": "mdgen2020@gmail.com"
+            }
+        },
+        {
+            "response": {
+                "dol_claim_reference": "INC0010009",
+                "expires_in_seconds": 7200,
+                "resident_name": "Linus Turing",
+                "session_token": "dol-demo-session-linus",
+                "verified": true,
+                "contact_email": "mdgen2020@gmail.com"
+            },
+            "input": {
+                "p_date_of_birth": "1988-06-23",
+                "p_first_name": "Linus",
+                "p_last_name": "turning",
+                "p_work_email": "mdgen2020@gmail.com"
             }
         },
         {

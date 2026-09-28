@@ -26,8 +26,10 @@ If the array is **empty** or the call fails → treat as not found; ask resident
 
 ## Pair with ID&V demo
 
-After **`dol_resident_verify_miked`** succeeds for **Linus Turing** (`1988-06-23`), the mock returns **`dol_claim_reference`: `INC0010123`**.  
-Create (or reuse) a ServiceNow incident with **`number` = `INC0010123`** so claim status and verify tell a consistent story.
+After **`dol_resident_verify_miked`** succeeds for **Linus Turing** (`1988-06-23`), the demo should return **`dol_claim_reference`: `INC0010009`**.  
+Create (or reuse) a ServiceNow incident with **`number` = `INC0010009`** so claim status and verify tell a consistent story.
+
+**Messenger symptom:** verify returns **`INC0010123`** but lookup returns **`[]`** → org verify template is still on **0123**, and ServiceNow has no matching row (or only **0009**). Align both actions to the same incident number.
 
 ## Example incidents to create in ServiceNow
 
@@ -35,7 +37,7 @@ Create (or reuse) a ServiceNow incident with **`number` = `INC0010123`** so clai
 
 | Field | Suggested value |
 |-------|-----------------|
-| **number** | `INC0010123` |
+| **number** | `INC0010009` |
 | **incident_state** | `In Progress` (or your instance’s equivalent open state) |
 | **short_description** | `Missing unemployment payment — week ending 2026-09-06` |
 | **description** | `Claimant reports no payment received for the week ending September 6, 2026. Payment batch review in progress. No determination of eligibility changed.` |

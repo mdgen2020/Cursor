@@ -2,10 +2,10 @@
   "_meta": {
     "slug": "dol-front-door-miked",
     "agent_id": "ebc26f01-f4c4-43ca-873e-15580c12c8f4",
-    "gc_version": "5.0",
-    "last_synced_at": "2026-09-17T21:51:58Z"
+    "gc_version": "12.0",
+    "last_synced_at": "2026-09-18T20:27:53Z"
   },
   "agent_name": "DOL_Front_Door_miked",
-  "version": "5.0",
-  "publish_status": "TestReady"
+  "version": "12.0",
+  "publish_status": "ProductionReady"
 }

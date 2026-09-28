@@ -18,7 +18,13 @@ Created in **GenesysSC12** for `DOL_Front_Door_miked` (design in progress).
 ## `dol_resident_verify_miked`
 
 - Category: AVA-Harness-Mock-Echo-DataAction (demo; re-wire to Supabase optional).
-- Demo verify: **Linus / Turing / 1988-06-23** → `dol_claim_reference` **INC0010123**.
+- Demo verify: **Linus / Turing / 1988-06-23** → `dol_claim_reference` **INC0010009** (ServiceNow ticket).
+
+## `lookup_external_contact_for_handoff` (AVA tool)
+
+- Data Action: **`External Contact by eMail - MikeD - Full`** · `custom_-_816547b6-db32-410d-8aae-9f6824846583`
+- Input: **`workEmail`**. Call **early** after welcome + stated need (account verification). Agent outputs: **`handoff.contact_email`**, **`handoff.resident_name`**, **`handoff.contact_last_name`**, **`handoff.address_line1`**, **`handoff.city`**, **`handoff.state`**, **`handoff.postal_code`** → bot **`Slot.email`**, **`Slot.Name`**, **`Slot.LastName`**, **`Flow.address1`**, **`Flow.city`**, **`Flow.state`**, **`Flow.zip`** → inbound **`Flow.CustEmail`**, **`Flow.FirstName`**, **`Flow.LastName`**, **`Flow.addy1`**, **`Flow.CTY`**, **`Flow.st`**, **`Flow.zipcode`**.
+- Demo: external contact **`workEmail`** = **`mdgen2020@gmail.com`** (live demo profile; use in Messenger handoff tests).
 
 ## Claim lookup — SNOW 212585
 

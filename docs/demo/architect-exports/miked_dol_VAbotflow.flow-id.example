@@ -1,0 +1,7 @@
+# Paste the Architect flow UUID for published miked_dol_VAbotflow (one line, no comments).
+# Find it: Architect → Digital bot flows → miked_dol_VAbotflow → copy ID from the flow details / URL.
+#
+# Save as: miked_dol_VAbotflow.flow-id   (same folder as this file)
+# Then run: python3 scripts/build-nydol-greenfield-flows.py --inbound-only
+
+00000000-0000-0000-0000-000000000000
