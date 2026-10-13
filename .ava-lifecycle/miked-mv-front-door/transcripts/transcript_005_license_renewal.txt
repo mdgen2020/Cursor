@@ -1,0 +1,76 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00005
+Date:               August 8, 2026
+Duration:           18:26
+Topic:              License Renewal
+Citizen (fictional):Larry Williams
+Agent (fictional):  Derek Baptiste
+Resolution Status:  Resolved
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Thank you for calling the Massachusetts RMV Customer Service Contact Center, this is Derek
+       Baptiste, how can I help you today?
+
+Citizen: Hi, my driver's license is expiring on October 27, 2026 and I need to renew it, as a standard
+         license.
+
+Agent: Sure, I can help with that. Before we get started, can I get your full name and date of birth
+       to pull up your record?
+
+Citizen: Sure, it's Larry Williams, date of birth February 26, 1994.
+
+Agent: Got it. Last thing - can you confirm the last four digits of your Social Security number on
+       file, just for verification?
+
+Citizen: Yes, the last four are 0082.
+
+Agent: Let me check that against your record, bear with me for just a second.
+
+Agent: Alright, thanks for holding. I've got everything pulled up.
+
+Agent: Thanks for calling about that. I see your license does show an expiration date of October 27,
+       2026. Are you looking to renew as a Standard license or upgrade to a REAL ID?
+
+Citizen: Just the standard renewal is fine, I don't fly often.
+
+Agent: For a standard renewal, in most cases you can actually do this online through the RMV's Online
+       Service Center if your license doesn't require a road test or in-person visit. The fee
+       is $25.
+
+Citizen: Oh, I didn't realize I could do it online. What do I need for that?
+
+Agent: You'll just need your license number, your date of birth, and a credit or debit card for the
+       payment. The system will walk you through confirming your address and updating your
+       photo isn't required for a standard online renewal.
+
+Citizen: That's great, that'll save me a trip. Is there anything that would stop me from renewing
+         online?
+
+Agent: The main things that would require an in-person visit are if your license is currently
+       suspended or revoked, if you're over 75 and due for an in-person renewal, or if you want
+       to change your photo or update your address on the license itself.
+
+Citizen: I'd actually rather come in person, is there an appointment available soon?
+
+Agent: Let me check the scheduling system for you - one moment. I do see an opening at the Attleboro
+       RMV Service Center on September 12, 2026. Would that work?
+
+Citizen: Yes, that works for me, please book that.
+
+Agent: Great, I've booked that appointment. Your confirmation number is MA026777627. Please arrive
+       about fifteen minutes early and bring the documents we discussed.
+
+Agent: Okay, anything else I can help with before we wrap up?
+
+Citizen: That's it for me, thank you, you've been very helpful.
+
+Agent: Glad I could help. Thanks for calling, and have a good rest of your morning.
+
+------------------------------------------------------------------------------
+[END OF CALL]

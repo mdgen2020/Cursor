@@ -1,0 +1,80 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00150
+Date:               June 19, 2026
+Duration:           14:15
+Topic:              Out-of-State/Foreign License Transfer
+Citizen (fictional):Gregory Hall
+Agent (fictional):  Kevin Reyes
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Thanks for holding, this is Kevin Reyes with the RMV, how can I assist you today?
+
+Citizen: Hi, I just moved to Massachusetts from Vietnam and I want to transfer my foreign driver's
+         license.
+
+Agent: Okay, let's get that sorted out. Can I start by getting your full name and date of birth on
+       file?
+
+Citizen: Sure, it's Gregory Hall, date of birth May 18, 1986.
+
+Agent: Thank you. And just to fully verify, can you confirm the last four digits of the phone number
+       on file?
+
+Citizen: Yes, that should end in 5740.
+
+Agent: Give me just a moment to pull that up in the system, I'll be right back with you.
+
+Agent: Thanks for your patience, I found your record.
+
+Agent: Welcome to Massachusetts! Transferring a foreign license depends a bit on the country it's
+       from. Do you have an International Driving Permit or is your license already in English,
+       or does it need translation?
+
+Citizen: It's not in English, I think it would need to be translated.
+
+Agent: In that case, you'll need to get it translated by a certified translation service, and in many
+       cases you'll also be required to pass the written knowledge test and possibly the road
+       test here, since a lot of foreign licenses aren't eligible for a direct swap.
+
+Citizen: So I might have to do the full process like a new driver?
+
+Agent: It depends on the specific country - some countries have reciprocity agreements with
+       Massachusetts for a more direct exchange, but many don't, which does mean going through
+       the standard testing process, though you likely wouldn't need the full permit waiting
+       period.
+
+Citizen: How do I find out if my country has reciprocity?
+
+Agent: I can check that for you right now if you tell me the country again.
+
+Citizen: It's Vietnam.
+
+Agent: Let me check... based on what I have here, Vietnam does not currently have a direct license
+       reciprocity agreement with Massachusetts, so you would need to complete the written test
+       and road test, but you can likely skip the learner's permit holding period given you
+       already have driving experience.
+
+Citizen: Okay, that's good to know. What documents do I need to bring in?
+
+Agent: You'll need your foreign license with certified translation if applicable, your passport or
+       visa documentation showing lawful presence, and proof of Massachusetts residency.
+
+Citizen: Alright, I'll gather those. Thank you for explaining that.
+
+Agent: You're welcome, and welcome again to Massachusetts.
+
+Agent: Okay, anything else I can help with before we wrap up?
+
+Citizen: That's it for me, thank you, you've been very helpful.
+
+Agent: Glad I could help. Thanks for calling, and have a good rest of your morning.
+
+------------------------------------------------------------------------------
+[END OF CALL]

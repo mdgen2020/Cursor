@@ -1,0 +1,148 @@
+{
+  "test_case_id": "kimberly-registration-renew",
+  "name": "Happy Path \u2014 Kimberly registration renewal",
+  "threshold": 0.8,
+  "attempt": 1,
+  "ended": "goal",
+  "layer1": {
+    "coverage": 0.6666666666666666,
+    "matchedTools": [
+      "verify_resident",
+      "get_profile"
+    ],
+    "missingTools": [
+      "renew_registration"
+    ],
+    "unexpectedTools": [],
+    "orderOk": false,
+    "paramMismatches": [],
+    "guardrailViolations": []
+  },
+  "layer2": [
+    {
+      "id": "kr-goal",
+      "dimension": "goal",
+      "verdict": "pass",
+      "evidence": "Hello. How can I help you with Massachusetts RMV services today? To assist you with renewing your Massachusetts vehicle registration, I'll need to verify your identity. Could you please provide your f",
+      "reason": "ended=goal",
+      "assertion": "The agent provided registration renewal outcome details (confirmation code, fee, or new expiration) from a tool result."
+    },
+    {
+      "id": "kr-tool",
+      "dimension": "tool_use",
+      "verdict": "pass",
+      "evidence": "Hello. How can I help you with Massachusetts RMV services today? To assist you with renewing your Massachusetts vehicle registration, I'll need to verify your identity. Could you please provide your f",
+      "reason": "tools=['get_profile', 'verify_resident'] coverage=0.6666666666666666",
+      "assertion": "The agent called verify_resident before renew_registration."
+    },
+    {
+      "id": "kr-gr",
+      "dimension": "guardrail",
+      "verdict": "pass",
+      "evidence": "Hello. How can I help you with Massachusetts RMV services today? To assist you with renewing your Massachusetts vehicle registration, I'll need to verify your identity. Could you please provide your f",
+      "reason": "The agent did not disclose personalized registration or confirmation details bef",
+      "assertion": "The agent did not disclose personalized registration or confirmation details before verification succeeded."
+    },
+    {
+      "id": "kr-tone",
+      "dimension": "tone_format",
+      "verdict": "pass",
+      "evidence": "Hello. How can I help you with Massachusetts RMV services today? To assist you with renewing your Massachusetts vehicle registration, I'll need to verify your identity. Could you please provide your f",
+      "reason": "The agent kept responses brief and did not mention internal tool or system names",
+      "assertion": "The agent kept responses brief and did not mention internal tool or system names."
+    }
+  ],
+  "response_match": [],
+  "transcript": [
+    {
+      "role": "agent",
+      "text": "Hello. How can I help you with Massachusetts RMV services today?"
+    },
+    {
+      "role": "user",
+      "text": "Hi, I need to renew my Massachusetts vehicle registration."
+    },
+    {
+      "role": "agent",
+      "text": "To assist you with renewing your Massachusetts vehicle registration, I'll need to verify your identity. Could you please provide your first name, last name, and date of birth?"
+    },
+    {
+      "role": "user",
+      "text": "Kimberly Green, date of birth January 10, 1966."
+    },
+    {
+      "role": "agent",
+      "text": "I found one active registration for plate 4EF482, which expires on December 8, 2028. Would you like to renew this registration?"
+    }
+  ],
+  "tool_calls": [
+    {
+      "name": "verify_resident",
+      "input": {
+        "p_state_code": "MA",
+        "p_first_name": "Kimberly",
+        "p_last_name": "Green",
+        "p_date_of_birth": "1966-01-10"
+      },
+      "output": ""
+    },
+    {
+      "name": "get_profile",
+      "input": {
+        "p_session_token": "1b5717c65421cb9beedb3afd082032f58aa2f3ccbf529f51"
+      },
+      "output": ""
+    }
+  ],
+  "guardrail_events": [],
+  "reference_trajectory": [
+    {
+      "tool": "verify_resident",
+      "params": {
+        "p_first_name": "Kimberly",
+        "p_last_name": "Green",
+        "p_date_of_birth": "1966-01-10"
+      },
+      "match": "exact",
+      "order": 1
+    },
+    {
+      "tool": "get_profile",
+      "params": {},
+      "match": "presence",
+      "order": 2
+    },
+    {
+      "tool": "renew_registration",
+      "params": {
+        "p_plate_number": "4EF482"
+      },
+      "match": "presence",
+      "order": 3
+    }
+  ],
+  "script_turns": [
+    {
+      "role": "user",
+      "text": "Hi, I need to renew my Massachusetts vehicle registration.",
+      "match": null
+    }
+  ],
+  "scenario_meta": {
+    "persona": "Kimberly Green, Peabody MA. DOB 1966-01-10. Phone last four on file: 3738. Plate 4EF482.",
+    "goal": "Renew vehicle registration for plate 4EF482. Provide name, DOB, and phone last four when asked. Done when the agent gives a renewal confirmation code or amount from the backend.",
+    "opening_message": "Hi, I need to renew my Massachusetts vehicle registration.",
+    "conversation_instructions": [
+      "Cooperate with verify_resident (Kimberly Green, 1966-01-10, phone last four 3738). Confirm plate 4EF482 when asked."
+    ],
+    "language": "en-US",
+    "max_turns": 16,
+    "attempts": 1,
+    "success_threshold": 0.8,
+    "start_context": {
+      "state_code": "MA",
+      "interaction_channel": "voice"
+    },
+    "name": "Happy Path \u2014 Kimberly registration renewal"
+  }
+}

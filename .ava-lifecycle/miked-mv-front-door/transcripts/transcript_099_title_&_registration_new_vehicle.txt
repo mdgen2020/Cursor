@@ -1,0 +1,81 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00099
+Date:               May 10, 2026
+Duration:           12:24
+Topic:              Title & Registration (New Vehicle)
+Citizen (fictional):Raymond Rivera
+Agent (fictional):  Priya Marsh
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Thanks for holding, this is Priya Marsh with the RMV, how can I assist you today?
+
+Citizen: Hi, I just bought a used car and I need to figure out how to register and title it.
+
+Agent: No problem, I can look into that for you. Can you verify your full name and date of birth for
+       me first?
+
+Citizen: Sure, it's Raymond Rivera, date of birth May 19, 1975.
+
+Agent: Perfect, thanks. Can you also confirm your current mailing address for me?
+
+Citizen: Yes, I'm at my address in Natick, Massachusetts.
+
+Agent: I need to check on something with our licensing system, can I place you on a brief hold?
+
+Agent: Okay, I'm back - thank you for waiting. I see your file here now.
+
+Agent: Got it, for a private sale you'll need to handle the title transfer and registration yourself.
+       You'll need the signed-over title from the seller, a bill of sale, and proof of a valid
+       Massachusetts insurance policy on the vehicle.
+
+Citizen: Okay, I have the title signed over already and a bill of sale. What about sales tax?
+
+Agent: You'll need to pay the Massachusetts sales tax, which is 6.25 percent of either the purchase
+       price or the vehicle's clean trade-in value, whichever is greater, unless you qualify
+       for an exemption like a transfer between immediate family members.
+
+Citizen: It was a normal sale, no family involved. Where do I actually go to do all this?
+
+Agent: You'll bring the signed title, the bill of sale, proof of insurance, and a completed
+       Registration and Title Application, called the RMV-1 form, to any RMV Service Center.
+       You can fill out the RMV-1 online ahead of time to save time at the counter.
+
+Citizen: Can I do that at the New Bedford RMV Service Center?
+
+Agent: Yes, the New Bedford RMV Service Center handles title and registration transactions. I'd
+       recommend booking an appointment online rather than walking in, since these transactions
+       take a bit longer at the counter.
+
+Agent: Just so you know the total cost upfront, you're looking at the registration fee, a title fee,
+       and the sales tax based on the vehicle's value, plus the registration fee itself is
+       around $75.
+
+Citizen: That's helpful to know ahead of time. Do I need to bring my own plates or get new ones?
+
+Agent: If you're transferring plates from a vehicle you already own, you can reuse those. If this is
+       an additional vehicle or you don't have existing plates, you'll be issued new ones at
+       the counter.
+
+Citizen: This is a new vehicle for us so we'll need new plates then.
+
+Agent: That's fine, they'll issue those on the spot once your paperwork and payment are processed.
+
+Citizen: This is really helpful, thank you for walking me through it.
+
+Agent: Of course, happy to help make sure you have everything ready before your visit.
+
+Agent: Alright, does that take care of everything for you today?
+
+Citizen: That's all I needed, I really appreciate it.
+
+Agent: Not a problem at all. Thank you for your patience today, have a good morning.
+
+------------------------------------------------------------------------------
+[END OF CALL]

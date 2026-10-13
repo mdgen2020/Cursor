@@ -8,11 +8,11 @@ Locked presenter wiring for **inbound voice** and **agent escalation**.
 |-------|--------|
 | **Inbound DID** | **+1 781-277-3322** |
 | **Inbound call flow (reuse)** | **`miked direct to queue`** |
-| **Front-door AVA** | **EOHHS MA Experience Orchestrator** |
+| **Front-door AVA** | **EOHHS MA Experience Orchestrator** — **deleted from org 2026-09-28** (see `genesys-org-retirement-log.md`) |
 | **Agent ID** | `96fe2bc6-7f11-41d5-8e6d-8a3ed20291b6` |
-| **AVA version** | **11.0** — **ProductionReady** (live Supabase tools + Miked_SharePT knowledge) |
-| **Voice bot flow** | **`miked_eohhs_VAbotflow`** (published **2.0**) — Call AVA; Failure/Timeout → queue above |
-| **Inbound flow version** | **`miked direct to queue` v2.0** — greeting → Call Bot Flow → bot **1.0** |
+| **AVA version (archive)** | **11.0** — **ProductionReady** — frozen in `.ava-lifecycle/eohhs-ma-front-door/` |
+| **Voice bot flow** | **`miked_eohhs_VAbotflow`** — **deleted from org 2026-09-28** (archive: `architect-exports/miked_eohhs_VAbotflow_v2-0_org-archive.*`) |
+| **Inbound flow (test)** | **`miked direct to queue` v4.0** — repurpose path; **no** `miked_eohhs_VAbotflow` (see `genesys-org-retirement-log.md`) |
 | **Escalation queue** | **`support_miked`** (`dc15ad2c-7917-413f-9a00-4f52df4d4602`; Architect may show **`Support_MikeD`** — names are case-insensitive) |
 
 ## Call path (what you are building)

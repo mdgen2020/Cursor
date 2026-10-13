@@ -1,0 +1,69 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00129
+Date:               May 6, 2026
+Duration:           16:30
+Topic:              License Suspension / Reinstatement
+Citizen (fictional):Sofia Costa
+Agent (fictional):  Greg Hutchins
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Thanks for holding, this is Greg Hutchins with the RMV, how can I assist you today?
+
+Citizen: Hi, I need to find out what I have to do to get my license reinstated, it's currently
+         suspended.
+
+Agent: Sure, I can help with that. Before we get started, can I get your full name and date of birth
+       to pull up your record?
+
+Citizen: Sure, it's Sofia Costa, date of birth November 13, 1985.
+
+Agent: Got it. Last thing - can you confirm the last four digits of your Social Security number on
+       file, just for verification?
+
+Citizen: Yes, the last four are 5589.
+
+Agent: Give me just a moment to pull that up in the system, I'll be right back with you.
+
+Agent: Thanks for your patience, I found your record.
+
+Agent: I can help you look into that. Let me pull up your record to see the reason for the
+       suspension... one moment.
+
+Agent: I see this is a suspension related to accumulating too many surcharge points within a two-year
+       period, sometimes called a habitual traffic offender or excessive points suspension.
+
+Citizen: How long is the suspension for?
+
+Agent: This particular suspension is for 60 days from the effective date, after which it should lift
+       automatically as long as no new violations come in during that period.
+
+Citizen: Do I need to do anything, or does it just end on its own?
+
+Agent: For this type, it typically lifts automatically once the suspension period ends, but you will
+       need to pay a reinstatement fee before your license becomes active again.
+
+Agent: That fee is $50, and it can be paid online, by mail, or in person once your suspension end date
+       arrives.
+
+Citizen: Can I pay it now, ahead of time?
+
+Agent: You can submit payment ahead of time, but your license won't actually become valid to drive on
+       until the suspension end date passes, even if payment is already on file.
+
+Citizen: Okay, that's good to know, I'll go ahead and pay now so it's ready.
+
+Agent: Is there anything else on your account I can look into while I have you?
+
+Citizen: No, that's everything, thank you so much for your help.
+
+Agent: Not a problem at all. Thank you for your patience today, have a good afternoon.
+
+------------------------------------------------------------------------------
+[END OF CALL]

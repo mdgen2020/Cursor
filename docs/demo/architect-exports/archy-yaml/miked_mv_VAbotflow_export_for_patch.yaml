@@ -1,0 +1,891 @@
+botFlow:
+  name: miked_mv_VAbotflow
+  description: Massachusetts RMV voice VA bot — miked_mv_front_door; handoff task; Flow.MvTransferredToQueue output for inbound (sc12)
+  division: Home
+  startUpRef: "/botFlow/bots/bot[Default Bot_10]"
+  defaultLanguage: en-us
+  supportedLanguages:
+    en-us:
+      defaultLanguageSkill:
+        noValue: true
+      speechToText:
+        engine:
+          name: Microsoft Azure
+  variables:
+    - stringCollectionVariable:
+        name: Flow.address1
+        initialValue:
+          noValue: true
+        isInput: false
+        isOutput: false
+    - stringVariable:
+        name: Flow.AvaExitReason
+        initialValue:
+          noValue: true
+        isInput: false
+        isOutput: false
+    - stringCollectionVariable:
+        name: Flow.city
+        initialValue:
+          noValue: true
+        isInput: false
+        isOutput: false
+    - stringVariable:
+        name: Flow.CustEmail
+        initialValue:
+          noValue: true
+        isInput: false
+        isOutput: false
+    - stringVariable:
+        name: Flow.VerifiedCustEmail
+        initialValue:
+          noValue: true
+        isInput: false
+        isOutput: false
+    - stringCollectionVariable:
+        name: Flow.contactPhone
+        initialValue:
+          noValue: true
+        isInput: false
+        isOutput: false
+    - stringCollectionVariable:
+        name: Flow.firstname
+        initialValue:
+          noValue: true
+        isInput: false
+        isOutput: false
+    - stringVariable:
+        name: Flow.HandoffSummary
+        initialValue:
+          noValue: true
+        isInput: false
+        isOutput: false
+    - integerVariable:
+        name: Flow.IBVivrselection
+        initialValue:
+          noValue: true
+        isInput: false
+        isOutput: false
+    - stringCollectionVariable:
+        name: Flow.lastname
+        initialValue:
+          noValue: true
+        isInput: false
+        isOutput: false
+    - booleanVariable:
+        name: Flow.MvTransferredToQueue
+        initialValue:
+          lit: false
+        isInput: false
+        isOutput: true
+    - stringCollectionVariable:
+        name: Flow.state
+        initialValue:
+          noValue: true
+        isInput: false
+        isOutput: false
+    - stringVariable:
+        name: Flow.TicketNumber
+        initialValue:
+          noValue: true
+        isInput: false
+        isOutput: false
+    - stringVariable:
+        name: Flow.HandoffLicenseNumber
+        initialValue:
+          noValue: true
+        isInput: false
+        isOutput: false
+    - stringVariable:
+        name: Flow.HandoffPlateNumber
+        initialValue:
+          noValue: true
+        isInput: false
+        isOutput: false
+    - stringVariable:
+        name: Flow.HandoffApptSummary
+        initialValue:
+          noValue: true
+        isInput: false
+        isOutput: false
+    - stringVariable:
+        name: Flow.HandoffApptDate
+        initialValue:
+          noValue: true
+        isInput: false
+        isOutput: false
+    - stringVariable:
+        name: Flow.HandoffApptLoc
+        initialValue:
+          noValue: true
+        isInput: false
+        isOutput: false
+    - stringVariable:
+        name: Flow.HandoffApptTime
+        initialValue:
+          noValue: true
+        isInput: false
+        isOutput: false
+    - stringVariable:
+        name: Flow.HandoffApptConf
+        initialValue:
+          noValue: true
+        isInput: false
+        isOutput: false
+    - stringCollectionVariable:
+        name: Flow.zip
+        initialValue:
+          noValue: true
+        isInput: false
+        isOutput: false
+    - stringVariable:
+        name: Flow.CommID
+        initialValue:
+          noValue: true
+        isInput: false
+        isOutput: false
+    - stringVariable:
+        name: Flow.ContactGUID
+        initialValue:
+          noValue: true
+        isInput: false
+        isOutput: false
+  settingsActionDefaults:
+    callGuide:
+      voiceProcessingPrompt:
+        exp: "MakeCommunication(\n  ToCommunication(NOT_SET))"
+    agenticAskForIntent:
+      voiceEndOfInputTimeout:
+        lit:
+          seconds: 1
+    askForIntent:
+      voiceEndOfInputTimeout:
+        lit:
+          seconds: 1
+    askForSlot:
+      voiceEndOfInputTimeout:
+        lit:
+          seconds: 1
+    askForBoolean:
+      voiceEndOfInputTimeout:
+        lit:
+          seconds: 1
+    loopAnythingElse:
+      voiceEndOfInputTimeout:
+        lit:
+          seconds: 1
+  settingsErrorHandling:
+    errorHandling:
+      exit:
+        none: true
+    enableAgentEscalation:
+      lit: true
+    errorEventHandover:
+      noValue: true
+    agentEscalationConfirmation:
+      noValue: true
+    recognitionFailureEventHandover:
+      noValue: true
+    recognitionFailureEventHandling:
+      exit:
+        none: true
+    agentEscalationHandling:
+      task:
+        targetTaskRef: "/botFlow/tasks/task[MV handoff transfer_20]"
+  settingsPrompts:
+    ensureAudioInPrompts: false
+    promptMediaToValidate:
+      - mediaType: audio
+      - mediaType: tts
+  tasks:
+    - task:
+        name: MV handoff transfer
+        refId: MV handoff transfer_20
+        trackingId: 20
+        actions:
+          - updateData:
+              name: Resolve CustEmail from verify or handoff
+              trackingId: 40
+              statements:
+                - string:
+                    variable: Flow.CustEmail
+                    value:
+                      exp: "If(IsNotSetOrEmpty(ToDisplayString(Flow.CustEmail)), ToDisplayString(Flow.VerifiedCustEmail), ToDisplayString(Flow.CustEmail))"
+          - callData:
+              name: Hydrate external contact for handoff
+              trackingId: 21
+              timeout:
+                lit:
+                  minutes: 1
+              category:
+                PureCloud Data Actions:
+                  dataAction:
+                    External Contact by eMail - MikeD - Full:
+                      inputs:
+                        workEmail:
+                          exp: Flow.CustEmail
+                      successOutputs:
+                        contacts.firstName:
+                          var: Flow.firstname
+                        contacts.lastName:
+                          var: Flow.lastname
+                        contacts.address.address1:
+                          var: Flow.address1
+                        contacts.address.address2:
+                          noValue: true
+                        contacts.address.state:
+                          var: Flow.state
+                        contacts.address.postalCode:
+                          var: Flow.zip
+                        contacts.address.city:
+                          var: Flow.city
+                        contacts.address.countryCode:
+                          noValue: true
+                        contacts.workPhone.display:
+                          var: Flow.contactPhone
+                        contacts.cellPhone.display:
+                          var: Flow.contactPhone
+                        contacts.workEmail:
+                          noValue: true
+                      failureOutputs:
+                        errorCode:
+                          noValue: true
+                        status:
+                          noValue: true
+                        correlationId:
+                          noValue: true
+                        entityId:
+                          noValue: true
+                        entityName:
+                          noValue: true
+                        userMessage:
+                          noValue: true
+                        userParamsMessage:
+                          noValue: true
+                        userParams.key:
+                          noValue: true
+                        userParams.value:
+                          noValue: true
+                        details.errorCode:
+                          noValue: true
+                        details.fieldName:
+                          noValue: true
+                        details.entityId:
+                          noValue: true
+                        details.entityName:
+                          noValue: true
+              outputs:
+                success:
+                  actions:
+                    - callData:
+                        name: Get voice communication id
+                        trackingId: 41
+                        timeout:
+                          lit:
+                            minutes: 1
+                        category:
+                          Vivek - Genesys Cloud Data Actions:
+                            dataAction:
+                              Get Message CommunicationID:
+                                inputs:
+                                  ConvoID:
+                                    exp: Session.ConversationID
+                                successOutputs:
+                                  CommunicationID:
+                                    var: Flow.CommID
+                                failureOutputs:
+                                  errorCode:
+                                    noValue: true
+                                  status:
+                                    noValue: true
+                                  correlationId:
+                                    noValue: true
+                                  entityId:
+                                    noValue: true
+                                  entityName:
+                                    noValue: true
+                                  userMessage:
+                                    noValue: true
+                                  userParamsMessage:
+                                    noValue: true
+                                  userParams.key:
+                                    noValue: true
+                                  userParams.value:
+                                    noValue: true
+                                  details.errorCode:
+                                    noValue: true
+                                  details.fieldName:
+                                    noValue: true
+                                  details.entityId:
+                                    noValue: true
+                                  details.entityName:
+                                    noValue: true
+                    - callData:
+                        name: Set External Contact on voice session
+                        trackingId: 42
+                        timeout:
+                          lit:
+                            minutes: 1
+                        category:
+                          Vivek - Genesys Cloud Data Actions:
+                            dataAction:
+                              Set External Contact:
+                                inputs:
+                                  ConvoID:
+                                    exp: Session.ConversationID
+                                  CommID:
+                                    exp: Flow.CommID
+                                  ExternalContactID:
+                                    exp: Flow.ContactGUID
+                                  mediaType:
+                                    lit: CALL
+                                failureOutputs:
+                                  errorCode:
+                                    noValue: true
+                                  status:
+                                    noValue: true
+                                  correlationId:
+                                    noValue: true
+                                  entityId:
+                                    noValue: true
+                                  entityName:
+                                    noValue: true
+                                  userMessage:
+                                    noValue: true
+                                  userParamsMessage:
+                                    noValue: true
+                                  userParams.key:
+                                    noValue: true
+                                  userParams.value:
+                                    noValue: true
+                                  details.errorCode:
+                                    noValue: true
+                                  details.fieldName:
+                                    noValue: true
+                                  details.entityId:
+                                    noValue: true
+                                  details.entityName:
+                                    noValue: true
+                    - setScreenPop:
+                        name: Set Screen Pop
+                        trackingId: 22
+                        screenPopScript:
+                          miked_script_2026:
+                            inputs:
+                              CustomerFirstName:
+                                exp: Flow.firstname
+                              CustomerLastName:
+                                exp: Flow.lastname
+                              CustomerAddressLine1:
+                                exp: Flow.address1
+                              CustomerCity:
+                                exp: Flow.city
+                              CustomerState:
+                                exp: Flow.state
+                              CustomerPostalCode:
+                                exp: Flow.zip
+                              CustomerEmail:
+                                exp: Flow.CustEmail
+                              SecurePauseOn:
+                                lit: false
+                              Maps_Api_Key:
+                                lit: AIzaSyBQrDFdcH-AKzzYtCxGgCnlOlRz-IF1Dak
+                              CustomerBalance:
+                                lit: 0
+                              ApptDate:
+                                exp: Flow.HandoffApptDate
+                              Office Number:
+                                lit: ""
+                              Hardware:
+                                lit: ""
+                              IncState:
+                                lit: ""
+                              TicketNumber:
+                                exp: Flow.TicketNumber
+                              IncPriority:
+                                lit: ""
+                              IncNum:
+                                exp: Flow.HandoffLicenseNumber
+                              customer_selection:
+                                exp: ToString(Flow.IBVivrselection)
+                              ViolFirst:
+                                lit: ""
+                              Violation1:
+                                exp: Flow.HandoffPlateNumber
+                              ViolLast:
+                                lit: ""
+                              ViolPhone:
+                                lit: ""
+                              ViolDate:
+                                lit: ""
+                              ViolAmt:
+                                lit: ""
+                              PickupDate:
+                                lit: ""
+                              PickUpTime:
+                                lit: ""
+                              PickupLoc:
+                                lit: ""
+                              DropLoc:
+                                lit: ""
+                              RoundTrip:
+                                lit: ""
+                              ContactPh:
+                                lit: ""
+                              ConfNumb:
+                                lit: ""
+                              RiderName:
+                                lit: ""
+                              appt_date:
+                                exp: Flow.HandoffApptDate
+                              appt_loc:
+                                exp: Flow.HandoffApptLoc
+                              appt_time:
+                                exp: Flow.HandoffApptTime
+                              booking_notes:
+                                exp: Flow.HandoffApptSummary
+                              booking_status:
+                                lit: ""
+                              conf_numb:
+                                exp: Flow.HandoffApptConf
+                              contact_info:
+                                exp: Flow.contactPhone
+                              contact_name:
+                                exp: Flow.CustEmail
+                              service_type:
+                                lit: Massachusetts RMV
+                              Authenticated:
+                                lit: 00AA00
+                              acct_number:
+                                lit: ""
+                              customer_name:
+                                exp: Flow.firstname
+                              acct_status:
+                                lit: ""
+                              balance_due:
+                                lit: ""
+                              due_date:
+                                lit: ""
+                              agent_summary:
+                                exp: Flow.HandoffSummary
+                              priority_level:
+                                lit: ""
+                              banner_color:
+                                lit: ""
+                              banner_text:
+                                lit: Welcome to the Massachusetts Registry of Motor Vehicles
+                              claim_number:
+                                exp: Flow.TicketNumber
+                              claim_descript:
+                                exp: Flow.HandoffSummary
+                              Claim_level:
+                                lit: ""
+                failure:
+                  actions:
+                    - setScreenPop:
+                        name: Set Screen Pop
+                        trackingId: 23
+                        screenPopScript:
+                          miked_script_2026:
+                            inputs:
+                              CustomerFirstName:
+                                exp: Flow.firstname
+                              CustomerLastName:
+                                exp: Flow.lastname
+                              CustomerAddressLine1:
+                                exp: Flow.address1
+                              CustomerCity:
+                                exp: Flow.city
+                              CustomerState:
+                                exp: Flow.state
+                              CustomerPostalCode:
+                                exp: Flow.zip
+                              CustomerEmail:
+                                exp: Flow.CustEmail
+                              SecurePauseOn:
+                                lit: false
+                              Maps_Api_Key:
+                                lit: AIzaSyBQrDFdcH-AKzzYtCxGgCnlOlRz-IF1Dak
+                              CustomerBalance:
+                                lit: 0
+                              ApptDate:
+                                exp: Flow.HandoffApptDate
+                              Office Number:
+                                lit: ""
+                              Hardware:
+                                lit: ""
+                              IncState:
+                                lit: MA
+                              TicketNumber:
+                                exp: Flow.TicketNumber
+                              IncPriority:
+                                lit: ""
+                              IncNum:
+                                exp: Flow.HandoffLicenseNumber
+                              customer_selection:
+                                exp: ToString(Flow.IBVivrselection)
+                              ViolFirst:
+                                lit: ""
+                              Violation1:
+                                exp: Flow.HandoffPlateNumber
+                              ViolLast:
+                                lit: ""
+                              ViolPhone:
+                                lit: ""
+                              ViolDate:
+                                lit: ""
+                              ViolAmt:
+                                lit: ""
+                              PickupDate:
+                                lit: ""
+                              PickUpTime:
+                                lit: ""
+                              PickupLoc:
+                                lit: ""
+                              DropLoc:
+                                lit: ""
+                              RoundTrip:
+                                lit: ""
+                              ContactPh:
+                                lit: ""
+                              ConfNumb:
+                                lit: ""
+                              RiderName:
+                                lit: ""
+                              appt_date:
+                                exp: Flow.HandoffApptDate
+                              appt_loc:
+                                exp: Flow.HandoffApptLoc
+                              appt_time:
+                                exp: Flow.HandoffApptTime
+                              booking_notes:
+                                exp: Flow.HandoffApptSummary
+                              booking_status:
+                                lit: ""
+                              conf_numb:
+                                exp: Flow.HandoffApptConf
+                              contact_info:
+                                exp: Flow.contactPhone
+                              contact_name:
+                                exp: Flow.CustEmail
+                              service_type:
+                                lit: Massachusetts RMV
+                              Authenticated:
+                                lit: 00AA00
+                              acct_number:
+                                lit: ""
+                              customer_name:
+                                exp: Flow.firstname
+                              acct_status:
+                                lit: ""
+                              balance_due:
+                                lit: ""
+                              due_date:
+                                lit: ""
+                              agent_summary:
+                                exp: Flow.HandoffSummary
+                              priority_level:
+                                lit: ""
+                              banner_color:
+                                lit: ""
+                              banner_text:
+                                lit: Welcome to the Massachusetts Registry of Motor Vehicles
+                              claim_number:
+                                exp: Flow.TicketNumber
+                              claim_descript:
+                                exp: Flow.HandoffSummary
+                              Claim_level:
+                                lit: ""
+                timeout:
+                  actions:
+                    - setScreenPop:
+                        name: Set Screen Pop
+                        trackingId: 24
+                        screenPopScript:
+                          miked_script_2026:
+                            inputs:
+                              CustomerFirstName:
+                                lit: ""
+                              CustomerLastName:
+                                lit: ""
+                              CustomerAddressLine1:
+                                lit: ""
+                              CustomerCity:
+                                lit: ""
+                              CustomerState:
+                                lit: ""
+                              CustomerPostalCode:
+                                lit: ""
+                              CustomerEmail:
+                                lit: ""
+                              SecurePauseOn:
+                                lit: false
+                              Maps_Api_Key:
+                                lit: AIzaSyBQrDFdcH-AKzzYtCxGgCnlOlRz-IF1Dak
+                              CustomerBalance:
+                                lit: 0
+                              ApptDate:
+                                exp: Flow.HandoffApptDate
+                              Office Number:
+                                lit: ""
+                              Hardware:
+                                lit: ""
+                              IncState:
+                                lit: ""
+                              TicketNumber:
+                                lit: ""
+                              IncPriority:
+                                lit: ""
+                              IncNum:
+                                exp: Flow.HandoffLicenseNumber
+                              customer_selection:
+                                exp: ToString(Flow.IBVivrselection)
+                              ViolFirst:
+                                lit: ""
+                              Violation1:
+                                exp: Flow.HandoffPlateNumber
+                              ViolLast:
+                                lit: ""
+                              ViolPhone:
+                                lit: ""
+                              ViolDate:
+                                lit: ""
+                              ViolAmt:
+                                lit: ""
+                              PickupDate:
+                                lit: ""
+                              PickUpTime:
+                                lit: ""
+                              PickupLoc:
+                                lit: ""
+                              DropLoc:
+                                lit: ""
+                              RoundTrip:
+                                lit: ""
+                              ContactPh:
+                                lit: ""
+                              ConfNumb:
+                                lit: ""
+                              RiderName:
+                                lit: ""
+                              appt_date:
+                                exp: Flow.HandoffApptDate
+                              appt_loc:
+                                exp: Flow.HandoffApptLoc
+                              appt_time:
+                                exp: Flow.HandoffApptTime
+                              booking_notes:
+                                exp: Flow.HandoffApptSummary
+                              booking_status:
+                                lit: ""
+                              conf_numb:
+                                exp: Flow.HandoffApptConf
+                              contact_info:
+                                exp: Flow.contactPhone
+                              contact_name:
+                                exp: Flow.CustEmail
+                              service_type:
+                                lit: Massachusetts RMV
+                              Authenticated:
+                                lit: 00AA00
+                              acct_number:
+                                lit: ""
+                              customer_name:
+                                exp: Flow.firstname
+                              acct_status:
+                                lit: ""
+                              balance_due:
+                                lit: ""
+                              due_date:
+                                lit: ""
+                              agent_summary:
+                                exp: Flow.HandoffSummary
+                              priority_level:
+                                lit: ""
+                              banner_color:
+                                lit: ""
+                              banner_text:
+                                lit: Welcome to the Massachusetts Registry of Motor Vehicles
+                              claim_number:
+                                exp: Flow.TicketNumber
+                              claim_descript:
+                                exp: Flow.HandoffSummary
+                              Claim_level:
+                                lit: ""
+          - updateData:
+              name: Flag queue handoff for inbound
+              trackingId: 34
+              statements:
+                - boolean:
+                    variable: Flow.MvTransferredToQueue
+                    value:
+                      lit: true
+          - transferToAcd:
+              name: Transfer to ACD
+              trackingId: 13
+              targetQueue:
+                lit:
+                  name: Support_MikeD
+              preTransferCommunication:
+                noValue: true
+              failureTransferCommunication:
+                noValue: true
+              priority:
+                lit: 0
+              preferredAgents:
+                noValue: true
+              languageSkill:
+                noValue: true
+              failureOutputs:
+                errorType:
+                  noValue: true
+                errorMessage:
+                  noValue: true
+              outputs:
+                failure:
+                  actions:
+                    - disconnect:
+                        name: Disconnect
+                        trackingId: 39
+  settingsBotFlow:
+    voiceProcessingPrompt:
+      noValue: true
+    initialPlaybackDelay:
+      lit:
+        ms: 250
+    minimumPlaybackTime:
+      lit:
+        seconds: 1
+    virtualAgentEnabled: true
+  settingsUserInput:
+    enableBargeIn:
+      lit: false
+    enableAutomaticQuickReplies:
+      lit: false
+    noMatchesMax:
+      lit: 3
+    noInputsMax:
+      lit: 3
+    noInputsTimeout:
+      lit:
+        seconds: 7
+    speechToTextSpeechDetectionSensitivity:
+      noValue: true
+    speechToTextMaxSpeechTimeout:
+      noValue: true
+    speechToTextAdvancedConfiguration:
+      noValue: true
+    enableIntentClassificationHinting:
+      lit: false
+    interDigitTimeout:
+      lit:
+        seconds: 3
+    dtmfTerminatingCharacter:
+      noValue: true
+    confirmationRejectionsMax:
+      lit: 3
+    collectionLowConfidenceThreshold:
+      lit: 20
+    collectionHighConfidenceThreshold:
+      lit: 70
+    confirmationLowConfidenceThreshold:
+      lit: 40
+    noMatchApology:
+      exp: "MakeCommunication(\n  \"Sorry.\")"
+    noInputApology:
+      exp: "MakeCommunication(\n  \"Sorry, I didn't hear you.\")"
+    noToConfirmationApology:
+      exp: "MakeCommunication(\n  \"My mistake.\")"
+    confirmationNoMatchApology:
+      exp: "MakeCommunication(\n  \"Sorry, please say yes or no.\")"
+    confirmationNoInputApology:
+      exp: "MakeCommunication(\n  \"Sorry, I didn't hear you.  Please say yes or no.\")"
+  settingsKnowledge:
+    none: true
+  settingsVirtualAgent:
+    summarization:
+      lit: true
+    assignWrapupCodes:
+      lit: true
+    enabledWrapupCodes:
+      lit:
+        - lit:
+            name: RealID
+        - lit:
+            name: Account Information
+        - lit:
+            name: Document Information/Assistance
+    conversationSummarySetting:
+      name: MikeD_Summary_Config
+  bots:
+    - bot:
+        name: Default Bot
+        refId: Default Bot_10
+        trackingId: 10
+        actions:
+          - updateData:
+              name: Seed IBV for script router
+              trackingId: 15
+              statements:
+                - integer:
+                    variable: Flow.IBVivrselection
+                    value:
+                      lit: 123
+          - callAgenticVirtualAgent:
+              name: Call Agentic Virtual Agent
+              trackingId: 12
+              agenticVirtualAgent:
+                miked_mv_front_door:
+                  ver_latestPublished:
+                    inputs:
+                      first_name:
+                        noValue: true
+                      state_code:
+                        lit: MA
+                      conversation_id:
+                        noValue: true
+                      interaction_channel:
+                        lit: voice
+                    outputs:
+                      session.contact_email:
+                        var: Flow.VerifiedCustEmail
+                      handoff.contact_email:
+                        var: Flow.CustEmail
+                      handoff.intent_summary:
+                        var: Flow.HandoffSummary
+                      handoff.handoff_id:
+                        var: Flow.TicketNumber
+                      handoff.genesys_external_contact_id:
+                        var: Flow.ContactGUID
+                      handoff.license_number:
+                        var: Flow.HandoffLicenseNumber
+                      handoff.plate_number:
+                        var: Flow.HandoffPlateNumber
+                      handoff.appointments_summary:
+                        var: Flow.HandoffApptSummary
+                      handoff.appointment_date:
+                        var: Flow.HandoffApptDate
+                      handoff.appointment_location:
+                        var: Flow.HandoffApptLoc
+                      handoff.appointment_time:
+                        var: Flow.HandoffApptTime
+                      handoff.appointment_confirmation:
+                        var: Flow.HandoffApptConf
+                    exitReason:
+                      var: Flow.AvaExitReason
+              outputs:
+                failure:
+                  actions:
+                    - callTask:
+                        name: MV handoff transfer
+                        trackingId: 17
+                        targetTaskRef: "/botFlow/tasks/task[MV handoff transfer_20]"
+                timeout:
+                  actions:
+                    - callTask:
+                        name: MV handoff transfer
+                        trackingId: 18
+                        targetTaskRef: "/botFlow/tasks/task[MV handoff transfer_20]"
+          - exitBotFlow:
+              name: Exit Bot Flow
+              trackingId: 16

@@ -1,0 +1,90 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00083
+Date:               January 16, 2026
+Duration:           12:12
+Topic:              License/ID Status Check
+Citizen (fictional):George Rodriguez
+Agent (fictional):  Angela Nakamura
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Good morning, thank you for calling the Massachusetts Registry of Motor Vehicles, this is
+       Angela Nakamura speaking, how can I help?
+
+Citizen: Hi, I applied for my Mass ID a couple weeks ago and I still haven't received it, can you check
+         the status?
+
+Agent: I'd be happy to help with that. First I just need to verify your identity - can you give me
+       your full name and date of birth?
+
+Citizen: Sure, it's George Rodriguez, date of birth May 25, 1988.
+
+Agent: Got it. Last thing - can you confirm the last four digits of your Social Security number on
+       file, just for verification?
+
+Citizen: Yes, the last four are 4378.
+
+Agent: Okay, let me take a look at your record - one moment please, this might take about thirty
+       seconds.
+
+Agent: Okay, I'm back - thank you for waiting. I see your file here now.
+
+Agent: I'd be glad to check that for you. Can you give me your license or ID number if you have it
+       handy, or I can look it up with your name and date of birth?
+
+Citizen: I don't have the number in front of me, let's use my name and date of birth.
+
+Agent: That's fine, one moment while I pull that up.
+
+Agent: Okay, I see your application was submitted on September 12, 2026. It shows as 'In Production'
+       in our system, which means it's been approved and is currently being printed and
+       prepared for mailing.
+
+Citizen: How much longer should I expect to wait?
+
+Agent: Typically it takes two to three weeks from the application date for the card to arrive by mail,
+       so you're right in that window, but occasionally it can take a bit longer depending on
+       volume.
+
+Citizen: Is there a way to track it like a package?
+
+Agent: Unfortunately we don't have a package-style tracking number for you to follow, but you can
+       check the status anytime through the 'Check the Status of Your License or ID' tool on
+       the RMV website using your license number and date of birth.
+
+Citizen: Okay. What if it still hasn't shown up after three weeks?
+
+Agent: If it's been more than three weeks and it hasn't arrived, give us a call back or visit a
+       Service Center, and we can look into whether it was returned as undeliverable or if
+       there was an issue with the mailing address.
+
+Citizen: Can you double check the mailing address on file just in case?
+
+Agent: Of course, one second... I have it listed as your address in Fall River, Massachusetts. Does
+       that look correct to you?
+
+Citizen: Yes, that's correct.
+
+Agent: Great, then that shouldn't be the issue. In the meantime, is your current license or ID still
+       valid, or has it already expired?
+
+Citizen: It's still valid for a few more weeks, thankfully.
+
+Agent: That's good, so you're fine to keep using that one until the new one arrives.
+
+Citizen: Perfect, thank you for checking on that for me.
+
+Agent: Okay, anything else I can help with before we wrap up?
+
+Citizen: Nope, that covers it. Thanks for explaining all of that.
+
+Agent: Not a problem at all. Thank you for your patience today, have a good morning.
+
+------------------------------------------------------------------------------
+[END OF CALL]

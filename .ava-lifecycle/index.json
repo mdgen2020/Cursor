@@ -23,6 +23,14 @@
       "gc_version": "12.0",
       "local_status": "test-ready",
       "last_updated": "2026-09-18T20:27:53Z"
+    },
+    {
+      "name": "miked_mv_front_door",
+      "slug": "miked-mv-front-door",
+      "agent_id": "0490c8a0-4830-4c57-981b-0623f5a5a466",
+      "gc_version": "28.0",
+      "local_status": "test-ready",
+      "last_updated": "2026-10-13T19:18:54Z"
     }
   ]
 }

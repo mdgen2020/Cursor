@@ -1,0 +1,82 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00008
+Date:               June 2, 2026
+Duration:           11:54
+Topic:              License Renewal
+Citizen (fictional):Betty Campbell
+Agent (fictional):  Victor Chu
+Resolution Status:  Resolved
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Good afternoon, thank you for calling the Massachusetts Registry of Motor Vehicles, this is
+       Victor Chu speaking, how can I help?
+
+Citizen: Hi, my driver's license is expiring on October 7, 2026 and I need to renew it, and I want to
+         upgrade to a REAL ID at the same time.
+
+Agent: Okay, let's get that sorted out. Can I start by getting your full name and date of birth on
+       file?
+
+Citizen: Sure, it's Betty Campbell, date of birth September 8, 2008.
+
+Agent: Great, thank you. And can you confirm the address we have on file, or the city you're currently
+       residing in?
+
+Citizen: Yes, I'm at my address in Brookline, Massachusetts.
+
+Agent: Okay, let me take a look at your record - one moment please, this might take about thirty
+       seconds.
+
+Agent: Thanks for your patience, I found your record.
+
+Agent: Thanks for calling about that. I see your license does show an expiration date of October 7,
+       2026. Are you looking to renew as a Standard license or upgrade to a REAL ID?
+
+Citizen: I'd like the REAL ID this time, I keep forgetting my passport when I fly and I'm tired of it.
+
+Agent: Got it. For a REAL ID upgrade, you'll need to bring in one document proving your identity, one
+       showing your date of birth if not already covered, your Social Security card or a
+       document with your full SSN, and two documents proving your Massachusetts residency,
+       like a utility bill or bank statement.
+
+Citizen: Okay, I have my passport, my Social Security card, and I think a recent electric bill. Would
+         that work?
+
+Agent: That should cover it. A valid U.S. passport covers both identity and lawful presence, your
+       Social Security card covers the SSN requirement, and the electric bill can be one of
+       your two residency documents. You'll need a second residency document too - something
+       like a bank statement, a lease, or a piece of mail from a government agency dated within
+       the last 60 days.
+
+Citizen: I think I have a bank statement I can print out. Do both documents need to be paper copies?
+
+Agent: Yes, we do need original or printed paper documents, we can't accept documents shown only on a
+       phone screen at the counter.
+
+Agent: The fee for a REAL ID license renewal is $50, and the license will be valid for five years.
+
+Citizen: Can I just take care of the whole thing over the phone right now?
+
+Agent: For a REAL ID upgrade we unfortunately can't complete it over the phone since we need to verify
+       original documents and take a new photo in person, but for a standard renewal without a
+       photo change, I actually can process the payment with you right now if you'd like.
+
+Citizen: Let's do that then.
+
+Agent: Perfect, I've processed that renewal. Your confirmation number is MA571282619, and your new
+       card should arrive in about two to three weeks.
+
+Agent: Alright, does that take care of everything for you today?
+
+Citizen: That's it for me, thank you, you've been very helpful.
+
+Agent: You're very welcome. Thank you for calling the Massachusetts RMV, have a great afternoon.
+
+------------------------------------------------------------------------------
+[END OF CALL]

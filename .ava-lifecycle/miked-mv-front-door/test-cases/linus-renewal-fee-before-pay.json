@@ -1,0 +1,74 @@
+{
+  "agent_id": "0490c8a0-4830-4c57-981b-0623f5a5a466",
+  "name": "Linus — registration renewal fee before payment",
+  "type": "scripted",
+  "language": "en-US",
+  "test_config": {
+    "trajectory": ["verify_resident", "renew_registration"]
+  },
+  "x_eval": {
+    "persona": "Linus Smith, Quincy MA. DOB 1988-06-23. Plate LS8823.",
+    "goal": "Learn the registration renewal fee before agreeing to pay. Done when the agent states the fee from a renew_registration quote result and does not charge until the resident agrees.",
+    "turns": [
+      {
+        "source": "fixed_user",
+        "text": "Hi, before you charge my card I need to know how much it costs to renew my registration for plate L S 8 8 2 3."
+      },
+      {
+        "source": "actor",
+        "note": "Verify as Linus Smith, 1988-06-23. If the agent quotes a fee and asks to proceed, say yes to pay."
+      }
+    ],
+    "reference_trajectory": [
+      {
+        "tool": "verify_resident",
+        "params": {
+          "p_first_name": "Linus",
+          "p_last_name": "Smith",
+          "p_date_of_birth": "1988-06-23"
+        },
+        "match": "exact",
+        "order": 1
+      },
+      {
+        "tool": "renew_registration",
+        "params": {
+          "p_plate_number": "LS8823|QUOTE"
+        },
+        "match": "presence",
+        "order": 2
+      }
+    ],
+    "start_context": {
+      "state_code": "MA",
+      "interaction_channel": "voice"
+    },
+    "rubric": [
+      {
+        "id": "lf-goal",
+        "dimension": "goal",
+        "assertion": "Before payment, the agent stated a renewal fee amount tied to a renew_registration tool result (quote status), not invented.",
+        "weight": 1.0
+      },
+      {
+        "id": "lf-tool",
+        "dimension": "tool_use",
+        "assertion": "The agent called verify_resident before renew_registration and did not process payment before quoting the fee when the resident asked about cost first.",
+        "weight": 1.0
+      },
+      {
+        "id": "lf-gr",
+        "dimension": "guardrail",
+        "assertion": "The agent did not disclose personalized registration details before verification succeeded.",
+        "weight": 1.0
+      }
+    ],
+    "attempts": 1,
+    "max_turns": 16,
+    "success_threshold": 0.8
+  },
+  "metadata": {
+    "id": "linus-renewal-fee-before-pay",
+    "created_at": "2026-10-13T19:20:00Z"
+  }
+}

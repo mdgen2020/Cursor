@@ -1,0 +1,85 @@
+{
+  "agent_id": "0490c8a0-4830-4c57-981b-0623f5a5a466",
+  "name": "Happy Path — Diane license appointment booking",
+  "type": "scripted",
+  "language": "en-US",
+  "test_config": {
+    "trajectory": ["verify_resident", "generate_confirmation_code", "book_rmv_appointment"]
+  },
+  "x_eval": {
+    "persona": "Diane Martin, Franklin MA. DOB 1969-06-09. Wants an in-person license renewal / REAL ID appointment.",
+    "goal": "Book a license-related RMV appointment after verification. Done when book_rmv_appointment succeeds and the agent shares confirmation details from the tool.",
+    "start_context": {
+      "first_name": "Diane",
+      "state_code": "MA",
+      "interaction_channel": "voice"
+    },
+    "turns": [
+      {
+        "source": "fixed_user",
+        "text": "I need to book an in-person appointment to renew my license and upgrade to REAL ID."
+      },
+      {
+        "source": "actor",
+        "note": "Provide Diane Martin, DOB June 9 1969 for verify; purpose license renewal REAL ID; service center Boston Haymarket; date October 20 2026 at 2 PM when asked."
+      }
+    ],
+    "reference_trajectory": [
+      {
+        "tool": "verify_resident",
+        "params": {
+          "p_first_name": "Diane",
+          "p_last_name": "Martin",
+          "p_date_of_birth": "1969-06-09"
+        },
+        "match": "exact",
+        "order": 1
+      },
+      {
+        "tool": "generate_confirmation_code",
+        "params": {},
+        "match": "presence",
+        "order": 2
+      },
+      {
+        "tool": "book_rmv_appointment",
+        "params": {},
+        "match": "presence",
+        "order": 3
+      }
+    ],
+    "rubric": [
+      {
+        "id": "dab-goal",
+        "dimension": "goal",
+        "assertion": "The agent confirmed an RMV appointment with details from book_rmv_appointment.",
+        "weight": 1.0
+      },
+      {
+        "id": "dab-tool",
+        "dimension": "tool_use",
+        "assertion": "The agent called verify_resident before book_rmv_appointment and generate_confirmation_code immediately before book_rmv_appointment.",
+        "weight": 1.0
+      },
+      {
+        "id": "dab-gr",
+        "dimension": "guardrail",
+        "assertion": "The agent did not invent a confirmation code without generate_confirmation_code and book_rmv_appointment results.",
+        "weight": 1.0
+      },
+      {
+        "id": "dab-tone",
+        "dimension": "tone_format",
+        "assertion": "The agent kept responses brief for a voice-style interaction.",
+        "weight": 1.0
+      }
+    ],
+    "attempts": 1,
+    "max_turns": 18,
+    "success_threshold": 0.8
+  },
+  "metadata": {
+    "id": "diane-license-appointment-book",
+    "created_at": "2026-09-29T23:35:00Z"
+  }
+}

@@ -1,0 +1,72 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00122
+Date:               August 28, 2026
+Duration:           12:18
+Topic:              License Suspension / Reinstatement
+Citizen (fictional):Robert Miller
+Agent (fictional):  Priya Falcone
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: RMV Customer Contact Center, my name is Priya Falcone, how may I assist you?
+
+Citizen: Hi, I need to find out what I have to do to get my license reinstated, it's currently
+         suspended.
+
+Agent: I'd be happy to help with that. First I just need to verify your identity - can you give me
+       your full name and date of birth?
+
+Citizen: Sure, it's Robert Miller, date of birth September 1, 1974.
+
+Agent: Got it. Last thing - can you confirm the last four digits of your Social Security number on
+       file, just for verification?
+
+Citizen: Yes, the last four are 1373.
+
+Agent: I need to check on something with our licensing system, can I place you on a brief hold?
+
+Agent: Okay, I'm back - thank you for waiting. I see your file here now.
+
+Agent: I can help you look into that. Let me pull up your record to see the reason for the
+       suspension... one moment.
+
+Agent: I see this suspension is for a failure to pay a citation or a failure to respond to a citation
+       by its deadline, sometimes called a 'failure to pay' suspension.
+
+Citizen: I didn't even realize that ticket was unpaid, I thought I took care of it.
+
+Agent: That happens sometimes if a payment didn't fully process or if the citation was routed to a
+       different court than expected. You'd need to resolve the underlying citation first,
+       usually by contacting the court listed on it, and once they notify us it's resolved, we
+       can lift the suspension.
+
+Citizen: How long does that usually take once it's paid?
+
+Agent: Once the court reports it as resolved, it's typically reflected in our system within about five
+       to seven business days, and then there is also a small RMV reinstatement fee on top of
+       whatever you owed the court.
+
+Agent: That RMV fee is $50.
+
+Citizen: Is there any way to confirm with you once the court says it's resolved, or do I just wait?
+
+Agent: You're welcome to call us back once the court confirms it's resolved, and we can check whether
+       it's already reflected in our system, or in some cases the court's confirmation triggers
+       the update automatically within a few business days without you needing to follow up.
+
+Citizen: Okay, I'll call the court today and get that resolved. Thank you.
+
+Agent: Alright, does that take care of everything for you today?
+
+Citizen: Nope, that covers it. Thanks for explaining all of that.
+
+Agent: You're very welcome. Thank you for calling the Massachusetts RMV, have a great morning.
+
+------------------------------------------------------------------------------
+[END OF CALL]

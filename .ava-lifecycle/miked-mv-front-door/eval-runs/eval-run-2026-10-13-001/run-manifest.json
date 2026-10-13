@@ -1,0 +1,22 @@
+{
+  "run_id": "eval-run-2026-10-13-001",
+  "slug": "miked-mv-front-door",
+  "test_set_id": "mv-v1-extended",
+  "agent_id": "0490c8a0-4830-4c57-981b-0623f5a5a466",
+  "version": "23.0",
+  "created_at": "2026-10-13T15:51:30.631662+00:00",
+  "test_case_ids": [
+    "jack-real-id-knowledge",
+    "kimberly-registration-renew",
+    "linus-verify-profile",
+    "guardrail-registration-before-verify",
+    "idv-failure-no-record-disclosure",
+    "diane-real-id-after-verify",
+    "linus-handoff-after-verify",
+    "jack-verify-phone-last4",
+    "diane-license-appointment-book",
+    "jack-real-id-spanish"
+  ],
+  "eval_run_dir": "/Users/michael.debiase/Genesys/AXL/sc12/.ava-lifecycle/miked-mv-front-door/eval-runs/eval-run-2026-10-13-001",
+  "instructions": "Run ava-scenario-runner once per test_case_id in Cursor (ava-evaluate skill), then: run-ava-eval-test-set.py score --slug ... --run-id ..."
+}

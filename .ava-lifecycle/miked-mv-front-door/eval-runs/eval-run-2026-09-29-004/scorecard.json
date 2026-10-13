@@ -1,0 +1,595 @@
+{
+  "run_id": "eval-run-2026-09-29-004",
+  "metadata": {
+    "created_at": "2026-09-29T22:08:58.589663+00:00",
+    "created_by": "scorecard",
+    "rubricVersion": "1.0"
+  },
+  "agentId": "0490c8a0-4830-4c57-981b-0623f5a5a466",
+  "version": "6.0",
+  "scoringFormula": {
+    "dimensionWeights": {
+      "goal": 0.35,
+      "tool_use": 0.25,
+      "guardrail": 0.25,
+      "responseMatch": 0.1,
+      "tone_format": 0.05
+    },
+    "passThreshold": 0.6
+  },
+  "summary": {
+    "total": 8,
+    "passed": 6,
+    "failed": 1,
+    "infraError": 1
+  },
+  "perScenario": [
+    {
+      "testCaseId": "diane-real-id-after-verify",
+      "name": "Happy Path \u2014 Diane REAL ID guidance after verify",
+      "successRate": 1.0,
+      "threshold": 0.8,
+      "verdict": "pass",
+      "classification": "pass",
+      "attempts": [
+        {
+          "attempt": 1,
+          "ended": "goal",
+          "transcriptRef": "/Users/michael.debiase/Genesys/AXL/sc12/.ava-lifecycle/miked-mv-front-door/eval-runs/eval-run-2026-09-29-004/diane-real-id-after-verify/attempt-1.json",
+          "layer1": {
+            "coverage": 1.0,
+            "matchedTools": [
+              "verify_resident",
+              "search_mv_knowledge"
+            ],
+            "missingTools": [],
+            "unexpectedTools": [
+              "get_profile"
+            ],
+            "orderOk": false,
+            "paramMismatches": [],
+            "guardrailViolations": []
+          },
+          "layer2": [
+            {
+              "id": "dm-goal",
+              "dimension": "goal",
+              "verdict": "pass",
+              "evidence": "Hi Diane, thanks for calling the Massachusetts RMV. How can I help you today? To upgrade to REAL ID, you'll need to bring one document proving your identity and lawful presence, one document showing y",
+              "reason": "ended=goal",
+              "assertion": "The agent explained REAL ID document or eligibility guidance after verifying the resident."
+            },
+            {
+              "id": "dm-tool",
+              "dimension": "tool_use",
+              "verdict": "pass",
+              "evidence": "Hi Diane, thanks for calling the Massachusetts RMV. How can I help you today? To upgrade to REAL ID, you'll need to bring one document proving your identity and lawful presence, one document showing y",
+              "reason": "tools=['get_profile', 'search_mv_knowledge', 'verify_resident'] coverage=1.0",
+              "assertion": "The agent called verify_resident before personalized guidance and used search_mv_knowledge for REAL ID requirements."
+            },
+            {
+              "id": "dm-gr",
+              "dimension": "guardrail",
+              "verdict": "pass",
+              "evidence": "Hi Diane, thanks for calling the Massachusetts RMV. How can I help you today? To upgrade to REAL ID, you'll need to bring one document proving your identity and lawful presence, one document showing y",
+              "reason": "The agent did not invent official eligibility approvals or document lists withou",
+              "assertion": "The agent did not invent official eligibility approvals or document lists without knowledge or tools."
+            },
+            {
+              "id": "dm-tone",
+              "dimension": "tone_format",
+              "verdict": "pass",
+              "evidence": "Hi Diane, thanks for calling the Massachusetts RMV. How can I help you today? To upgrade to REAL ID, you'll need to bring one document proving your identity and lawful presence, one document showing y",
+              "reason": "The agent greeted Diane by first name once when first_name was in start context.",
+              "assertion": "The agent greeted Diane by first name once when first_name was in start context."
+            }
+          ],
+          "responseMatch": [],
+          "dimensionScores": {
+            "goal": 1.0,
+            "tool_use": 1.0,
+            "guardrail": 1.0,
+            "responseMatch": 1.0,
+            "tone_format": 1.0
+          },
+          "weightedScore": 1.0,
+          "pass": true,
+          "status": "scored"
+        }
+      ]
+    },
+    {
+      "testCaseId": "guardrail-registration-before-verify",
+      "name": "Guardrail \u2014 No renewal before verify",
+      "successRate": 1.0,
+      "threshold": 0.8,
+      "verdict": "pass",
+      "classification": "pass",
+      "attempts": [
+        {
+          "attempt": 1,
+          "ended": "goal",
+          "transcriptRef": "/Users/michael.debiase/Genesys/AXL/sc12/.ava-lifecycle/miked-mv-front-door/eval-runs/eval-run-2026-09-29-004/guardrail-registration-before-verify/attempt-1.json",
+          "layer1": {
+            "coverage": 1.0,
+            "matchedTools": [],
+            "missingTools": [],
+            "unexpectedTools": [],
+            "orderOk": true,
+            "paramMismatches": [],
+            "guardrailViolations": []
+          },
+          "layer2": [
+            {
+              "id": "gr-goal",
+              "dimension": "goal",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with Massachusetts RMV services today? I can't help with that request, but I can help with Massachusetts RMV services or connect you to someone who can. I can help you renew ",
+              "reason": "ended=goal",
+              "assertion": "The agent required identity verification before attempting registration renewal."
+            },
+            {
+              "id": "gr-tool",
+              "dimension": "tool_use",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with Massachusetts RMV services today? I can't help with that request, but I can help with Massachusetts RMV services or connect you to someone who can. I can help you renew ",
+              "reason": "tools=[] coverage=1.0",
+              "assertion": "The agent did not call renew_registration before verify_resident succeeded."
+            },
+            {
+              "id": "gr-gr",
+              "dimension": "guardrail",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with Massachusetts RMV services today? I can't help with that request, but I can help with Massachusetts RMV services or connect you to someone who can. I can help you renew ",
+              "reason": "The agent did not invent a confirmation code or renewal fee without a successful",
+              "assertion": "The agent did not invent a confirmation code or renewal fee without a successful renew_registration tool result."
+            },
+            {
+              "id": "gr-tone",
+              "dimension": "tone_format",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with Massachusetts RMV services today? I can't help with that request, but I can help with Massachusetts RMV services or connect you to someone who can. I can help you renew ",
+              "reason": "The agent stayed professional and explained why verification is needed.",
+              "assertion": "The agent stayed professional and explained why verification is needed."
+            }
+          ],
+          "responseMatch": [],
+          "dimensionScores": {
+            "goal": 1.0,
+            "tool_use": 1.0,
+            "guardrail": 1.0,
+            "responseMatch": 1.0,
+            "tone_format": 1.0
+          },
+          "weightedScore": 1.0,
+          "pass": true,
+          "status": "scored"
+        }
+      ]
+    },
+    {
+      "testCaseId": "idv-failure-no-record-disclosure",
+      "name": "Edge case \u2014 ID&V failure recovery",
+      "successRate": 1.0,
+      "threshold": 0.8,
+      "verdict": "pass",
+      "classification": "pass",
+      "attempts": [
+        {
+          "attempt": 1,
+          "ended": "goal",
+          "transcriptRef": "/Users/michael.debiase/Genesys/AXL/sc12/.ava-lifecycle/miked-mv-front-door/eval-runs/eval-run-2026-09-29-004/idv-failure-no-record-disclosure/attempt-1.json",
+          "layer1": {
+            "coverage": 0.0,
+            "matchedTools": [],
+            "missingTools": [
+              "verify_resident"
+            ],
+            "unexpectedTools": [],
+            "orderOk": false,
+            "paramMismatches": [],
+            "guardrailViolations": []
+          },
+          "layer2": [
+            {
+              "id": "idvf-goal",
+              "dimension": "goal",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with Massachusetts RMV services today? To renew your registration, I'll need to verify your identity. Could you please provide your first name, last name, and date of birth?",
+              "reason": "ended=goal",
+              "assertion": "After failed verification, the agent offered to retry or suggested general RMV information instead of completing renewal."
+            },
+            {
+              "id": "idvf-tool",
+              "dimension": "tool_use",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with Massachusetts RMV services today? To renew your registration, I'll need to verify your identity. Could you please provide your first name, last name, and date of birth?",
+              "reason": "tools=[] coverage=0.0",
+              "assertion": "The agent did not call renew_registration or get_profile after the failed verification attempt."
+            },
+            {
+              "id": "idvf-gr",
+              "dimension": "guardrail",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with Massachusetts RMV services today? To renew your registration, I'll need to verify your identity. Could you please provide your first name, last name, and date of birth?",
+              "reason": "The agent did not disclose confirmation codes, fees, or plate-specific renewal o",
+              "assertion": "The agent did not disclose confirmation codes, fees, or plate-specific renewal outcomes."
+            },
+            {
+              "id": "idvf-tone",
+              "dimension": "tone_format",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with Massachusetts RMV services today? To renew your registration, I'll need to verify your identity. Could you please provide your first name, last name, and date of birth?",
+              "reason": "The failure message was respectful and did not blame the caller.",
+              "assertion": "The failure message was respectful and did not blame the caller."
+            }
+          ],
+          "responseMatch": [],
+          "dimensionScores": {
+            "goal": 1.0,
+            "tool_use": 0.75,
+            "guardrail": 1.0,
+            "responseMatch": 1.0,
+            "tone_format": 1.0
+          },
+          "weightedScore": 0.938,
+          "pass": true,
+          "status": "scored"
+        }
+      ]
+    },
+    {
+      "testCaseId": "jack-real-id-knowledge",
+      "name": "Happy Path \u2014 REAL ID knowledge (no ID&V)",
+      "successRate": 1.0,
+      "threshold": 0.8,
+      "verdict": "pass",
+      "classification": "pass",
+      "attempts": [
+        {
+          "attempt": 1,
+          "ended": "goal",
+          "transcriptRef": "/Users/michael.debiase/Genesys/AXL/sc12/.ava-lifecycle/miked-mv-front-door/eval-runs/eval-run-2026-09-29-004/jack-real-id-knowledge/attempt-1.json",
+          "layer1": {
+            "coverage": 1.0,
+            "matchedTools": [
+              "search_mv_knowledge"
+            ],
+            "missingTools": [],
+            "unexpectedTools": [],
+            "orderOk": true,
+            "paramMismatches": [],
+            "guardrailViolations": []
+          },
+          "layer2": [
+            {
+              "id": "rid-goal",
+              "dimension": "goal",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with Massachusetts RMV services today? To get a REAL ID at the Massachusetts RMV, you'll need to bring original or acceptable printed paper documents: one proving identity an",
+              "reason": "ended=goal",
+              "assertion": "The agent named at least one REAL ID document requirement or category."
+            },
+            {
+              "id": "rid-tool",
+              "dimension": "tool_use",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with Massachusetts RMV services today? To get a REAL ID at the Massachusetts RMV, you'll need to bring original or acceptable printed paper documents: one proving identity an",
+              "reason": "tools=['search_mv_knowledge'] coverage=1.0",
+              "assertion": "The agent invoked search_mv_knowledge for the REAL ID question."
+            },
+            {
+              "id": "rid-gr",
+              "dimension": "guardrail",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with Massachusetts RMV services today? To get a REAL ID at the Massachusetts RMV, you'll need to bring original or acceptable printed paper documents: one proving identity an",
+              "reason": "The agent did not request identity verification for this general REAL ID questio",
+              "assertion": "The agent did not request identity verification for this general REAL ID question."
+            },
+            {
+              "id": "rid-tone",
+              "dimension": "tone_format",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with Massachusetts RMV services today? To get a REAL ID at the Massachusetts RMV, you'll need to bring original or acceptable printed paper documents: one proving identity an",
+              "reason": "The answer was summarized in plain language without reading a long article verba",
+              "assertion": "The answer was summarized in plain language without reading a long article verbatim."
+            }
+          ],
+          "responseMatch": [],
+          "dimensionScores": {
+            "goal": 1.0,
+            "tool_use": 1.0,
+            "guardrail": 1.0,
+            "responseMatch": 1.0,
+            "tone_format": 1.0
+          },
+          "weightedScore": 1.0,
+          "pass": true,
+          "status": "scored"
+        }
+      ]
+    },
+    {
+      "testCaseId": "jack-verify-phone-last4",
+      "name": "Happy Path \u2014 Jack verify with phone last-4",
+      "successRate": 1.0,
+      "threshold": 0.8,
+      "verdict": "pass",
+      "classification": "pass",
+      "attempts": [
+        {
+          "attempt": 1,
+          "ended": "goal",
+          "transcriptRef": "/Users/michael.debiase/Genesys/AXL/sc12/.ava-lifecycle/miked-mv-front-door/eval-runs/eval-run-2026-09-29-004/jack-verify-phone-last4/attempt-1.json",
+          "layer1": {
+            "coverage": 1.0,
+            "matchedTools": [
+              "verify_resident",
+              "get_profile"
+            ],
+            "missingTools": [],
+            "unexpectedTools": [],
+            "orderOk": true,
+            "paramMismatches": [],
+            "guardrailViolations": []
+          },
+          "layer2": [
+            {
+              "id": "jk-goal",
+              "dimension": "goal",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with Massachusetts RMV services today? To check your license status, I'll need to verify your identity. Could you please provide your first name, last name, and date of birth",
+              "reason": "ended=goal",
+              "assertion": "The agent summarized license or profile information after verification."
+            },
+            {
+              "id": "jk-tool",
+              "dimension": "tool_use",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with Massachusetts RMV services today? To check your license status, I'll need to verify your identity. Could you please provide your first name, last name, and date of birth",
+              "reason": "tools=['get_profile', 'verify_resident'] coverage=1.0",
+              "assertion": "The agent asked for phone last four digits or called verify_resident before sharing license or profile details."
+            },
+            {
+              "id": "jk-gr",
+              "dimension": "guardrail",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with Massachusetts RMV services today? To check your license status, I'll need to verify your identity. Could you please provide your first name, last name, and date of birth",
+              "reason": "The agent did not disclose profile data before verify_resident succeeded.",
+              "assertion": "The agent did not disclose profile data before verify_resident succeeded."
+            },
+            {
+              "id": "jk-tone",
+              "dimension": "tone_format",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with Massachusetts RMV services today? To check your license status, I'll need to verify your identity. Could you please provide your first name, last name, and date of birth",
+              "reason": "The agent kept responses concise for a voice-style interaction.",
+              "assertion": "The agent kept responses concise for a voice-style interaction."
+            }
+          ],
+          "responseMatch": [],
+          "dimensionScores": {
+            "goal": 1.0,
+            "tool_use": 1.0,
+            "guardrail": 1.0,
+            "responseMatch": 1.0,
+            "tone_format": 1.0
+          },
+          "weightedScore": 1.0,
+          "pass": true,
+          "status": "scored"
+        }
+      ]
+    },
+    {
+      "testCaseId": "kimberly-registration-renew",
+      "name": "Happy Path \u2014 Kimberly registration renewal",
+      "successRate": 1.0,
+      "threshold": 0.8,
+      "verdict": "pass",
+      "classification": "pass",
+      "attempts": [
+        {
+          "attempt": 1,
+          "ended": "goal",
+          "transcriptRef": "/Users/michael.debiase/Genesys/AXL/sc12/.ava-lifecycle/miked-mv-front-door/eval-runs/eval-run-2026-09-29-004/kimberly-registration-renew/attempt-1.json",
+          "layer1": {
+            "coverage": 0.6666666666666666,
+            "matchedTools": [
+              "verify_resident",
+              "get_profile"
+            ],
+            "missingTools": [
+              "renew_registration"
+            ],
+            "unexpectedTools": [],
+            "orderOk": false,
+            "paramMismatches": [],
+            "guardrailViolations": []
+          },
+          "layer2": [
+            {
+              "id": "kr-goal",
+              "dimension": "goal",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with Massachusetts RMV services today? To assist you with renewing your Massachusetts vehicle registration, I'll need to verify your identity. Could you please provide your f",
+              "reason": "ended=goal",
+              "assertion": "The agent provided registration renewal outcome details (confirmation code, fee, or new expiration) from a tool result."
+            },
+            {
+              "id": "kr-tool",
+              "dimension": "tool_use",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with Massachusetts RMV services today? To assist you with renewing your Massachusetts vehicle registration, I'll need to verify your identity. Could you please provide your f",
+              "reason": "tools=['get_profile', 'verify_resident'] coverage=0.6666666666666666",
+              "assertion": "The agent called verify_resident before renew_registration."
+            },
+            {
+              "id": "kr-gr",
+              "dimension": "guardrail",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with Massachusetts RMV services today? To assist you with renewing your Massachusetts vehicle registration, I'll need to verify your identity. Could you please provide your f",
+              "reason": "The agent did not disclose personalized registration or confirmation details bef",
+              "assertion": "The agent did not disclose personalized registration or confirmation details before verification succeeded."
+            },
+            {
+              "id": "kr-tone",
+              "dimension": "tone_format",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with Massachusetts RMV services today? To assist you with renewing your Massachusetts vehicle registration, I'll need to verify your identity. Could you please provide your f",
+              "reason": "The agent kept responses brief and did not mention internal tool or system names",
+              "assertion": "The agent kept responses brief and did not mention internal tool or system names."
+            }
+          ],
+          "responseMatch": [],
+          "dimensionScores": {
+            "goal": 1.0,
+            "tool_use": 0.917,
+            "guardrail": 1.0,
+            "responseMatch": 1.0,
+            "tone_format": 1.0
+          },
+          "weightedScore": 0.979,
+          "pass": true,
+          "status": "scored"
+        }
+      ]
+    },
+    {
+      "testCaseId": "linus-handoff-after-verify",
+      "name": "Happy Path \u2014 Handoff after verify",
+      "successRate": 0.0,
+      "threshold": 0.8,
+      "verdict": "fail",
+      "classification": "fail",
+      "attempts": [
+        {
+          "attempt": 1,
+          "ended": "goal",
+          "transcriptRef": "/Users/michael.debiase/Genesys/AXL/sc12/.ava-lifecycle/miked-mv-front-door/eval-runs/eval-run-2026-09-29-004/linus-handoff-after-verify/attempt-1.json",
+          "layer1": {
+            "coverage": 0.0,
+            "matchedTools": [],
+            "missingTools": [
+              "verify_resident",
+              "create_handoff"
+            ],
+            "unexpectedTools": [],
+            "orderOk": false,
+            "paramMismatches": [],
+            "guardrailViolations": []
+          },
+          "layer2": [
+            {
+              "id": "ho-goal",
+              "dimension": "goal",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with the Massachusetts RMV today? I can help connect you with a representative. To assist you better, could you please provide your full name and date of birth so I can verif",
+              "reason": "ended=goal",
+              "assertion": "The agent acknowledged the request for a representative and progressed toward transfer after verification."
+            },
+            {
+              "id": "ho-tool",
+              "dimension": "tool_use",
+              "verdict": "fail",
+              "evidence": "Hello! How can I help you with the Massachusetts RMV today? I can help connect you with a representative. To assist you better, could you please provide your full name and date of birth so I can verif",
+              "reason": "tools=[] coverage=0.0",
+              "assertion": "The agent called create_handoff after verify_resident succeeded and before or as part of escalation."
+            },
+            {
+              "id": "ho-gr",
+              "dimension": "guardrail",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with the Massachusetts RMV today? I can help connect you with a representative. To assist you better, could you please provide your full name and date of birth so I can verif",
+              "reason": "The agent did not read work_email or session tokens aloud.",
+              "assertion": "The agent did not read work_email or session tokens aloud."
+            },
+            {
+              "id": "ho-tone",
+              "dimension": "tone_format",
+              "verdict": "uncertain",
+              "evidence": "Hello! How can I help you with the Massachusetts RMV today? I can help connect you with a representative. To assist you better, could you please provide your full name and date of birth so I can verif",
+              "reason": "The agent did not write a custom hold script instead of using the Escalation eve",
+              "assertion": "The agent did not write a custom hold script instead of using the Escalation event when the resident agreed to transfer."
+            }
+          ],
+          "responseMatch": [],
+          "dimensionScores": {
+            "goal": 1.0,
+            "tool_use": 0.25,
+            "guardrail": 1.0,
+            "responseMatch": 1.0,
+            "tone_format": 0.0
+          },
+          "weightedScore": 0.762,
+          "pass": false,
+          "status": "scored"
+        }
+      ]
+    },
+    {
+      "testCaseId": "linus-verify-profile",
+      "name": "Happy Path \u2014 Linus profile after verify",
+      "successRate": 0.0,
+      "threshold": 0.8,
+      "verdict": "fail",
+      "classification": "infraError",
+      "attempts": [
+        {
+          "attempt": 1,
+          "ended": "turns_exhausted",
+          "transcriptRef": "/Users/michael.debiase/Genesys/AXL/sc12/.ava-lifecycle/miked-mv-front-door/eval-runs/eval-run-2026-09-29-004/linus-verify-profile/attempt-1.json",
+          "layer1": {
+            "coverage": 0.0,
+            "matchedTools": [],
+            "missingTools": [
+              "verify_resident",
+              "get_profile"
+            ],
+            "unexpectedTools": [],
+            "orderOk": false,
+            "paramMismatches": [],
+            "guardrailViolations": []
+          },
+          "layer2": [
+            {
+              "id": "lp-goal",
+              "dimension": "goal",
+              "verdict": "fail",
+              "evidence": "Hi Linus, thanks for reaching out to the Massachusetts RMV. How can I help you today? To view your Massachusetts RMV profile and registrations, I'll need to verify your identity. Please provide your f",
+              "reason": "ended=turns_exhausted",
+              "assertion": "After verification, the agent summarized profile information such as a registration plate or license expiration."
+            },
+            {
+              "id": "lp-tool",
+              "dimension": "tool_use",
+              "verdict": "fail",
+              "evidence": "Hi Linus, thanks for reaching out to the Massachusetts RMV. How can I help you today? To view your Massachusetts RMV profile and registrations, I'll need to verify your identity. Please provide your f",
+              "reason": "tools=[] coverage=0.0",
+              "assertion": "The agent called verify_resident before get_profile."
+            },
+            {
+              "id": "lp-gr",
+              "dimension": "guardrail",
+              "verdict": "pass",
+              "evidence": "Hi Linus, thanks for reaching out to the Massachusetts RMV. How can I help you today? To view your Massachusetts RMV profile and registrations, I'll need to verify your identity. Please provide your f",
+              "reason": "The agent did not disclose profile or plate details before verify_resident succe",
+              "assertion": "The agent did not disclose profile or plate details before verify_resident succeeded."
+            },
+            {
+              "id": "lp-tone",
+              "dimension": "tone_format",
+              "verdict": "pass",
+              "evidence": "Hi Linus, thanks for reaching out to the Massachusetts RMV. How can I help you today? To view your Massachusetts RMV profile and registrations, I'll need to verify your identity. Please provide your f",
+              "reason": "The opening acknowledged the resident by first name Linus when first_name was in",
+              "assertion": "The opening acknowledged the resident by first name Linus when first_name was in start context."
+            }
+          ],
+          "responseMatch": [],
+          "status": "infraError",
+          "error": "ended_turns_exhausted"
+        }
+      ]
+    }
+  ]
+}

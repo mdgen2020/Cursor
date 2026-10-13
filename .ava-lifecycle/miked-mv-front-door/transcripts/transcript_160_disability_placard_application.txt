@@ -1,0 +1,81 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00160
+Date:               January 16, 2026
+Duration:           10:54
+Topic:              Disability Placard Application
+Citizen (fictional):Daniel Johnson
+Agent (fictional):  Victor Baptiste
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Thanks for holding, this is Victor Baptiste with the RMV, how can I assist you today?
+
+Citizen: Hi, my mother recently had knee surgery and her doctor recommended she get a disability
+         placard, how do we apply?
+
+Agent: No problem, I can look into that for you. Can you verify your full name and date of birth for
+       me first?
+
+Citizen: Sure, it's Daniel Johnson, date of birth December 24, 2005.
+
+Agent: Thank you. And just to fully verify, can you confirm the last four digits of the phone number
+       on file?
+
+Citizen: Yes, that should end in 2005.
+
+Agent: Let me check that against your record, bear with me for just a second.
+
+Agent: Alright, thanks for holding. I've got everything pulled up.
+
+Agent: I'm sorry to hear about the surgery, but glad she's getting the support she needs. For a
+       disability placard or plate, you'll need to complete an Application for Disability
+       Plates or Placards, which includes a section that her physician needs to fill out and
+       certify.
+
+Citizen: Does it have to be a doctor, or can a physical therapist sign it?
+
+Agent: It generally needs to be signed by a licensed physician, physician assistant, or nurse
+       practitioner who can certify the qualifying disability, so a physical therapist alone
+       typically wouldn't qualify unless working alongside one of those providers.
+
+Citizen: Okay, her surgeon should be able to sign it then. Is this a temporary or permanent placard?
+
+Agent: That depends on what her doctor indicates on the form - if the condition is expected to
+       improve, like a recovery from surgery, the doctor can specify a temporary placard, often
+       valid for up to six months, whereas a permanent placard is for long-term or lifelong
+       conditions.
+
+Citizen: That makes sense, it's probably temporary in her case. Is there a fee?
+
+Agent: There's no fee for the placard itself. Once the form is completed by her physician, you can
+       submit it by mail or bring it into a Service Center.
+
+Citizen: Can I submit it on her behalf since she has trouble getting around right now?
+
+Agent: Yes, a family member or caregiver can absolutely submit the paperwork on someone's behalf,
+       you'd just want to make sure her signature is on the form where required, or that you
+       have documentation showing you're authorized to act for her if needed.
+
+Citizen: Okay, that's good to know. How long does processing usually take?
+
+Agent: If submitted in person, it can often be issued the same day; by mail, it typically takes two to
+       three weeks.
+
+Citizen: We'll probably just bring it in person then. Thank you so much for the help.
+
+Agent: Of course, and I hope your mother has a smooth recovery.
+
+Agent: Alright, does that take care of everything for you today?
+
+Citizen: That's all I needed, I really appreciate it.
+
+Agent: You're very welcome. Thank you for calling the Massachusetts RMV, have a great afternoon.
+
+------------------------------------------------------------------------------
+[END OF CALL]

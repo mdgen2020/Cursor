@@ -1,0 +1,38 @@
+{
+  "id": "custom_-_b0d5536a-b5e2-4a98-a517-d8b454f5ea91",
+  "name": "eohhs_escalation_create_handoff_miked",
+  "integrationId": "19717556-e7eb-4db8-884e-b07c6f50d927",
+  "category": "EOHHS-Supabase-RPC",
+  "contract": {
+    "output": {
+      "successSchemaUri": "/api/v2/integrations/actions/custom_-_b0d5536a-b5e2-4a98-a517-d8b454f5ea91/schemas/successschema.json",
+      "errorSchemaUri": "/api/v2/integrations/actions/custom_-_b0d5536a-b5e2-4a98-a517-d8b454f5ea91/schemas/errorschema.json"
+    },
+    "input": {
+      "inputSchemaUri": "/api/v2/integrations/actions/custom_-_b0d5536a-b5e2-4a98-a517-d8b454f5ea91/schemas/inputschema.json"
+    }
+  },
+  "version": 1,
+  "secure": false,
+  "config": {
+    "request": {
+      "requestUrlTemplate": "https://njjkupupxvfvymelcjpg.supabase.co/rest/v1/rpc/escalation_create_handoff",
+      "requestTemplateUri": "/api/v2/integrations/actions/custom_-_b0d5536a-b5e2-4a98-a517-d8b454f5ea91/templates/requesttemplate.vm",
+      "requestType": "POST",
+      "headers": {
+        "apikey": "${credentials.apikey}",
+        "Content-Type": "application/json"
+      }
+    },
+    "response": {
+      "translationMap": {
+        "rawResult": "$"
+      },
+      "translationMapDefaults": {
+        "rawResult": "{}"
+      },
+      "successTemplateUri": "/api/v2/integrations/actions/custom_-_b0d5536a-b5e2-4a98-a517-d8b454f5ea91/templates/successtemplate.vm"
+    }
+  },
+  "selfUri": "/api/v2/integrations/actions/custom_-_b0d5536a-b5e2-4a98-a517-d8b454f5ea91?includeConfig=true"
+}

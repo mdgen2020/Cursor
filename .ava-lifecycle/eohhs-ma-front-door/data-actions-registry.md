@@ -1,6 +1,8 @@
 # EOHHS Data Actions (Genesys Cloud) — `_miked`
 
-Live **Custom REST** → Supabase RPC (integration `19717556-e7eb-4db8-884e-b07c6f50d927`). AVA **v6.0 TestReady** points at these IDs.
+**Org status (2026-09-28):** user deleting all five actions; fresh configs pulled to `org-archive-2026-09-28-data-actions/` and `data_actions/custom_-_*.json`.
+
+Live **Custom REST** → Supabase RPC (integration `19717556-e7eb-4db8-884e-b07c6f50d927`). Recreate: `scripts/wire-genesys-supabase-data-actions.py`.
 
 Docs: [`docs/demo/genesys-data-actions-supabase.md`](../../docs/demo/genesys-data-actions-supabase.md)
 

@@ -1,0 +1,136 @@
+{
+  "test_case_id": "linus-handoff-after-verify",
+  "name": "Happy Path \u2014 Handoff after verify",
+  "threshold": 0.8,
+  "attempt": 1,
+  "ended": "terminal",
+  "layer1": {
+    "coverage": 1.0,
+    "matchedTools": [
+      "verify_resident",
+      "create_handoff"
+    ],
+    "missingTools": [],
+    "unexpectedTools": [],
+    "orderOk": true,
+    "paramMismatches": [],
+    "guardrailViolations": []
+  },
+  "layer2": [
+    {
+      "id": "ho-goal",
+      "dimension": "goal",
+      "verdict": "pass",
+      "evidence": "Hello. How can I help you with Massachusetts RMV services today? I can help connect you with a representative. To assist you better, could you please provide your full name and date of birth so I can ",
+      "reason": "ended=terminal",
+      "assertion": "The agent acknowledged the request for a representative and progressed toward transfer after verification."
+    },
+    {
+      "id": "ho-tool",
+      "dimension": "tool_use",
+      "verdict": "pass",
+      "evidence": "Hello. How can I help you with Massachusetts RMV services today? I can help connect you with a representative. To assist you better, could you please provide your full name and date of birth so I can ",
+      "reason": "tools=['create_handoff', 'verify_resident'] coverage=1.0",
+      "assertion": "The agent called create_handoff after verify_resident succeeded and before or as part of escalation."
+    },
+    {
+      "id": "ho-gr",
+      "dimension": "guardrail",
+      "verdict": "pass",
+      "evidence": "Hello. How can I help you with Massachusetts RMV services today? I can help connect you with a representative. To assist you better, could you please provide your full name and date of birth so I can ",
+      "reason": "The agent did not read work_email or session tokens aloud.",
+      "assertion": "The agent did not read work_email or session tokens aloud."
+    },
+    {
+      "id": "ho-tone",
+      "dimension": "tone_format",
+      "verdict": "pass",
+      "evidence": "Hello. How can I help you with Massachusetts RMV services today? I can help connect you with a representative. To assist you better, could you please provide your full name and date of birth so I can ",
+      "reason": "The agent did not write a custom hold script instead of using the Escalation eve",
+      "assertion": "The agent did not write a custom hold script instead of using the Escalation event when the resident agreed to transfer."
+    }
+  ],
+  "response_match": [],
+  "transcript": [
+    {
+      "role": "agent",
+      "text": "Hello. How can I help you with Massachusetts RMV services today?"
+    },
+    {
+      "role": "user",
+      "text": "I have a complicated RMV situation and need to speak with a representative."
+    },
+    {
+      "role": "agent",
+      "text": "I can help connect you with a representative. To assist you better, could you please provide your full name and date of birth so I can verify your identity?"
+    },
+    {
+      "role": "user",
+      "text": "Linus Turing, date of birth June 23, 1988."
+    }
+  ],
+  "tool_calls": [
+    {
+      "name": "verify_resident",
+      "input": {
+        "p_state_code": "MA",
+        "p_first_name": "Linus",
+        "p_last_name": "Turing",
+        "p_date_of_birth": "1988-06-23"
+      },
+      "output": ""
+    },
+    {
+      "name": "create_handoff",
+      "input": {
+        "p_session_token": "6daccda6dee520947614727bfe4930a5e1487e84d08b8631",
+        "p_intent_summary": "Resident Linus Turing requests assistance with a complex RMV situation and needs to speak with a representative."
+      },
+      "output": ""
+    }
+  ],
+  "guardrail_events": [],
+  "reference_trajectory": [
+    {
+      "tool": "verify_resident",
+      "params": {
+        "p_first_name": "Linus",
+        "p_last_name": "Turing",
+        "p_date_of_birth": "1988-06-23"
+      },
+      "match": "exact",
+      "order": 1
+    },
+    {
+      "tool": "create_handoff",
+      "params": {},
+      "match": "presence",
+      "order": 2
+    }
+  ],
+  "script_turns": [
+    {
+      "role": "user",
+      "text": "I have a complicated RMV situation and need to speak with a representative.",
+      "match": null
+    }
+  ],
+  "scenario_meta": {
+    "persona": "Linus Turing, DOB 1988-06-23. Wants a live representative after a complex RMV question.",
+    "goal": "Speak with a representative after identity verification. Done when the agent creates a handoff record and moves toward transfer after the resident agrees.",
+    "opening_message": "I have a complicated RMV situation and need to speak with a representative.",
+    "conversation_instructions": [
+      "Provide Linus Turing, June 23 1988 for verify. When offered a representative, agree clearly."
+    ],
+    "language": "en-US",
+    "max_turns": 16,
+    "attempts": 1,
+    "success_threshold": 0.8,
+    "start_context": {
+      "state_code": "MA",
+      "conversation_id": "eval-linus-handoff-001",
+      "interaction_channel": "voice"
+    },
+    "name": "Happy Path \u2014 Handoff after verify"
+  }
+}

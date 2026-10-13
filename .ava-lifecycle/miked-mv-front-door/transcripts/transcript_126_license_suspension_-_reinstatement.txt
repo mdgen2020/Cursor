@@ -1,0 +1,75 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00126
+Date:               July 20, 2026
+Duration:           10:03
+Topic:              License Suspension / Reinstatement
+Citizen (fictional):Nancy Fitzgerald
+Agent (fictional):  Carlos Oduya
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Thanks for holding, this is Carlos Oduya with the RMV, how can I assist you today?
+
+Citizen: Hi, I need to find out what I have to do to get my license reinstated, it's currently
+         suspended.
+
+Agent: Sure, I can help with that. Before we get started, can I get your full name and date of birth
+       to pull up your record?
+
+Citizen: Sure, it's Nancy Fitzgerald, date of birth May 20, 1995.
+
+Agent: Got it. Last thing - can you confirm the last four digits of your Social Security number on
+       file, just for verification?
+
+Citizen: Yes, the last four are 7673.
+
+Agent: I need to check on something with our licensing system, can I place you on a brief hold?
+
+Agent: Sorry about that wait, I've got your account open now.
+
+Agent: I can help you look into that. Let me pull up your record to see the reason for the
+       suspension... one moment.
+
+Agent: Okay, I see this suspension is related to an OUI, operating under the influence, matter. For
+       this type of suspension, reinstatement requirements can include completing an alcohol
+       education program, paying a reinstatement fee, and in some cases installing an ignition
+       interlock device before you're eligible to drive again.
+
+Citizen: I did complete the education program already, does that mean I'm clear?
+
+Agent: That's a great first step, but I'll need to verify that's actually been reported to us as
+       completed - sometimes there's a delay between the program provider submitting the
+       completion and it showing in our system. Let me check... I do see it listed as completed
+       as of last month.
+
+Citizen: Oh good. So what else do I need?
+
+Agent: You'll need to pay a reinstatement fee, which in your case is $250, and depending on the
+       specifics of your case, you may be required to have an ignition interlock device
+       installed in any vehicle you drive for a set period.
+
+Citizen: How do I know if the interlock requirement applies to me?
+
+Agent: That's determined by the nature of the offense and whether it's a first or repeat offense - I'd
+       recommend either checking the reinstatement letter that was mailed to you, or I can
+       transfer you to our Suspension Services line who can confirm the exact requirements for
+       your case.
+
+Citizen: Yes, please, that would help.
+
+Agent: Of course, one moment while I connect you - please stay on the line.
+
+Agent: Is there anything else I can help you with today?
+
+Citizen: That's all I needed, I really appreciate it.
+
+Agent: Of course, happy to help. Thanks for calling the RMV, take care now.
+
+------------------------------------------------------------------------------
+[END OF CALL]

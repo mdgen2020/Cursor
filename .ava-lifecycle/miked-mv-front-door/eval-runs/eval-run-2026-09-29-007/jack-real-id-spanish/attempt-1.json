@@ -1,0 +1,110 @@
+{
+  "test_case_id": "jack-real-id-spanish",
+  "name": "Happy Path \u2014 REAL ID knowledge in Spanish",
+  "threshold": 0.8,
+  "attempt": 1,
+  "ended": "goal",
+  "layer1": {
+    "coverage": 1.0,
+    "matchedTools": [
+      "search_mv_knowledge"
+    ],
+    "missingTools": [],
+    "unexpectedTools": [],
+    "orderOk": true,
+    "paramMismatches": [],
+    "guardrailViolations": []
+  },
+  "layer2": [
+    {
+      "id": "es-goal",
+      "dimension": "goal",
+      "verdict": "pass",
+      "evidence": "Hello! How can I assist you with Massachusetts RMV services today? To get a REAL ID in Massachusetts, you'll need one document proving your identity and lawful presence, like a valid U.S. passport or ",
+      "reason": "ended=goal",
+      "assertion": "The agent responded in Spanish with REAL ID document or requirement information."
+    },
+    {
+      "id": "es-tool",
+      "dimension": "tool_use",
+      "verdict": "pass",
+      "evidence": "Hello! How can I assist you with Massachusetts RMV services today? To get a REAL ID in Massachusetts, you'll need one document proving your identity and lawful presence, like a valid U.S. passport or ",
+      "reason": "tools=['search_mv_knowledge'] coverage=1.0",
+      "assertion": "The agent invoked search_mv_knowledge for the REAL ID question."
+    },
+    {
+      "id": "es-gr",
+      "dimension": "guardrail",
+      "verdict": "pass",
+      "evidence": "Hello! How can I assist you with Massachusetts RMV services today? To get a REAL ID in Massachusetts, you'll need one document proving your identity and lawful presence, like a valid U.S. passport or ",
+      "reason": "The agent did not request identity verification for this general REAL ID questio",
+      "assertion": "The agent did not request identity verification for this general REAL ID question."
+    },
+    {
+      "id": "es-tone",
+      "dimension": "tone_format",
+      "verdict": "pass",
+      "evidence": "Hello! How can I assist you with Massachusetts RMV services today? To get a REAL ID in Massachusetts, you'll need one document proving your identity and lawful presence, like a valid U.S. passport or ",
+      "reason": "The agent used Spanish for the substantive answer, not English only.",
+      "assertion": "The agent used Spanish for the substantive answer, not English only."
+    }
+  ],
+  "response_match": [],
+  "transcript": [
+    {
+      "role": "agent",
+      "text": "Hello! How can I assist you with Massachusetts RMV services today?"
+    },
+    {
+      "role": "user",
+      "text": "\u00bfQu\u00e9 documentos necesito para obtener REAL ID en Massachusetts?"
+    },
+    {
+      "role": "agent",
+      "text": "To get a REAL ID in Massachusetts, you'll need one document proving your identity and lawful presence, like a valid U.S. passport or certified birth certificate. You also need one document showing your Social Security number and two documents proving Massachusetts residency dated within the last 60 days."
+    }
+  ],
+  "tool_calls": [
+    {
+      "name": "search_mv_knowledge",
+      "input": {
+        "query": "What documents do I need to get a REAL ID in Massachusetts?",
+        "languageCode": "en-US"
+      },
+      "output": ""
+    }
+  ],
+  "guardrail_events": [],
+  "reference_trajectory": [
+    {
+      "tool": "search_mv_knowledge",
+      "params": {},
+      "match": "presence",
+      "order": 1
+    }
+  ],
+  "script_turns": [
+    {
+      "role": "user",
+      "text": "\u00bfQu\u00e9 documentos necesito para obtener REAL ID en Massachusetts?",
+      "match": null
+    }
+  ],
+  "scenario_meta": {
+    "persona": "Jack Cabral, Spanish-speaking resident asking general REAL ID questions (no ID&V).",
+    "goal": "Get REAL ID document guidance in Spanish. Done when the agent answers in Spanish using knowledge for a general REAL ID question.",
+    "opening_message": "\u00bfQu\u00e9 documentos necesito para obtener REAL ID en Massachusetts?",
+    "conversation_instructions": [
+      "If the agent asks a clarifying question in Spanish, answer briefly in Spanish that you need general document requirements."
+    ],
+    "language": "en-US",
+    "max_turns": 10,
+    "attempts": 1,
+    "success_threshold": 0.8,
+    "start_context": {
+      "state_code": "MA",
+      "interaction_channel": "digital"
+    },
+    "name": "Happy Path \u2014 REAL ID knowledge in Spanish"
+  }
+}

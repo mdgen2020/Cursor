@@ -1,0 +1,102 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00027
+Date:               March 12, 2026
+Duration:           14:03
+Topic:              REAL ID Requirements
+Citizen (fictional):Edward Pereira
+Agent (fictional):  Carlos Silveira
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Thank you for calling the Massachusetts RMV Customer Service Contact Center, this is Carlos
+       Silveira, how can I help you today?
+
+Citizen: Hi, I keep hearing about this REAL ID deadline and I'm not totally sure what I need to bring,
+         can you explain it to me?
+
+Agent: No problem, I can look into that for you. Can you verify your full name and date of birth for
+       me first?
+
+Citizen: Sure, it's Edward Pereira, date of birth August 28, 2004.
+
+Agent: Great, thank you. And can you confirm the address we have on file, or the city you're currently
+       residing in?
+
+Citizen: Yes, I'm at my address in Beverly, Massachusetts.
+
+Agent: Give me just a moment to pull that up in the system, I'll be right back with you.
+
+Agent: Okay, I'm back - thank you for waiting. I see your file here now.
+
+Agent: Of course, happy to walk you through it. A REAL ID is just a driver's license or ID card with a
+       star in the corner that meets federal identification standards - you'd need it, or
+       another TSA-accepted ID like a passport, to board domestic flights or enter certain
+       federal buildings.
+
+Citizen: Okay, so I don't have to get one if I have a passport?
+
+Agent: That's right, if you already have a valid U.S. passport, you don't need a REAL ID for flying,
+       but a lot of people prefer having it since it's more convenient than carrying a passport
+       around.
+
+Citizen: Got it. So what exactly do I need to bring in to upgrade?
+
+Agent: You'll need one document proving identity and lawful presence, such as a certified birth
+       certificate or valid passport, a document showing your Social Security number like your
+       Social Security card or a W-2, and two documents proving Massachusetts residency, dated
+       within the last 60 days, like a utility bill, bank statement, or mortgage statement.
+
+Citizen: I don't actually have my Social Security card anymore, I think I lost it years ago. What can I
+         use instead?
+
+Agent: That's alright, we can accept alternatives like a W-2 form, a 1099, or a Social Security
+       Administration benefit verification letter that shows your full nine-digit number.
+
+Citizen: Okay, I think I have an old W-2. Does it matter how old it is?
+
+Agent: It doesn't need to be recent for the SSN piece specifically, as long as your name and Social
+       Security number are clearly legible on it.
+
+Citizen: That's a relief. And for residency, can I use my cell phone bill?
+
+Agent: A cell phone bill is generally accepted as long as it's a paper statement, or a printed one,
+       showing your current Massachusetts address and dated within the last sixty days. You'll
+       need one more besides that, like a bank statement or piece of mail from a government
+       agency.
+
+Citizen: Okay, I can print my bank statement too then. Is there an extra cost for the REAL ID compared
+         to a regular license?
+
+Agent: There is a one-time additional fee of $25 the first time you upgrade to a REAL ID, beyond the
+       normal renewal cost.
+
+Citizen: Okay, that's fine. Do I need to make an appointment or can I just walk in?
+
+Agent: We strongly recommend booking an appointment online through the RMV's Online Service Center,
+       walk-ins are allowed at some locations but wait times can be very long, especially
+       closer to any federal enforcement deadline.
+
+Citizen: Can you just book me an appointment now while I'm on the phone?
+
+Agent: I can definitely point you in the right direction, but appointment booking has to go through
+       the online scheduling portal since it shows real-time availability. I can tell you the
+       Wilmington RMV Service Center does have upcoming availability - if you go to the RMV
+       website and select 'Make a Road Test or Service Center Appointment,' you'll be able to
+       grab a slot like September 25, 2026.
+
+Citizen: Okay, I'll go do that right after this call. Thank you for explaining all of that.
+
+Agent: Is there anything else I can help you with today?
+
+Citizen: That's all I needed, I really appreciate it.
+
+Agent: Glad I could help. Thanks for calling, and have a good rest of your morning.
+
+------------------------------------------------------------------------------
+[END OF CALL]

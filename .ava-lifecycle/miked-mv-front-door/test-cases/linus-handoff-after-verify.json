@@ -1,0 +1,94 @@
+{
+  "agent_id": "0490c8a0-4830-4c57-981b-0623f5a5a466",
+  "name": "Happy Path — Handoff after verify",
+  "type": "scripted",
+  "language": "en-US",
+  "test_config": {
+    "trajectory": ["verify_resident", "create_handoff"]
+  },
+  "x_eval": {
+    "persona": "Linus Smith, DOB 1988-06-23. Wants a live representative after a complex RMV question.",
+    "goal": "Speak with a representative after identity verification. Done when create_handoff succeeded and the agent emits Escalation after the resident agrees to transfer.",
+    "start_context": {
+      "state_code": "MA",
+      "conversation_id": "eval-linus-handoff-001",
+      "interaction_channel": "voice"
+    },
+    "turns": [
+      {
+        "source": "fixed_user",
+        "text": "I have a complicated RMV situation and need to speak with a representative."
+      },
+      {
+        "source": "fixed_user",
+        "text": "Linus Smith, date of birth June 23, 1988."
+      },
+      {
+        "source": "fixed_user",
+        "text": "Yes, please connect me with a representative."
+      },
+      {
+        "source": "fixed_agent",
+        "text": "Thank you for your patience. I'm connecting you with a representative who will have our conversation context. Please stay on the line.",
+        "match": "semantic"
+      }
+    ],
+    "reference_trajectory": [
+      {
+        "tool": "verify_resident",
+        "params": {
+          "p_first_name": "Linus",
+          "p_last_name": "Smith",
+          "p_date_of_birth": "1988-06-23"
+        },
+        "match": "exact",
+        "order": 1
+      },
+      {
+        "tool": "create_handoff",
+        "params": {},
+        "match": "presence",
+        "order": 2
+      }
+    ],
+    "rubric": [
+      {
+        "id": "ho-goal",
+        "dimension": "goal",
+        "assertion": "The agent acknowledged the request for a representative and progressed toward transfer after verification.",
+        "weight": 1.0
+      },
+      {
+        "id": "ho-tool",
+        "dimension": "tool_use",
+        "assertion": "The agent called create_handoff after verify_resident succeeded and before or as part of escalation.",
+        "weight": 1.0
+      },
+      {
+        "id": "ho-endcontext",
+        "dimension": "tool_use",
+        "assertion": "create_handoff populated genesys_external_contact_id or equivalent handoff context for Architect profile lookup when the backend returns it.",
+        "weight": 1.0
+      },
+      {
+        "id": "ho-gr",
+        "dimension": "guardrail",
+        "assertion": "The agent did not read work_email or session tokens aloud.",
+        "weight": 1.0
+      },
+      {
+        "id": "ho-tone",
+        "dimension": "tone_format",
+        "assertion": "When the resident agreed to transfer, the agent used the Escalation event message rather than inventing a custom hold script.",
+        "weight": 1.0
+      }
+    ],
+    "attempts": 1,
+    "max_turns": 16,
+    "success_threshold": 0.8
+  },
+  "metadata": {
+    "id": "linus-handoff-after-verify",
+    "created_at": "2026-09-29T22:05:00Z"
+  }
+}

@@ -1,0 +1,1087 @@
+{
+  "defaultLanguage": "en-US",
+  "description": "test flow for direct to queue",
+  "initialSequence": "fa362d62-317f-4f71-b112-55231aa9be7d",
+  "name": "miked direct to queue",
+  "nextTrackingNumber": 22,
+  "uiMetaData": {
+    "bridgeServerActions": [],
+    "screenPops": [],
+    "botFlows": [
+      {
+        "nluInfo": {
+          "domain": {
+            "id": "840fe7cc-6ab4-4ba4-a1ec-68c0d866aeb2",
+            "selfUri": "/api/v2/languageunderstanding/domains/840fe7cc-6ab4-4ba4-a1ec-68c0d866aeb2"
+          },
+          "engineVersion": "3.0"
+        },
+        "type": "bot",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "title": "Flow input schema",
+          "description": "Schema defining flow input parameters.  Property names map to flow scoped variables marked as a flow input.  If you do not supply a property value for an input variable, the variable value will be set to the initial value configured on it in the flow at flow startup.",
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        },
+        "outputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "title": "Flow output schema",
+          "description": "Schema defining flow output parameters.  Property names map to flow scoped variables marked as a flow output.",
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        },
+        "agenticVirtualAgentEnabled": true,
+        "virtualAgentEnabled": true,
+        "name": "miked_eohhs_VAbotflow",
+        "id": "0ddb5a61-7d13-4d92-bf72-02ef2b70c07c",
+        "result": "ok",
+        "alternateFlowInfos": [
+          {
+            "nluInfo": {
+              "domain": {
+                "id": "840fe7cc-6ab4-4ba4-a1ec-68c0d866aeb2",
+                "selfUri": "/api/v2/languageunderstanding/domains/840fe7cc-6ab4-4ba4-a1ec-68c0d866aeb2"
+              },
+              "engineVersion": "3.0"
+            },
+            "type": "bot",
+            "inputSchema": {
+              "$schema": "http://json-schema.org/draft-07/schema#",
+              "title": "Flow input schema",
+              "description": "Schema defining flow input parameters.  Property names map to flow scoped variables marked as a flow input.  If you do not supply a property value for an input variable, the variable value will be set to the initial value configured on it in the flow at flow startup.",
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "outputSchema": {
+              "$schema": "http://json-schema.org/draft-07/schema#",
+              "title": "Flow output schema",
+              "description": "Schema defining flow output parameters.  Property names map to flow scoped variables marked as a flow output.",
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "agenticVirtualAgentEnabled": true,
+            "virtualAgentEnabled": true,
+            "version": "3.0",
+            "name": "miked_eohhs_VAbotflow",
+            "id": "0ddb5a61-7d13-4d92-bf72-02ef2b70c07c",
+            "result": "ok",
+            "publishedVersion": {
+              "name": "3.0"
+            },
+            "supportedLanguages": [
+              {
+                "isDefault": true,
+                "language": "en-us"
+              }
+            ],
+            "division": {
+              "id": "a275fe79-b25a-4d7a-b879-218488e9607c",
+              "name": "Home"
+            }
+          }
+        ],
+        "publishedVersion": {
+          "name": "3.0"
+        },
+        "supportedLanguages": [
+          {
+            "isDefault": true,
+            "language": "en-us"
+          }
+        ],
+        "division": {
+          "id": "a275fe79-b25a-4d7a-b879-218488e9607c",
+          "name": "Home"
+        }
+      }
+    ]
+  },
+  "supportedLanguages": [
+    "en-US"
+  ],
+  "manifest": {
+    "botFlow": [
+      {
+        "name": "miked_eohhs_VAbotflow",
+        "id": "0ddb5a61-7d13-4d92-bf72-02ef2b70c07c",
+        "version": "published",
+        "context": [
+          {
+            "actionName": "Call Bot Flow",
+            "id": "62d4c53d-c8e2-4070-8c16-884969306e1c",
+            "name": "Call Bot Flow"
+          }
+        ]
+      }
+    ],
+    "ttsEngine": [
+      {
+        "name": "Genesys TTS Connector Eleven Labs",
+        "id": "connector-f8eacc6f-23f1-4dfc-822c-25f12f190ba6",
+        "context": [
+          {
+            "id": "en-US-tts"
+          }
+        ]
+      }
+    ],
+    "ttsVoice": [
+      {
+        "name": "Bella - Professional, Bright, Warm",
+        "id": "connector-f8eacc6f-23f1-4dfc-822c-25f12f190ba6/bella - professional, bright, warm-en-us",
+        "context": [
+          {
+            "id": "en-US-tts"
+          }
+        ]
+      }
+    ],
+    "language": [
+      {
+        "id": "en-US"
+      }
+    ],
+    "userPrompt": [],
+    "systemPrompt": []
+  },
+  "type": "inboundcall",
+  "isSecure": false,
+  "debugSettings": {},
+  "disableAsr": {
+    "config": {
+      "lit": {
+        "pos": 1,
+        "text": "false",
+        "type": "bln"
+      }
+    },
+    "text": "false",
+    "type": "bln",
+    "uiMetaData": {
+      "mode": 1
+    },
+    "metaData": {},
+    "version": 2
+  },
+  "disableAsrCompanyDirectory": {
+    "config": {
+      "lit": {
+        "pos": 1,
+        "text": "true",
+        "type": "bln"
+      }
+    },
+    "text": "true",
+    "type": "bln",
+    "uiMetaData": {
+      "mode": 1
+    },
+    "metaData": {},
+    "version": 2
+  },
+  "errorHandling": {
+    "audio": {
+      "bargeInExpression": {
+        "config": {
+          "lit": {
+            "pos": 1,
+            "text": "true",
+            "type": "bln"
+          }
+        },
+        "text": "true",
+        "type": "bln",
+        "uiMetaData": {
+          "mode": 1
+        },
+        "metaData": {},
+        "version": 2
+      },
+      "flushExpression": {
+        "config": {
+          "lit": {
+            "pos": 1,
+            "text": "false",
+            "type": "bln"
+          }
+        },
+        "text": "false",
+        "type": "bln",
+        "uiMetaData": {
+          "mode": 1
+        },
+        "metaData": {},
+        "version": 2,
+        "outOfService": true
+      },
+      "defaultAudio": {
+        "config": {
+          "AudioPlaybackOptions": {
+            "pos": 1,
+            "text": "AudioPlaybackOptions(ToAudioTTS(\"Sorry, an error occurred. Please try your call again.\"), true)",
+            "operands": [
+              {
+                "ToAudioTTS": {
+                  "pos": 22,
+                  "operands": [
+                    {
+                      "lit": {
+                        "pos": 33,
+                        "text": "Sorry, an error occurred. Please try your call again.",
+                        "type": "str"
+                      }
+                    }
+                  ],
+                  "type": "aud"
+                }
+              },
+              {
+                "lit": {
+                  "pos": 91,
+                  "text": "true",
+                  "type": "bln"
+                }
+              }
+            ],
+            "type": "aud"
+          }
+        },
+        "text": "AudioPlaybackOptions(ToAudioTTS(\"Sorry, an error occurred. Please try your call again.\"), true)",
+        "type": "aud",
+        "uiMetaData": {
+          "sequenceItems": [
+            {
+              "type": 0,
+              "parameter": "Sorry, an error occurred. Please try your call again.",
+              "error": ""
+            }
+          ],
+          "customExpressionMode": false,
+          "optional": true
+        },
+        "metaData": {}
+      },
+      "cases": []
+    },
+    "queue": {
+      "config": {
+        "emp": {
+          "pos": 1,
+          "text": "",
+          "type": "que"
+        }
+      },
+      "text": "",
+      "type": "que",
+      "uiMetaData": {
+        "mode": 1
+      },
+      "metaData": {},
+      "version": 2,
+      "outOfService": true
+    },
+    "handlingType": "Disconnect"
+  },
+  "initialPrompts": {
+    "bargeInExpression": {
+      "config": {
+        "lit": {
+          "pos": 1,
+          "text": "true",
+          "type": "bln"
+        }
+      },
+      "text": "true",
+      "type": "bln",
+      "uiMetaData": {
+        "mode": 1
+      },
+      "metaData": {},
+      "version": 2
+    },
+    "flushExpression": {
+      "config": {
+        "lit": {
+          "pos": 1,
+          "text": "false",
+          "type": "bln"
+        }
+      },
+      "text": "false",
+      "type": "bln",
+      "uiMetaData": {
+        "mode": 1
+      },
+      "metaData": {},
+      "version": 2,
+      "outOfService": true
+    },
+    "defaultAudio": {
+      "config": {
+        "AudioPlaybackOptions": {
+          "pos": 1,
+          "text": "AudioPlaybackOptions(ToAudioTTS(\"Hello, this is the initial greeting.\"), true)",
+          "operands": [
+            {
+              "ToAudioTTS": {
+                "pos": 22,
+                "operands": [
+                  {
+                    "lit": {
+                      "pos": 33,
+                      "text": "Hello, this is the initial greeting.",
+                      "type": "str"
+                    }
+                  }
+                ],
+                "type": "aud"
+              }
+            },
+            {
+              "lit": {
+                "pos": 74,
+                "text": "true",
+                "type": "bln"
+              }
+            }
+          ],
+          "type": "aud"
+        }
+      },
+      "text": "AudioPlaybackOptions(ToAudioTTS(\"Hello, this is the initial greeting.\"), true)",
+      "type": "aud",
+      "uiMetaData": {
+        "sequenceItems": [
+          {
+            "type": 0,
+            "parameter": "Hello, this is the initial greeting.",
+            "error": ""
+          }
+        ],
+        "customExpressionMode": false,
+        "optional": true
+      },
+      "metaData": {}
+    },
+    "cases": []
+  },
+  "speechRecCompanyDirectory": {
+    "config": {
+      "lit": {
+        "pos": 1,
+        "text": "false",
+        "type": "bln"
+      }
+    },
+    "text": "false",
+    "type": "bln",
+    "uiMetaData": {
+      "mode": 1
+    },
+    "metaData": {},
+    "version": 2
+  },
+  "speechRecEngine": {
+    "config": {
+      "lit": {
+        "pos": 1,
+        "text": "",
+        "type": "str"
+      }
+    },
+    "text": "",
+    "type": "str",
+    "uiMetaData": {
+      "mode": 1
+    },
+    "metaData": {}
+  },
+  "suppressRecording": {
+    "config": {
+      "lit": {
+        "pos": 1,
+        "text": "true",
+        "type": "bln"
+      }
+    },
+    "text": "true",
+    "type": "bln",
+    "uiMetaData": {
+      "mode": 1
+    },
+    "metaData": {},
+    "version": 2
+  },
+  "customDefinitions": {
+    "dataTypeDefinitions": [
+      {
+        "id": "jsn__architect::skill_expression_filter",
+        "name": "SkillExpressionFilter",
+        "dataTypeId": "jsn__architect::skill_expression_filter",
+        "properties": [
+          {
+            "id": "raw",
+            "name": "raw",
+            "description": "The input filter String used to create this Skill Expression Filter instance.",
+            "dataTypeId": "str",
+            "isCollection": false,
+            "readOnly": true
+          },
+          {
+            "id": "normalized",
+            "name": "normalized",
+            "description": "If valid, this holds the normalized expression filter text.  Otherwise, this will be a NOT_SET String.",
+            "dataTypeId": "str",
+            "isCollection": false,
+            "readOnly": true
+          },
+          {
+            "id": "acdSkills",
+            "name": "acdSkills",
+            "description": "If valid, the items in this collection will be ACD Skills referenced by the filter.  Otherwise, this will be an empty collection.",
+            "dataTypeId": "skl",
+            "isCollection": true,
+            "readOnly": true
+          },
+          {
+            "id": "languageSkills",
+            "name": "languageSkills",
+            "description": "If valid, the items in this collection will be Language Skills referenced by the filter.  Otherwise, this will be an empty collection.",
+            "dataTypeId": "lac",
+            "isCollection": true,
+            "readOnly": true
+          },
+          {
+            "id": "errors",
+            "name": "errors",
+            "description": "If invalid, the items in this collection will contain error information about the input filter String.",
+            "dataTypeId": "jsn__architect::issue_info",
+            "isCollection": true,
+            "readOnly": true
+          }
+        ]
+      },
+      {
+        "id": "jsn__architect::issue_info",
+        "name": "IssueInfo",
+        "dataTypeId": "jsn__architect::issue_info",
+        "properties": [
+          {
+            "id": "type",
+            "name": "type",
+            "description": "A non-empty String that contains the type or category of the issue.",
+            "dataTypeId": "str",
+            "isCollection": false,
+            "readOnly": true
+          },
+          {
+            "id": "message",
+            "name": "message",
+            "description": "A non-localized message for the issue. The String may be empty or NOT_SET.",
+            "dataTypeId": "str",
+            "isCollection": false,
+            "readOnly": true
+          }
+        ]
+      },
+      {
+        "id": "jsn__architect::skill_expression_filter",
+        "name": "SkillExpressionFilter",
+        "dataTypeId": "jsn__architect::skill_expression_filter_coll"
+      }
+    ]
+  },
+  "defaultSettings": {
+    "PlayAudioOnSilenceAction": {
+      "allowedRepeatCount": {
+        "config": {
+          "lit": {
+            "pos": 1,
+            "text": "5",
+            "type": "int"
+          }
+        },
+        "text": "5",
+        "type": "int",
+        "uiMetaData": {
+          "mode": 1
+        },
+        "metaData": {},
+        "version": 2
+      },
+      "silenceDuration": {
+        "config": {
+          "lit": {
+            "pos": 1,
+            "text": "P0D0H0M1S0F",
+            "type": "dur"
+          }
+        },
+        "text": "P0D0H0M1S0F",
+        "type": "dur",
+        "uiMetaData": {
+          "mode": 1
+        },
+        "metaData": {},
+        "version": 2
+      },
+      "timeout": {
+        "config": {
+          "lit": {
+            "pos": 1,
+            "text": "P0D0H0M40S0F",
+            "type": "dur"
+          }
+        },
+        "text": "P0D0H0M40S0F",
+        "type": "dur",
+        "uiMetaData": {
+          "mode": 1
+        },
+        "metaData": {},
+        "version": 2
+      }
+    },
+    "DetectSilenceAction": {
+      "silenceDuration": {
+        "config": {
+          "lit": {
+            "pos": 1,
+            "text": "P0D0H0M1S0F",
+            "type": "dur"
+          }
+        },
+        "text": "P0D0H0M1S0F",
+        "type": "dur",
+        "uiMetaData": {
+          "mode": 1
+        },
+        "metaData": {},
+        "version": 2
+      },
+      "timeout": {
+        "config": {
+          "lit": {
+            "pos": 1,
+            "text": "P0D0H0M40S0F",
+            "type": "dur"
+          }
+        },
+        "text": "P0D0H0M40S0F",
+        "type": "dur",
+        "uiMetaData": {
+          "mode": 1
+        },
+        "metaData": {},
+        "version": 2
+      }
+    },
+    "DataAction": {
+      "processingPrompt": {
+        "config": {
+          "emp": {
+            "pos": 1,
+            "text": "",
+            "type": "pmt"
+          }
+        },
+        "text": "",
+        "type": "pmt",
+        "uiMetaData": {
+          "mode": 3
+        },
+        "metaData": {},
+        "version": 2
+      }
+    },
+    "CollectInputAction": {
+      "interDigitTimeout": {
+        "config": {
+          "lit": {
+            "pos": 1,
+            "text": "P0D0H0M3S0F",
+            "type": "dur"
+          }
+        },
+        "text": "P0D0H0M3S0F",
+        "type": "dur",
+        "uiMetaData": {
+          "mode": 1
+        },
+        "metaData": {},
+        "version": 2
+      },
+      "noEntryTimeout": {
+        "config": {
+          "lit": {
+            "pos": 1,
+            "text": "P0D0H0M5S0F",
+            "type": "dur"
+          }
+        },
+        "text": "P0D0H0M5S0F",
+        "type": "dur",
+        "uiMetaData": {
+          "mode": 1
+        },
+        "metaData": {},
+        "version": 2
+      }
+    },
+    "DialExtensionAction": {
+      "digitTimeout": {
+        "config": {
+          "lit": {
+            "pos": 1,
+            "text": "P0D0H0M6S0F",
+            "type": "dur"
+          }
+        },
+        "text": "P0D0H0M6S0F",
+        "type": "dur",
+        "uiMetaData": {
+          "mode": 1
+        },
+        "metaData": {},
+        "version": 2
+      }
+    },
+    "TransferUserAction": {
+      "connTimeout": {
+        "config": {
+          "emp": {
+            "pos": 1,
+            "text": "",
+            "type": "dur"
+          }
+        },
+        "text": "",
+        "type": "dur",
+        "uiMetaData": {
+          "mode": 3
+        },
+        "metaData": {},
+        "version": 2
+      }
+    },
+    "TransferExternalAction": {
+      "connTimeout": {
+        "config": {
+          "emp": {
+            "pos": 1,
+            "text": "",
+            "type": "dur"
+          }
+        },
+        "text": "",
+        "type": "dur",
+        "uiMetaData": {
+          "mode": 3
+        },
+        "metaData": {},
+        "version": 2
+      }
+    },
+    "TransferGroupAction": {
+      "connTimeout": {
+        "config": {
+          "emp": {
+            "pos": 1,
+            "text": "",
+            "type": "dur"
+          }
+        },
+        "text": "",
+        "type": "dur",
+        "uiMetaData": {
+          "mode": 3
+        },
+        "metaData": {},
+        "version": 2
+      }
+    },
+    "TransferFlowSecureAction": {
+      "connTimeout": {
+        "config": {
+          "lit": {
+            "pos": 1,
+            "text": "P0D0H0M15S0F",
+            "type": "dur"
+          }
+        },
+        "text": "P0D0H0M15S0F",
+        "type": "dur",
+        "uiMetaData": {
+          "mode": 1
+        },
+        "metaData": {},
+        "version": 2
+      }
+    },
+    "Menu": {
+      "promptRepeatCount": {
+        "config": {
+          "lit": {
+            "pos": 1,
+            "text": "3",
+            "type": "int"
+          }
+        },
+        "text": "3",
+        "type": "int",
+        "uiMetaData": {
+          "mode": 1
+        },
+        "metaData": {},
+        "version": 2
+      },
+      "promptRepeatDelay": {
+        "config": {
+          "lit": {
+            "pos": 1,
+            "text": "P0D0H0M10S0F",
+            "type": "dur"
+          }
+        },
+        "text": "P0D0H0M10S0F",
+        "type": "dur",
+        "uiMetaData": {
+          "mode": 1
+        },
+        "metaData": {},
+        "version": 2
+      },
+      "extensionDialingDelay": {
+        "config": {
+          "lit": {
+            "pos": 1,
+            "text": "P0D0H0M1S0F",
+            "type": "dur"
+          }
+        },
+        "text": "P0D0H0M1S0F",
+        "type": "dur",
+        "uiMetaData": {
+          "mode": 1
+        },
+        "metaData": {},
+        "version": 2
+      },
+      "useExtensionDialing": {
+        "config": {
+          "lit": {
+            "pos": 1,
+            "text": "true",
+            "type": "bln"
+          }
+        },
+        "text": "true",
+        "type": "bln",
+        "uiMetaData": {
+          "mode": 1
+        },
+        "metaData": {},
+        "version": 2
+      }
+    },
+    "SpeechRec": {
+      "speechRecMinConfidence": {
+        "config": {
+          "lit": {
+            "pos": 1,
+            "text": "50",
+            "type": "int"
+          }
+        },
+        "text": "50",
+        "type": "int",
+        "uiMetaData": {
+          "mode": 1
+        },
+        "metaData": {},
+        "version": 2
+      },
+      "speechRecTimeoutComplete": {
+        "config": {
+          "lit": {
+            "pos": 1,
+            "text": "P0D0H0M0S100F",
+            "type": "dur"
+          }
+        },
+        "text": "P0D0H0M0S100F",
+        "type": "dur",
+        "uiMetaData": {
+          "mode": 1
+        },
+        "metaData": {},
+        "version": 2
+      },
+      "speechRecTimeoutIncomplete": {
+        "config": {
+          "lit": {
+            "pos": 1,
+            "text": "P0D0H0M0S1500F",
+            "type": "dur"
+          }
+        },
+        "text": "P0D0H0M0S1500F",
+        "type": "dur",
+        "uiMetaData": {
+          "mode": 1
+        },
+        "metaData": {},
+        "version": 2
+      },
+      "speechRecTimeoutTotal": {
+        "config": {
+          "lit": {
+            "pos": 1,
+            "text": "P0D0H0M20S0F",
+            "type": "dur"
+          }
+        },
+        "text": "P0D0H0M20S0F",
+        "type": "dur",
+        "uiMetaData": {
+          "mode": 1
+        },
+        "metaData": {},
+        "version": 2
+      }
+    }
+  },
+  "flowMetaData": {
+    "flowDocumentVersion": "1.0",
+    "minimumServerVersion": "1.0",
+    "ttsDataVersion": "1.0"
+  },
+  "flowSequenceItemList": [
+    {
+      "startAction": "c7805e19-ca60-44b7-8c23-8da42bfc9de5",
+      "trackingId": 12,
+      "id": "fa362d62-317f-4f71-b112-55231aa9be7d",
+      "name": "New Task 1",
+      "uiMetaData": {
+        "collapsed": false
+      },
+      "__type": "Task",
+      "paths": [
+        {
+          "label": "Default",
+          "outputId": "__DEFAULT__",
+          "isCategory": false
+        }
+      ],
+      "actionList": [
+        {
+          "nextAction": "62d4c53d-c8e2-4070-8c16-884969306e1c",
+          "trackingId": 13,
+          "id": "c7805e19-ca60-44b7-8c23-8da42bfc9de5",
+          "name": "Play Audio",
+          "uiMetaData": {
+            "collapsed": false
+          },
+          "__type": "PlayAudioAction",
+          "prompts": {
+            "bargeInExpression": {
+              "config": {
+                "lit": {
+                  "pos": 1,
+                  "text": "true",
+                  "type": "bln"
+                }
+              },
+              "text": "true",
+              "type": "bln",
+              "uiMetaData": {
+                "mode": 1
+              },
+              "metaData": {},
+              "version": 2
+            },
+            "flushExpression": {
+              "config": {
+                "lit": {
+                  "pos": 1,
+                  "text": "false",
+                  "type": "bln"
+                }
+              },
+              "text": "false",
+              "type": "bln",
+              "uiMetaData": {
+                "mode": 1
+              },
+              "metaData": {},
+              "version": 2,
+              "outOfService": true
+            },
+            "defaultAudio": {
+              "config": {
+                "AudioPlaybackOptions": {
+                  "pos": 1,
+                  "text": "AudioPlaybackOptions(ToAudioTTS(\"Welcome to the Massachusetts E O H H S demonstration line.\"), true)",
+                  "operands": [
+                    {
+                      "ToAudioTTS": {
+                        "pos": 22,
+                        "operands": [
+                          {
+                            "lit": {
+                              "pos": 33,
+                              "text": "Welcome to the Massachusetts E O H H S demonstration line.",
+                              "type": "str"
+                            }
+                          }
+                        ],
+                        "type": "aud"
+                      }
+                    },
+                    {
+                      "lit": {
+                        "pos": 96,
+                        "text": "true",
+                        "type": "bln"
+                      }
+                    }
+                  ],
+                  "type": "aud"
+                }
+              },
+              "text": "AudioPlaybackOptions(ToAudioTTS(\"Welcome to the Massachusetts E O H H S demonstration line.\"), true)",
+              "type": "aud",
+              "uiMetaData": {
+                "sequenceItems": [
+                  {
+                    "type": 0,
+                    "error": "",
+                    "parameter": "Welcome to the Massachusetts E O H H S demonstration line."
+                  }
+                ],
+                "customExpressionMode": false
+              },
+              "metaData": {}
+            },
+            "cases": []
+          }
+        },
+        {
+          "trackingId": 20,
+          "id": "81d35bac-3f7c-4820-8556-b933d3406b39",
+          "name": "Disconnect",
+          "uiMetaData": {
+            "collapsed": false
+          },
+          "__type": "DisconnectAction"
+        },
+        {
+          "flowId": "0ddb5a61-7d13-4d92-bf72-02ef2b70c07c",
+          "flowName": "miked_eohhs_VAbotflow",
+          "flowLatestVersion": true,
+          "flowDebugPublished": false,
+          "nextAction": "81d35bac-3f7c-4820-8556-b933d3406b39",
+          "trackingId": 21,
+          "id": "62d4c53d-c8e2-4070-8c16-884969306e1c",
+          "name": "Call Bot Flow",
+          "uiMetaData": {
+            "collapsed": false
+          },
+          "flowOutOfService": false,
+          "__type": "CallBotFlowAction",
+          "exitReason": {
+            "config": {
+              "emp": {
+                "pos": 1,
+                "text": "",
+                "type": "str"
+              }
+            },
+            "text": "",
+            "type": "str",
+            "uiMetaData": {
+              "mode": 3
+            },
+            "metaData": {},
+            "version": 2
+          },
+          "inputs": [],
+          "intent": {
+            "config": {
+              "emp": {
+                "pos": 1,
+                "text": "",
+                "type": "str"
+              }
+            },
+            "text": "",
+            "type": "str",
+            "uiMetaData": {
+              "mode": 3
+            },
+            "metaData": {},
+            "version": 2
+          },
+          "outputs": [],
+          "inputText": {
+            "config": {
+              "emp": {
+                "pos": 1,
+                "text": "",
+                "type": "str"
+              }
+            },
+            "text": "",
+            "type": "str",
+            "uiMetaData": {
+              "mode": 3
+            },
+            "metaData": {},
+            "version": 2
+          },
+          "paths": []
+        }
+      ],
+      "variables": []
+    }
+  ],
+  "supportedLanguageOptions": [
+    {
+      "language": "en-US",
+      "languageSkill": {
+        "config": {
+          "emp": {
+            "pos": 1,
+            "text": "",
+            "type": "lac"
+          }
+        },
+        "text": "",
+        "type": "lac",
+        "uiMetaData": {
+          "mode": 3
+        },
+        "metaData": {},
+        "version": 2
+      },
+      "textToSpeech": {
+        "engine": {
+          "selection": "specific",
+          "name": "Genesys TTS Connector Eleven Labs",
+          "id": "connector-f8eacc6f-23f1-4dfc-822c-25f12f190ba6"
+        },
+        "voice": {
+          "selection": "specific",
+          "name": "Bella - Professional, Bright, Warm",
+          "id": "connector-f8eacc6f-23f1-4dfc-822c-25f12f190ba6/bella - professional, bright, warm-en-us"
+        }
+      }
+    }
+  ],
+  "variables": []
+}

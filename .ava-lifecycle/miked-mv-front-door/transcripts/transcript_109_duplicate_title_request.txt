@@ -1,0 +1,69 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00109
+Date:               June 22, 2026
+Duration:           08:54
+Topic:              Duplicate Title Request
+Citizen (fictional):Emma Ryan
+Agent (fictional):  Wanda Whitfield
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Thank you for calling the Massachusetts RMV Customer Service Contact Center, this is Wanda
+       Whitfield, how can I help you today?
+
+Citizen: Hi, I need a duplicate title for my car, mine was damaged.
+
+Agent: Sure, I can help with that. Before we get started, can I get your full name and date of birth
+       to pull up your record?
+
+Citizen: Sure, it's Emma Ryan, date of birth January 15, 1996.
+
+Agent: Got it. Last thing - can you confirm the last four digits of your Social Security number on
+       file, just for verification?
+
+Citizen: Yes, the last four are 1424.
+
+Agent: Give me just a moment to pull that up in the system, I'll be right back with you.
+
+Agent: Okay, I'm back - thank you for waiting. I see your file here now.
+
+Agent: I can help you with that. Can you give me the plate number or VIN for the vehicle so I can
+       locate the title record?
+
+Citizen: Sure, the plate is 8GH489.
+
+Agent: Thank you, one moment while I look that up... okay, I do see the title record associated with
+       that plate. Is there a lien on the vehicle, meaning is it currently financed through a
+       bank or lender?
+
+Citizen: Yes, I still have a loan on it through my bank.
+
+Agent: In that case, the lienholder - your bank - is actually the one who holds the original title, so
+       you'd need to request the duplicate through them, not directly through the RMV, since
+       they're listed as the title holder until the loan is paid off.
+
+Citizen: Oh, I didn't realize that, I thought the RMV kept it.
+
+Agent: It's a common mix-up. The RMV maintains the electronic record, but the physical title itself
+       would be with your lender in this case. I'd recommend calling them directly, they can
+       typically issue a replacement or a letter confirming the details if you need proof of
+       ownership in the meantime.
+
+Citizen: This has been really helpful, thank you.
+
+Agent: You're welcome, glad I could clear that up for you.
+
+Agent: Okay, anything else I can help with before we wrap up?
+
+Citizen: That's all I needed, I really appreciate it.
+
+Agent: Glad I could help. Thanks for calling, and have a good rest of your morning.
+
+------------------------------------------------------------------------------
+[END OF CALL]

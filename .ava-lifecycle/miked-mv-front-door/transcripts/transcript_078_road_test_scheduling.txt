@@ -1,0 +1,74 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00078
+Date:               August 11, 2026
+Duration:           18:58
+Topic:              Road Test Scheduling
+Citizen (fictional):Michelle Rodriguez
+Agent (fictional):  Kevin Nolan
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: RMV Customer Contact Center, my name is Kevin Nolan, how may I assist you?
+
+Citizen: Hi, I just finished my driving lessons and I need to schedule my road test.
+
+Agent: Sure, I can help with that. Before we get started, can I get your full name and date of birth
+       to pull up your record?
+
+Citizen: Sure, it's Michelle Rodriguez, date of birth September 6, 2003.
+
+Agent: Perfect, thanks. Can you also confirm your current mailing address for me?
+
+Citizen: Yes, I'm at my address in Natick, Massachusetts.
+
+Agent: I need to check on something with our licensing system, can I place you on a brief hold?
+
+Agent: Sorry about that wait, I've got your account open now.
+
+Agent: Great, congratulations on finishing your lessons. Road tests are scheduled through the RMV's
+       online scheduling system, but I can tell you what to expect and check general
+       availability with you.
+
+Citizen: Okay, what do I need to bring on the day of the test?
+
+Agent: You'll need your learner's permit, a registered and insured vehicle to test in that meets
+       safety requirements, and a licensed driver 21 or older who's had their license for at
+       least a year to accompany you to the test site.
+
+Citizen: Does the car need a specific type of inspection?
+
+Agent: Yes, the vehicle needs a current, valid Massachusetts inspection sticker - if that's expired,
+       the test will be cancelled and you may not get your fee back, so definitely double check
+       that beforehand.
+
+Citizen: That's good to know, I'll check it tonight. Is there a test slot open at my nearest location?
+
+Agent: I can see the Springfield RMV Service Center has some general availability, but you'll want to
+       book directly through the online scheduling tool since that reflects real-time slots,
+       and I don't want to give you a slot that fills up before you get there. I'd recommend
+       booking as soon as we hang up since these can go quickly.
+
+Agent: The road test fee is $35, paid at the time of scheduling.
+
+Citizen: What happens if I fail?
+
+Agent: If you don't pass, you can reschedule for another attempt, though there is a fee each time you
+       retest, and you'll want to wait until you feel ready since there can be a required
+       waiting period between attempts.
+
+Citizen: Okay, that makes sense. Thank you for the info.
+
+Agent: Is there anything else I can help you with today?
+
+Citizen: That's it for me, thank you, you've been very helpful.
+
+Agent: You're very welcome. Thank you for calling the Massachusetts RMV, have a great afternoon.
+
+------------------------------------------------------------------------------
+[END OF CALL]

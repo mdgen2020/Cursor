@@ -1,0 +1,38 @@
+{
+  "id": "custom_-_cf6faa3e-165f-4d24-bc92-069a0d949552",
+  "name": "eohhs_masshealth_complete_screening_miked",
+  "integrationId": "19717556-e7eb-4db8-884e-b07c6f50d927",
+  "category": "EOHHS-Supabase-RPC",
+  "contract": {
+    "output": {
+      "successSchemaUri": "/api/v2/integrations/actions/custom_-_cf6faa3e-165f-4d24-bc92-069a0d949552/schemas/successschema.json",
+      "errorSchemaUri": "/api/v2/integrations/actions/custom_-_cf6faa3e-165f-4d24-bc92-069a0d949552/schemas/errorschema.json"
+    },
+    "input": {
+      "inputSchemaUri": "/api/v2/integrations/actions/custom_-_cf6faa3e-165f-4d24-bc92-069a0d949552/schemas/inputschema.json"
+    }
+  },
+  "version": 1,
+  "secure": false,
+  "config": {
+    "request": {
+      "requestUrlTemplate": "https://njjkupupxvfvymelcjpg.supabase.co/rest/v1/rpc/masshealth_complete_screening",
+      "requestTemplateUri": "/api/v2/integrations/actions/custom_-_cf6faa3e-165f-4d24-bc92-069a0d949552/templates/requesttemplate.vm",
+      "requestType": "POST",
+      "headers": {
+        "apikey": "${credentials.apikey}",
+        "Content-Type": "application/json"
+      }
+    },
+    "response": {
+      "translationMap": {
+        "rawResult": "$"
+      },
+      "translationMapDefaults": {
+        "rawResult": "{}"
+      },
+      "successTemplateUri": "/api/v2/integrations/actions/custom_-_cf6faa3e-165f-4d24-bc92-069a0d949552/templates/successtemplate.vm"
+    }
+  },
+  "selfUri": "/api/v2/integrations/actions/custom_-_cf6faa3e-165f-4d24-bc92-069a0d949552?includeConfig=true"
+}

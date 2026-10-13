@@ -1,0 +1,71 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00172
+Date:               June 1, 2026
+Duration:           14:50
+Topic:              Lost/Stolen/Damaged Plate Replacement
+Citizen (fictional):Victoria Brown
+Agent (fictional):  Tom Oduya
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Thanks for holding, this is Tom Oduya with the RMV, how can I assist you today?
+
+Citizen: Hi, my plate 5TV706 was stolen and I need to get it replaced.
+
+Agent: I'd be happy to help with that. First I just need to verify your identity - can you give me
+       your full name and date of birth?
+
+Citizen: Sure, it's Victoria Brown, date of birth August 21, 2007.
+
+Agent: Got it. Last thing - can you confirm the last four digits of your Social Security number on
+       file, just for verification?
+
+Citizen: Yes, the last four are 3136.
+
+Agent: Give me just a moment to pull that up in the system, I'll be right back with you.
+
+Agent: Sorry about that wait, I've got your account open now.
+
+Agent: I'm sorry to hear that. Since it was stolen, the very first thing you'll want to do, if you
+       haven't already, is file a police report - do you have a report number?
+
+Citizen: Yes, I filed one yesterday, I have the report number.
+
+Agent: Good, that's important to have on file. With a police report, we can process a plate
+       replacement, and in this case, since it was stolen rather than just lost, there
+       generally isn't a fee, but we will cancel the old plate number to prevent misuse.
+
+Citizen: Will I get a new plate number or the same one?
+
+Agent: Since it was stolen, you'll be issued a brand new plate number - we don't reissue the same
+       number in theft cases since the old plate is now considered compromised.
+
+Citizen: That makes sense. Do I need to bring the police report in person or can I do this by phone?
+
+Agent: You'll need to visit a Service Center in person to complete the replacement, bringing the
+       police report, your registration, and a valid ID. We're not able to process a full plate
+       reissue by phone since it does require an in-person verification.
+
+Citizen: Okay, I'll head to my local office. Do I need an appointment?
+
+Agent: I'd recommend booking one online, though walk-ins are accepted. Just bring the documents I
+       mentioned and it should be a fairly quick transaction.
+
+Citizen: This has been really helpful, thank you.
+
+Agent: You're welcome, glad I could help sort that out.
+
+Agent: Is there anything else I can help you with today?
+
+Citizen: That's it for me, thank you, you've been very helpful.
+
+Agent: Glad I could help. Thanks for calling, and have a good rest of your morning.
+
+------------------------------------------------------------------------------
+[END OF CALL]

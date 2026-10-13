@@ -1,0 +1,75 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00167
+Date:               February 3, 2026
+Duration:           10:06
+Topic:              Active Duty License Extension
+Citizen (fictional):Mason Kennedy
+Agent (fictional):  Nicole Frawley
+Resolution Status:  Resolved - Transferred to Military Liaison
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Good morning, thank you for calling the Massachusetts Registry of Motor Vehicles, this is
+       Nicole Frawley speaking, how can I help?
+
+Citizen: Hi, I'm active duty military stationed out of state and my Massachusetts license is about to
+         expire, what are my options?
+
+Agent: I'd be happy to help with that. First I just need to verify your identity - can you give me
+       your full name and date of birth?
+
+Citizen: Sure, it's Mason Kennedy, date of birth January 11, 1964.
+
+Agent: Perfect, thanks. Can you also confirm your current mailing address for me?
+
+Citizen: Yes, I'm at my address in Fitchburg, Massachusetts.
+
+Agent: Give me just a moment to pull that up in the system, I'll be right back with you.
+
+Agent: Sorry about that wait, I've got your account open now.
+
+Agent: Thanks for reaching out about this, and thank you for your service. Massachusetts does have
+       provisions for active duty service members stationed outside the state - in many cases
+       your license can remain valid, or you may be eligible for an extension, while you're
+       deployed or stationed elsewhere.
+
+Citizen: How does that extension work exactly?
+
+Agent: You'd typically need to submit a copy of your current military orders showing you're stationed
+       outside Massachusetts, along with a request for an extension, and we can extend the
+       validity of your license for the duration of your assignment plus a grace period after
+       you return.
+
+Citizen: Can I submit my orders by email or does it have to be mailed?
+
+Agent: In many cases we can accept documentation electronically or by fax - I can check the exact
+       submission process for you, or transfer you to our Military Liaison contact who handles
+       these requests specifically.
+
+Citizen: Yes, please, that would be great. One more quick question - will my Massachusetts address on
+         file cause an issue since I'm not physically there right now?
+
+Agent: Good question - no, you can keep your Massachusetts address on file as your permanent residence
+       for licensing purposes even while stationed elsewhere, that's a common and allowed
+       situation for service members.
+
+Citizen: That's a relief, I didn't want to have to change all my documents. Okay, I'm ready for the
+         transfer.
+
+Agent: No problem, let me get you connected - please hold for just a moment while I transfer you to
+       the Military Liaison line, they'll be able to process the extension request with your
+       orders.
+
+Agent: Alright, does that take care of everything for you today?
+
+Citizen: That's all I needed, I really appreciate it.
+
+Agent: Of course, happy to help. Thanks for calling the RMV, take care now.
+
+------------------------------------------------------------------------------
+[END OF CALL]

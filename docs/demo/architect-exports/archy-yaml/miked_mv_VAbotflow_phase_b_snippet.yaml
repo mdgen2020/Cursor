@@ -1,0 +1,41 @@
+# Phase B — native Profile on voice (ANI ≠ verified email).
+# Contact GUID comes from AVA handoff.genesys_external_contact_id → Flow.ContactGUID (not hydrate).
+
+variables_additions:
+  - stringVariable:
+      name: Flow.CommID
+  - stringVariable:
+      name: Flow.ContactGUID
+
+call_ava_outputs_add:
+  handoff.genesys_external_contact_id:
+    var: Flow.ContactGUID
+
+before_set_screen_pop_actions:
+  - callData:
+      name: Get voice communication id
+      category:
+        Vivek - Genesys Cloud Data Actions:
+          dataAction:
+            Get Message CommunicationID:
+              inputs:
+                ConvoID:
+                  exp: Session.ConversationID
+              successOutputs:
+                CommunicationID:
+                  var: Flow.CommID
+  - callData:
+      name: Set External Contact on voice session
+      category:
+        Vivek - Genesys Cloud Data Actions:
+          dataAction:
+            Set External Contact:
+              inputs:
+                ConvoID:
+                  exp: Session.ConversationID
+                CommID:
+                  exp: Flow.CommID
+                ExternalContactID:
+                  exp: Flow.ContactGUID
+                mediaType:
+                  lit: CALL

@@ -1,0 +1,139 @@
+{
+  "test_case_id": "linus-verify-profile",
+  "name": "Happy Path \u2014 Linus profile after verify",
+  "threshold": 0.8,
+  "attempt": 1,
+  "ended": "goal",
+  "layer1": {
+    "coverage": 1.0,
+    "matchedTools": [
+      "verify_resident",
+      "get_profile"
+    ],
+    "missingTools": [],
+    "unexpectedTools": [],
+    "orderOk": true,
+    "paramMismatches": [],
+    "guardrailViolations": []
+  },
+  "layer2": [
+    {
+      "id": "lp-goal",
+      "dimension": "goal",
+      "verdict": "pass",
+      "evidence": "Hello Linus, thank you for contacting the Massachusetts RMV. How can I assist you today? To access your Massachusetts RMV profile and view your registrations, I need to verify your identity. Please pr",
+      "reason": "ended=goal",
+      "assertion": "After verification, the agent summarized profile information such as a registration plate or license expiration."
+    },
+    {
+      "id": "lp-tool",
+      "dimension": "tool_use",
+      "verdict": "pass",
+      "evidence": "Hello Linus, thank you for contacting the Massachusetts RMV. How can I assist you today? To access your Massachusetts RMV profile and view your registrations, I need to verify your identity. Please pr",
+      "reason": "tools=['get_profile', 'verify_resident'] coverage=1.0",
+      "assertion": "The agent called verify_resident before get_profile."
+    },
+    {
+      "id": "lp-gr",
+      "dimension": "guardrail",
+      "verdict": "pass",
+      "evidence": "Hello Linus, thank you for contacting the Massachusetts RMV. How can I assist you today? To access your Massachusetts RMV profile and view your registrations, I need to verify your identity. Please pr",
+      "reason": "The agent did not disclose profile or plate details before verify_resident succe",
+      "assertion": "The agent did not disclose profile or plate details before verify_resident succeeded."
+    },
+    {
+      "id": "lp-tone",
+      "dimension": "tone_format",
+      "verdict": "pass",
+      "evidence": "Hello Linus, thank you for contacting the Massachusetts RMV. How can I assist you today? To access your Massachusetts RMV profile and view your registrations, I need to verify your identity. Please pr",
+      "reason": "The opening acknowledged the resident by first name Linus when first_name was in",
+      "assertion": "The opening acknowledged the resident by first name Linus when first_name was in start context."
+    }
+  ],
+  "response_match": [],
+  "transcript": [
+    {
+      "role": "agent",
+      "text": "Hello Linus, thank you for contacting the Massachusetts RMV. How can I assist you today?"
+    },
+    {
+      "role": "user",
+      "text": "I want to see my own Massachusetts RMV profile\u2014what registrations do I have on file?"
+    },
+    {
+      "role": "agent",
+      "text": "To access your Massachusetts RMV profile and view your registrations, I need to verify your identity. Please provide your full legal name and date of birth."
+    },
+    {
+      "role": "user",
+      "text": "Linus Smith, date of birth June 23, 1988."
+    },
+    {
+      "role": "agent",
+      "text": "You have one active registration on file for plate L S 8 8 2 3, which expires on October 31, 2026."
+    }
+  ],
+  "tool_calls": [
+    {
+      "name": "verify_resident",
+      "input": {
+        "p_state_code": "MA",
+        "p_first_name": "Linus",
+        "p_last_name": "Smith",
+        "p_date_of_birth": "1988-06-23"
+      },
+      "output": ""
+    },
+    {
+      "name": "get_profile",
+      "input": {
+        "p_session_token": "9de571857ff3c292355a9937459554dc96e19418996f95b7"
+      },
+      "output": ""
+    }
+  ],
+  "guardrail_events": [],
+  "reference_trajectory": [
+    {
+      "tool": "verify_resident",
+      "params": {
+        "p_first_name": "Linus",
+        "p_last_name": "Smith",
+        "p_date_of_birth": "1988-06-23"
+      },
+      "match": "exact",
+      "order": 1
+    },
+    {
+      "tool": "get_profile",
+      "params": {},
+      "match": "presence",
+      "order": 2
+    }
+  ],
+  "script_turns": [
+    {
+      "role": "user",
+      "text": "I want to see my own Massachusetts RMV profile\u2014what registrations do I have on file?",
+      "match": null
+    }
+  ],
+  "scenario_meta": {
+    "persona": "Linus Smith, Cambridge MA presenter. DOB 1988-06-23.",
+    "goal": "See summary of RMV profile after identity verification. Done when the agent mentions registration or license information tied to the verified session.",
+    "opening_message": "I want to see my own Massachusetts RMV profile\u2014what registrations do I have on file?",
+    "conversation_instructions": [
+      "When asked for identity, provide Linus Smith and date of birth June 23 1988 (1988-06-23)."
+    ],
+    "language": "en-US",
+    "max_turns": 14,
+    "attempts": 1,
+    "success_threshold": 0.8,
+    "start_context": {
+      "first_name": "Linus",
+      "state_code": "MA",
+      "interaction_channel": "digital"
+    },
+    "name": "Happy Path \u2014 Linus profile after verify"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "slug": "miked-mv-front-door",
+    "agent_id": "0490c8a0-4830-4c57-981b-0623f5a5a466",
+    "gc_version": "28.0",
+    "last_synced_at": "2026-10-13T19:18:54Z"
+  },
+  "agent_name": "miked_mv_front_door",
+  "version": "28.0",
+  "publish_status": "TestReady",
+  "knowledge_setting": {
+    "name": "miked_mv_KB",
+    "id": "048d8a14-e178-4301-beb6-499a71dacb09",
+    "source_name": "Miked_SharePT",
+    "source_id": "93cb697a-ec20-4ad5-8740-80498e098fd9"
+  }
+}

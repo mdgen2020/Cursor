@@ -3,7 +3,9 @@
     "slug": "eohhs-ma-front-door",
     "agent_id": "96fe2bc6-7f11-41d5-8e6d-8a3ed20291b6",
     "gc_version": "11.0",
-    "last_synced_at": "2026-09-16T04:57:01Z"
+    "last_synced_at": "2026-09-28T16:48:27Z",
+    "org_deleted_at": "2026-09-28",
+    "org_status": "deleted — definition retained in repo only"
   },
   "agent_name": "EOHHS MA Experience Orchestrator",
   "version": "11.0",

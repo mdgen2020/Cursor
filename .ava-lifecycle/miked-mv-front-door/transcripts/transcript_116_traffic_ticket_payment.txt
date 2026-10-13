@@ -1,0 +1,78 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00116
+Date:               May 2, 2026
+Duration:           14:57
+Topic:              Traffic Ticket Payment
+Citizen (fictional):Maria Nguyen
+Agent (fictional):  Rachel Coelho
+Resolution Status:  Resolved - Redirected to Court/MRB
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: RMV Customer Contact Center, my name is Rachel Coelho, how may I assist you?
+
+Citizen: Hi, I got a speeding ticket a couple weeks ago and I want to just pay it, citation number
+         C8433882.
+
+Agent: Sure, I can help with that. Before we get started, can I get your full name and date of birth
+       to pull up your record?
+
+Citizen: Sure, it's Maria Nguyen, date of birth December 21, 2007.
+
+Agent: Got it. Last thing - can you confirm the last four digits of your Social Security number on
+       file, just for verification?
+
+Citizen: Yes, the last four are 9642.
+
+Agent: I need to check on something with our licensing system, can I place you on a brief hold?
+
+Agent: Okay, I'm back - thank you for waiting. I see your file here now.
+
+Agent: I can help with that. Let me pull up citation C8433882... okay, I see it here, it's for a
+       moving violation. Just to clarify, traffic citations themselves are typically paid
+       through the court that issued them or the Registry's Merit Rating Board for the related
+       surcharge, not directly through this contact center line - can I explain the difference?
+
+Citizen: Sure, I didn't realize there was a difference.
+
+Agent: So the ticket itself, if you're just paying the fine and not contesting it, is generally paid
+       to the court listed on the citation, or in some cases online through the Trial Court's
+       website if it's a civil infraction. What we handle here at the RMV is more about how it
+       affects your license, like points or surcharges.
+
+Citizen: Oh okay, so will this affect my license?
+
+Agent: A standard speeding citation like this typically adds points through the Merit Rating Board,
+       which can affect your insurance surcharge, but it wouldn't suspend your license unless
+       it's a more serious violation or you accumulate multiple citations.
+
+Citizen: How many points does something like this usually add?
+
+Agent: I can't give you the exact point value over the phone since that's determined by the Merit
+       Rating Board's schedule based on the specific violation, but you can request your
+       driving record, which will show any surcharge points once they're posted, usually about
+       thirty days after the citation.
+
+Citizen: Okay, that makes sense. So I should just pay it directly with the court?
+
+Agent: That's right, the citation itself should have instructions and a deadline for either paying the
+       fine or requesting a hearing if you want to contest it, printed right on the paper you
+       received.
+
+Citizen: Got it, I'll follow up with the court directly then. Thanks for clarifying.
+
+Agent: Of course, happy to help sort that out.
+
+Agent: Okay, anything else I can help with before we wrap up?
+
+Citizen: That's it for me, thank you, you've been very helpful.
+
+Agent: Glad I could help. Thanks for calling, and have a good rest of your morning.
+
+------------------------------------------------------------------------------
+[END OF CALL]

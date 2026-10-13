@@ -1,0 +1,74 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00145
+Date:               January 14, 2026
+Duration:           14:45
+Topic:              Out-of-State/Foreign License Transfer
+Citizen (fictional):Paul Kim
+Agent (fictional):  Tom Boucher
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Good morning, thank you for calling the Massachusetts Registry of Motor Vehicles, this is Tom
+       Boucher speaking, how can I help?
+
+Citizen: Hi, I just moved to Massachusetts from New Hampshire and I need to transfer my out-of-state
+         license.
+
+Agent: I'd be happy to help with that. First I just need to verify your identity - can you give me
+       your full name and date of birth?
+
+Citizen: Sure, it's Paul Kim, date of birth October 27, 1977.
+
+Agent: Thank you. And just to fully verify, can you confirm the last four digits of the phone number
+       on file?
+
+Citizen: Yes, that should end in 3478.
+
+Agent: Give me just a moment to pull that up in the system, I'll be right back with you.
+
+Agent: Okay, I'm back - thank you for waiting. I see your file here now.
+
+Agent: Welcome to Massachusetts! Since you're coming from New Hampshire with a valid U.S. license,
+       you'll generally be able to do a direct transfer without retaking the road test, as long
+       as your out-of-state license isn't expired or suspended.
+
+Citizen: That's great, what do I need to bring?
+
+Agent: You'll need your current out-of-state license, proof of Massachusetts residency such as a lease
+       or utility bill, proof of your Social Security number, and proof of identity and date of
+       birth, similar to the REAL ID document list.
+
+Citizen: Do I need to take the written test again?
+
+Agent: In most cases no, since you already hold a valid license from another state, but you will need
+       to pass a vision screening at the counter.
+
+Citizen: How long do I have to make the switch after moving here?
+
+Agent: Massachusetts generally requires new residents to transfer their license within a certain
+       period after establishing residency, often around 30 days, so I wouldn't wait too long.
+
+Citizen: Good to know, I just moved a couple weeks ago so I should get on this soon.
+
+Agent: That's a good idea. Also, once your Massachusetts license is issued, your old out-of-state
+       license would be surrendered, so you'll want to bring the physical card with you to the
+       Service Center.
+
+Citizen: Got it, I'll bring it with me. Thanks for the help.
+
+Agent: You're welcome, and welcome again to Massachusetts.
+
+Agent: Is there anything else on your account I can look into while I have you?
+
+Citizen: That's all I needed, I really appreciate it.
+
+Agent: Glad I could help. Thanks for calling, and have a good rest of your morning.
+
+------------------------------------------------------------------------------
+[END OF CALL]

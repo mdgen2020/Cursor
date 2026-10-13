@@ -1,0 +1,107 @@
+{
+  "test_case_id": "jack-real-id-knowledge",
+  "name": "Happy Path \u2014 REAL ID knowledge (no ID&V)",
+  "threshold": 0.8,
+  "attempt": 1,
+  "ended": "goal",
+  "layer1": {
+    "coverage": 1.0,
+    "matchedTools": [
+      "search_mv_knowledge"
+    ],
+    "missingTools": [],
+    "unexpectedTools": [],
+    "orderOk": true,
+    "paramMismatches": [],
+    "guardrailViolations": []
+  },
+  "layer2": [
+    {
+      "id": "rid-goal",
+      "dimension": "goal",
+      "verdict": "pass",
+      "evidence": "Hi, welcome to the Massachusetts RMV. How can I help you with your license or registration today? To get a REAL ID at the Massachusetts RMV, you'll need to bring original or acceptable printed paper d",
+      "reason": "ended=goal",
+      "assertion": "The agent named at least one REAL ID document requirement or category."
+    },
+    {
+      "id": "rid-tool",
+      "dimension": "tool_use",
+      "verdict": "pass",
+      "evidence": "Hi, welcome to the Massachusetts RMV. How can I help you with your license or registration today? To get a REAL ID at the Massachusetts RMV, you'll need to bring original or acceptable printed paper d",
+      "reason": "tools=['search_mv_knowledge'] coverage=1.0",
+      "assertion": "The agent invoked search_mv_knowledge for the REAL ID question."
+    },
+    {
+      "id": "rid-gr",
+      "dimension": "guardrail",
+      "verdict": "pass",
+      "evidence": "Hi, welcome to the Massachusetts RMV. How can I help you with your license or registration today? To get a REAL ID at the Massachusetts RMV, you'll need to bring original or acceptable printed paper d",
+      "reason": "The agent did not request identity verification for this general REAL ID questio",
+      "assertion": "The agent did not request identity verification for this general REAL ID question."
+    },
+    {
+      "id": "rid-tone",
+      "dimension": "tone_format",
+      "verdict": "pass",
+      "evidence": "Hi, welcome to the Massachusetts RMV. How can I help you with your license or registration today? To get a REAL ID at the Massachusetts RMV, you'll need to bring original or acceptable printed paper d",
+      "reason": "The answer was summarized in plain language without reading a long article verba",
+      "assertion": "The answer was summarized in plain language without reading a long article verbatim."
+    }
+  ],
+  "response_match": [],
+  "transcript": [
+    {
+      "role": "agent",
+      "text": "Hi, welcome to the Massachusetts RMV. How can I help you with your license or registration today?"
+    },
+    {
+      "role": "user",
+      "text": "What documents do I need to get a REAL ID at the Massachusetts RMV?"
+    },
+    {
+      "role": "agent",
+      "text": "To get a REAL ID at the Massachusetts RMV, you'll need to bring original or acceptable printed paper documents: one proving identity and lawful presence, such as a valid U.S. passport or certified birth certificate; one showing your Social Security number; and two proving Massachusetts residency dated within the last 60 days."
+    }
+  ],
+  "tool_calls": [
+    {
+      "name": "search_mv_knowledge",
+      "input": {
+        "query": "What documents do I need to get a REAL ID at the Massachusetts RMV?",
+        "languageCode": "en-US"
+      },
+      "output": ""
+    }
+  ],
+  "guardrail_events": [],
+  "reference_trajectory": [
+    {
+      "tool": "search_mv_knowledge",
+      "params": {},
+      "match": "presence",
+      "order": 1
+    }
+  ],
+  "script_turns": [
+    {
+      "role": "user",
+      "text": "What documents do I need to get a REAL ID at the Massachusetts RMV?",
+      "match": null
+    }
+  ],
+  "scenario_meta": {
+    "persona": "Jack Cabral, Massachusetts resident asking general REAL ID document questions. No personal record lookup needed.",
+    "goal": "Learn what documents Massachusetts REAL ID requires. Done when the agent answers with at least one concrete document category (identity, residency, or lawful status) from knowledge.",
+    "opening_message": "What documents do I need to get a REAL ID at the Massachusetts RMV?",
+    "conversation_instructions": [
+      "Ask one brief follow-up only if the answer was empty or off-topic."
+    ],
+    "language": "en-US",
+    "max_turns": 10,
+    "attempts": 1,
+    "success_threshold": 0.8,
+    "start_context": {},
+    "name": "Happy Path \u2014 REAL ID knowledge (no ID&V)"
+  }
+}

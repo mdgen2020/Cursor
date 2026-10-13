@@ -1,0 +1,16 @@
+[mcp_servers.archy]
+command = "/Users/michael.debiase/Genesys/AXL/sc12/scripts/archy-mcp/.venv/bin/archy-mcp"
+
+[mcp_servers.archy.env]
+FASTMCP_LOG_LEVEL = "ERROR"
+ARCHY_BIN = "/opt/homebrew/bin/archy"
+
+[mcp_servers.ava-harness]
+command = "/Users/michael.debiase/.local/bin/ava-mcp"
+args = ["serve"]
+
+[mcp_servers.ava-harness.env]
+FASTMCP_LOG_LEVEL = "ERROR"
+AVA_HABITAT = "prod"
+GENESYS_CLIENT_ID = "812a6ab6-2bd7-4008-8cb4-8153e62f5be2"
+GENESYS_CLIENT_SECRET = "G52C__09ut16hGWI8N0l0xU1onRVBilpQ2da5eQbr2X1qBgk0ArbUIc55uao"

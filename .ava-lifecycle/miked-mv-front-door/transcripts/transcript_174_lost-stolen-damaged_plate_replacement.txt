@@ -1,0 +1,69 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00174
+Date:               May 9, 2026
+Duration:           18:20
+Topic:              Lost/Stolen/Damaged Plate Replacement
+Citizen (fictional):Yuki Walker
+Agent (fictional):  Derek Reyes
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: RMV Customer Contact Center, my name is Derek Reyes, how may I assist you?
+
+Citizen: Hi, my plate EF3930 was damaged and I need to get it replaced.
+
+Agent: I'd be happy to help with that. First I just need to verify your identity - can you give me
+       your full name and date of birth?
+
+Citizen: Sure, it's Yuki Walker, date of birth November 12, 1978.
+
+Agent: Thank you. And just to fully verify, can you confirm the last four digits of the phone number
+       on file?
+
+Citizen: Yes, that should end in 1977.
+
+Agent: Let me check that against your record, bear with me for just a second.
+
+Agent: Alright, thanks for holding. I've got everything pulled up.
+
+Agent: I'm sorry about that. For a damaged plate that wasn't stolen, we can typically process a
+       replacement using the same plate number and registration, no need for a police report.
+
+Citizen: Oh that's easy then. What's the process?
+
+Agent: You can actually request replacement plates online through the RMV's Online Service Center in
+       many cases, or in person at a Service Center. There is a small fee for the replacement.
+
+Agent: That fee is $10 for a standard plate replacement.
+
+Citizen: Can I do it online right now?
+
+Agent: You should be able to, as long as your registration is current and there are no other holds on
+       your account. If you go online after this call and it doesn't allow you to proceed for
+       any reason, that usually means an in-person visit is needed instead.
+
+Citizen: Okay, I'll try that first, thank you.
+
+Agent: Sounds good. If it's a rear plate only being replaced versus both plates, just make sure you
+       select the right option online so you're not charged for a pair you don't need.
+
+Citizen: Good tip, it's actually just the one, my damaged plate off the back.
+
+Citizen: This has been really helpful, thank you.
+
+Agent: You're welcome, glad I could help sort that out.
+
+Agent: Okay, anything else I can help with before we wrap up?
+
+Citizen: No, that's everything, thank you so much for your help.
+
+Agent: You're very welcome. Thank you for calling the Massachusetts RMV, have a great afternoon.
+
+------------------------------------------------------------------------------
+[END OF CALL]

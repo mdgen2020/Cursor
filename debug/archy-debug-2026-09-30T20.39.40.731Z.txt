@@ -1,0 +1,17 @@
+2026-09-30T20:39:41.229Z: [DEBUG] - Parameter 'loggingCallback' in ''ArchLogging'.setLoggingCallback' Logging callback hook successfully set.
+2026-09-30T20:39:41.235Z: [ERROR] setting the Archy exit code to 107
+2026-09-30T20:39:41.235Z: [ERROR] An error occurred.
+2026-09-30T20:39:41.235Z: [INFO] 
+2026-09-30T20:39:41.235Z: [ERROR] the parameter '--name' is not valid for use with the 'export' command. You can see more information about the 'export' command by running 'archy export --help'.
+2026-09-30T20:39:41.235Z: [INFO] 
+2026-09-30T20:39:41.235Z: [ERROR] Error(s) encountered.
+2026-09-30T20:39:41.236Z: [INFO] 
+2026-09-30T20:39:41.236Z: [INFO] using '/Users/michael.debiase/Genesys/AXL/sc12' as the home directory since none was defined.
+2026-09-30T20:39:41.236Z: [INFO] Log:  /Users/michael.debiase/Genesys/AXL/sc12/debug/archy-debug-2026-09-30T20.39.40.731Z.txt
+2026-09-30T20:39:41.378Z: [INFO] 
+2026-09-30T20:39:41.378Z: [INFO] execution complete.
+2026-09-30T20:39:41.378Z: [ERROR] 
+2026-09-30T20:39:41.379Z: [ERROR] exit code: 107
+2026-09-30T20:39:41.379Z: [INFO] 
+2026-09-30T20:39:41.379Z: [DEBUG] ensureDirectoryExists - the directory '/Users/michael.debiase/Genesys/AXL/sc12/debug' exists.
+2026-09-30T20:39:41.379Z: [DEBUG] Writing log contents to '/Users/michael.debiase/Genesys/AXL/sc12/debug/archy-debug-2026-09-30T20.39.40.731Z.txt'.

@@ -1,0 +1,71 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00199
+Date:               April 25, 2026
+Duration:           10:57
+Topic:              SR-22 Filing Verification
+Citizen (fictional):Shirley Roberts
+Agent (fictional):  Rachel Nolan
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Thanks for holding, this is Rachel Nolan with the RMV, how can I assist you today?
+
+Citizen: Hi, my court required me to file an SR-22 with the RMV and I want to make sure it's actually on
+         file.
+
+Agent: Okay, let's get that sorted out. Can I start by getting your full name and date of birth on
+       file?
+
+Citizen: Sure, it's Shirley Roberts, date of birth October 18, 1989.
+
+Agent: Thank you. And just to fully verify, can you confirm the last four digits of the phone number
+       on file?
+
+Citizen: Yes, that should end in 3428.
+
+Agent: I need to check on something with our licensing system, can I place you on a brief hold?
+
+Agent: Sorry about that wait, I've got your account open now.
+
+Agent: I can check on that for you. Let me pull up your record... one moment.
+
+Agent: Good news, I do see an SR-22 filing on your account from your insurance carrier, and it shows
+       as currently active.
+
+Citizen: Oh perfect, that's a relief. How long does it need to stay on file?
+
+Agent: SR-22 requirements in Massachusetts are typically required for a set period, often three years
+       depending on the underlying reason for the requirement, and your insurance company is
+       responsible for maintaining that filing continuously during that time.
+
+Citizen: What happens if my insurance lapses during that period?
+
+Agent: If your coverage lapses while the SR-22 requirement is active, your insurer is required to
+       notify us, which would likely result in a suspension, so it's really important to keep
+       continuous coverage during this window.
+
+Citizen: Is there anything I need to do myself, or does my insurance company handle all of the
+         reporting?
+
+Agent: Your insurance company handles the actual filing and any updates automatically, so there's
+       nothing further you need to submit on your end as long as you keep the policy active and
+       in good standing.
+
+Citizen: That's good to know, one less thing to worry about. Thank you for checking.
+
+Agent: Of course, glad I could look into that for you.
+
+Agent: Okay, anything else I can help with before we wrap up?
+
+Citizen: Nope, that covers it. Thanks for explaining all of that.
+
+Agent: Of course, happy to help. Thanks for calling the RMV, take care now.
+
+------------------------------------------------------------------------------
+[END OF CALL]

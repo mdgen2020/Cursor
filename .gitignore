@@ -1,5 +1,6 @@
 .env
 .env.local
+.env.motor-vehicle
 *.pem
 .DS_Store
 __pycache__/

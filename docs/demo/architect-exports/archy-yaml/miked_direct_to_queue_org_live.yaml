@@ -1,0 +1,128 @@
+inboundCall:
+  name: miked direct to queue
+  description: 781 RMV demo — welcome → miked_mv_VAbotflow → disconnect or queue transfer via bot
+  division: Home
+  startUpRef: "/inboundCall/tasks/task[New Task 1_12]"
+  defaultLanguage: en-us
+  supportedLanguages:
+    en-us:
+      defaultLanguageSkill:
+        noValue: true
+      textToSpeech:
+        Genesys TTS Connector Eleven Labs:
+          voice: Bella - Professional, Bright, Warm
+  initialGreeting:
+    tts: Welcome to the Massachusetts Registry of Motor Vehicles
+  settingsActionDefaults:
+    playAudioOnSilence:
+      allowedRepeatCount:
+        lit: 5
+      silenceDuration:
+        lit:
+          seconds: 1
+      timeout:
+        lit:
+          seconds: 40
+    detectSilence:
+      silenceDuration:
+        lit:
+          seconds: 1
+      timeout:
+        lit:
+          seconds: 40
+    callData:
+      processingPrompt:
+        lit:
+          name: PromptSystem.processing
+    collectInput:
+      interDigitTimeout:
+        lit:
+          seconds: 3
+      noEntryTimeout:
+        lit:
+          seconds: 5
+    dialByExtension:
+      interDigitTimeout:
+        lit:
+          seconds: 6
+    transferToUser:
+      connectTimeout:
+        noValue: true
+    transferToNumber:
+      connectTimeout:
+        noValue: true
+    transferToGroup:
+      connectTimeout:
+        noValue: true
+    transferToFlowSecure:
+      connectTimeout:
+        lit:
+          seconds: 15
+  settingsErrorHandling:
+    errorHandling:
+      disconnect:
+        none: true
+    preHandlingAudio:
+      tts: Sorry, an error occurred. Please try your call again.
+  settingsMenu:
+    extensionDialingMaxDelay:
+      lit:
+        seconds: 1
+    listenForExtensionDialing:
+      lit: true
+    menuSelectionTimeout:
+      lit:
+        seconds: 10
+    repeatCount:
+      lit: 3
+  settingsPrompts:
+    ensureAudioInPrompts: false
+    promptMediaToValidate:
+      - mediaType: audio
+      - mediaType: tts
+  settingsSpeechRec:
+    completeMatchTimeout:
+      lit:
+        ms: 100
+    incompleteMatchTimeout:
+      lit:
+        ms: 1500
+    maxSpeechLengthTimeout:
+      lit:
+        seconds: 20
+    minConfidenceLevel:
+      lit: 50
+    asrCompanyDir: none
+    asrEnabledOnFlow: true
+    suppressRecording: false
+  tasks:
+    - task:
+        name: New Task 1
+        refId: New Task 1_12
+        trackingId: 12
+        actions:
+          - callBotFlow:
+              name: Call Bot Flow
+              inputText:
+                noValue: true
+              exitReason:
+                noValue: true
+              intent:
+                noValue: true
+              botFlow:
+                miked_mv_VAbotflow:
+                  ver_latestPublished:
+                    none: true
+              trackingId: 21
+          - disconnect:
+              name: Disconnect
+              trackingId: 20
+  referencedObjects:
+    flows:
+      - flow:
+          name: miked_mv_VAbotflow
+          type: bot
+          defaultLanguage: en-us
+          variables: []
+          supportedLanguages:
+            - en-us

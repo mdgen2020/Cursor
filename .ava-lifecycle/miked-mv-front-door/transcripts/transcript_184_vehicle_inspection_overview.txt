@@ -1,0 +1,70 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00184
+Date:               August 6, 2026
+Duration:           17:42
+Topic:              Vehicle Inspection Overview
+Citizen (fictional):Noah Scott
+Agent (fictional):  Rachel Hutchins
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Thank you for calling the Massachusetts RMV Customer Service Contact Center, this is Rachel
+       Hutchins, how can I help you today?
+
+Citizen: Hi, I just bought my first car in Massachusetts and I don't really understand how the
+         inspection process works.
+
+Agent: I'd be happy to help with that. First I just need to verify your identity - can you give me
+       your full name and date of birth?
+
+Citizen: Sure, it's Noah Scott, date of birth November 9, 1978.
+
+Agent: Got it. Last thing - can you confirm the last four digits of your Social Security number on
+       file, just for verification?
+
+Citizen: Yes, the last four are 9514.
+
+Agent: Okay, let me take a look at your record - one moment please, this might take about thirty
+       seconds.
+
+Agent: Thanks for your patience, I found your record.
+
+Agent: No problem, happy to walk you through it. Every vehicle registered in Massachusetts needs an
+       annual safety and emissions inspection, done at any licensed inspection station - you
+       can find one at most gas stations or repair shops that display the inspection sign.
+
+Citizen: How much does it usually cost?
+
+Agent: The standard fee is set statewide, and it's currently $35 for most passenger vehicles.
+
+Citizen: How long is the sticker good for?
+
+Agent: It's valid for one year from the month it's issued, and then needs to be renewed annually
+       alongside your registration, though the two don't necessarily expire on the exact same
+       date.
+
+Citizen: Is there a grace period after I register the car?
+
+Agent: Yes, new registrations have a seven day grace period to get the initial inspection done, so I'd
+       get that scheduled soon since you just registered.
+
+Citizen: Good to know, I'll get that done this week.
+
+Agent: Sounds good. Is there anything else about your new vehicle I can help clarify?
+
+Citizen: No, I think that covers it, thank you.
+
+Agent: Alright, does that take care of everything for you today?
+
+Citizen: That's all I needed, I really appreciate it.
+
+Agent: You're very welcome. Thank you for calling the Massachusetts RMV, have a great afternoon.
+
+------------------------------------------------------------------------------
+[END OF CALL]

@@ -1,0 +1,75 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00185
+Date:               February 23, 2026
+Duration:           07:09
+Topic:              Expired Inspection Sticker
+Citizen (fictional):Larry Scott
+Agent (fictional):  Angela Ferrante
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Good afternoon, thank you for calling the Massachusetts Registry of Motor Vehicles, this is
+       Angela Ferrante speaking, how can I help?
+
+Citizen: Hi, I just realized my inspection sticker expired last month on plate GH5467, is that a big
+         problem?
+
+Agent: Sure, I can help with that. Before we get started, can I get your full name and date of birth
+       to pull up your record?
+
+Citizen: Sure, it's Larry Scott, date of birth December 20, 1990.
+
+Agent: Got it. Last thing - can you confirm the last four digits of your Social Security number on
+       file, just for verification?
+
+Citizen: Yes, the last four are 3189.
+
+Agent: Let me check that against your record, bear with me for just a second.
+
+Agent: Alright, thanks for holding. I've got everything pulled up.
+
+Agent: It's good that you caught it. An expired inspection sticker can result in a citation if you're
+       pulled over, so I'd recommend getting it inspected again as soon as possible at any
+       licensed inspection station.
+
+Citizen: Do I need to do anything with the RMV directly, or just go get inspected?
+
+Agent: Just getting the new inspection done is all that's needed on your end - the inspection station
+       electronically updates our system once it's completed, you don't need to separately
+       notify the RMV.
+
+Citizen: Will there be a fine or anything since it lapsed?
+
+Agent: There's no automatic fine simply for the sticker being expired unless an officer issues a
+       citation for it during that time, but going forward you'll want to keep an eye on the
+       expiration date to avoid that risk.
+
+Citizen: Is there a way for me to check the exact expiration date online so I don't lose track again?
+
+Agent: Yes, you can look up your vehicle's inspection status through the Massachusetts Vehicle Check
+       tool on the RMV website using your plate and VIN, it'll show you the current sticker
+       status and expiration.
+
+Citizen: That's helpful, I'll bookmark that so I can check periodically.
+
+Agent: Good idea, a lot of people find that useful for keeping track of both inspection and
+       registration expiration dates in one place.
+
+Citizen: Okay, I'll go get it done today. Thank you.
+
+Agent: Sounds good, glad I could help ease your mind on that.
+
+Agent: Is there anything else I can help you with today?
+
+Citizen: That's all I needed, I really appreciate it.
+
+Agent: Not a problem at all. Thank you for your patience today, have a good afternoon.
+
+------------------------------------------------------------------------------
+[END OF CALL]

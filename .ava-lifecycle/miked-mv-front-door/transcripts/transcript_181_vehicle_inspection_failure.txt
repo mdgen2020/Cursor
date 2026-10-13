@@ -1,0 +1,75 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00181
+Date:               February 7, 2026
+Duration:           19:34
+Topic:              Vehicle Inspection Failure
+Citizen (fictional):David Taylor
+Agent (fictional):  Angela Coelho
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Thank you for calling the Massachusetts RMV Customer Service Contact Center, this is Angela
+       Coelho, how can I help you today?
+
+Citizen: Hi, my car just failed inspection and I'm not sure what to do next, plate 3TV814.
+
+Agent: Okay, let's get that sorted out. Can I start by getting your full name and date of birth on
+       file?
+
+Citizen: Sure, it's David Taylor, date of birth June 19, 1966.
+
+Agent: Perfect, thanks. Can you also confirm your current mailing address for me?
+
+Citizen: Yes, I'm at my address in Quincy, Massachusetts.
+
+Agent: I need to check on something with our licensing system, can I place you on a brief hold?
+
+Agent: Okay, I'm back - thank you for waiting. I see your file here now.
+
+Agent: I'm sorry to hear that. Vehicle inspections are actually handled by licensed private inspection
+       stations rather than directly by the RMV, but I can explain how the process generally
+       works from here.
+
+Citizen: Okay, what happens now that it failed?
+
+Agent: You should have received a rejection sticker along with a report noting exactly why it failed -
+       common reasons include brakes, tires, lights, or emissions issues. You'll have a grace
+       period, typically 60 days, to get the issue repaired and return for a free re-inspection
+       at the same station.
+
+Citizen: Does it matter which shop I go to for the repair?
+
+Agent: No, you can get the repair done anywhere you'd like, it doesn't have to be the same inspection
+       station, but you would need to bring it back to a licensed inspection station, ideally
+       the same one that failed it, for the free re-inspection within that window.
+
+Citizen: What happens if I don't get it fixed within that time?
+
+Agent: If the 60 day window passes without a passing re-inspection, the rejection sticker becomes
+       invalid and driving with it could result in a citation, so I'd recommend getting the
+       repair scheduled as soon as you can.
+
+Citizen: That makes sense. Does this affect my registration at all?
+
+Agent: Not directly, your registration itself stays valid, but you're required to maintain a current,
+       passing inspection sticker at all times, so it's best not to let it lapse for both legal
+       and safety reasons.
+
+Citizen: Okay, I'll get it fixed soon. Thanks for explaining the process.
+
+Agent: You're welcome, good luck with the repair.
+
+Agent: Is there anything else I can help you with today?
+
+Citizen: No, that's everything, thank you so much for your help.
+
+Agent: You're very welcome. Thank you for calling the Massachusetts RMV, have a great afternoon.
+
+------------------------------------------------------------------------------
+[END OF CALL]

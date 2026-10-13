@@ -241,7 +241,7 @@ async def cmd_run(args: argparse.Namespace) -> None:
             out_path=out,
         )
         print(f"  done ended={json.loads(out.read_text())['ended']}", flush=True)
-        await asyncio.sleep(5)
+        await asyncio.sleep(max(0, float(getattr(args, "pause_sec", 5))))
 
     print(f"\nRun complete: {run_dir}")
     if args.score_after:
@@ -273,6 +273,12 @@ def main() -> None:
     p_run.add_argument("--run-id", default=None)
     p_run.add_argument("--only", default=None, help="Comma-separated test_case_ids")
     p_run.add_argument("--score-after", action="store_true", help="Generate scorecard when done")
+    p_run.add_argument(
+        "--pause-sec",
+        type=float,
+        default=5.0,
+        help="Seconds to wait between scenarios (reduce Cicero 429s)",
+    )
     p_run.set_defaults(func=lambda a: asyncio.run(cmd_run(a)))
 
     args = parser.parse_args()

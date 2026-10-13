@@ -1,0 +1,158 @@
+{
+  "miked_mv_resident_verify": {
+    "inputSchema": {
+      "type": "object",
+      "required": ["p_state_code", "p_first_name", "p_last_name", "p_date_of_birth"],
+      "properties": {
+        "p_state_code": { "type": "string", "description": "Two-letter state code, e.g. MA" },
+        "p_first_name": { "type": "string" },
+        "p_last_name": { "type": "string" },
+        "p_date_of_birth": { "type": "string", "description": "ISO date YYYY-MM-DD" },
+        "p_phone_last4": { "type": "string" },
+        "p_conversation_id": { "type": "string" },
+        "p_channel": { "type": "string" }
+      }
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": ["session_token", "work_email", "resident_name"],
+      "properties": {
+        "session_token": { "type": "string" },
+        "expires_in_seconds": { "type": "integer" },
+        "state_code": { "type": "string" },
+        "resident_name": { "type": "string" },
+        "work_email": { "type": "string" }
+      }
+    }
+  },
+  "miked_mv_get_profile": {
+    "inputSchema": {
+      "type": "object",
+      "required": ["p_session_token"],
+      "properties": {
+        "p_session_token": { "type": "string" }
+      }
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": ["resident_name", "work_email", "registrations"],
+      "properties": {
+        "state_code": { "type": "string" },
+        "resident_name": { "type": "string" },
+        "work_email": { "type": "string" },
+        "city": { "type": "string" },
+        "driver_license": {
+          "type": "object",
+          "properties": {
+            "license_number": { "type": "string" },
+            "expires_on": { "type": "string" },
+            "is_real_id": { "type": "boolean" },
+            "status": { "type": "string" }
+          }
+        },
+        "registrations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "plate_number": { "type": "string" },
+              "expires_on": { "type": "string" },
+              "inspection_valid_through": { "type": "string" },
+              "status": { "type": "string" },
+              "renewal_fee_dollars": { "type": "number" }
+            }
+          }
+        }
+      }
+    }
+  },
+  "miked_mv_registration_renew": {
+    "inputSchema": {
+      "type": "object",
+      "required": ["p_session_token", "p_plate_number"],
+      "properties": {
+        "p_session_token": { "type": "string" },
+        "p_plate_number": { "type": "string" },
+        "p_quote_only": { "type": "boolean", "description": "When true, return renewal fee quote only; do not charge." }
+      }
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": ["plate_number", "status", "amount_dollars"],
+      "properties": {
+        "confirmation_code": { "type": "string" },
+        "plate_number": { "type": "string" },
+        "new_expires_on": { "type": "string" },
+        "amount_dollars": { "type": "number" },
+        "status": { "type": "string" }
+      }
+    }
+  },
+  "miked_mv_license_book_appointment": {
+    "inputSchema": {
+      "type": "object",
+      "required": [
+        "p_session_token",
+        "p_purpose",
+        "p_service_center",
+        "p_scheduled_at",
+        "p_confirmation_code"
+      ],
+      "properties": {
+        "p_session_token": { "type": "string" },
+        "p_purpose": { "type": "string" },
+        "p_service_center": { "type": "string" },
+        "p_scheduled_at": { "type": "string", "description": "ISO-8601 timestamptz" },
+        "p_confirmation_code": { "type": "string" }
+      }
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": ["confirmation_code", "status"],
+      "properties": {
+        "confirmation_code": { "type": "string" },
+        "service_center": { "type": "string" },
+        "scheduled_at": { "type": "string" },
+        "purpose": { "type": "string" },
+        "status": { "type": "string" }
+      }
+    }
+  },
+  "miked_mv_handoff_create": {
+    "inputSchema": {
+      "type": "object",
+      "required": ["p_session_token", "p_intent_summary"],
+      "properties": {
+        "p_session_token": { "type": "string" },
+        "p_intent_summary": { "type": "string" },
+        "p_conversation_id": { "type": "string" },
+        "p_channel": { "type": "string" },
+        "p_fields_json": {
+          "type": "string",
+          "description": "JSON object string for extra handoff fields, e.g. {\"topic\":\"license_renewal\"}"
+        }
+      }
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": ["handoff_id", "work_email", "intent_summary"],
+      "properties": {
+        "handoff_id": { "type": "string" },
+        "handoff_uuid": { "type": "string" },
+        "state_code": { "type": "string" },
+        "resident_name": { "type": "string" },
+        "work_email": { "type": "string" },
+        "intent_summary": { "type": "string" },
+        "license_number": { "type": "string" },
+        "plate_number": { "type": "string" },
+        "appointments_summary": { "type": "string" },
+        "appointment_date": { "type": "string" },
+        "appointment_location": { "type": "string" },
+        "appointment_time": { "type": "string" },
+        "appointment_confirmation": { "type": "string" },
+        "genesys_external_contact_id": { "type": "string" },
+        "fields": { "type": "object" }
+      }
+    }
+  }
+}

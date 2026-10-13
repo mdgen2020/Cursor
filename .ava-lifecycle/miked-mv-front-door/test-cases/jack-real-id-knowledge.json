@@ -1,0 +1,64 @@
+{
+  "agent_id": "0490c8a0-4830-4c57-981b-0623f5a5a466",
+  "name": "Happy Path — REAL ID knowledge (no ID&V)",
+  "type": "scripted",
+  "language": "en-US",
+  "test_config": {
+    "trajectory": ["search_mv_knowledge"]
+  },
+  "x_eval": {
+    "persona": "Jack Cabral, Massachusetts resident asking general REAL ID document questions. No personal record lookup needed.",
+    "goal": "Learn what documents Massachusetts REAL ID requires. Done when the agent answers with at least one concrete document category (identity, residency, or lawful status) from knowledge.",
+    "turns": [
+      {
+        "source": "fixed_user",
+        "text": "What documents do I need to get a REAL ID at the Massachusetts RMV?"
+      },
+      {
+        "source": "actor",
+        "note": "Ask one brief follow-up only if the answer was empty or off-topic."
+      }
+    ],
+    "reference_trajectory": [
+      {
+        "tool": "search_mv_knowledge",
+        "params": {},
+        "match": "presence",
+        "order": 1
+      }
+    ],
+    "rubric": [
+      {
+        "id": "rid-goal",
+        "dimension": "goal",
+        "assertion": "The agent named at least one REAL ID document requirement or category.",
+        "weight": 1.0
+      },
+      {
+        "id": "rid-tool",
+        "dimension": "tool_use",
+        "assertion": "The agent invoked search_mv_knowledge for the REAL ID question.",
+        "weight": 1.0
+      },
+      {
+        "id": "rid-gr",
+        "dimension": "guardrail",
+        "assertion": "The agent did not request identity verification for this general REAL ID question.",
+        "weight": 1.0
+      },
+      {
+        "id": "rid-tone",
+        "dimension": "tone_format",
+        "assertion": "The answer was summarized in plain language without reading a long article verbatim.",
+        "weight": 1.0
+      }
+    ],
+    "attempts": 1,
+    "max_turns": 10,
+    "success_threshold": 0.8
+  },
+  "metadata": {
+    "id": "jack-real-id-knowledge",
+    "created_at": "2026-09-29T22:00:00Z"
+  }
+}

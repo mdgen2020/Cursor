@@ -1,0 +1,79 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00168
+Date:               January 8, 2026
+Duration:           16:36
+Topic:              Veteran License Plate Inquiry
+Citizen (fictional):Nancy Allen
+Agent (fictional):  Sam Hutchins
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Good afternoon, thank you for calling the Massachusetts Registry of Motor Vehicles, this is Sam
+       Hutchins speaking, how can I help?
+
+Citizen: Hi, I'm a veteran and I heard I might be eligible for a veteran's license plate, can you tell
+         me about that?
+
+Agent: Okay, let's get that sorted out. Can I start by getting your full name and date of birth on
+       file?
+
+Citizen: Sure, it's Nancy Allen, date of birth November 17, 1953.
+
+Agent: Great, thank you. And can you confirm the address we have on file, or the city you're currently
+       residing in?
+
+Citizen: Yes, I'm at my address in Lawrence, Massachusetts.
+
+Agent: Okay, let me take a look at your record - one moment please, this might take about thirty
+       seconds.
+
+Agent: Alright, thanks for holding. I've got everything pulled up.
+
+Agent: Absolutely, and thank you for your service. Massachusetts does offer several veteran-specific
+       plates, including a general Veteran plate, and special plates for disabled veterans,
+       Purple Heart recipients, and a few other designations depending on your service record.
+
+Citizen: I'm not sure which one I'd qualify for, how do I find out?
+
+Agent: You'd start by submitting a copy of your DD-214 discharge form, which shows your character of
+       service and any relevant commendations, along with the specific plate application form
+       for the plate you're interested in.
+
+Citizen: Is there an extra fee for these plates?
+
+Agent: Most of the veteran-designated plates don't carry an extra fee beyond the standard registration
+       and plate fees, though a couple of specialty designs might have a small additional
+       charge - I'd have to check the specific plate you're interested in to confirm.
+
+Citizen: I think I'd like the general Veteran plate to start.
+
+Agent: Great choice. For that one, you'd bring your DD-214 and the plate application to a Service
+       Center, or in some cases it can be submitted by mail. Do you have your DD-214
+       accessible?
+
+Citizen: Yes, I have a copy at home.
+
+Agent: Perfect. Once submitted and approved, the plate is typically issued at no extra charge beyond
+       your normal registration renewal fee, and it can usually be swapped onto your existing
+       registration.
+
+Citizen: That's great to hear. Thank you for explaining all of this.
+
+Agent: Of course, and thank you again for your service. Is there anything else I can help with?
+
+Citizen: No, that's everything, thanks.
+
+Agent: Is there anything else on your account I can look into while I have you?
+
+Citizen: No, that's everything, thank you so much for your help.
+
+Agent: Of course, happy to help. Thanks for calling the RMV, take care now.
+
+------------------------------------------------------------------------------
+[END OF CALL]

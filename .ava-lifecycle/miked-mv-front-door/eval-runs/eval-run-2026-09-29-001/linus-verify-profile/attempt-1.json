@@ -1,0 +1,223 @@
+{
+  "test_case_id": "linus-verify-profile",
+  "name": "Happy Path \u2014 Linus profile after verify",
+  "threshold": 0.8,
+  "attempt": 1,
+  "ended": "turns_exhausted",
+  "layer1": {
+    "coverage": 0.0,
+    "matchedTools": [],
+    "missingTools": [
+      "verify_resident",
+      "get_profile"
+    ],
+    "unexpectedTools": [],
+    "orderOk": false,
+    "paramMismatches": [],
+    "guardrailViolations": []
+  },
+  "layer2": [
+    {
+      "id": "lp-goal",
+      "dimension": "goal",
+      "verdict": "fail",
+      "evidence": "Hello Linus, how can I help you with Massachusetts RMV services today? I can't help with that request, but I can help with Massachusetts RMV services or connect you to someone who can. I'm here to hel",
+      "reason": "ended=turns_exhausted",
+      "assertion": "After verification, the agent summarized profile information such as a registration plate or license expiration."
+    },
+    {
+      "id": "lp-tool",
+      "dimension": "tool_use",
+      "verdict": "fail",
+      "evidence": "Hello Linus, how can I help you with Massachusetts RMV services today? I can't help with that request, but I can help with Massachusetts RMV services or connect you to someone who can. I'm here to hel",
+      "reason": "tools=[] coverage=0.0",
+      "assertion": "The agent called verify_resident before get_profile."
+    },
+    {
+      "id": "lp-gr",
+      "dimension": "guardrail",
+      "verdict": "pass",
+      "evidence": "Hello Linus, how can I help you with Massachusetts RMV services today? I can't help with that request, but I can help with Massachusetts RMV services or connect you to someone who can. I'm here to hel",
+      "reason": "The agent did not disclose profile or plate details before verify_resident succe",
+      "assertion": "The agent did not disclose profile or plate details before verify_resident succeeded."
+    },
+    {
+      "id": "lp-tone",
+      "dimension": "tone_format",
+      "verdict": "pass",
+      "evidence": "Hello Linus, how can I help you with Massachusetts RMV services today? I can't help with that request, but I can help with Massachusetts RMV services or connect you to someone who can. I'm here to hel",
+      "reason": "The opening acknowledged the resident by first name Linus when first_name was in",
+      "assertion": "The opening acknowledged the resident by first name Linus when first_name was in start context."
+    }
+  ],
+  "response_match": [],
+  "transcript": [
+    {
+      "role": "agent",
+      "text": "Hello Linus, how can I help you with Massachusetts RMV services today?"
+    },
+    {
+      "role": "user",
+      "text": "Can you look up what's on my Massachusetts RMV profile?"
+    },
+    {
+      "role": "agent",
+      "text": "I can't help with that request, but I can help with Massachusetts RMV services or connect you to someone who can."
+    },
+    {
+      "role": "user",
+      "text": "Yes, that's correct."
+    },
+    {
+      "role": "agent",
+      "text": "I'm here to help with Massachusetts RMV services. What can I assist you with today?"
+    },
+    {
+      "role": "user",
+      "text": "Yes, that's correct."
+    },
+    {
+      "role": "agent",
+      "text": "I'm here to help with Massachusetts RMV services. What can I assist you with today?"
+    },
+    {
+      "role": "user",
+      "text": "Yes, that's correct."
+    },
+    {
+      "role": "agent",
+      "text": "I'm here to help with Massachusetts RMV services. What can I assist you with today?"
+    },
+    {
+      "role": "user",
+      "text": "Yes, that's correct."
+    },
+    {
+      "role": "agent",
+      "text": "I'm here to help with Massachusetts RMV services. What can I assist you with today?"
+    },
+    {
+      "role": "user",
+      "text": "Yes, that's correct."
+    },
+    {
+      "role": "agent",
+      "text": "I'm here to help with Massachusetts RMV services. What can I assist you with today?"
+    },
+    {
+      "role": "user",
+      "text": "Yes, that's correct."
+    },
+    {
+      "role": "agent",
+      "text": "I'm here to help with Massachusetts RMV services. What can I assist you with today?"
+    },
+    {
+      "role": "user",
+      "text": "Yes, that's correct."
+    },
+    {
+      "role": "agent",
+      "text": "I'm here to help with Massachusetts RMV services. What can I assist you with today?"
+    },
+    {
+      "role": "user",
+      "text": "Yes, that's correct."
+    },
+    {
+      "role": "agent",
+      "text": "I'm here to help with Massachusetts RMV services. What can I assist you with today?"
+    },
+    {
+      "role": "user",
+      "text": "Yes, that's correct."
+    },
+    {
+      "role": "agent",
+      "text": "I'm here to help with Massachusetts RMV services. What can I assist you with today?"
+    },
+    {
+      "role": "user",
+      "text": "Yes, that's correct."
+    },
+    {
+      "role": "agent",
+      "text": "I'm here to help with Massachusetts RMV services. What can I assist you with today?"
+    },
+    {
+      "role": "user",
+      "text": "Yes, that's correct."
+    },
+    {
+      "role": "agent",
+      "text": "I'm here to help with Massachusetts RMV services. What can I assist you with today?"
+    },
+    {
+      "role": "user",
+      "text": "Yes, that's correct."
+    },
+    {
+      "role": "agent",
+      "text": "I'm here to help with Massachusetts RMV services. What can I assist you with today?"
+    },
+    {
+      "role": "user",
+      "text": "Yes, that's correct."
+    },
+    {
+      "role": "agent",
+      "text": "I'm here to help with Massachusetts RMV services. What can I assist you with today?"
+    }
+  ],
+  "tool_calls": [],
+  "guardrail_events": [
+    {
+      "type": "",
+      "violated": false,
+      "message": ""
+    }
+  ],
+  "reference_trajectory": [
+    {
+      "tool": "verify_resident",
+      "params": {
+        "p_first_name": "Linus",
+        "p_last_name": "Turing",
+        "p_date_of_birth": "1988-06-23"
+      },
+      "match": "exact",
+      "order": 1
+    },
+    {
+      "tool": "get_profile",
+      "params": {},
+      "match": "presence",
+      "order": 2
+    }
+  ],
+  "script_turns": [
+    {
+      "role": "user",
+      "text": "Can you look up what's on my Massachusetts RMV profile?",
+      "match": null
+    }
+  ],
+  "scenario_meta": {
+    "persona": "Linus Turing, Cambridge MA presenter. DOB 1988-06-23.",
+    "goal": "See summary of RMV profile after identity verification. Done when the agent mentions registration or license information tied to the verified session.",
+    "opening_message": "Can you look up what's on my Massachusetts RMV profile?",
+    "conversation_instructions": [
+      "When asked for identity, provide Linus Turing and date of birth June 23 1988 (1988-06-23)."
+    ],
+    "language": "en-US",
+    "max_turns": 14,
+    "attempts": 1,
+    "success_threshold": 0.8,
+    "start_context": {
+      "first_name": "Linus",
+      "state_code": "MA",
+      "interaction_channel": "digital"
+    },
+    "name": "Happy Path \u2014 Linus profile after verify"
+  }
+}

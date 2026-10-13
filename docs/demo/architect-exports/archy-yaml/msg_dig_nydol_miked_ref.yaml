@@ -1,0 +1,825 @@
+inboundShortMessage:
+  name: msg_dig_nydol_miked
+  description: copied from msg_DigMsgflow_miked 7/12/2025
+  division: Home
+  startUpRef: "/inboundShortMessage/states/state[Initial State_10]"
+  defaultLanguage: en-us
+  supportedLanguages:
+    en-us:
+      defaultLanguageSkill:
+        noValue: true
+  variables:
+    - stringCollectionVariable:
+        name: Flow.addy1
+        initialValue:
+          noValue: true
+        isOutput: false
+    - stringVariable:
+        name: Flow.ClaimShort
+        initialValue:
+          noValue: true
+        isOutput: false
+    - stringVariable:
+        name: Flow.CommID
+        initialValue:
+          noValue: true
+        isOutput: false
+    - stringVariable:
+        name: Flow.ContactGUID
+        initialValue:
+          noValue: true
+        isOutput: false
+    - externalContactCollectionVariable:
+        name: Flow.ContactResult
+        initialValue:
+          noValue: true
+        isOutput: false
+    - stringCollectionVariable:
+        name: Flow.CTY
+        initialValue:
+          noValue: true
+        isOutput: false
+    - stringVariable:
+        name: Flow.CustEmail
+        initialValue:
+          noValue: true
+        isOutput: false
+    - externalContactVariable:
+        name: Flow.ExternalContact
+        initialValue:
+          noValue: true
+        isOutput: false
+    - stringCollectionVariable:
+        name: Flow.Firstn
+        initialValue:
+          noValue: true
+        isOutput: false
+    - stringVariable:
+        name: Flow.FirstName
+        initialValue:
+          noValue: true
+        isOutput: false
+    - stringVariable:
+        name: Flow.IBVivrselection
+        initialValue:
+          noValue: true
+        isOutput: false
+    - stringVariable:
+        name: Flow.incfrombot
+        initialValue:
+          noValue: true
+        isOutput: false
+    - stringVariable:
+        name: Flow.INCScript
+        initialValue:
+          noValue: true
+        isOutput: false
+    - stringVariable:
+        name: Flow.IncState
+        initialValue:
+          noValue: true
+        isOutput: false
+    - stringCollectionVariable:
+        name: Flow.lastn
+        initialValue:
+          noValue: true
+        isOutput: false
+    - stringCollectionVariable:
+        name: Flow.LastName
+        initialValue:
+          noValue: true
+        isOutput: false
+    - stringCollectionVariable:
+        name: Flow.st
+        initialValue:
+          noValue: true
+        isOutput: false
+    - stringCollectionVariable:
+        name: Flow.zipcode
+        initialValue:
+          noValue: true
+        isOutput: false
+  settingsErrorHandling:
+    errorHandling:
+      queue:
+        targetQueue:
+          lit:
+            name: Support_MikeD
+  states:
+    - state:
+        name: Initial State
+        refId: Initial State_10
+        trackingId: 10
+        variables:
+          - stringVariable:
+              name: State.intent
+              initialValue:
+                noValue: true
+              isInput: false
+              isOutput: false
+        actions:
+          - callDigitalBotFlow:
+              name: Call Digital Bot Flow
+              inputText:
+                exp: Message.Message.body
+              exitReason:
+                noValue: true
+              intent:
+                noValue: true
+              digitalBotFlow:
+                Dig_bot_nydol:
+                  ver_latestPublished:
+                    inputs:
+                      Slot.TicketNumber1:
+                        noValue: true
+                      Flow.ticketnumber:
+                        exp: Flow.incfrombot
+                      Slot.Name:
+                        noValue: true
+                      Slot.email:
+                        noValue: true
+                      Slot.LastName:
+                        noValue: true
+                      Slot.FormFirstName:
+                        noValue: true
+                      Slot.FormLastName:
+                        noValue: true
+                      Slot.FormCity:
+                        noValue: true
+                      Slot.FormState:
+                        noValue: true
+                      Slot.FormZip:
+                        noValue: true
+                      Slot.FormEmail:
+                        noValue: true
+                      Slot.cellphone:
+                        noValue: true
+                      Slot.cellphone1:
+                        noValue: true
+                    outputs:
+                      Slot.TicketNumber1:
+                        noValue: true
+                      Flow.incnumber:
+                        var: Flow.incfrombot
+                      Flow.incident_state:
+                        var: Flow.IncState
+                      Flow.short_des:
+                        var: Flow.ClaimShort
+                      Flow.priority:
+                        noValue: true
+                      Flow.ticketnumber:
+                        noValue: true
+                      Slot.Name:
+                        var: Flow.FirstName
+                      Slot.email:
+                        var: Flow.CustEmail
+                      Slot.LastName:
+                        noValue: true
+                      Flow.firstname:
+                        var: Flow.Firstn
+                      Flow.lastname:
+                        var: Flow.lastn
+                      Flow.address1:
+                        var: Flow.addy1
+                      Flow.state:
+                        var: Flow.st
+                      Flow.zip:
+                        var: Flow.zipcode
+                      Flow.city:
+                        var: Flow.CTY
+                      Slot.FormFirstName:
+                        noValue: true
+                      Slot.FormLastName:
+                        noValue: true
+                      Slot.FormCity:
+                        noValue: true
+                      Slot.FormState:
+                        noValue: true
+                      Slot.FormZip:
+                        noValue: true
+                      Slot.FormEmail:
+                        noValue: true
+                      Slot.cellphone:
+                        noValue: true
+                      Slot.cellphone1:
+                        noValue: true
+                      Flow.INCtoScript:
+                        var: Flow.INCScript
+              trackingId: 37
+          - searchExternalContacts:
+              name: Search External Contacts
+              trackingId: 47
+              searchTerm:
+                exp: Flow.CustEmail
+              externalResults:
+                var: Flow.ContactResult
+              outputs:
+                matchExact:
+                  actions:
+                    - getExternalContact:
+                        name: Get External Contact
+                        trackingId: 48
+                        externalId:
+                          exp: Flow.ContactResult
+                        externalResult:
+                          var: Flow.ExternalContact
+                        outputs:
+                          found:
+                            actions:
+                              - updateData:
+                                  name: Update Data
+                                  trackingId: 49
+                                  statements:
+                                    - string:
+                                        variable: Flow.ContactGUID
+                                        value:
+                                          exp: Flow.ExternalContact.id
+          - callData:
+              name: Call Data Action
+              trackingId: 46
+              timeout:
+                lit:
+                  minutes: 1
+              category:
+                Vivek - Genesys Cloud Data Actions:
+                  dataAction:
+                    Get Message CommunicationID:
+                      inputs:
+                        ConvoID:
+                          exp: Message.ConversationId
+                      successOutputs:
+                        CommunicationID:
+                          var: Flow.CommID
+                      failureOutputs:
+                        errorCode:
+                          noValue: true
+                        status:
+                          noValue: true
+                        correlationId:
+                          noValue: true
+                        entityId:
+                          noValue: true
+                        entityName:
+                          noValue: true
+                        userMessage:
+                          noValue: true
+                        userParamsMessage:
+                          noValue: true
+                        userParams.key:
+                          noValue: true
+                        userParams.value:
+                          noValue: true
+                        details.errorCode:
+                          noValue: true
+                        details.fieldName:
+                          noValue: true
+                        details.entityId:
+                          noValue: true
+                        details.entityName:
+                          noValue: true
+          - callData:
+              name: Call Data Action
+              trackingId: 45
+              timeout:
+                lit:
+                  minutes: 1
+              category:
+                Vivek - Genesys Cloud Data Actions:
+                  dataAction:
+                    Set External Contact:
+                      inputs:
+                        ConvoID:
+                          exp: Message.ConversationId
+                        CommID:
+                          exp: Flow.CommID
+                        ExternalContactID:
+                          exp: Flow.ContactGUID
+                        mediaType:
+                          lit: MESSAGE
+                      failureOutputs:
+                        errorCode:
+                          noValue: true
+                        status:
+                          noValue: true
+                        correlationId:
+                          noValue: true
+                        entityId:
+                          noValue: true
+                        entityName:
+                          noValue: true
+                        userMessage:
+                          noValue: true
+                        userParamsMessage:
+                          noValue: true
+                        userParams.key:
+                          noValue: true
+                        userParams.value:
+                          noValue: true
+                        details.errorCode:
+                          noValue: true
+                        details.fieldName:
+                          noValue: true
+                        details.entityId:
+                          noValue: true
+                        details.entityName:
+                          noValue: true
+          - callData:
+              name: Call Data Action
+              trackingId: 44
+              timeout:
+                lit:
+                  minutes: 1
+              category:
+                PureCloud Data Actions:
+                  dataAction:
+                    Get External Contact by Email:
+                      inputs:
+                        workEmail:
+                          exp: Flow.CustEmail
+                      successOutputs:
+                        contacts.firstName:
+                          noValue: true
+                        contacts.lastName:
+                          var: Flow.LastName
+                      failureOutputs:
+                        errorCode:
+                          noValue: true
+                        status:
+                          noValue: true
+                        correlationId:
+                          noValue: true
+                        entityId:
+                          noValue: true
+                        entityName:
+                          noValue: true
+                        userMessage:
+                          noValue: true
+                        userParamsMessage:
+                          noValue: true
+                        userParams.key:
+                          noValue: true
+                        userParams.value:
+                          noValue: true
+                        details.errorCode:
+                          noValue: true
+                        details.fieldName:
+                          noValue: true
+                        details.entityId:
+                          noValue: true
+                        details.entityName:
+                          noValue: true
+          - callTask:
+              name: Call Task
+              trackingId: 65
+              targetTaskRef: "/inboundShortMessage/tasks/task[DOL transfer_85]"
+          - disconnect:
+              name: Disconnect
+              trackingId: 66
+  tasks:
+    - task:
+        name: PE Merge
+        refId: PE Merge_68
+        trackingId: 68
+        actions:
+          - callCommonModule:
+              name: Call Common Module
+              trackingId: 69
+              commonModule:
+                Mike D Predictive Engagement Merge:
+                  ver_latestPublished:
+                    inputs:
+                      Common.sessionID:
+                        exp: Message.JourneyContext.customerSession.id
+          - endTask:
+              name: End Task
+              trackingId: 70
+              outputPath:
+                name: default
+    - task:
+        name: Support Transfer
+        refId: Support Transfer_54
+        trackingId: 54
+        actions:
+          - setScreenPop:
+              name: Set Screen Pop
+              trackingId: 55
+              screenPopScript:
+                miked_script_2026:
+                  inputs:
+                    CustomerFirstName:
+                      exp: Flow.FirstName
+                    CustomerLastName:
+                      exp: Flow.LastName
+                    CustomerAddressLine1:
+                      exp: Flow.addy1
+                    CustomerCity:
+                      exp: Flow.CTY
+                    CustomerState:
+                      exp: Flow.st
+                    CustomerPostalCode:
+                      exp: Flow.zipcode
+                    CustomerEmail:
+                      exp: Flow.CustEmail
+                    SecurePauseOn:
+                      lit: false
+                    Maps_Api_Key:
+                      lit: AIzaSyBQrDFdcH-AKzzYtCxGgCnlOlRz-IF1Dak
+                    CustomerBalance:
+                      lit: 0
+                    ApptDate:
+                      lit: ApptDate
+                    Office Number:
+                      lit: ""
+                    Hardware:
+                      lit: ""
+                    IncState:
+                      exp: Flow.IncState
+                    TicketNumber:
+                      exp: Flow.incfrombot
+                    IncPriority:
+                      lit: ""
+                    IncNum:
+                      exp: Flow.incfrombot
+                    customer_selection:
+                      exp: Flow.IBVivrselection
+                    ViolFirst:
+                      lit: ""
+                    Violation1:
+                      lit: ""
+                    ViolLast:
+                      lit: ""
+                    ViolPhone:
+                      lit: ""
+                    ViolDate:
+                      lit: ""
+                    ViolAmt:
+                      lit: ""
+                    PickupDate:
+                      lit: ""
+                    PickUpTime:
+                      lit: ""
+                    PickupLoc:
+                      lit: ""
+                    DropLoc:
+                      lit: ""
+                    RoundTrip:
+                      lit: ""
+                    ContactPh:
+                      lit: ""
+                    ConfNumb:
+                      lit: ""
+                    RiderName:
+                      lit: ""
+                    appt_date:
+                      lit: ""
+                    appt_loc:
+                      lit: ""
+                    appt_time:
+                      lit: ""
+                    booking_notes:
+                      lit: ""
+                    booking_status:
+                      lit: ""
+                    conf_numb:
+                      lit: ""
+                    contact_info:
+                      lit: ""
+                    contact_name:
+                      lit: ""
+                    service_type:
+                      lit: ""
+                    Authenticated:
+                      lit: FF0000
+                    acct_number:
+                      lit: ""
+                    customer_name:
+                      exp: Flow.FirstName
+                    acct_status:
+                      exp: Flow.IncState
+                    balance_due:
+                      lit: ""
+                    due_date:
+                      lit: ""
+                    agent_summary:
+                      lit: NYS DOL Messenger handoff — review claim number, status, and description with the resident.
+                    priority_level:
+                      lit: ""
+                    banner_color:
+                      lit: "#00447C"
+                    banner_text:
+                      exp: Flow.ClaimShort
+                    claim_number:
+                      exp: Flow.incfrombot
+                    claim_descript:
+                      exp: Flow.ClaimShort
+                    Claim_level:
+                      lit: ""
+          - setParticipantData:
+              name: Set Participant Data
+              trackingId: 56
+              attributes:
+                - attribute:
+                    name:
+                      lit: ACTIVITY_ID
+                    value:
+                      exp: Flow.incfrombot
+          - sendResponse:
+              name: Send Response
+              trackingId: 58
+              messageBody:
+                exp: "Trim(Append(\n    ToDisplayString(Flow.FirstName), \n    If(IsNotSetOrEmpty(ToDisplayString(Flow.FirstName)), \"\", \" \"), \n    \"We are transferring you now.\"))"
+              attachments:
+                noValue: true
+          - transferToAcd:
+              name: Transfer to ACD
+              trackingId: 59
+              targetQueue:
+                lit:
+                  name: Support_MikeD
+              priority:
+                lit: 0
+              preferredAgents:
+                noValue: true
+              languageSkill:
+                noValue: true
+              directAgent:
+                noValue: true
+              skillExpressionFilters:
+                noValue: true
+    - task:
+        name: DOL transfer
+        refId: DOL transfer_85
+        trackingId: 85
+        actions:
+          - setScreenPop:
+              name: Set Screen Pop
+              trackingId: 86
+              screenPopScript:
+                miked_script_2026:
+                  inputs:
+                    CustomerFirstName:
+                      exp: Flow.FirstName
+                    CustomerLastName:
+                      exp: Flow.LastName
+                    CustomerAddressLine1:
+                      exp: Flow.addy1
+                    CustomerCity:
+                      exp: Flow.CTY
+                    CustomerState:
+                      exp: Flow.st
+                    CustomerPostalCode:
+                      exp: Flow.zipcode
+                    CustomerEmail:
+                      exp: Flow.CustEmail
+                    SecurePauseOn:
+                      lit: false
+                    Maps_Api_Key:
+                      lit: AIzaSyBQrDFdcH-AKzzYtCxGgCnlOlRz-IF1Dak
+                    CustomerBalance:
+                      lit: 0
+                    ApptDate:
+                      lit: ApptDate
+                    Office Number:
+                      lit: ""
+                    Hardware:
+                      lit: ""
+                    IncState:
+                      exp: Flow.IncState
+                    TicketNumber:
+                      exp: Flow.incfrombot
+                    IncPriority:
+                      lit: ""
+                    IncNum:
+                      exp: Flow.incfrombot
+                    customer_selection:
+                      exp: Flow.IBVivrselection
+                    ViolFirst:
+                      lit: ""
+                    Violation1:
+                      lit: ""
+                    ViolLast:
+                      lit: ""
+                    ViolPhone:
+                      lit: ""
+                    ViolDate:
+                      lit: ""
+                    ViolAmt:
+                      lit: ""
+                    PickupDate:
+                      lit: ""
+                    PickUpTime:
+                      lit: ""
+                    PickupLoc:
+                      lit: ""
+                    DropLoc:
+                      lit: ""
+                    RoundTrip:
+                      lit: ""
+                    ContactPh:
+                      lit: ""
+                    ConfNumb:
+                      lit: ""
+                    RiderName:
+                      lit: ""
+                    appt_date:
+                      lit: ""
+                    appt_loc:
+                      lit: ""
+                    appt_time:
+                      lit: ""
+                    booking_notes:
+                      lit: ""
+                    booking_status:
+                      lit: ""
+                    conf_numb:
+                      lit: ""
+                    contact_info:
+                      lit: ""
+                    contact_name:
+                      lit: ""
+                    service_type:
+                      lit: ""
+                    Authenticated:
+                      lit: FF0000
+                    acct_number:
+                      lit: ""
+                    customer_name:
+                      exp: Flow.FirstName
+                    acct_status:
+                      exp: Flow.IncState
+                    balance_due:
+                      lit: ""
+                    due_date:
+                      lit: ""
+                    agent_summary:
+                      lit: NYS DOL Messenger handoff — review claim number, status, and description with the resident.
+                    priority_level:
+                      lit: ""
+                    banner_color:
+                      lit: "#00447C"
+                    banner_text:
+                      exp: Flow.ClaimShort
+                    claim_number:
+                      exp: Flow.incfrombot
+                    claim_descript:
+                      exp: Flow.ClaimShort
+                    Claim_level:
+                      lit: ""
+          - setParticipantData:
+              name: Set Participant Data
+              trackingId: 87
+              attributes:
+                - attribute:
+                    name:
+                      lit: ACTIVITY_ID
+                    value:
+                      exp: Flow.incfrombot
+          - sendResponse:
+              name: Send Response
+              trackingId: 88
+              messageBody:
+                exp: "Trim(Append(\n    ToDisplayString(Flow.FirstName), \n    If(IsNotSetOrEmpty(ToDisplayString(Flow.FirstName)), \"\", \" \"), \n    \"We are transferring you now.\"))"
+              attachments:
+                noValue: true
+          - updateData:
+              name: Update Data
+              trackingId: 90
+              statements:
+                - string:
+                    variable: Flow.IBVivrselection
+                    value:
+                      lit: "132"
+          - transferToAcd:
+              name: Transfer to ACD
+              trackingId: 89
+              targetQueue:
+                lit:
+                  name: Support_MikeD
+              priority:
+                lit: 0
+              preferredAgents:
+                noValue: true
+              languageSkill:
+                noValue: true
+              directAgent:
+                noValue: true
+              skillExpressionFilters:
+                noValue: true
+  referencedObjects:
+    flows:
+      - flow:
+          name: Mike D Predictive Engagement Merge
+          type: commonmodule
+          defaultLanguage: en-us
+          variables:
+            - stringVariable:
+                name: Common.sessionID
+                isInput: true
+                isOutput: false
+          supportedLanguages:
+            - en-us
+          compatibleFlowTypes:
+            - inboundshortmessage
+      - flow:
+          name: Dig_bot_nydol
+          type: digitalbot
+          defaultLanguage: en-us
+          variables:
+            - stringVariable:
+                name: Slot.TicketNumber1
+                isInput: true
+                isOutput: true
+            - stringVariable:
+                name: Flow.ticketnumber
+                isInput: true
+                isOutput: true
+            - stringVariable:
+                name: Slot.Name
+                isInput: true
+                isOutput: true
+            - stringVariable:
+                name: Slot.email
+                isInput: true
+                isOutput: true
+            - stringVariable:
+                name: Slot.LastName
+                isInput: true
+                isOutput: true
+            - stringVariable:
+                name: Slot.FormFirstName
+                isInput: true
+                isOutput: true
+            - stringVariable:
+                name: Slot.FormLastName
+                isInput: true
+                isOutput: true
+            - stringVariable:
+                name: Slot.FormCity
+                isInput: true
+                isOutput: true
+            - stringVariable:
+                name: Slot.FormState
+                isInput: true
+                isOutput: true
+            - stringVariable:
+                name: Slot.FormZip
+                isInput: true
+                isOutput: true
+            - stringVariable:
+                name: Slot.FormEmail
+                isInput: true
+                isOutput: true
+            - decimalVariable:
+                name: Slot.cellphone
+                isInput: true
+                isOutput: true
+            - stringVariable:
+                name: Slot.cellphone1
+                isInput: true
+                isOutput: true
+            - stringVariable:
+                name: Flow.incnumber
+                isInput: false
+                isOutput: true
+            - stringVariable:
+                name: Flow.incident_state
+                isInput: false
+                isOutput: true
+            - stringVariable:
+                name: Flow.short_des
+                isInput: false
+                isOutput: true
+            - stringVariable:
+                name: Flow.priority
+                isInput: false
+                isOutput: true
+            - stringCollectionVariable:
+                name: Flow.firstname
+                isInput: false
+                isOutput: true
+            - stringCollectionVariable:
+                name: Flow.lastname
+                isInput: false
+                isOutput: true
+            - stringCollectionVariable:
+                name: Flow.address1
+                isInput: false
+                isOutput: true
+            - stringCollectionVariable:
+                name: Flow.state
+                isInput: false
+                isOutput: true
+            - stringCollectionVariable:
+                name: Flow.zip
+                isInput: false
+                isOutput: true
+            - stringCollectionVariable:
+                name: Flow.city
+                isInput: false
+                isOutput: true
+            - stringVariable:
+                name: Flow.INCtoScript
+                isInput: false
+                isOutput: true
+          supportedLanguages:
+            - en-us

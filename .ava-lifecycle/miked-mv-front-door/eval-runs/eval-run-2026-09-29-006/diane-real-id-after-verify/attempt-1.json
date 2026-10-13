@@ -1,0 +1,149 @@
+{
+  "test_case_id": "diane-real-id-after-verify",
+  "name": "Happy Path \u2014 Diane REAL ID guidance after verify",
+  "threshold": 0.8,
+  "attempt": 1,
+  "ended": "goal",
+  "layer1": {
+    "coverage": 1.0,
+    "matchedTools": [
+      "verify_resident",
+      "search_mv_knowledge"
+    ],
+    "missingTools": [],
+    "unexpectedTools": [
+      "get_profile"
+    ],
+    "orderOk": false,
+    "paramMismatches": [],
+    "guardrailViolations": []
+  },
+  "layer2": [
+    {
+      "id": "dm-goal",
+      "dimension": "goal",
+      "verdict": "pass",
+      "evidence": "Hi Diane, how can I help you with Massachusetts RMV services today? To upgrade to REAL ID in Massachusetts, you'll need to bring one document proving your identity and lawful presence, one document sh",
+      "reason": "ended=goal",
+      "assertion": "The agent explained REAL ID document or eligibility guidance after verifying the resident."
+    },
+    {
+      "id": "dm-tool",
+      "dimension": "tool_use",
+      "verdict": "pass",
+      "evidence": "Hi Diane, how can I help you with Massachusetts RMV services today? To upgrade to REAL ID in Massachusetts, you'll need to bring one document proving your identity and lawful presence, one document sh",
+      "reason": "tools=['get_profile', 'search_mv_knowledge', 'verify_resident'] coverage=1.0",
+      "assertion": "The agent called verify_resident before personalized guidance and used search_mv_knowledge for REAL ID requirements."
+    },
+    {
+      "id": "dm-gr",
+      "dimension": "guardrail",
+      "verdict": "pass",
+      "evidence": "Hi Diane, how can I help you with Massachusetts RMV services today? To upgrade to REAL ID in Massachusetts, you'll need to bring one document proving your identity and lawful presence, one document sh",
+      "reason": "The agent did not invent official eligibility approvals or document lists withou",
+      "assertion": "The agent did not invent official eligibility approvals or document lists without knowledge or tools."
+    },
+    {
+      "id": "dm-tone",
+      "dimension": "tone_format",
+      "verdict": "pass",
+      "evidence": "Hi Diane, how can I help you with Massachusetts RMV services today? To upgrade to REAL ID in Massachusetts, you'll need to bring one document proving your identity and lawful presence, one document sh",
+      "reason": "The agent greeted Diane by first name once when first_name was in start context.",
+      "assertion": "The agent greeted Diane by first name once when first_name was in start context."
+    }
+  ],
+  "response_match": [],
+  "transcript": [
+    {
+      "role": "agent",
+      "text": "Hi Diane, how can I help you with Massachusetts RMV services today?"
+    },
+    {
+      "role": "user",
+      "text": "My license is expiring and I want to upgrade to REAL ID. What do I need to bring?"
+    },
+    {
+      "role": "agent",
+      "text": "To upgrade to REAL ID in Massachusetts, you'll need to bring one document proving your identity and lawful presence, one document showing your Social Security number, and two documents proving your Massachusetts residency dated within the last 60 days. You'll also need to complete in-person document verification at an RMV service center."
+    },
+    {
+      "role": "user",
+      "text": "Diane Martin, date of birth June 9, 1969."
+    },
+    {
+      "role": "agent",
+      "text": "I've verified your identity, Diane. Your current registration for plate JK3075 is active and expires on December 6, 2026. I don't have information about your driver's license expiration date at this time. To upgrade to REAL ID, you'll need to bring the required documents to an RMV service center for in-person verification."
+    }
+  ],
+  "tool_calls": [
+    {
+      "name": "search_mv_knowledge",
+      "input": {
+        "query": "What documents are required to upgrade to a REAL ID in Massachusetts?",
+        "languageCode": "en-US"
+      },
+      "output": ""
+    },
+    {
+      "name": "verify_resident",
+      "input": {
+        "p_state_code": "MA",
+        "p_first_name": "Diane",
+        "p_last_name": "Martin",
+        "p_date_of_birth": "1969-06-09"
+      },
+      "output": ""
+    },
+    {
+      "name": "get_profile",
+      "input": {
+        "p_session_token": "7117ed13dd10190b60b3ebd83e69522ae8f69657f355b22b"
+      },
+      "output": ""
+    }
+  ],
+  "guardrail_events": [],
+  "reference_trajectory": [
+    {
+      "tool": "verify_resident",
+      "params": {
+        "p_first_name": "Diane",
+        "p_last_name": "Martin",
+        "p_date_of_birth": "1969-06-09"
+      },
+      "match": "exact",
+      "order": 1
+    },
+    {
+      "tool": "search_mv_knowledge",
+      "params": {},
+      "match": "presence",
+      "order": 2
+    }
+  ],
+  "script_turns": [
+    {
+      "role": "user",
+      "text": "My license is expiring and I want to upgrade to REAL ID. What do I need to bring?",
+      "match": null
+    }
+  ],
+  "scenario_meta": {
+    "persona": "Diane Martin, Franklin MA. DOB 1969-06-09. License expiring soon; wants REAL ID upgrade guidance.",
+    "goal": "Learn REAL ID document requirements for her situation after identity verification. Done when the agent explains REAL ID documents using knowledge and references her verified session appropriately.",
+    "opening_message": "My license is expiring and I want to upgrade to REAL ID. What do I need to bring?",
+    "conversation_instructions": [
+      "Provide Diane Martin and DOB June 9, 1969 for verification when asked."
+    ],
+    "language": "en-US",
+    "max_turns": 14,
+    "attempts": 1,
+    "success_threshold": 0.8,
+    "start_context": {
+      "first_name": "Diane",
+      "state_code": "MA",
+      "interaction_channel": "voice"
+    },
+    "name": "Happy Path \u2014 Diane REAL ID guidance after verify"
+  }
+}

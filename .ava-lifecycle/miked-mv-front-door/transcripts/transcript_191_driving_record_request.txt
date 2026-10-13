@@ -1,0 +1,78 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00191
+Date:               June 1, 2026
+Duration:           09:31
+Topic:              Driving Record Request
+Citizen (fictional):Maria Walker
+Agent (fictional):  Sam Delgado
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Thank you for calling the Massachusetts RMV Customer Service Contact Center, this is Sam
+       Delgado, how can I help you today?
+
+Citizen: Hi, I need a copy of my driving record, I think my new employer is asking for it.
+
+Agent: Okay, let's get that sorted out. Can I start by getting your full name and date of birth on
+       file?
+
+Citizen: Sure, it's Maria Walker, date of birth September 8, 1969.
+
+Agent: Great, thank you. And can you confirm the address we have on file, or the city you're currently
+       residing in?
+
+Citizen: Yes, I'm at my address in Marlborough, Massachusetts.
+
+Agent: Give me just a moment to pull that up in the system, I'll be right back with you.
+
+Agent: Sorry about that wait, I've got your account open now.
+
+Agent: I can help you with that. Are you looking for a certified copy, or is an uncertified
+       informational copy sufficient for your employer's purposes?
+
+Citizen: I'm not totally sure, they just said they need my driving record.
+
+Agent: That's a common question - if it's for something official like a job application involving
+       driving, or a legal matter, a certified copy is usually safest since it carries an
+       official seal confirming it came directly from the RMV. An uncertified copy is fine for
+       most general purposes and is often cheaper and faster to get.
+
+Citizen: I'll go with the certified one just to be safe. How do I request that?
+
+Agent: You can request it online through the RMV's Online Service Center, by mail using a Driving
+       Record Request form, or in person at a Service Center. Online is usually fastest if you
+       just need the uncertified version, but for certified copies, mail or in-person requests
+       are typically required.
+
+Citizen: What's the fee for a certified copy?
+
+Agent: That's $15 for a certified record.
+
+Citizen: How long does it take to get it if I mail in the request?
+
+Agent: Mailed requests typically take about two weeks to process and return, whereas in-person
+       requests at a Service Center can often be issued the same day.
+
+Citizen: I think I'll just go in person then since my employer needs it soon.
+
+Agent: That's probably your best bet given the timeline. Just bring a valid photo ID and the request
+       fee, and you should be able to walk out with it the same day.
+
+Citizen: Perfect, thank you so much for explaining the options.
+
+Agent: You're very welcome, good luck with the new job.
+
+Agent: Okay, anything else I can help with before we wrap up?
+
+Citizen: That's all I needed, I really appreciate it.
+
+Agent: Not a problem at all. Thank you for your patience today, have a good morning.
+
+------------------------------------------------------------------------------
+[END OF CALL]

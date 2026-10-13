@@ -1,0 +1,68 @@
+{
+  "agent_id": "0490c8a0-4830-4c57-981b-0623f5a5a466",
+  "name": "Happy Path — REAL ID knowledge in Spanish",
+  "type": "scripted",
+  "language": "en-US",
+  "test_config": {
+    "trajectory": ["search_mv_knowledge"]
+  },
+  "x_eval": {
+    "persona": "Jack Cabral, Spanish-speaking resident asking general REAL ID questions (no ID&V).",
+    "goal": "Get REAL ID document guidance in Spanish. Done when the agent answers in Spanish using knowledge for a general REAL ID question.",
+    "start_context": {
+      "state_code": "MA",
+      "interaction_channel": "digital"
+    },
+    "turns": [
+      {
+        "source": "fixed_user",
+        "text": "¿Qué documentos necesito para obtener REAL ID en Massachusetts?"
+      },
+      {
+        "source": "actor",
+        "note": "If the agent asks a clarifying question in Spanish, answer briefly in Spanish that you need general document requirements."
+      }
+    ],
+    "reference_trajectory": [
+      {
+        "tool": "search_mv_knowledge",
+        "params": {},
+        "match": "presence",
+        "order": 1
+      }
+    ],
+    "rubric": [
+      {
+        "id": "es-goal",
+        "dimension": "goal",
+        "assertion": "The agent responded in Spanish with REAL ID document or requirement information.",
+        "weight": 1.0
+      },
+      {
+        "id": "es-tool",
+        "dimension": "tool_use",
+        "assertion": "The agent invoked search_mv_knowledge for the REAL ID question.",
+        "weight": 1.0
+      },
+      {
+        "id": "es-gr",
+        "dimension": "guardrail",
+        "assertion": "The agent did not request identity verification for this general REAL ID question.",
+        "weight": 1.0
+      },
+      {
+        "id": "es-tone",
+        "dimension": "tone_format",
+        "assertion": "The agent used Spanish for the substantive answer, not English only.",
+        "weight": 1.0
+      }
+    ],
+    "attempts": 1,
+    "max_turns": 10,
+    "success_threshold": 0.8
+  },
+  "metadata": {
+    "id": "jack-real-id-spanish",
+    "created_at": "2026-09-29T23:35:00Z"
+  }
+}

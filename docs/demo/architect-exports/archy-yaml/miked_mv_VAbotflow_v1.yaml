@@ -1,0 +1,373 @@
+botFlow:
+  name: miked_mv_VAbotflow
+  description: Massachusetts RMV voice VA bot — miked_mv_front_door; handoff task; Flow.MvTransferredToQueue output for inbound (sc12)
+  division: Home
+  startUpRef: "/botFlow/bots/bot[Default Bot_10]"
+  defaultLanguage: en-us
+  supportedLanguages:
+    en-us:
+      defaultLanguageSkill:
+        noValue: true
+      speechToText:
+        engine:
+          name: Microsoft Azure
+          defaultEngine: true
+  variables:
+    - integerVariable:
+        name: Flow.IBVivrselection
+        initialValue:
+          noValue: true
+        isOutput: false
+    - stringVariable:
+        name: Flow.CustEmail
+        initialValue:
+          noValue: true
+        isOutput: false
+    - stringCollectionVariable:
+        name: Flow.firstname
+        initialValue:
+          noValue: true
+        isOutput: false
+    - stringCollectionVariable:
+        name: Flow.lastname
+        initialValue:
+          noValue: true
+        isOutput: false
+    - stringVariable:
+        name: Flow.HandoffSummary
+        initialValue:
+          noValue: true
+        isOutput: false
+    - stringVariable:
+        name: Flow.TicketNumber
+        initialValue:
+          noValue: true
+        isOutput: false
+    - stringCollectionVariable:
+        name: Flow.address1
+        initialValue:
+          noValue: true
+        isOutput: false
+    - stringCollectionVariable:
+        name: Flow.city
+        initialValue:
+          noValue: true
+        isOutput: false
+    - stringCollectionVariable:
+        name: Flow.state
+        initialValue:
+          noValue: true
+        isOutput: false
+    - stringCollectionVariable:
+        name: Flow.zip
+        initialValue:
+          noValue: true
+        isOutput: false
+    - booleanVariable:
+        name: Flow.MvTransferredToQueue
+        initialValue:
+          lit: false
+        isInput: false
+        isOutput: true
+  settingsActionDefaults:
+    callGuide:
+      voiceProcessingPrompt:
+        exp: "MakeCommunication(\n  ToCommunication(NOT_SET))"
+    agenticAskForIntent:
+      voiceEndOfInputTimeout:
+        lit:
+          seconds: 1
+    askForIntent:
+      voiceEndOfInputTimeout:
+        lit:
+          seconds: 1
+    askForSlot:
+      voiceEndOfInputTimeout:
+        lit:
+          seconds: 1
+    askForBoolean:
+      voiceEndOfInputTimeout:
+        lit:
+          seconds: 1
+    loopAnythingElse:
+      voiceEndOfInputTimeout:
+        lit:
+          seconds: 1
+  settingsErrorHandling:
+    errorHandling:
+      exit:
+        none: true
+    enableAgentEscalation:
+      lit: true
+    errorEventHandover:
+      noValue: true
+    agentEscalationConfirmation:
+      noValue: true
+    agentEscalationHandover:
+      noValue: true
+    recognitionFailureEventHandover:
+      noValue: true
+    recognitionFailureEventHandling:
+      exit:
+        none: true
+    agentEscalationHandling:
+      exit:
+        none: true
+  settingsPrompts:
+    ensureAudioInPrompts: false
+    promptMediaToValidate:
+      - mediaType: audio
+      - mediaType: tts
+  settingsBotFlow:
+    voiceProcessingPrompt:
+      noValue: true
+    initialPlaybackDelay:
+      lit:
+        ms: 250
+    minimumPlaybackTime:
+      lit:
+        seconds: 1
+    virtualAgentEnabled: true
+  settingsUserInput:
+    enableBargeIn:
+      lit: false
+    enableAutomaticQuickReplies:
+      lit: false
+    noMatchesMax:
+      lit: 3
+    noInputsMax:
+      lit: 3
+    noInputsTimeout:
+      lit:
+        seconds: 7
+    speechToTextSpeechDetectionSensitivity:
+      noValue: true
+    speechToTextMaxSpeechTimeout:
+      noValue: true
+    speechToTextAdvancedConfiguration:
+      noValue: true
+    enableIntentClassificationHinting:
+      lit: false
+    interDigitTimeout:
+      lit:
+        seconds: 3
+    dtmfTerminatingCharacter:
+      noValue: true
+    confirmationRejectionsMax:
+      lit: 3
+    collectionLowConfidenceThreshold:
+      lit: 20
+    collectionHighConfidenceThreshold:
+      lit: 70
+    confirmationLowConfidenceThreshold:
+      lit: 40
+    noMatchApology:
+      exp: "MakeCommunication(\n  \"Sorry.\")"
+    noInputApology:
+      exp: "MakeCommunication(\n  \"Sorry, I didn't hear you.\")"
+    noToConfirmationApology:
+      exp: "MakeCommunication(\n  \"My mistake.\")"
+    confirmationNoMatchApology:
+      exp: "MakeCommunication(\n  \"Sorry, please say yes or no.\")"
+    confirmationNoInputApology:
+      exp: "MakeCommunication(\n  \"Sorry, I didn't hear you.  Please say yes or no.\")"
+  settingsKnowledge:
+    none: true
+  settingsVirtualAgent:
+    summarization:
+      lit: false
+    assignWrapupCodes:
+      lit: false
+  bots:
+    - bot:
+        name: Default Bot
+        refId: Default Bot_10
+        trackingId: 10
+        actions:
+          - updateData:
+              name: Seed IBV for script router
+              trackingId: 15
+              statements:
+                - integer:
+                    variable: Flow.IBVivrselection
+                    value:
+                      lit: 123
+          - callAgenticVirtualAgent:
+              name: Call Agentic Virtual Agent
+              trackingId: 12
+              agenticVirtualAgent:
+                miked_mv_front_door:
+                  ver_latestPublished:
+                    inputs:
+                      first_name:
+                        noValue: true
+                      state_code:
+                        lit: MA
+                      conversation_id:
+                        noValue: true
+                      interaction_channel:
+                        lit: voice
+                    exitReason:
+                      noValue: true
+              outputs:
+                success:
+                  actions:
+                    - exitBotFlow:
+                        name: Exit Bot Flow
+                        trackingId: 16
+                failure:
+                  actions:
+                    - callTask:
+                        name: MV handoff transfer
+                        trackingId: 17
+                        targetTaskRef: "/botFlow/tasks/task[MV handoff transfer_20]"
+                timeout:
+                  actions:
+                    - callTask:
+                        name: MV handoff transfer
+                        trackingId: 18
+                        targetTaskRef: "/botFlow/tasks/task[MV handoff transfer_20]"
+          - callTask:
+              name: MV handoff transfer
+              trackingId: 19
+              targetTaskRef: "/botFlow/tasks/task[MV handoff transfer_20]"
+          - exitBotFlow:
+              name: Exit Bot Flow
+              trackingId: 11
+  tasks:
+    - task:
+        name: MV handoff transfer
+        refId: MV handoff transfer_20
+        trackingId: 20
+        actions:
+          - callData:
+              name: Hydrate external contact for handoff
+              trackingId: 21
+              timeout:
+                lit:
+                  minutes: 1
+              category:
+                PureCloud Data Actions:
+                  dataAction:
+                    External Contact by eMail - MikeD - Full:
+                      inputs:
+                        workEmail:
+                          exp: Flow.CustEmail
+                      successOutputs:
+                        contacts.firstName:
+                          var: Flow.firstname
+                        contacts.lastName:
+                          var: Flow.lastname
+                        contacts.address.address1:
+                          var: Flow.address1
+                        contacts.address.city:
+                          var: Flow.city
+                        contacts.address.state:
+                          var: Flow.state
+                        contacts.address.postalCode:
+                          var: Flow.zip
+                      failureOutputs:
+                        errorCode:
+                          noValue: true
+                        status:
+                          noValue: true
+                        correlationId:
+                          noValue: true
+                        entityId:
+                          noValue: true
+                        entityName:
+                          noValue: true
+                        userMessage:
+                          noValue: true
+              outputs:
+                success:
+                  actions:
+                    - setScreenPop:
+                        name: Set Screen Pop
+                        trackingId: 22
+                        screenPopScript:
+                          miked_script_2026:
+                            inputs:
+                              CustomerFirstName:
+                                exp: Flow.firstname
+                              CustomerLastName:
+                                exp: Flow.lastname
+                              CustomerAddressLine1:
+                                exp: Flow.address1
+                              CustomerCity:
+                                exp: Flow.city
+                              CustomerState:
+                                exp: Flow.state
+                              CustomerPostalCode:
+                                exp: Flow.zip
+                              CustomerEmail:
+                                exp: Flow.CustEmail
+                              TicketNumber:
+                                exp: Flow.TicketNumber
+                              customer_selection:
+                                exp: ToString(Flow.IBVivrselection)
+                              agent_summary:
+                                exp: Flow.HandoffSummary
+                              SecurePauseOn:
+                                lit: false
+                failure:
+                  actions:
+                    - setScreenPop:
+                        name: Set Screen Pop
+                        trackingId: 23
+                        screenPopScript:
+                          miked_script_2026:
+                            inputs:
+                              customer_selection:
+                                exp: ToString(Flow.IBVivrselection)
+                              agent_summary:
+                                exp: Flow.HandoffSummary
+                              CustomerFirstName:
+                                exp: Flow.firstname
+                              CustomerEmail:
+                                exp: Flow.CustEmail
+                              SecurePauseOn:
+                                lit: false
+                timeout:
+                  actions:
+                    - setScreenPop:
+                        name: Set Screen Pop
+                        trackingId: 24
+                        screenPopScript:
+                          miked_script_2026:
+                            inputs:
+                              customer_selection:
+                                exp: ToString(Flow.IBVivrselection)
+                              agent_summary:
+                                exp: Flow.HandoffSummary
+                              SecurePauseOn:
+                                lit: false
+          - updateData:
+              name: Flag queue handoff for inbound
+              trackingId: 34
+              statements:
+                - boolean:
+                    variable: Flow.MvTransferredToQueue
+                    value:
+                      lit: true
+          - transferToAcd:
+              name: Transfer to ACD
+              trackingId: 13
+              targetQueue:
+                lit:
+                  name: Support_MikeD
+              preTransferCommunication:
+                noValue: true
+              failureTransferCommunication:
+                noValue: true
+              priority:
+                lit: 0
+              preferredAgents:
+                noValue: true
+              languageSkill:
+                noValue: true
+              failureOutputs:
+                errorType:
+                  noValue: true
+                errorMessage:
+                  noValue: true

@@ -1,0 +1,71 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00130
+Date:               May 4, 2026
+Duration:           11:13
+Topic:              License Suspension / Reinstatement
+Citizen (fictional):Ethan Sousa
+Agent (fictional):  Rachel Ferrante
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Good morning, thank you for calling the Massachusetts Registry of Motor Vehicles, this is
+       Rachel Ferrante speaking, how can I help?
+
+Citizen: Hi, I need to find out what I have to do to get my license reinstated, it's currently
+         suspended.
+
+Agent: I'd be happy to help with that. First I just need to verify your identity - can you give me
+       your full name and date of birth?
+
+Citizen: Sure, it's Ethan Sousa, date of birth April 2, 1997.
+
+Agent: Got it. Last thing - can you confirm the last four digits of your Social Security number on
+       file, just for verification?
+
+Citizen: Yes, the last four are 5722.
+
+Agent: Okay, let me take a look at your record - one moment please, this might take about thirty
+       seconds.
+
+Agent: Thanks for your patience, I found your record.
+
+Agent: I can help you look into that. Let me pull up your record to see the reason for the
+       suspension... one moment.
+
+Agent: I see this suspension is related to a medical or vision issue flagged on your file, sometimes
+       required by the Medical Affairs Unit when a doctor's evaluation is needed before you can
+       continue driving.
+
+Citizen: I didn't know about that, what do I need to do?
+
+Agent: You'll need to have your physician complete a Medical Affairs Branch form confirming you're
+       medically cleared to drive, and submit that either by mail or fax to our Medical Affairs
+       Unit for review.
+
+Citizen: How long does the review usually take?
+
+Agent: It can vary, but typically two to four weeks once they receive the completed paperwork, since a
+       medical reviewer has to evaluate it personally.
+
+Citizen: Is there anything I can do to speed it up?
+
+Agent: Making sure the form is fully and legibly completed by your doctor is the biggest factor -
+       incomplete forms get sent back and that adds delay, so I'd double check everything is
+       filled in before submitting.
+
+Citizen: Okay, I'll make sure of that. Thank you for explaining the process.
+
+Agent: Is there anything else on your account I can look into while I have you?
+
+Citizen: That's it for me, thank you, you've been very helpful.
+
+Agent: Of course, happy to help. Thanks for calling the RMV, take care now.
+
+------------------------------------------------------------------------------
+[END OF CALL]

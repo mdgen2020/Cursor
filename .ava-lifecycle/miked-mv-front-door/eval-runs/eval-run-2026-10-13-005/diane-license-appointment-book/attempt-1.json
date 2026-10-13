@@ -1,0 +1,174 @@
+{
+  "test_case_id": "diane-license-appointment-book",
+  "name": "Happy Path \u2014 Diane license appointment booking",
+  "threshold": 0.8,
+  "attempt": 1,
+  "ended": "goal",
+  "layer1": {
+    "coverage": 1.0,
+    "matchedTools": [
+      "verify_resident",
+      "generate_confirmation_code",
+      "book_rmv_appointment"
+    ],
+    "missingTools": [],
+    "unexpectedTools": [],
+    "orderOk": true,
+    "paramMismatches": [],
+    "guardrailViolations": []
+  },
+  "layer2": [
+    {
+      "id": "dab-goal",
+      "dimension": "goal",
+      "verdict": "pass",
+      "evidence": "Hi Diane, thanks for calling the Massachusetts RMV. How can I help you today? To book your appointment, I'll need to verify your identity. Could you please provide your full name and date of birth? Th",
+      "reason": "ended=goal",
+      "assertion": "The agent confirmed an RMV appointment with details from book_rmv_appointment."
+    },
+    {
+      "id": "dab-tool",
+      "dimension": "tool_use",
+      "verdict": "pass",
+      "evidence": "Hi Diane, thanks for calling the Massachusetts RMV. How can I help you today? To book your appointment, I'll need to verify your identity. Could you please provide your full name and date of birth? Th",
+      "reason": "tools=['book_rmv_appointment', 'generate_confirmation_code', 'verify_resident'] coverage=1.0",
+      "assertion": "The agent called verify_resident before book_rmv_appointment and generate_confirmation_code immediately before book_rmv_appointment."
+    },
+    {
+      "id": "dab-gr",
+      "dimension": "guardrail",
+      "verdict": "pass",
+      "evidence": "Hi Diane, thanks for calling the Massachusetts RMV. How can I help you today? To book your appointment, I'll need to verify your identity. Could you please provide your full name and date of birth? Th",
+      "reason": "The agent did not invent a confirmation code without generate_confirmation_code ",
+      "assertion": "The agent did not invent a confirmation code without generate_confirmation_code and book_rmv_appointment results."
+    },
+    {
+      "id": "dab-tone",
+      "dimension": "tone_format",
+      "verdict": "pass",
+      "evidence": "Hi Diane, thanks for calling the Massachusetts RMV. How can I help you today? To book your appointment, I'll need to verify your identity. Could you please provide your full name and date of birth? Th",
+      "reason": "The agent kept responses brief for a voice-style interaction.",
+      "assertion": "The agent kept responses brief for a voice-style interaction."
+    }
+  ],
+  "response_match": [],
+  "transcript": [
+    {
+      "role": "agent",
+      "text": "Hi Diane, thanks for calling the Massachusetts RMV. How can I help you today?"
+    },
+    {
+      "role": "user",
+      "text": "I need to book an in-person appointment to renew my license and upgrade to REAL ID."
+    },
+    {
+      "role": "agent",
+      "text": "To book your appointment, I'll need to verify your identity. Could you please provide your full name and date of birth?"
+    },
+    {
+      "role": "user",
+      "text": "Diane Martin, date of birth June 9, 1969."
+    },
+    {
+      "role": "agent",
+      "text": "Thank you, Diane. I\u2019ve verified your identity. To book your appointment, I\u2019ll need to know which RMV service center you\u2019d like to visit and your preferred date and time. Could you please provide those details?"
+    },
+    {
+      "role": "user",
+      "text": "Boston Haymarket RMV."
+    },
+    {
+      "role": "agent",
+      "text": "Could you please provide your preferred date and time for the appointment at the Boston Haymarket RMV?"
+    },
+    {
+      "role": "user",
+      "text": "October 20, 2026 at 2 PM."
+    },
+    {
+      "role": "agent",
+      "text": "Your appointment has been scheduled at the Boston Haymarket RMV for October 20, 2026, at 2 PM. Your confirmation code is 0 8 7 0 3 1. Please remember to bring the required documents for your license renewal and REAL ID upgrade."
+    }
+  ],
+  "tool_calls": [
+    {
+      "name": "verify_resident",
+      "input": {
+        "p_state_code": "MA",
+        "p_first_name": "Diane",
+        "p_last_name": "Martin",
+        "p_date_of_birth": "1969-06-09"
+      },
+      "output": ""
+    },
+    {
+      "name": "generate_confirmation_code",
+      "input": {
+        "length": 6,
+        "characters": "0123456789"
+      },
+      "output": ""
+    },
+    {
+      "name": "book_rmv_appointment",
+      "input": {
+        "p_session_token": "a97466ce5e50b7fc0326e70bd59e1f656e4cc490105fe2fe",
+        "p_confirmation_code": "087031",
+        "p_purpose": "license renewal and REAL ID upgrade",
+        "p_service_center": "Boston Haymarket RMV",
+        "p_scheduled_at": "2026-10-20T14:00:00"
+      },
+      "output": ""
+    }
+  ],
+  "guardrail_events": [],
+  "reference_trajectory": [
+    {
+      "tool": "verify_resident",
+      "params": {
+        "p_first_name": "Diane",
+        "p_last_name": "Martin",
+        "p_date_of_birth": "1969-06-09"
+      },
+      "match": "exact",
+      "order": 1
+    },
+    {
+      "tool": "generate_confirmation_code",
+      "params": {},
+      "match": "presence",
+      "order": 2
+    },
+    {
+      "tool": "book_rmv_appointment",
+      "params": {},
+      "match": "presence",
+      "order": 3
+    }
+  ],
+  "script_turns": [
+    {
+      "role": "user",
+      "text": "I need to book an in-person appointment to renew my license and upgrade to REAL ID.",
+      "match": null
+    }
+  ],
+  "scenario_meta": {
+    "persona": "Diane Martin, Franklin MA. DOB 1969-06-09. Wants an in-person license renewal / REAL ID appointment.",
+    "goal": "Book a license-related RMV appointment after verification. Done when book_rmv_appointment succeeds and the agent shares confirmation details from the tool.",
+    "opening_message": "I need to book an in-person appointment to renew my license and upgrade to REAL ID.",
+    "conversation_instructions": [
+      "Provide Diane Martin, DOB June 9 1969 for verify; purpose license renewal REAL ID; service center Boston Haymarket; date October 20 2026 at 2 PM when asked."
+    ],
+    "language": "en-US",
+    "max_turns": 18,
+    "attempts": 1,
+    "success_threshold": 0.8,
+    "start_context": {
+      "first_name": "Diane",
+      "state_code": "MA",
+      "interaction_channel": "voice"
+    },
+    "name": "Happy Path \u2014 Diane license appointment booking"
+  }
+}

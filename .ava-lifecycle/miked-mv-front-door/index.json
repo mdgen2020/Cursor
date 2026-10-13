@@ -1,0 +1,13 @@
+{
+  "avas": [
+    {
+      "name": "miked_mv_front_door",
+      "slug": "miked-mv-front-door",
+      "agent_id": "0490c8a0-4830-4c57-981b-0623f5a5a466",
+      "gc_version": "28.0",
+      "local_status": "test-ready",
+      "last_updated": "2026-10-13T19:18:54Z",
+      "notes": "ProductionReady 24.0; critique warning fixes (instruction locality, handoff two-turn, inputValidation on security code in artifact). Voice bot v29."
+    }
+  ]
+}

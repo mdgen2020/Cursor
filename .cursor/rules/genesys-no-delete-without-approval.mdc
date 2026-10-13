@@ -1,0 +1,27 @@
+---
+description: Never delete Genesys org assets without explicit author approval and clear options
+alwaysApply: true
+---
+
+# Genesys — no delete without approval
+
+The author must approve **any destructive or irreversible org change** before it runs. This includes:
+
+- **Architect flows** (delete, unpublish-to-remove, replace-in-place that retires a live flow)
+- **Data actions / integrations** (delete, `--free-slots`, bulk cleanup)
+- **AVA versions**, knowledge sources, queues, scripts, or DIDs reassigned away from production paths
+
+## Required behavior
+
+1. **Do not delete** flows or other org objects on your own — not via Archy, Architect UI steps scripted for the agent, Platform API, or repo scripts with delete flags.
+2. **Ask first** with **clear options**, for example:
+   - **A)** Create/update/publish new flows only (no deletes)
+   - **B)** Unpublish or archive a **named** flow (author confirms exact name + type)
+   - **C)** Delete a **named** flow (author confirms; warn about references/DIDs)
+   - **D)** Cancel — no org deletions
+3. Prefer **create → publish → cutover → retire** over delete. Log retirements in `docs/demo/genesys-org-retirement-log.md` when the author approves removal.
+4. Archy MCP tools in this repo do not expose delete; still **never** run `archy` or other CLI delete/unpublish commands unless the author explicitly chose an option that includes it.
+
+## Related
+
+- `docs/demo/genesys-org-retirement-log-mv-wire-incident.md` — do not repeat cap-driven deletes without sign-off.

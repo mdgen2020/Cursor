@@ -1,0 +1,62 @@
+inboundCall:
+  name: miked direct to queue
+  description: 781 RMV demo — welcome → miked_mv_VAbotflow → disconnect (see MV-781-TRANSFER-FIX.md for handoff branch)
+  division: Home
+  startUpRef: "/inboundCall/tasks/task[New Task 1_12]"
+  defaultLanguage: en-us
+  supportedLanguages:
+    en-us:
+      defaultLanguageSkill:
+        noValue: true
+      textToSpeech:
+        Genesys TTS Connector Eleven Labs:
+          voice: Bella - Professional, Bright, Warm
+  initialGreeting:
+    tts: Welcome to the Massachusetts Registry of Motor Vehicles
+  variables:
+    - integerVariable:
+        name: Flow.IBVivrselection
+        initialValue:
+          noValue: true
+        isOutput: false
+  settingsActionDefaults:
+    playAudioOnSilence:
+      allowedRepeatCount:
+        lit: 5
+      silenceDuration:
+        lit:
+          seconds: 1
+      timeout:
+        lit:
+          seconds: 40
+  settingsErrorHandling:
+    errorHandling:
+      disconnect:
+        none: true
+    preHandlingAudio:
+      tts: Sorry, an error occurred. Please try your call again.
+  tasks:
+    - task:
+        name: New Task 1
+        refId: New Task 1_12
+        trackingId: 12
+        actions:
+          - updateData:
+              name: Seed IBV for script router
+              trackingId: 23
+              statements:
+                - integer:
+                    variable: Flow.IBVivrselection
+                    value:
+                      lit: 123
+          - callBotFlow:
+              name: Call Bot Flow
+              trackingId: 21
+              botFlow:
+                miked_mv_VAbotflow:
+                  ver_latestPublished:
+                    inputs: {}
+                    outputs: {}
+          - disconnect:
+              name: Disconnect
+              trackingId: 20

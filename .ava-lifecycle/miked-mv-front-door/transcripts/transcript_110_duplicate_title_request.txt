@@ -1,0 +1,80 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00110
+Date:               July 7, 2026
+Duration:           10:29
+Topic:              Duplicate Title Request
+Citizen (fictional):Anthony Gonzalez
+Agent (fictional):  Rachel Hutchins
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Thanks for holding, this is Rachel Hutchins with the RMV, how can I assist you today?
+
+Citizen: Hi, I need a duplicate title for my car, mine was lost.
+
+Agent: Okay, let's get that sorted out. Can I start by getting your full name and date of birth on
+       file?
+
+Citizen: Sure, it's Anthony Gonzalez, date of birth October 18, 1998.
+
+Agent: Great, thank you. And can you confirm the address we have on file, or the city you're currently
+       residing in?
+
+Citizen: Yes, I'm at my address in Lynn, Massachusetts.
+
+Agent: Okay, let me take a look at your record - one moment please, this might take about thirty
+       seconds.
+
+Agent: Okay, I'm back - thank you for waiting. I see your file here now.
+
+Agent: I can help you with that. Can you give me the plate number or VIN for the vehicle so I can
+       locate the title record?
+
+Citizen: Sure, the plate is 1WX310.
+
+Agent: Thank you, one moment while I look that up... okay, I do see the title record associated with
+       that plate. Is there a lien on the vehicle, meaning is it currently financed through a
+       bank or lender?
+
+Citizen: No, it's fully paid off, no lien.
+
+Agent: Good, then you can apply for a duplicate title directly with us. You'll need to complete an
+       Application for Duplicate Title form, and since there's no lien, you can submit it
+       either by mail or in person at a Service Center.
+
+Citizen: What information do I need for the form?
+
+Agent: You'll need the vehicle's VIN, your name and address as it appears on the registration, the
+       plate number, and a valid form of ID. There's also a fee for the duplicate title.
+
+Agent: The fee is $25, and you can pay by check or money order if mailing it in, or by card if doing
+       it in person.
+
+Citizen: How long does it usually take if I mail it in?
+
+Agent: Mailed requests typically take four to six weeks to process, whereas an in-person visit at a
+       Service Center is usually much faster since it can often be completed the same day.
+
+Citizen: I think I'd rather go in person then, it sounds faster.
+
+Agent: That's a good call if you're in a hurry, especially if you're planning to sell the vehicle soon
+       and need the title on hand.
+
+Citizen: This has been really helpful, thank you.
+
+Agent: You're welcome, glad I could clear that up for you.
+
+Agent: Is there anything else on your account I can look into while I have you?
+
+Citizen: Nope, that covers it. Thanks for explaining all of that.
+
+Agent: Not a problem at all. Thank you for your patience today, have a good afternoon.
+
+------------------------------------------------------------------------------
+[END OF CALL]

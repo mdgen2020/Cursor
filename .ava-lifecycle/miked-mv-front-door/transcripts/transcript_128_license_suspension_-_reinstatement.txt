@@ -1,0 +1,69 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00128
+Date:               January 15, 2026
+Duration:           15:11
+Topic:              License Suspension / Reinstatement
+Citizen (fictional):Rachel Lopez
+Agent (fictional):  Priya Nolan
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Thanks for holding, this is Priya Nolan with the RMV, how can I assist you today?
+
+Citizen: Hi, I need to find out what I have to do to get my license reinstated, it's currently
+         suspended.
+
+Agent: Okay, let's get that sorted out. Can I start by getting your full name and date of birth on
+       file?
+
+Citizen: Sure, it's Rachel Lopez, date of birth April 26, 1998.
+
+Agent: Thank you. And just to fully verify, can you confirm the last four digits of the phone number
+       on file?
+
+Citizen: Yes, that should end in 8118.
+
+Agent: I need to check on something with our licensing system, can I place you on a brief hold?
+
+Agent: Sorry about that wait, I've got your account open now.
+
+Agent: I can help you look into that. Let me pull up your record to see the reason for the
+       suspension... one moment.
+
+Agent: I see this suspension is related to a medical or vision issue flagged on your file, sometimes
+       required by the Medical Affairs Unit when a doctor's evaluation is needed before you can
+       continue driving.
+
+Citizen: I didn't know about that, what do I need to do?
+
+Agent: You'll need to have your physician complete a Medical Affairs Branch form confirming you're
+       medically cleared to drive, and submit that either by mail or fax to our Medical Affairs
+       Unit for review.
+
+Citizen: How long does the review usually take?
+
+Agent: It can vary, but typically two to four weeks once they receive the completed paperwork, since a
+       medical reviewer has to evaluate it personally.
+
+Citizen: Is there anything I can do to speed it up?
+
+Agent: Making sure the form is fully and legibly completed by your doctor is the biggest factor -
+       incomplete forms get sent back and that adds delay, so I'd double check everything is
+       filled in before submitting.
+
+Citizen: Okay, I'll make sure of that. Thank you for explaining the process.
+
+Agent: Okay, anything else I can help with before we wrap up?
+
+Citizen: That's it for me, thank you, you've been very helpful.
+
+Agent: Glad I could help. Thanks for calling, and have a good rest of your morning.
+
+------------------------------------------------------------------------------
+[END OF CALL]

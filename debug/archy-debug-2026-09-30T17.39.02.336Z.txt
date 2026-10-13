@@ -1,0 +1,18 @@
+2026-09-30T17:39:02.839Z: [DEBUG] - Parameter 'loggingCallback' in ''ArchLogging'.setLoggingCallback' Logging callback hook successfully set.
+2026-09-30T17:39:02.845Z: [ERROR] setting the Archy exit code to 107
+2026-09-30T17:39:02.845Z: [ERROR] An error occurred.
+2026-09-30T17:39:02.845Z: [INFO] 
+2026-09-30T17:39:02.845Z: [ERROR] the parameter '--flow-name' is not valid for use with the 'validate' command. You can see more information about the 'validate' command by running 'archy validate --help'.
+2026-09-30T17:39:02.845Z: [INFO] 
+2026-09-30T17:39:02.845Z: [ERROR] Error(s) encountered.
+2026-09-30T17:39:02.846Z: [INFO] 
+2026-09-30T17:39:02.846Z: [INFO] using '/Users/michael.debiase/Genesys/AXL/sc12' as the home directory since none was defined.
+2026-09-30T17:39:02.846Z: [INFO] Log:  /Users/michael.debiase/Genesys/AXL/sc12/debug/archy-debug-2026-09-30T17.39.02.336Z.txt
+2026-09-30T17:39:02.974Z: [INFO] 
+2026-09-30T17:39:02.975Z: [INFO] execution complete.
+2026-09-30T17:39:02.975Z: [ERROR] 
+2026-09-30T17:39:02.975Z: [ERROR] exit code: 107
+2026-09-30T17:39:02.975Z: [INFO] 
+2026-09-30T17:39:02.976Z: [DEBUG] ensureDirectoryExists - attempting to make the directory '/Users/michael.debiase/Genesys/AXL/sc12/debug'.
+2026-09-30T17:39:02.977Z: [DEBUG] ensureDirectoryExists - directory '/Users/michael.debiase/Genesys/AXL/sc12/debug' successfully created.
+2026-09-30T17:39:02.977Z: [DEBUG] Writing log contents to '/Users/michael.debiase/Genesys/AXL/sc12/debug/archy-debug-2026-09-30T17.39.02.336Z.txt'.

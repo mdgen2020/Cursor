@@ -1,0 +1,78 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00136
+Date:               September 20, 2026
+Duration:           11:06
+Topic:              Suspension Hearing Inquiry
+Citizen (fictional):Stephanie Campbell
+Agent (fictional):  Kevin Nakamura
+Resolution Status:  Resolved - Transferred to Hearings Unit
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: RMV Customer Contact Center, my name is Kevin Nakamura, how may I assist you?
+
+Citizen: Hi, I received a notice that I have a suspension hearing scheduled and I have some questions
+         about it.
+
+Agent: I'd be happy to help with that. First I just need to verify your identity - can you give me
+       your full name and date of birth?
+
+Citizen: Sure, it's Stephanie Campbell, date of birth August 2, 1986.
+
+Agent: Perfect, thanks. Can you also confirm your current mailing address for me?
+
+Citizen: Yes, I'm at my address in Cambridge, Massachusetts.
+
+Agent: I need to check on something with our licensing system, can I place you on a brief hold?
+
+Agent: Sorry about that wait, I've got your account open now.
+
+Agent: I can help with that. Do you have the hearing notice in front of you, and can you tell me the
+       date it's scheduled for?
+
+Citizen: Yes, it says October 18, 2026.
+
+Agent: Thank you, let me pull that up in the system... okay, I see the hearing on file. This looks
+       like it's regarding a suspension matter that requires a review before a hearings
+       officer.
+
+Citizen: Do I need a lawyer for this?
+
+Agent: You're not required to have one, and many people represent themselves at these hearings, but
+       you're welcome to bring an attorney if you'd like one present, that's entirely your
+       choice.
+
+Citizen: What should I bring with me?
+
+Agent: I'd recommend bringing a valid photo ID, any documentation relevant to your case such as proof
+       of completed programs, insurance information if relevant, and the hearing notice itself.
+
+Citizen: Can I reschedule if that date doesn't work for me?
+
+Agent: You can typically request a continuance, but it needs to be requested as soon as possible and
+       there's no guarantee it will be granted, especially close to the date, so I'd reach out
+       to the Hearings office directly and as early as you can.
+
+Citizen: Is there a way to do the hearing remotely, or does it have to be in person?
+
+Agent: Some hearings can be conducted by phone or virtually depending on the type and location, so I'd
+       check the notice for specific instructions, or I can transfer you to our Hearings unit
+       to confirm the exact format for your case.
+
+Citizen: Yes, please transfer me, I want to make sure I understand the format.
+
+Agent: Absolutely, one moment while I connect you, please stay on the line.
+
+Agent: Alright, does that take care of everything for you today?
+
+Citizen: Nope, that covers it. Thanks for explaining all of that.
+
+Agent: Not a problem at all. Thank you for your patience today, have a good afternoon.
+
+------------------------------------------------------------------------------
+[END OF CALL]

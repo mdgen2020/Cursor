@@ -1,0 +1,71 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00074
+Date:               April 15, 2026
+Duration:           08:32
+Topic:              Road Test Rescheduling
+Citizen (fictional):Timothy Baker
+Agent (fictional):  Victor Silveira
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Good morning, thank you for calling the Massachusetts Registry of Motor Vehicles, this is
+       Victor Silveira speaking, how can I help?
+
+Citizen: Hi, I have a road test scheduled for September 21, 2026 but something came up and I need to
+         reschedule it.
+
+Agent: I'd be happy to help with that. First I just need to verify your identity - can you give me
+       your full name and date of birth?
+
+Citizen: Sure, it's Timothy Baker, date of birth April 17, 1991.
+
+Agent: Great, thank you. And can you confirm the address we have on file, or the city you're currently
+       residing in?
+
+Citizen: Yes, I'm at my address in Amherst, Massachusetts.
+
+Agent: I need to check on something with our licensing system, can I place you on a brief hold?
+
+Agent: Alright, thanks for holding. I've got everything pulled up.
+
+Agent: I'm sorry to hear that, let's see what we can do. Can you give me the confirmation number from
+       when you booked the test?
+
+Citizen: Yes, it's MA535587714.
+
+Agent: Thank you, let me pull that up... okay, I see the appointment for the date you mentioned.
+       Rescheduling actually needs to be done through the same online portal you used to book
+       it, but I can confirm there's no penalty as long as you're doing it more than 24 hours
+       in advance.
+
+Citizen: Oh good, it's more than a week away so that should be fine. Will I lose my fee?
+
+Agent: No, since you're outside that 24 hour window, your existing payment will simply transfer over
+       to the new date you select, you won't need to pay again.
+
+Citizen: That's a relief. Is there anything I need to watch out for when picking a new date?
+
+Agent: Just make sure whoever's vehicle you're using still has a valid inspection sticker on the new
+       date, and that your accompanying licensed driver is still available. I do see some open
+       slots around December 21, 2026 if that's helpful to know before you go book it.
+
+Citizen: That's helpful, thank you, I'll go reschedule it for around then.
+
+Agent: Sounds good. Is there anything else about the road test process I can clarify?
+
+Citizen: No, I think that covers it.
+
+Agent: Is there anything else on your account I can look into while I have you?
+
+Citizen: That's it for me, thank you, you've been very helpful.
+
+Agent: Of course, happy to help. Thanks for calling the RMV, take care now.
+
+------------------------------------------------------------------------------
+[END OF CALL]

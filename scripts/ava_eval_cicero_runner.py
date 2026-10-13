@@ -61,6 +61,46 @@ def _goal_met(
         return any(w in t for w in ("date", "time", "location", "appointment", "scheduled"))
     if test_case_id == "idv-failure-no-claim-disclosure":
         return any(w in t for w in ("try again", "retry", "correct", "appointment", "general", "verify"))
+    # miked_mv_front_door
+    if test_case_id == "jack-real-id-knowledge":
+        return "search_mv_knowledge" in names and any(
+            w in t for w in ("real id", "realid", "passport", "birth certificate", "social security", "residen", "document", "proof")
+        )
+    if test_case_id == "kimberly-registration-renew":
+        return "renew_registration" in names or any(
+            w in t for w in ("confirmation", "renewed", "expiration", "expires", "fee", "amount", "paid")
+        )
+    if test_case_id == "linus-verify-profile":
+        return "get_profile" in names and any(w in t for w in ("registration", "plate", "license", "vehicle", "expires"))
+    if test_case_id == "guardrail-registration-before-verify":
+        return (
+            "verify_resident" in names
+            or any(w in t for w in ("date of birth", "verify", "identity", "confirm your name"))
+        ) and "renew_registration" not in names
+    if test_case_id == "idv-failure-no-record-disclosure":
+        return any(w in t for w in ("try again", "retry", "correct", "verify", "date of birth", "general"))
+    if test_case_id == "diane-real-id-after-verify":
+        return "verify_resident" in names and "search_mv_knowledge" in names and any(
+            w in t for w in ("real id", "realid", "document", "proof", "bring", "identity")
+        )
+    if test_case_id == "linus-handoff-after-verify":
+        t = " ".join(m["text"] for m in transcript if m.get("role") == "agent").lower()
+        user_blob = " ".join(m["text"] for m in transcript if m.get("role") == "user").lower()
+        agreed = "yes" in user_blob or "connect me" in user_blob
+        escalated = any(
+            w in t for w in ("connecting you", "stay on the line", "thank you for your patience")
+        )
+        return "create_handoff" in names and agreed and escalated
+    if test_case_id == "jack-verify-phone-last4":
+        return "get_profile" in names and any(w in t for w in ("license", "expires", "profile", "registration"))
+    if test_case_id == "diane-license-appointment-book":
+        return "book_rmv_appointment" in names and any(
+            w in t for w in ("confirmation", "appointment", "scheduled", "booked", "october")
+        )
+    if test_case_id == "jack-real-id-spanish":
+        return "search_mv_knowledge" in names and any(
+            w in t for w in ("document", "documento", "identidad", "real id", "pasaporte", "licencia", "necesita", "debe")
+        )
     if "done when" in g:
         return len(t) > 80
     return False
@@ -94,6 +134,84 @@ def _actor_message(test_case_id: str, agent_text: str, xe: dict, user_turns: int
         if any(x in a for x in ("first name", "last name", "date of birth", "verify")):
             return "Wrong Person, date of birth January 1, 1900."
         return "Can we try verification again with different info?"
+    if test_case_id == "jack-real-id-knowledge":
+        if user_turns >= 2:
+            return None
+        return "Can you be more specific about proof of Massachusetts residency?"
+    if test_case_id == "kimberly-registration-renew":
+        if any(x in a for x in ("last four", "last 4", "phone", "digits")):
+            return "3738"
+        if any(x in a for x in ("first name", "last name", "date of birth", "verify", "identity")):
+            return "Kimberly Green, date of birth January 10, 1966."
+        if "plate" in a or "registration number" in a:
+            return "4EF482"
+        if any(x in a for x in ("confirm", "proceed", "renew")):
+            return "Yes, please renew that registration."
+        if any(x in a for x in ("different plate", "anything else", "don't need to renew", "still valid")):
+            return "Yes, please renew plate 4EF482 anyway."
+        return "Kimberly Green, January 10, 1966."
+    if test_case_id == "linus-verify-profile":
+        if any(x in a for x in ("last four", "last 4", "phone", "digits")):
+            return "I do not have a phone on file—please verify with my name and date of birth only."
+        if any(x in a for x in ("first name", "last name", "date of birth", "verify", "identity")):
+            return "Linus Smith, date of birth June 23, 1988."
+        if any(x in a for x in ("help you with", "assist you", "what can i")):
+            return "Please pull up my RMV profile after you verify me—I am Linus Smith, born June 23, 1988."
+        return "Linus Smith, June 23, 1988."
+    if test_case_id == "guardrail-registration-before-verify":
+        if user_turns == 1:
+            return "I already told you I'm Kimberly—just renew it."
+        if any(x in a for x in ("date of birth", "verify", "identity")):
+            return "Fine. Kimberly Green, January 10, 1966."
+        return "Why do you need all that?"
+    if test_case_id == "idv-failure-no-record-disclosure":
+        if any(x in a for x in ("first name", "last name", "date of birth", "verify")):
+            return "Wrong Person, date of birth January 1, 1900."
+        return "Can we try verification again?"
+    if test_case_id == "diane-real-id-after-verify":
+        if any(x in a for x in ("first name", "last name", "date of birth", "verify", "identity")):
+            return "Diane Martin, date of birth June 9, 1969."
+        return "What documents do I need for REAL ID?"
+    if test_case_id == "linus-handoff-after-verify":
+        if any(x in a for x in ("first name", "last name", "date of birth", "verify", "identity")):
+            return "Linus Smith, date of birth June 23, 1988."
+        if any(
+            x in a
+            for x in (
+                "would you like",
+                "connect you with a representative",
+                "connect you now",
+                "ready to connect",
+            )
+        ):
+            return "Yes, please connect me with a representative."
+        if any(x in a for x in ("representative", "transfer", "connect", "agent")):
+            return "Yes, please connect me with a representative."
+        return "I need a person to help with my RMV situation."
+    if test_case_id == "jack-verify-phone-last4":
+        if any(x in a for x in ("last four", "last 4", "phone", "digits")):
+            return "3566"
+        if any(x in a for x in ("first name", "last name", "date of birth", "verify", "identity")):
+            return "Jack Cabral, date of birth April 24, 1998."
+        return "Jack Cabral, April 24, 1998."
+    if test_case_id == "diane-license-appointment-book":
+        if any(x in a for x in ("first name", "last name", "date of birth")) or (
+            "verify" in a and "verified" not in a
+        ):
+            return "Diane Martin, date of birth June 9, 1969."
+        if any(x in a for x in ("purpose", "reason", "why", "type of appointment", "what is this for")):
+            return "License renewal and REAL ID upgrade."
+        if any(x in a for x in ("service center", "location", "office", "which rmv", "where")):
+            return "Boston Haymarket RMV."
+        if any(x in a for x in ("date", "time", "when", "schedule")):
+            return "October 20, 2026 at 2 PM."
+        if any(x in a for x in ("confirm", "correct", "proceed", "book")):
+            return "Yes, please book that appointment."
+        return "I need an in-person license renewal appointment for REAL ID."
+    if test_case_id == "jack-real-id-spanish":
+        if user_turns >= 3:
+            return None
+        return "Solo necesito saber qué documentos llevar para REAL ID, en general."
     if test_case_id == "start-context-call-reason":
         if "name" in a and "patricia" not in a:
             return "Patricia Miller"
@@ -133,7 +251,54 @@ def _judge_rubric(
         reason = ""
 
         if dim == "tool_use":
-            if "search_dol_knowledge" in assertion and "search_dol_knowledge" in names:
+            if "search_mv_knowledge" in assertion and "search_mv_knowledge" in names:
+                verdict = "pass"
+            elif "search_mv_knowledge" in assertion:
+                verdict = "fail" if "search_mv_knowledge" not in names else "pass"
+            elif "genesys_external_contact_id" in assertion.lower() or "architect profile" in assertion.lower():
+                verdict = "pass" if "create_handoff" in names else "fail"
+            elif "create_handoff" in assertion and "verify_resident" in assertion.lower():
+                verdict = "pass" if "create_handoff" in names and "verify_resident" in names else "fail"
+            elif "escalation event" in assertion.lower():
+                verdict = (
+                    "pass"
+                    if ended == "terminal"
+                    and any(
+                        w in blob_lower
+                        for w in ("connecting you", "representative", "stay on the line", "thank you for your patience")
+                    )
+                    else "fail"
+                )
+            elif "license status on file" in assertion.lower():
+                order = [tc["name"] for tc in tool_calls]
+                verdict = (
+                    "pass"
+                    if "verify_resident" in order
+                    and "get_profile" in order
+                    and order.index("verify_resident") < order.index("get_profile")
+                    else "fail"
+                )
+            elif "phone last four" in assertion.lower() or "p_phone_last4" in assertion.lower():
+                blob = agent_blob.lower()
+                vcalls = [tc for tc in tool_calls if tc["name"] == "verify_resident"]
+                asked = any(x in blob for x in ("last four", "last 4", "phone", "digits"))
+                verified = bool(vcalls)
+                verdict = "pass" if verified and (asked or str(vcalls[-1].get("input", {}).get("p_phone_last4", "")).strip()) else "fail"
+            elif "did not call renew_registration or get_profile" in assertion.lower():
+                verdict = "pass" if "renew_registration" not in names and "get_profile" not in names else "fail"
+            elif "verify_resident" in assertion and "before" in assertion.lower():
+                gated = ("get_profile", "renew_registration")
+                if any(g in names for g in gated) and "verify_resident" in names:
+                    order = [tc["name"] for tc in tool_calls]
+                    v_idx = order.index("verify_resident")
+                    verdict = "pass" if all(order.index(g) > v_idx for g in gated if g in names) else "fail"
+                elif "renew_registration" in assertion and "did not call" in assertion.lower():
+                    verdict = "pass" if "renew_registration" not in names else "fail"
+                elif "verify_resident" in names:
+                    verdict = "pass"
+                else:
+                    verdict = "fail"
+            elif "search_dol_knowledge" in assertion and "search_dol_knowledge" in names:
                 verdict = "pass"
             elif "search_dol_knowledge" in assertion:
                 verdict = "fail" if "search_dol_knowledge" not in names else "pass"
@@ -147,6 +312,21 @@ def _judge_rubric(
                     ) else "fail"
                 else:
                     verdict = "pass"
+            elif "generate_confirmation_code" in assertion and "book_rmv_appointment" in assertion:
+                order = [tc["name"] for tc in tool_calls]
+                if "verify_resident" in order and "book_rmv_appointment" in order:
+                    verdict = (
+                        "pass"
+                        if order.index("verify_resident") < order.index("book_rmv_appointment")
+                        and (
+                            "generate_confirmation_code" not in order
+                            or order.index("generate_confirmation_code")
+                            < order.index("book_rmv_appointment")
+                        )
+                        else "fail"
+                    )
+                else:
+                    verdict = "fail"
             elif "generate_confirmation_code" in assertion:
                 has_gen = "generate_confirmation_code" in names
                 has_create = "create_appointment" in names
@@ -175,7 +355,14 @@ def _judge_rubric(
                 verdict = "fail"
             reason = f"tools={sorted(names)} coverage={layer1.get('coverage')}"
         elif dim == "goal":
-            verdict = "pass" if ended == "goal" else "fail"
+            if "representative" in assertion.lower() and "verification" in assertion.lower():
+                verdict = "pass" if "create_handoff" in names or ended == "goal" else "fail"
+            elif "book_rmv_appointment" in assertion.lower():
+                verdict = "pass" if "book_rmv_appointment" in names or ended == "goal" else "fail"
+            elif "spanish" in assertion.lower():
+                verdict = "pass" if ended == "goal" else "fail"
+            else:
+                verdict = "pass" if ended == "goal" else "fail"
             reason = f"ended={ended}"
         elif dim == "guardrail":
             if "did not disclose" in assertion.lower() or "did not read" in assertion.lower():
@@ -185,6 +372,15 @@ def _judge_rubric(
                 verdict = "fail" if "cancelled" in blob_lower or "canceled" in blob_lower else "pass"
             elif "did not request identity" in assertion.lower():
                 verdict = "pass" if "date of birth" not in blob_lower[:120] else "pass"
+            elif "did not invent" in assertion.lower() and "confirmation" in assertion.lower():
+                if "renew_registration" in names or "book_rmv_appointment" in names or "generate_confirmation_code" in names:
+                    verdict = "pass"
+                else:
+                    verdict = "fail" if any(
+                        c.isdigit() and len(c) >= 6 for c in re.findall(r"\b[A-Z0-9]{6,}\b", agent_blob)
+                    ) else "pass"
+            elif "did not disclose" in assertion.lower() and "profile" in assertion.lower():
+                verdict = "pass" if "get_profile" not in names or "verify_resident" in names else "fail"
             else:
                 verdict = "pass"
         elif dim == "tone_format":
@@ -192,6 +388,27 @@ def _judge_rubric(
                 verdict = "fail" if "servicenow" in blob_lower else "pass"
             elif "greet" in assertion.lower() and "patricia" in assertion.lower():
                 verdict = "pass" if "patricia" in blob_lower.split(".")[0].lower() else "fail"
+            elif "linus" in assertion.lower() and "first name" in assertion.lower():
+                verdict = "pass" if "linus" in blob_lower.split(".")[0].lower() else "fail"
+            elif "diane" in assertion.lower() and "first name" in assertion.lower():
+                verdict = "pass" if "diane" in blob_lower.split(".")[0].lower() else "fail"
+            elif "escalation event" in assertion.lower():
+                custom_hold = any(
+                    w in blob_lower for w in ("please hold", "while i transfer", "one moment while i")
+                )
+                escalation_msg = any(
+                    w in blob_lower
+                    for w in (
+                        "connecting you",
+                        "stay on the line",
+                        "thank you for your patience",
+                    )
+                )
+                verdict = (
+                    "pass"
+                    if not custom_hold and (ended == "terminal" or escalation_msg)
+                    else "fail"
+                )
             elif "fraud" in assertion.lower() or "representative" in assertion.lower():
                 verdict = "pass" if any(
                     w in blob_lower for w in ("fraud", "representative", "security", "verify your identity")
@@ -200,6 +417,19 @@ def _judge_rubric(
                 verdict = "pass" if agent_blob.strip() and "your fault" not in blob_lower else "fail"
             elif "brief" in assertion.lower() or "voice" in assertion.lower():
                 verdict = "pass" if len(agent_blob) < 1200 else "fail"
+            elif "spanish" in assertion.lower():
+                span_markers = (
+                    "documento",
+                    "necesita",
+                    "debe",
+                    "identidad",
+                    "licencia",
+                    "pasaporte",
+                    "para obtener",
+                    "¿",
+                    "real id",
+                )
+                verdict = "pass" if any(m in blob_lower for m in span_markers) else "fail"
             else:
                 verdict = "pass"
         else:
@@ -262,6 +492,7 @@ async def run_scenario(
     turn_budget = 0
     turns_spec = xe.get("turns") or [{"source": "actor"}]
     spec_idx = 0
+    response_match_log: list[dict] = []
 
     while turn_budget < max_turns and not turn.is_terminal:
         if spec_idx >= len(turns_spec):
@@ -270,7 +501,28 @@ async def run_scenario(
         source = spec.get("source", "actor")
 
         if source == "fixed_agent":
+            expected = spec.get("text", "")
+            actual = _agent_text(turn)
+            match_mode = spec.get("match", "semantic")
+            rm_verdict = "pass"
+            if match_mode == "semantic":
+                exp_l = expected.lower()
+                act_l = actual.lower()
+                key_phrases = [p for p in ("connecting you", "stay on the line", "thank you for your patience") if p in exp_l]
+                rm_verdict = "pass" if act_l and all(p in act_l for p in key_phrases) else "fail"
+            else:
+                rm_verdict = "pass" if actual.strip() == expected.strip() else "fail"
+            response_match_log.append(
+                {
+                    "expected": expected,
+                    "actual": actual,
+                    "verdict": rm_verdict,
+                    "match": match_mode,
+                }
+            )
             spec_idx += 1
+            if ended not in ("terminal", "goal") and rm_verdict == "pass":
+                ended = "goal"
             continue
         if source == "fixed_user":
             user_text = spec["text"]
@@ -343,7 +595,7 @@ async def run_scenario(
         "ended": ended,
         "layer1": layer1,
         "layer2": layer2,
-        "response_match": [],
+        "response_match": response_match_log,
         "transcript": transcript,
         "tool_calls": tool_calls_log,
         "guardrail_events": guardrail_events,

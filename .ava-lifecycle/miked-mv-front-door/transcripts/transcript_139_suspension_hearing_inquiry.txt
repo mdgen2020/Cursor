@@ -1,0 +1,80 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00139
+Date:               July 22, 2026
+Duration:           17:39
+Topic:              Suspension Hearing Inquiry
+Citizen (fictional):Nicholas Pinto
+Agent (fictional):  Dana Doucette
+Resolution Status:  Resolved - Transferred to Hearings Unit
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Thank you for calling the Massachusetts RMV Customer Service Contact Center, this is Dana
+       Doucette, how can I help you today?
+
+Citizen: Hi, I received a notice that I have a suspension hearing scheduled and I have some questions
+         about it.
+
+Agent: No problem, I can look into that for you. Can you verify your full name and date of birth for
+       me first?
+
+Citizen: Sure, it's Nicholas Pinto, date of birth May 5, 1956.
+
+Agent: Thank you. And just to fully verify, can you confirm the last four digits of the phone number
+       on file?
+
+Citizen: Yes, that should end in 9657.
+
+Agent: Let me check that against your record, bear with me for just a second.
+
+Agent: Okay, I'm back - thank you for waiting. I see your file here now.
+
+Agent: I can help with that. Do you have the hearing notice in front of you, and can you tell me the
+       date it's scheduled for?
+
+Citizen: Yes, it says December 1, 2026.
+
+Agent: Thank you, let me pull that up in the system... okay, I see the hearing on file. This looks
+       like it's regarding a suspension matter that requires a review before a hearings
+       officer.
+
+Citizen: Do I need a lawyer for this?
+
+Agent: You're not required to have one, and many people represent themselves at these hearings, but
+       you're welcome to bring an attorney if you'd like one present, that's entirely your
+       choice.
+
+Citizen: What should I bring with me?
+
+Agent: I'd recommend bringing a valid photo ID, any documentation relevant to your case such as proof
+       of completed programs, insurance information if relevant, and the hearing notice itself.
+
+Citizen: Can I reschedule if that date doesn't work for me?
+
+Agent: You can typically request a continuance, but it needs to be requested as soon as possible and
+       there's no guarantee it will be granted, especially close to the date, so I'd reach out
+       to the Hearings office directly and as early as you can.
+
+Citizen: Is there a way to do the hearing remotely, or does it have to be in person?
+
+Agent: Some hearings can be conducted by phone or virtually depending on the type and location, so I'd
+       check the notice for specific instructions, or I can transfer you to our Hearings unit
+       to confirm the exact format for your case.
+
+Citizen: Yes, please transfer me, I want to make sure I understand the format.
+
+Agent: Absolutely, one moment while I connect you, please stay on the line.
+
+Agent: Okay, anything else I can help with before we wrap up?
+
+Citizen: That's it for me, thank you, you've been very helpful.
+
+Agent: Of course, happy to help. Thanks for calling the RMV, take care now.
+
+------------------------------------------------------------------------------
+[END OF CALL]

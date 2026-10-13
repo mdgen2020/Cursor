@@ -1,0 +1,73 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00164
+Date:               June 18, 2026
+Duration:           14:11
+Topic:              Disability Placard Renewal
+Citizen (fictional):Maria Doyle
+Agent (fictional):  Derek Ferrante
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Thank you for calling the Massachusetts RMV Customer Service Contact Center, this is Derek
+       Ferrante, how can I help you today?
+
+Citizen: Hi, my disability placard is expiring soon and I need to know how to renew it.
+
+Agent: Okay, let's get that sorted out. Can I start by getting your full name and date of birth on
+       file?
+
+Citizen: Sure, it's Maria Doyle, date of birth October 16, 2008.
+
+Agent: Got it. Last thing - can you confirm the last four digits of your Social Security number on
+       file, just for verification?
+
+Citizen: Yes, the last four are 0676.
+
+Agent: I need to check on something with our licensing system, can I place you on a brief hold?
+
+Agent: Thanks for your patience, I found your record.
+
+Agent: I can help with that. Let me check your record... I see your placard shows an expiration date
+       of September 12, 2026. Is this a permanent or temporary placard?
+
+Citizen: I believe it's permanent, I've had it for years.
+
+Agent: For a permanent placard, renewal is usually pretty simple since your qualifying condition has
+       already been established - in many cases you can renew without needing a brand new
+       physician certification, though occasionally we do require periodic re-certification.
+
+Citizen: How do I know if I need the doctor's form again this time?
+
+Agent: Let me check your specific renewal notice requirements... looking at your file, it looks like
+       this renewal does not require a new physician form, so you should be able to renew by
+       mail or online.
+
+Citizen: That's great, is there a fee?
+
+Agent: No fee for placard renewals.
+
+Citizen: Perfect, can you help me renew it right now over the phone?
+
+Agent: For placard renewals specifically, our system requires it be submitted through the mail-in
+       renewal form or in person, we're not able to process that particular renewal over the
+       phone, but I can send you the details on where to find the renewal form.
+
+Citizen: Okay, that works, I appreciate the help.
+
+Agent: You're welcome, and I've made a note that we discussed a mail-in renewal today in case you have
+       any follow-up questions.
+
+Agent: Alright, does that take care of everything for you today?
+
+Citizen: Nope, that covers it. Thanks for explaining all of that.
+
+Agent: Of course, happy to help. Thanks for calling the RMV, take care now.
+
+------------------------------------------------------------------------------
+[END OF CALL]

@@ -1,0 +1,73 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00115
+Date:               April 27, 2026
+Duration:           09:54
+Topic:              Insurance Surcharge Inquiry
+Citizen (fictional):Emily Gomes
+Agent (fictional):  Linda Iyer
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: RMV Customer Contact Center, my name is Linda Iyer, how may I assist you?
+
+Citizen: Hi, I noticed a surcharge on my insurance bill that my agent said came from the RMV, can you
+         tell me what that's about?
+
+Agent: I'd be happy to help with that. First I just need to verify your identity - can you give me
+       your full name and date of birth?
+
+Citizen: Sure, it's Emily Gomes, date of birth August 18, 1966.
+
+Agent: Got it. Last thing - can you confirm the last four digits of your Social Security number on
+       file, just for verification?
+
+Citizen: Yes, the last four are 3967.
+
+Agent: I need to check on something with our licensing system, can I place you on a brief hold?
+
+Agent: Thanks for your patience, I found your record.
+
+Agent: I can definitely look into that. Insurance surcharges are managed by the Merit Rating Board,
+       which is part of the RMV, and they're based on at-fault accidents or certain traffic
+       violations on your driving record over the past six years.
+
+Citizen: Six years? That seems like a long time.
+
+Agent: It does feel long, but that's the standard surcharge lookback period under Massachusetts law.
+       Let me check your record and see what's generating that surcharge... one moment.
+
+Agent: Okay, I do see a surcharge-eligible incident from 2025 on your record. It looks like a minor
+       at-fault accident claim.
+
+Citizen: I remember that, it was a small fender bender. Is there anything I can do about it?
+
+Agent: If you believe it was recorded incorrectly, meaning you weren't actually at fault, you can file
+       a Merit Rating Board appeal called a Request for a Surcharge Hearing, and there's a
+       specific form and process for that on our website.
+
+Citizen: How long do I have to file that appeal?
+
+Agent: Typically you have a limited window after the surcharge first appears, so I'd recommend not
+       waiting too long. If you'd like, I can note your account that you're planning to submit
+       that hearing request.
+
+Citizen: Yes, please note that, and I'll look into filing it.
+
+Agent: Done, I've added that note. Is there anything else I can help with?
+
+Citizen: No, that answers my question, thank you.
+
+Agent: Is there anything else on your account I can look into while I have you?
+
+Citizen: That's it for me, thank you, you've been very helpful.
+
+Agent: Not a problem at all. Thank you for your patience today, have a good afternoon.
+
+------------------------------------------------------------------------------
+[END OF CALL]

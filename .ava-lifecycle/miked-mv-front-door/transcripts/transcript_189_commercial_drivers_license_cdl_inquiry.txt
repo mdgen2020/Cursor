@@ -1,0 +1,83 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00189
+Date:               February 17, 2026
+Duration:           09:47
+Topic:              Commercial Driver's License (CDL) Inquiry
+Citizen (fictional):Amara Torres
+Agent (fictional):  Tom Falcone
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: RMV Customer Contact Center, my name is Tom Falcone, how may I assist you?
+
+Citizen: Hi, I'm interested in getting my commercial driver's license, can you explain what's involved?
+
+Agent: Sure, I can help with that. Before we get started, can I get your full name and date of birth
+       to pull up your record?
+
+Citizen: Sure, it's Amara Torres, date of birth February 3, 1985.
+
+Agent: Perfect, thanks. Can you also confirm your current mailing address for me?
+
+Citizen: Yes, I'm at my address in Waltham, Massachusetts.
+
+Agent: I need to check on something with our licensing system, can I place you on a brief hold?
+
+Agent: Okay, I'm back - thank you for waiting. I see your file here now.
+
+Agent: Sure, happy to walk you through the basics. To get a Massachusetts CDL, you'll first need to
+       hold a valid Class D or Class M license, then obtain a Commercial Learner's Permit, or
+       CLP, before you can test for the full CDL.
+
+Citizen: What do I need for the CLP?
+
+Agent: You'll need to pass a general knowledge test, plus any endorsement-specific knowledge tests
+       depending on what you want to drive, like tanker vehicles or passenger vehicles, and
+       you'll also need a DOT medical examiner's certificate showing you're medically qualified
+       to operate a commercial vehicle.
+
+Citizen: What's involved in the medical certificate?
+
+Agent: You'd need to visit a certified medical examiner, who's listed on the National Registry of
+       Certified Medical Examiners, for a physical exam covering things like vision, hearing,
+       blood pressure, and overall fitness to drive commercially.
+
+Citizen: Okay, and after I get the permit, what's next?
+
+Agent: After holding the CLP for a minimum waiting period, currently 14 days, you can schedule the CDL
+       skills test, which includes a vehicle inspection test, a basic controls test, and an on-
+       road driving test, typically done in the type of vehicle you intend to drive.
+
+Citizen: Do I need my own truck for the test, or does the RMV provide one?
+
+Agent: You or your employer would need to provide the vehicle for the skills test, it has to match the
+       class of CDL you're applying for, so if you're going for a Class A, it would need to be
+       a vehicle that qualifies for that classification.
+
+Citizen: That makes sense. Is there a fee for all of this?
+
+Agent: There's a fee for the CLP, and then a separate fee around $55 for the CDL itself once you pass
+       your skills test, plus endorsement fees if you're adding any special endorsements.
+
+Citizen: This is really helpful, thank you for breaking it all down.
+
+Agent: Of course, and if you want, I can also mention that if you're planning to drive for a company,
+       many carriers will actually help sponsor or guide you through parts of this process, so
+       it's worth asking your employer too.
+
+Citizen: That's a good tip, I'll ask them. Thanks again.
+
+Agent: Is there anything else I can help you with today?
+
+Citizen: That's all I needed, I really appreciate it.
+
+Agent: You're very welcome. Thank you for calling the Massachusetts RMV, have a great afternoon.
+
+------------------------------------------------------------------------------
+[END OF CALL]

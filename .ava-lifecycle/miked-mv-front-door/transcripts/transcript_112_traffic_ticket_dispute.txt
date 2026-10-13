@@ -1,0 +1,71 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00112
+Date:               April 19, 2026
+Duration:           09:57
+Topic:              Traffic Ticket Dispute
+Citizen (fictional):Laura Kim
+Agent (fictional):  Victor Simmons
+Resolution Status:  Resolved - Redirected to Court
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Thank you for calling the Massachusetts RMV Customer Service Contact Center, this is Victor
+       Simmons, how can I help you today?
+
+Citizen: Hi, I got a citation, number C7055226, and I don't think it's fair, I want to dispute it, can
+         the RMV help with that?
+
+Agent: I'd be happy to help with that. First I just need to verify your identity - can you give me
+       your full name and date of birth?
+
+Citizen: Sure, it's Laura Kim, date of birth September 4, 1950.
+
+Agent: Perfect, thanks. Can you also confirm your current mailing address for me?
+
+Citizen: Yes, I'm at my address in Methuen, Massachusetts.
+
+Agent: Give me just a moment to pull that up in the system, I'll be right back with you.
+
+Agent: Okay, I'm back - thank you for waiting. I see your file here now.
+
+Agent: I understand the frustration. Disputing a citation itself, meaning requesting a hearing to
+       contest the violation, actually goes through the court listed on your citation, not the
+       RMV directly - we don't have the authority to overturn a moving violation finding.
+
+Citizen: Oh, I thought I could just call you guys about it.
+
+Agent: It's a really common misunderstanding. What I can tell you is that your citation should list a
+       deadline and instructions for requesting a clerk-magistrate hearing or a full court
+       hearing, depending on the type of violation.
+
+Citizen: Is there a deadline I need to worry about?
+
+Agent: Yes, there's usually a strict window, often something like 20 days from the citation date, so I
+       wouldn't wait too long to follow up with the court directly - if you miss that window,
+       you may lose your ability to contest it.
+
+Citizen: Is there anything RMV-related I should know in the meantime?
+
+Agent: Just that if the citation isn't resolved or paid by the deadline, it could eventually lead to a
+       license suspension for failure to pay or respond, so I'd definitely recommend addressing
+       it with the court before then, even if that means requesting the hearing.
+
+Citizen: Okay, that's good to know, I'll call the court today.
+
+Agent: That's a good plan. Is there anything else I can help you with regarding your RMV account?
+
+Citizen: No, that's all, thank you for explaining that.
+
+Agent: Okay, anything else I can help with before we wrap up?
+
+Citizen: No, that's everything, thank you so much for your help.
+
+Agent: You're very welcome. Thank you for calling the Massachusetts RMV, have a great morning.
+
+------------------------------------------------------------------------------
+[END OF CALL]

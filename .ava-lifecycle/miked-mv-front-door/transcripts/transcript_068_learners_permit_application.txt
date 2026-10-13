@@ -1,0 +1,83 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00068
+Date:               April 13, 2026
+Duration:           16:35
+Topic:              Learner's Permit Application
+Citizen (fictional):Karen Thompson
+Agent (fictional):  Linda Hutchins
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: RMV Customer Contact Center, my name is Linda Hutchins, how may I assist you?
+
+Citizen: Hi, my son just turned sixteen and we want to apply for his learner's permit, what's the
+         process?
+
+Agent: I'd be happy to help with that. First I just need to verify your identity - can you give me
+       your full name and date of birth?
+
+Citizen: Sure, it's Karen Thompson, date of birth October 25, 1960.
+
+Agent: Got it. Last thing - can you confirm the last four digits of your Social Security number on
+       file, just for verification?
+
+Citizen: Yes, the last four are 8992.
+
+Agent: Let me check that against your record, bear with me for just a second.
+
+Agent: Thanks for your patience, I found your record.
+
+Agent: Congratulations to him! For a Class D learner's permit, since he's under eighteen, he'll need
+       to complete the process through an approved driver education program, and you as the
+       parent or guardian will need to be involved in part of the application.
+
+Citizen: Okay, does he need to take a written test?
+
+Agent: Yes, he'll need to pass a written knowledge test with a score of 72 percent or higher, covering
+       road signs, rules of the road, and safe driving practices. That can be done at a Service
+       Center or in some cases through an approved third-party testing location.
+
+Citizen: What documents do we need to bring?
+
+Agent: He'll need proof of identity such as a birth certificate or passport, proof of Massachusetts
+       residency, and since he's a minor, you'll need to complete a parental consent form,
+       which we can provide at the counter or he can bring pre-filled from our website.
+
+Citizen: Is there a fee for the permit?
+
+Agent: Yes, the learner's permit fee is $35, and it also requires a vision screening, which is done
+       on-site.
+
+Citizen: Do we need an appointment or can we walk in?
+
+Agent: I'd recommend booking an appointment online for the Service Center visit, walk-ins are accepted
+       but appointments tend to move faster.
+
+Citizen: Okay, can you check if there's anything open soon at the location near us?
+
+Agent: I can see general availability, though booking itself has to be done through the online portal
+       - the Lawrence RMV Service Center does show open slots, including one around November
+       13, 2026.
+
+Citizen: Great, we'll book that online. Thanks for the details.
+
+Agent: Of course. One more note - once he has the permit, he'll need to complete the required 12 hours
+       of behind-the-wheel training with a licensed driving school before he's eligible to take
+       the road test.
+
+Citizen: Got it, that's helpful, thank you.
+
+Agent: Is there anything else I can help you with today?
+
+Citizen: No, that's everything, thank you so much for your help.
+
+Agent: Not a problem at all. Thank you for your patience today, have a good morning.
+
+------------------------------------------------------------------------------
+[END OF CALL]

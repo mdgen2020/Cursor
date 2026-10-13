@@ -1,0 +1,44 @@
+{
+  "_archive": {
+    "name": "eohhs_dta_case_status_miked",
+    "rpc": "dta_case_status",
+    "action_id": "custom_-_988e6409-cf34-4d74-b0fb-456ecc7b9395",
+    "integration_id": "19717556-e7eb-4db8-884e-b07c6f50d927"
+  },
+  "id": "custom_-_988e6409-cf34-4d74-b0fb-456ecc7b9395",
+  "name": "eohhs_dta_case_status_miked",
+  "integrationId": "19717556-e7eb-4db8-884e-b07c6f50d927",
+  "category": "EOHHS-Supabase-RPC",
+  "contract": {
+    "output": {
+      "successSchemaUri": "/api/v2/integrations/actions/custom_-_988e6409-cf34-4d74-b0fb-456ecc7b9395/schemas/successschema.json",
+      "errorSchemaUri": "/api/v2/integrations/actions/custom_-_988e6409-cf34-4d74-b0fb-456ecc7b9395/schemas/errorschema.json"
+    },
+    "input": {
+      "inputSchemaUri": "/api/v2/integrations/actions/custom_-_988e6409-cf34-4d74-b0fb-456ecc7b9395/schemas/inputschema.json"
+    }
+  },
+  "version": 1,
+  "secure": false,
+  "config": {
+    "request": {
+      "requestUrlTemplate": "https://njjkupupxvfvymelcjpg.supabase.co/rest/v1/rpc/dta_case_status",
+      "requestTemplateUri": "/api/v2/integrations/actions/custom_-_988e6409-cf34-4d74-b0fb-456ecc7b9395/templates/requesttemplate.vm",
+      "requestType": "POST",
+      "headers": {
+        "apikey": "${credentials.apikey}",
+        "Content-Type": "application/json"
+      }
+    },
+    "response": {
+      "translationMap": {
+        "rawResult": "$"
+      },
+      "translationMapDefaults": {
+        "rawResult": "{}"
+      },
+      "successTemplateUri": "/api/v2/integrations/actions/custom_-_988e6409-cf34-4d74-b0fb-456ecc7b9395/templates/successtemplate.vm"
+    }
+  },
+  "selfUri": "/api/v2/integrations/actions/custom_-_988e6409-cf34-4d74-b0fb-456ecc7b9395?includeConfig=true"
+}

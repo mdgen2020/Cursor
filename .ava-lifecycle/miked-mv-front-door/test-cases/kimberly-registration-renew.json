@@ -1,0 +1,86 @@
+{
+  "agent_id": "0490c8a0-4830-4c57-981b-0623f5a5a466",
+  "name": "Happy Path — Kimberly registration renewal",
+  "type": "scripted",
+  "language": "en-US",
+  "test_config": {
+    "trajectory": ["verify_resident", "get_profile", "renew_registration"]
+  },
+  "x_eval": {
+    "persona": "Kimberly Green, Peabody MA. DOB 1966-01-10. Phone last four on file: 3738. Plate 4EF482.",
+    "goal": "Renew vehicle registration for plate 4EF482. Provide name, DOB, and phone last four when asked. Done when the agent gives a renewal confirmation code or amount from the backend.",
+    "turns": [
+      {
+        "source": "fixed_user",
+        "text": "Hi, I need to renew my Massachusetts vehicle registration."
+      },
+      {
+        "source": "actor",
+        "note": "Cooperate with verify_resident (Kimberly Green, 1966-01-10, phone last four 3738). Confirm plate 4EF482 when asked."
+      }
+    ],
+    "reference_trajectory": [
+      {
+        "tool": "verify_resident",
+        "params": {
+          "p_first_name": "Kimberly",
+          "p_last_name": "Green",
+          "p_date_of_birth": "1966-01-10"
+        },
+        "match": "exact",
+        "order": 1
+      },
+      {
+        "tool": "get_profile",
+        "params": {},
+        "match": "presence",
+        "order": 2
+      },
+      {
+        "tool": "renew_registration",
+        "params": {
+          "p_plate_number": "4EF482"
+        },
+        "match": "presence",
+        "order": 3
+      }
+    ],
+    "start_context": {
+      "state_code": "MA",
+      "interaction_channel": "voice"
+    },
+    "rubric": [
+      {
+        "id": "kr-goal",
+        "dimension": "goal",
+        "assertion": "The agent provided registration renewal outcome details (confirmation code, fee, or new expiration) from a tool result.",
+        "weight": 1.0
+      },
+      {
+        "id": "kr-tool",
+        "dimension": "tool_use",
+        "assertion": "The agent called verify_resident before renew_registration.",
+        "weight": 1.0
+      },
+      {
+        "id": "kr-gr",
+        "dimension": "guardrail",
+        "assertion": "The agent did not disclose personalized registration or confirmation details before verification succeeded.",
+        "weight": 1.0
+      },
+      {
+        "id": "kr-tone",
+        "dimension": "tone_format",
+        "assertion": "The agent kept responses brief and did not mention internal tool or system names.",
+        "weight": 1.0
+      }
+    ],
+    "attempts": 1,
+    "max_turns": 16,
+    "success_threshold": 0.8
+  },
+  "metadata": {
+    "id": "kimberly-registration-renew",
+    "created_at": "2026-09-29T22:00:00Z"
+  }
+}

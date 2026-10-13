@@ -1,0 +1,77 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00019
+Date:               July 3, 2026
+Duration:           19:28
+Topic:              License Renewal
+Citizen (fictional):Yuki Torres
+Agent (fictional):  Angela Kapoor
+Resolution Status:  Resolved
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Good morning, thank you for calling the Massachusetts Registry of Motor Vehicles, this is
+       Angela Kapoor speaking, how can I help?
+
+Citizen: Hi, my driver's license is expiring on October 16, 2026 and I need to renew it, as a standard
+         license.
+
+Agent: No problem, I can look into that for you. Can you verify your full name and date of birth for
+       me first?
+
+Citizen: Sure, it's Yuki Torres, date of birth January 16, 2007.
+
+Agent: Perfect, thanks. Can you also confirm your current mailing address for me?
+
+Citizen: Yes, I'm at my address in Haverhill, Massachusetts.
+
+Agent: Okay, let me take a look at your record - one moment please, this might take about thirty
+       seconds.
+
+Agent: Okay, I'm back - thank you for waiting. I see your file here now.
+
+Agent: Thanks for calling about that. I see your license does show an expiration date of October 16,
+       2026. Are you looking to renew as a Standard license or upgrade to a REAL ID?
+
+Citizen: Just the standard renewal is fine, I don't fly often.
+
+Agent: For a standard renewal, in most cases you can actually do this online through the RMV's Online
+       Service Center if your license doesn't require a road test or in-person visit. The fee
+       is $50.
+
+Citizen: Oh, I didn't realize I could do it online. What do I need for that?
+
+Agent: You'll just need your license number, your date of birth, and a credit or debit card for the
+       payment. The system will walk you through confirming your address and updating your
+       photo isn't required for a standard online renewal.
+
+Citizen: That's great, that'll save me a trip. Is there anything that would stop me from renewing
+         online?
+
+Agent: The main things that would require an in-person visit are if your license is currently
+       suspended or revoked, if you're over 75 and due for an in-person renewal, or if you want
+       to change your photo or update your address on the license itself.
+
+Citizen: Can I just take care of the whole thing over the phone right now?
+
+Agent: For a REAL ID upgrade we unfortunately can't complete it over the phone since we need to verify
+       original documents and take a new photo in person, but for a standard renewal without a
+       photo change, I actually can process the payment with you right now if you'd like.
+
+Citizen: Let's do that then.
+
+Agent: Perfect, I've processed that renewal. Your confirmation number is MA142761207, and your new
+       card should arrive in about two to three weeks.
+
+Agent: Okay, anything else I can help with before we wrap up?
+
+Citizen: That's all I needed, I really appreciate it.
+
+Agent: Not a problem at all. Thank you for your patience today, have a good morning.
+
+------------------------------------------------------------------------------
+[END OF CALL]

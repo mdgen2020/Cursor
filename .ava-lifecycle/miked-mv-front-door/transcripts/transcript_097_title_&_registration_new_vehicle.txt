@@ -1,0 +1,78 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00097
+Date:               April 14, 2026
+Duration:           18:43
+Topic:              Title & Registration (New Vehicle)
+Citizen (fictional):Jessica Ryan
+Agent (fictional):  Wanda Baptiste
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Good morning, thank you for calling the Massachusetts Registry of Motor Vehicles, this is Wanda
+       Baptiste speaking, how can I help?
+
+Citizen: Hi, I just bought a new car and I need to figure out how to register and title it.
+
+Agent: No problem, I can look into that for you. Can you verify your full name and date of birth for
+       me first?
+
+Citizen: Sure, it's Jessica Ryan, date of birth October 18, 1949.
+
+Agent: Great, thank you. And can you confirm the address we have on file, or the city you're currently
+       residing in?
+
+Citizen: Yes, I'm at my address in Newton, Massachusetts.
+
+Agent: I need to check on something with our licensing system, can I place you on a brief hold?
+
+Agent: Thanks for your patience, I found your record.
+
+Agent: Congratulations on the new car! In most cases, if you bought it from a dealership, they'll
+       handle the title and registration paperwork for you and submit it to the RMV directly.
+       Did you buy it from a dealer or a private seller?
+
+Citizen: From a dealership.
+
+Agent: Great, in that case the dealer should provide you with temporary plates or a temp registration,
+       and typically process the title application within the state's required window, usually
+       about ten business days. Have you received a temporary plate or transit plate from them?
+
+Citizen: Yes, I have a temporary plate on it right now.
+
+Agent: Perfect, that confirms the paperwork is likely already in motion. If you haven't received your
+       permanent plates and registration within about three to four weeks, I'd follow up with
+       the dealership first since they're the ones who submitted it.
+
+Citizen: Is there anything I should double check on my end in the meantime, just so nothing falls
+         through the cracks?
+
+Agent: Good idea - I'd confirm the dealership has your correct spelling of your name and current
+       address, and make sure you have proof of Massachusetts insurance active on the vehicle,
+       since that's required before the registration can actually be finalized on our end.
+
+Citizen: I already set up insurance before I picked up the car, so that part should be fine.
+
+Agent: Great, that's the most important piece taken care of. Once the dealership submits everything,
+       you'll get your registration certificate and plates either mailed to you directly or
+       through the dealer, depending on how they process it.
+
+Citizen: Okay, that's really helpful, thank you.
+
+Citizen: This is really helpful, thank you for walking me through it.
+
+Agent: Of course, happy to help make sure you have everything ready before your visit.
+
+Agent: Alright, does that take care of everything for you today?
+
+Citizen: Nope, that covers it. Thanks for explaining all of that.
+
+Agent: Of course, happy to help. Thanks for calling the RMV, take care now.
+
+------------------------------------------------------------------------------
+[END OF CALL]

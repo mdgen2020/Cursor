@@ -1,0 +1,44 @@
+{
+  "_archive": {
+    "name": "eohhs_resident_verify_miked",
+    "rpc": "resident_verify",
+    "action_id": "custom_-_e7e7c05d-3432-4a71-b90a-e534d80ac5ea",
+    "integration_id": "19717556-e7eb-4db8-884e-b07c6f50d927"
+  },
+  "id": "custom_-_e7e7c05d-3432-4a71-b90a-e534d80ac5ea",
+  "name": "eohhs_resident_verify_miked",
+  "integrationId": "19717556-e7eb-4db8-884e-b07c6f50d927",
+  "category": "EOHHS-Supabase-RPC",
+  "contract": {
+    "output": {
+      "successSchemaUri": "/api/v2/integrations/actions/custom_-_e7e7c05d-3432-4a71-b90a-e534d80ac5ea/schemas/successschema.json",
+      "errorSchemaUri": "/api/v2/integrations/actions/custom_-_e7e7c05d-3432-4a71-b90a-e534d80ac5ea/schemas/errorschema.json"
+    },
+    "input": {
+      "inputSchemaUri": "/api/v2/integrations/actions/custom_-_e7e7c05d-3432-4a71-b90a-e534d80ac5ea/schemas/inputschema.json"
+    }
+  },
+  "version": 1,
+  "secure": false,
+  "config": {
+    "request": {
+      "requestUrlTemplate": "https://njjkupupxvfvymelcjpg.supabase.co/rest/v1/rpc/resident_verify",
+      "requestTemplateUri": "/api/v2/integrations/actions/custom_-_e7e7c05d-3432-4a71-b90a-e534d80ac5ea/templates/requesttemplate.vm",
+      "requestType": "POST",
+      "headers": {
+        "apikey": "${credentials.apikey}",
+        "Content-Type": "application/json"
+      }
+    },
+    "response": {
+      "translationMap": {
+        "rawResult": "$"
+      },
+      "translationMapDefaults": {
+        "rawResult": "{}"
+      },
+      "successTemplateUri": "/api/v2/integrations/actions/custom_-_e7e7c05d-3432-4a71-b90a-e534d80ac5ea/templates/successtemplate.vm"
+    }
+  },
+  "selfUri": "/api/v2/integrations/actions/custom_-_e7e7c05d-3432-4a71-b90a-e534d80ac5ea?includeConfig=true"
+}

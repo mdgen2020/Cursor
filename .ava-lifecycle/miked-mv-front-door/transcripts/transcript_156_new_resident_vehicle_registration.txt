@@ -1,0 +1,85 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00156
+Date:               September 18, 2026
+Duration:           13:32
+Topic:              New Resident Vehicle Registration
+Citizen (fictional):Dennis Kelly
+Agent (fictional):  Rachel Nolan
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Good morning, thank you for calling the Massachusetts Registry of Motor Vehicles, this is
+       Rachel Nolan speaking, how can I help?
+
+Citizen: Hi, I just moved to Massachusetts from Arizona and I need to register my car here now.
+
+Agent: I'd be happy to help with that. First I just need to verify your identity - can you give me
+       your full name and date of birth?
+
+Citizen: Sure, it's Dennis Kelly, date of birth August 16, 2007.
+
+Agent: Perfect, thanks. Can you also confirm your current mailing address for me?
+
+Citizen: Yes, I'm at my address in Holyoke, Massachusetts.
+
+Agent: I need to check on something with our licensing system, can I place you on a brief hold?
+
+Agent: Okay, I'm back - thank you for waiting. I see your file here now.
+
+Agent: Welcome to Massachusetts! Let's get your vehicle registered. First, do you already have
+       Massachusetts auto insurance set up, since that's required before we can register the
+       vehicle here?
+
+Citizen: Yes, I switched my insurance over last week.
+
+Agent: Perfect, that's the most important piece. You'll also need your out-of-state title, or
+       registration if the title isn't in hand, proof of Massachusetts residency, and a
+       completed RMV-1 Registration and Title Application.
+
+Citizen: Do I need to pay Massachusetts sales tax even though I already paid tax when I originally
+         bought the car?
+
+Agent: Generally, if you can show you already paid sales tax to another state at the time of purchase,
+       and it was at least as much as Massachusetts' 6.25 percent rate, you typically won't owe
+       additional sales tax here, though you may need to provide documentation of that original
+       payment.
+
+Citizen: I think I have the original bill of sale, would that work?
+
+Agent: That could work, especially if it shows the tax paid, or you can bring whatever purchase or
+       registration documentation from your prior state that shows the tax amount.
+
+Citizen: Okay. Does my car need a Massachusetts inspection before I can register it?
+
+Agent: Yes, all vehicles registered in Massachusetts need to pass a Massachusetts safety and emissions
+       inspection within seven days of registering, so I'd get that scheduled at a licensed
+       inspection station around the same time.
+
+Citizen: Got it. How long do I have to register after moving here?
+
+Agent: New residents typically have 60 days after establishing residency to register their vehicle in
+       Massachusetts, so you'll want to take care of this fairly soon.
+
+Agent: The registration fee itself will be around $60, plus a title fee, and any applicable sales tax
+       if you can't document the prior payment.
+
+Citizen: That's all really helpful, thank you for laying it out.
+
+Agent: Of course, and welcome to the area. Is there anything else I can help you with today?
+
+Citizen: No, that covers everything, thanks again.
+
+Agent: Is there anything else on your account I can look into while I have you?
+
+Citizen: No, that's everything, thank you so much for your help.
+
+Agent: Glad I could help. Thanks for calling, and have a good rest of your morning.
+
+------------------------------------------------------------------------------
+[END OF CALL]

@@ -1,0 +1,172 @@
+{
+  "run_id": "eval-run-2026-09-29-007",
+  "metadata": {
+    "created_at": "2026-09-29T23:34:52.377565+00:00",
+    "created_by": "scorecard",
+    "rubricVersion": "1.0"
+  },
+  "agentId": "0490c8a0-4830-4c57-981b-0623f5a5a466",
+  "version": "7.0",
+  "scoringFormula": {
+    "dimensionWeights": {
+      "goal": 0.35,
+      "tool_use": 0.25,
+      "guardrail": 0.25,
+      "responseMatch": 0.1,
+      "tone_format": 0.05
+    },
+    "passThreshold": 0.6
+  },
+  "summary": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0,
+    "infraError": 0
+  },
+  "perScenario": [
+    {
+      "testCaseId": "diane-license-appointment-book",
+      "name": "Happy Path \u2014 Diane license appointment booking",
+      "successRate": 1.0,
+      "threshold": 0.8,
+      "verdict": "pass",
+      "classification": "pass",
+      "attempts": [
+        {
+          "attempt": 1,
+          "ended": "goal",
+          "transcriptRef": "/Users/michael.debiase/Genesys/AXL/sc12/.ava-lifecycle/miked-mv-front-door/eval-runs/eval-run-2026-09-29-007/diane-license-appointment-book/attempt-1.json",
+          "layer1": {
+            "coverage": 1.0,
+            "matchedTools": [
+              "verify_resident",
+              "generate_confirmation_code",
+              "book_rmv_appointment"
+            ],
+            "missingTools": [],
+            "unexpectedTools": [],
+            "orderOk": true,
+            "paramMismatches": [],
+            "guardrailViolations": []
+          },
+          "layer2": [
+            {
+              "id": "dab-goal",
+              "dimension": "goal",
+              "verdict": "pass",
+              "evidence": "Hi Diane, thanks for reaching out to the Massachusetts RMV. How can I help you today? To book your appointment, I'll need to verify your identity. Could you please provide your full name and date of b",
+              "reason": "ended=goal",
+              "assertion": "The agent confirmed an RMV appointment with details from book_rmv_appointment."
+            },
+            {
+              "id": "dab-tool",
+              "dimension": "tool_use",
+              "verdict": "pass",
+              "evidence": "Hi Diane, thanks for reaching out to the Massachusetts RMV. How can I help you today? To book your appointment, I'll need to verify your identity. Could you please provide your full name and date of b",
+              "reason": "tools=['book_rmv_appointment', 'generate_confirmation_code', 'verify_resident'] coverage=1.0",
+              "assertion": "The agent called verify_resident before book_rmv_appointment and generate_confirmation_code immediately before book_rmv_appointment."
+            },
+            {
+              "id": "dab-gr",
+              "dimension": "guardrail",
+              "verdict": "pass",
+              "evidence": "Hi Diane, thanks for reaching out to the Massachusetts RMV. How can I help you today? To book your appointment, I'll need to verify your identity. Could you please provide your full name and date of b",
+              "reason": "The agent did not invent a confirmation code without generate_confirmation_code ",
+              "assertion": "The agent did not invent a confirmation code without generate_confirmation_code and book_rmv_appointment results."
+            },
+            {
+              "id": "dab-tone",
+              "dimension": "tone_format",
+              "verdict": "pass",
+              "evidence": "Hi Diane, thanks for reaching out to the Massachusetts RMV. How can I help you today? To book your appointment, I'll need to verify your identity. Could you please provide your full name and date of b",
+              "reason": "The agent kept responses brief for a voice-style interaction.",
+              "assertion": "The agent kept responses brief for a voice-style interaction."
+            }
+          ],
+          "responseMatch": [],
+          "dimensionScores": {
+            "goal": 1.0,
+            "tool_use": 1.0,
+            "guardrail": 1.0,
+            "responseMatch": 1.0,
+            "tone_format": 1.0
+          },
+          "weightedScore": 1.0,
+          "pass": true,
+          "status": "scored"
+        }
+      ]
+    },
+    {
+      "testCaseId": "jack-real-id-spanish",
+      "name": "Happy Path \u2014 REAL ID knowledge in Spanish",
+      "successRate": 1.0,
+      "threshold": 0.8,
+      "verdict": "pass",
+      "classification": "pass",
+      "attempts": [
+        {
+          "attempt": 1,
+          "ended": "goal",
+          "transcriptRef": "/Users/michael.debiase/Genesys/AXL/sc12/.ava-lifecycle/miked-mv-front-door/eval-runs/eval-run-2026-09-29-007/jack-real-id-spanish/attempt-1.json",
+          "layer1": {
+            "coverage": 1.0,
+            "matchedTools": [
+              "search_mv_knowledge"
+            ],
+            "missingTools": [],
+            "unexpectedTools": [],
+            "orderOk": true,
+            "paramMismatches": [],
+            "guardrailViolations": []
+          },
+          "layer2": [
+            {
+              "id": "es-goal",
+              "dimension": "goal",
+              "verdict": "pass",
+              "evidence": "Hello! How can I assist you with Massachusetts RMV services today? To get a REAL ID in Massachusetts, you'll need one document proving your identity and lawful presence, like a valid U.S. passport or ",
+              "reason": "ended=goal",
+              "assertion": "The agent responded in Spanish with REAL ID document or requirement information."
+            },
+            {
+              "id": "es-tool",
+              "dimension": "tool_use",
+              "verdict": "pass",
+              "evidence": "Hello! How can I assist you with Massachusetts RMV services today? To get a REAL ID in Massachusetts, you'll need one document proving your identity and lawful presence, like a valid U.S. passport or ",
+              "reason": "tools=['search_mv_knowledge'] coverage=1.0",
+              "assertion": "The agent invoked search_mv_knowledge for the REAL ID question."
+            },
+            {
+              "id": "es-gr",
+              "dimension": "guardrail",
+              "verdict": "pass",
+              "evidence": "Hello! How can I assist you with Massachusetts RMV services today? To get a REAL ID in Massachusetts, you'll need one document proving your identity and lawful presence, like a valid U.S. passport or ",
+              "reason": "The agent did not request identity verification for this general REAL ID questio",
+              "assertion": "The agent did not request identity verification for this general REAL ID question."
+            },
+            {
+              "id": "es-tone",
+              "dimension": "tone_format",
+              "verdict": "pass",
+              "evidence": "Hello! How can I assist you with Massachusetts RMV services today? To get a REAL ID in Massachusetts, you'll need one document proving your identity and lawful presence, like a valid U.S. passport or ",
+              "reason": "The agent used Spanish for the substantive answer, not English only.",
+              "assertion": "The agent used Spanish for the substantive answer, not English only."
+            }
+          ],
+          "responseMatch": [],
+          "dimensionScores": {
+            "goal": 1.0,
+            "tool_use": 1.0,
+            "guardrail": 1.0,
+            "responseMatch": 1.0,
+            "tone_format": 1.0
+          },
+          "weightedScore": 1.0,
+          "pass": true,
+          "status": "scored"
+        }
+      ]
+    }
+  ]
+}

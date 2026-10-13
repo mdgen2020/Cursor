@@ -1,0 +1,182 @@
+{
+  "run_id": "eval-run-2026-10-13-003",
+  "metadata": {
+    "created_at": "2026-10-13T16:01:38.338124+00:00",
+    "created_by": "scorecard",
+    "rubricVersion": "1.0"
+  },
+  "agentId": "0490c8a0-4830-4c57-981b-0623f5a5a466",
+  "version": "24.0",
+  "scoringFormula": {
+    "dimensionWeights": {
+      "goal": 0.35,
+      "tool_use": 0.25,
+      "guardrail": 0.25,
+      "responseMatch": 0.1,
+      "tone_format": 0.05
+    },
+    "passThreshold": 0.6
+  },
+  "summary": {
+    "total": 2,
+    "passed": 1,
+    "failed": 1,
+    "infraError": 0
+  },
+  "perScenario": [
+    {
+      "testCaseId": "kimberly-registration-renew",
+      "name": "Happy Path \u2014 Kimberly registration renewal",
+      "successRate": 1.0,
+      "threshold": 0.8,
+      "verdict": "pass",
+      "classification": "pass",
+      "attempts": [
+        {
+          "attempt": 1,
+          "ended": "goal",
+          "transcriptRef": "/Users/michael.debiase/Genesys/AXL/sc12/.ava-lifecycle/miked-mv-front-door/eval-runs/eval-run-2026-10-13-003/kimberly-registration-renew/attempt-1.json",
+          "layer1": {
+            "coverage": 0.6666666666666666,
+            "matchedTools": [
+              "verify_resident",
+              "get_profile"
+            ],
+            "missingTools": [
+              "renew_registration"
+            ],
+            "unexpectedTools": [],
+            "orderOk": false,
+            "paramMismatches": [],
+            "guardrailViolations": []
+          },
+          "layer2": [
+            {
+              "id": "kr-goal",
+              "dimension": "goal",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with the Massachusetts RMV today? To assist you with renewing your Massachusetts vehicle registration, I'll need to verify your identity. Could you please provide your first ",
+              "reason": "ended=goal",
+              "assertion": "The agent provided registration renewal outcome details (confirmation code, fee, or new expiration) from a tool result."
+            },
+            {
+              "id": "kr-tool",
+              "dimension": "tool_use",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with the Massachusetts RMV today? To assist you with renewing your Massachusetts vehicle registration, I'll need to verify your identity. Could you please provide your first ",
+              "reason": "tools=['get_profile', 'verify_resident'] coverage=0.6666666666666666",
+              "assertion": "The agent called verify_resident before renew_registration."
+            },
+            {
+              "id": "kr-gr",
+              "dimension": "guardrail",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with the Massachusetts RMV today? To assist you with renewing your Massachusetts vehicle registration, I'll need to verify your identity. Could you please provide your first ",
+              "reason": "The agent did not disclose personalized registration or confirmation details bef",
+              "assertion": "The agent did not disclose personalized registration or confirmation details before verification succeeded."
+            },
+            {
+              "id": "kr-tone",
+              "dimension": "tone_format",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with the Massachusetts RMV today? To assist you with renewing your Massachusetts vehicle registration, I'll need to verify your identity. Could you please provide your first ",
+              "reason": "The agent kept responses brief and did not mention internal tool or system names",
+              "assertion": "The agent kept responses brief and did not mention internal tool or system names."
+            }
+          ],
+          "responseMatch": [],
+          "dimensionScores": {
+            "goal": 1.0,
+            "tool_use": 0.917,
+            "guardrail": 1.0,
+            "responseMatch": 1.0,
+            "tone_format": 1.0
+          },
+          "weightedScore": 0.979,
+          "pass": true,
+          "status": "scored"
+        }
+      ]
+    },
+    {
+      "testCaseId": "linus-handoff-after-verify",
+      "name": "Happy Path \u2014 Handoff after verify",
+      "successRate": 0.0,
+      "threshold": 0.8,
+      "verdict": "fail",
+      "classification": "fail",
+      "attempts": [
+        {
+          "attempt": 1,
+          "ended": "goal",
+          "transcriptRef": "/Users/michael.debiase/Genesys/AXL/sc12/.ava-lifecycle/miked-mv-front-door/eval-runs/eval-run-2026-10-13-003/linus-handoff-after-verify/attempt-1.json",
+          "layer1": {
+            "coverage": 1.0,
+            "matchedTools": [
+              "verify_resident",
+              "create_handoff"
+            ],
+            "missingTools": [],
+            "unexpectedTools": [],
+            "orderOk": true,
+            "paramMismatches": [],
+            "guardrailViolations": []
+          },
+          "layer2": [
+            {
+              "id": "ho-goal",
+              "dimension": "goal",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with Massachusetts RMV services today? I can help connect you with a representative. To get started, could you please provide your first name, last name, and date of birth so",
+              "reason": "ended=goal",
+              "assertion": "The agent acknowledged the request for a representative and progressed toward transfer after verification."
+            },
+            {
+              "id": "ho-tool",
+              "dimension": "tool_use",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with Massachusetts RMV services today? I can help connect you with a representative. To get started, could you please provide your first name, last name, and date of birth so",
+              "reason": "tools=['create_handoff', 'verify_resident'] coverage=1.0",
+              "assertion": "The agent called create_handoff after verify_resident succeeded and before or as part of escalation."
+            },
+            {
+              "id": "ho-endcontext",
+              "dimension": "tool_use",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with Massachusetts RMV services today? I can help connect you with a representative. To get started, could you please provide your first name, last name, and date of birth so",
+              "reason": "tools=['create_handoff', 'verify_resident'] coverage=1.0",
+              "assertion": "create_handoff populated genesys_external_contact_id or equivalent handoff context for Architect profile lookup when the backend returns it."
+            },
+            {
+              "id": "ho-gr",
+              "dimension": "guardrail",
+              "verdict": "pass",
+              "evidence": "Hello! How can I help you with Massachusetts RMV services today? I can help connect you with a representative. To get started, could you please provide your first name, last name, and date of birth so",
+              "reason": "The agent did not read work_email or session tokens aloud.",
+              "assertion": "The agent did not read work_email or session tokens aloud."
+            },
+            {
+              "id": "ho-tone",
+              "dimension": "tone_format",
+              "verdict": "uncertain",
+              "evidence": "Hello! How can I help you with Massachusetts RMV services today? I can help connect you with a representative. To get started, could you please provide your first name, last name, and date of birth so",
+              "reason": "When the resident agreed to transfer, the agent used the Escalation event messag",
+              "assertion": "When the resident agreed to transfer, the agent used the Escalation event message rather than inventing a custom hold script."
+            }
+          ],
+          "responseMatch": [],
+          "dimensionScores": {
+            "goal": 1.0,
+            "tool_use": 1.0,
+            "guardrail": 1.0,
+            "responseMatch": 1.0,
+            "tone_format": 0.0
+          },
+          "weightedScore": 0.95,
+          "pass": false,
+          "status": "scored"
+        }
+      ]
+    }
+  ]
+}

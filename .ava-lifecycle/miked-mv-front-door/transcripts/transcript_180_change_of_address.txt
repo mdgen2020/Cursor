@@ -1,0 +1,82 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00180
+Date:               April 7, 2026
+Duration:           07:12
+Topic:              Change of Address
+Citizen (fictional):Gregory Ferreira
+Agent (fictional):  Fiona Baptiste
+Resolution Status:  Resolved - Address Updated
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Thank you for calling the Massachusetts RMV Customer Service Contact Center, this is Fiona
+       Baptiste, how can I help you today?
+
+Citizen: Hi, I just moved from Woburn to Malden and I need to update my address with the RMV.
+
+Agent: I'd be happy to help with that. First I just need to verify your identity - can you give me
+       your full name and date of birth?
+
+Citizen: Sure, it's Gregory Ferreira, date of birth September 14, 1987.
+
+Agent: Thank you. And just to fully verify, can you confirm the last four digits of the phone number
+       on file?
+
+Citizen: Yes, that should end in 7069.
+
+Agent: Let me check that against your record, bear with me for just a second.
+
+Agent: Sorry about that wait, I've got your account open now.
+
+Agent: Congrats on the move! I can definitely help update that. Can you give me your new full address,
+       including city and zip code?
+
+Citizen: Sure, it's a new address in Malden, Massachusetts.
+
+Agent: Great, and just to confirm, would you like this updated on your driver's license record, your
+       vehicle registration, or both?
+
+Citizen: Both if possible.
+
+Agent: No problem, I can update both from here. Keep in mind that while I can update the address in
+       our system today, your physical license won't automatically get a new card unless you
+       request one - the address update mainly ensures any renewal notices or important mail
+       reach you at the right place.
+
+Citizen: Oh, will my current license still be valid then, even though the printed address is different?
+
+Agent: Yes, it remains valid to use for identification and driving purposes even with the old printed
+       address, as long as our system reflects the correct current address, which is what
+       matters most for legal purposes.
+
+Citizen: Okay, that's good to know. If I do want an updated physical card, what would that involve?
+
+Agent: You'd need to visit a Service Center in person and request a duplicate license with the updated
+       address, and there is a small fee for issuing that duplicate card.
+
+Agent: That fee would be $25.
+
+Citizen: I think I'll just wait until my next renewal, that's fine.
+
+Agent: That's a perfectly fine option too. In the meantime, I've gone ahead and updated your address
+       in our system to the new one in Malden for both your license and registration records.
+
+Citizen: Great, thank you so much.
+
+Agent: You're welcome. Is there anything else I can help you with today?
+
+Citizen: No, that's everything, thanks again.
+
+Agent: Alright, does that take care of everything for you today?
+
+Citizen: That's all I needed, I really appreciate it.
+
+Agent: Not a problem at all. Thank you for your patience today, have a good afternoon.
+
+------------------------------------------------------------------------------
+[END OF CALL]

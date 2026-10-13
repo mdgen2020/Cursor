@@ -1,0 +1,19 @@
+[project]
+name = "archy-mcp"
+version = "0.1.0"
+description = "Cursor MCP server wrapping Genesys Cloud Archy CLI"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "mcp>=2.0.0",
+]
+
+[project.scripts]
+archy-mcp = "archy_mcp.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/archy_mcp"]

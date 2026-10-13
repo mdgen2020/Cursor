@@ -1,0 +1,70 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00070
+Date:               June 19, 2026
+Duration:           18:03
+Topic:              Road Test Rescheduling
+Citizen (fictional):Angela Walsh
+Agent (fictional):  Priya Hutchins
+Resolution Status:  Resolved - Information Provided
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: Thanks for holding, this is Priya Hutchins with the RMV, how can I assist you today?
+
+Citizen: Hi, I have a road test scheduled for October 18, 2026 but something came up and I need to
+         reschedule it.
+
+Agent: Okay, let's get that sorted out. Can I start by getting your full name and date of birth on
+       file?
+
+Citizen: Sure, it's Angela Walsh, date of birth August 8, 1998.
+
+Agent: Great, thank you. And can you confirm the address we have on file, or the city you're currently
+       residing in?
+
+Citizen: Yes, I'm at my address in Boston, Massachusetts.
+
+Agent: Give me just a moment to pull that up in the system, I'll be right back with you.
+
+Agent: Alright, thanks for holding. I've got everything pulled up.
+
+Agent: I'm sorry to hear that, let's see what we can do. Can you give me the confirmation number from
+       when you booked the test?
+
+Citizen: Yes, it's MA730393033.
+
+Agent: Thank you, let me pull that up... okay, I see the appointment for the date you mentioned.
+       Rescheduling actually needs to be done through the same online portal you used to book
+       it, but I can confirm there's no penalty as long as you're doing it more than 24 hours
+       in advance.
+
+Citizen: Oh good, it's more than a week away so that should be fine. Will I lose my fee?
+
+Agent: No, since you're outside that 24 hour window, your existing payment will simply transfer over
+       to the new date you select, you won't need to pay again.
+
+Citizen: That's a relief. Is there anything I need to watch out for when picking a new date?
+
+Agent: Just make sure whoever's vehicle you're using still has a valid inspection sticker on the new
+       date, and that your accompanying licensed driver is still available. I do see some open
+       slots around December 16, 2026 if that's helpful to know before you go book it.
+
+Citizen: That's helpful, thank you, I'll go reschedule it for around then.
+
+Agent: Sounds good. Is there anything else about the road test process I can clarify?
+
+Citizen: No, I think that covers it.
+
+Agent: Alright, does that take care of everything for you today?
+
+Citizen: That's it for me, thank you, you've been very helpful.
+
+Agent: Not a problem at all. Thank you for your patience today, have a good afternoon.
+
+------------------------------------------------------------------------------
+[END OF CALL]

@@ -1,0 +1,79 @@
+*** FICTITIOUS TRANSCRIPT - FOR TRAINING/SIMULATION PURPOSES ONLY ***
+All names, dates, numbers, addresses, and identifying details below are
+randomly generated and do not refer to real people, real RMV records, or
+real transactions. This is not an official Massachusetts RMV document.
+
+------------------------------------------------------------------------------
+Call ID:            RMV-CC-2026-00053
+Date:               February 13, 2026
+Duration:           18:32
+Topic:              Registration Renewal
+Citizen (fictional):Carol Sanchez
+Agent (fictional):  Linda Simmons
+Resolution Status:  Resolved - Payment Processed
+Channel:            Inbound Phone Call
+------------------------------------------------------------------------------
+
+Agent: RMV Customer Contact Center, my name is Linda Simmons, how may I assist you?
+
+Citizen: Hi, I got a notice that my registration for plate CD6238 is expiring on October 18, 2026 and I
+         want to renew it.
+
+Agent: Okay, let's get that sorted out. Can I start by getting your full name and date of birth on
+       file?
+
+Citizen: Sure, it's Carol Sanchez, date of birth June 23, 1998.
+
+Agent: Got it. Last thing - can you confirm the last four digits of your Social Security number on
+       file, just for verification?
+
+Citizen: Yes, the last four are 5972.
+
+Agent: Let me check that against your record, bear with me for just a second.
+
+Agent: Thanks for your patience, I found your record.
+
+Agent: I can help with that. Let me pull up the registration for plate CD6238... okay, I do see that
+       expiration date. Have you had your vehicle inspected recently?
+
+Citizen: Yes, I just had it inspected last month, it should be up to date.
+
+Agent: Perfect, I can see the inspection sticker is current in our system, so there's nothing blocking
+       the renewal on that end.
+
+Agent: The registration renewal fee for your vehicle type is $43 for two years. Would you like to
+       renew today over the phone, or would you prefer to do it online?
+
+Citizen: Let's just do it now if that's alright.
+
+Agent: Sure thing. Can I confirm the mailing address you'd like the new registration and sticker sent
+       to?
+
+Citizen: Yes, please send it to my address in Worcester, Massachusetts, same as what's on file.
+
+Agent: Great, that matches what we have on file. I'll also need to confirm you still have valid
+       Massachusetts auto insurance on this vehicle - can you confirm your insurance company
+       hasn't changed?
+
+Citizen: No changes, same insurance as before.
+
+Agent: Perfect, I'm processing that renewal now... alright, that's gone through. Your confirmation
+       number is MA716234476, and you'll receive your new registration certificate and sticker
+       in the mail within seven to ten business days.
+
+Citizen: What if it doesn't arrive before my current one expires?
+
+Agent: As long as we've processed the payment before the expiration date, which we have today, you're
+       covered - the renewal takes effect immediately in our system even while the physical
+       documents are in the mail. If an officer looks up your plate, it'll show as current.
+
+Citizen: That's good to know, thank you.
+
+Agent: Is there anything else on your account I can look into while I have you?
+
+Citizen: That's it for me, thank you, you've been very helpful.
+
+Agent: Of course, happy to help. Thanks for calling the RMV, take care now.
+
+------------------------------------------------------------------------------
+[END OF CALL]
